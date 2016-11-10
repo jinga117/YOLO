@@ -2,6 +2,8 @@ package com.kosta.yolo.controller;
 
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,9 +28,21 @@ public class HomeController {
 	public ModelAndView list(){
 		System.out.println("여긴 컨트롤러!!! ");
 		ModelAndView mav = infoService.list();
-		mav.setViewName("list");
+		mav.setViewName("trip_Info/list");
 		return mav;
+	}
+	@RequestMapping("/write")
+	public String write(){
 		
+		return "trip_Info/write";
+	}
+
+	@RequestMapping(value="/writePro", method = RequestMethod.POST)
+	public ModelAndView writePro(HttpServletRequest request){
+		System.out.println("여긴 write 컨트롤러!!! ");
+		ModelAndView mav = infoService.writePro(request);
+		mav.setViewName("redirect:list");
+		return mav;
 	}
 	
 }
