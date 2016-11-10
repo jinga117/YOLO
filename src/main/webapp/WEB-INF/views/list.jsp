@@ -3,6 +3,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style type="text/css">
+
+	table{
+		 border-collapse: collapse;
+	}
+	tr, td{
+		 border: 1px solid grey;
+		 padding: 10px;
+		 text-align: center;
+	}
+</style>
 <title>리스트 페이지</title>
 </head>
 <body>
