@@ -3,7 +3,7 @@ package com.kosta.yolo.vo;
 public class UserVO {
 
 	//사용자(회원) 정보
-	private String id, password, email, gender;
+	private String id, password, email, gender, isadmin;
 	private int age;
 	
 	public String getId() {
@@ -36,6 +36,11 @@ public class UserVO {
 	public void setAge(int age) {
 		this.age = age;
 	}
+	public String getIsadmin() {
+		return isadmin;
+	}
+	public void setIsadmin(String isadmin) {
+		this.isadmin = isadmin;
+	}
 
-	
 }
