@@ -30,10 +30,8 @@ public class TripInfoService {
 	
 	//글쓰기
 		public ModelAndView writePro(TripInfoVO vo){
-			
 			ModelAndView mav = new ModelAndView();
 			infoDAO.infoInsert(vo);
-
 			return mav;
 		}
 		

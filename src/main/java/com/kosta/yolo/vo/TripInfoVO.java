@@ -3,14 +3,14 @@ package com.kosta.yolo.vo;
 public class TripInfoVO {
 	
 	//여행정보
-
 	private String trip_id; //여행지key값
 	private String category_id; //카테고리key값
 	private String trip_nickname; //여행지 별칭
 	private String trip_address; //주소
 	private String trip_image, trip_content, trip_time; //이미지경로, 내용, 이용시간
+	private String trip_site, trip_tel, trip_way; //사이트, 전화번호, 가는방법
 	private int  trip_pay; //비용
-	private String trip_add1, trip_add2, trip_add3, trip_add4; //상세주소
+	private String trip_add1, trip_add2, trip_add3; //상세주소(시/구/나머지)
 	private int trip_like, trip_view; //좋아요, 조회수
 	private String trip_video; //동영상 주소
 	
@@ -57,6 +57,24 @@ public class TripInfoVO {
 	public void setTrip_time(String trip_time) {
 		this.trip_time = trip_time;
 	}
+	public String getTrip_site() {
+		return trip_site;
+	}
+	public void setTrip_site(String trip_site) {
+		this.trip_site = trip_site;
+	}
+	public String getTrip_tel() {
+		return trip_tel;
+	}
+	public void setTrip_tel(String trip_tel) {
+		this.trip_tel = trip_tel;
+	}
+	public String getTrip_way() {
+		return trip_way;
+	}
+	public void setTrip_way(String trip_way) {
+		this.trip_way = trip_way;
+	}
 	public int getTrip_pay() {
 		return trip_pay;
 	}
@@ -81,12 +99,6 @@ public class TripInfoVO {
 	public void setTrip_add3(String trip_add3) {
 		this.trip_add3 = trip_add3;
 	}
-	public String getTrip_add4() {
-		return trip_add4;
-	}
-	public void setTrip_add4(String trip_add4) {
-		this.trip_add4 = trip_add4;
-	}
 	public int getTrip_like() {
 		return trip_like;
 	}
@@ -105,5 +117,4 @@ public class TripInfoVO {
 	public void setTrip_video(String trip_video) {
 		this.trip_video = trip_video;
 	}
-
-}
+}	

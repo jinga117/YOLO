@@ -33,11 +33,10 @@ public class InfoController {
 	}
 	@RequestMapping("/write")
 	public String write(){
-		
 		return "trip_Info/write";
 	}
 
-	@RequestMapping(value="/writePro", method = RequestMethod.POST)
+	@RequestMapping("/writePro")
 	public ModelAndView writePro(TripInfoVO vo){
 		System.out.println("여긴 write 컨트롤러!!! ");
 		ModelAndView mav = infoService.writePro(vo);

@@ -6,10 +6,9 @@
     	<select id="selectAll" resultType="com.kosta.yolo.vo.TripInfoVO">
     		SELECT * FROM TripInfo
     	</select>
-    	
+
     	<insert id="infoInsert"  parameterType="com.kosta.yolo.vo.TripInfoVO">
-    		INSERT INTO TripInfo(trip_id, category_id, trip_nickname, trip_address, trip_image, trip_content, trip_time, trip_pay, trip_add1, trip_add2, trip_add3, trip_add4, trip_like)
-    		 VALUES(#{trip_id }, #{category_id} ,#{trip_nickname} , #{trip_address} , #{trip_image} ,#{trip_content} ,#{trip_time} ,#{trip_pay}, #{trip_add1}, #{trip_add2}, #{trip_add3}, #{trip_add4}, #{trip_like} )
+    		INSERT INTO TripInfo(trip_id, category_id, trip_nickname, trip_address,trip_add1, trip_add2, trip_add3, trip_image, trip_content, trip_time, trip_site, trip_tel, trip_way, trip_pay, trip_like, trip_view, trip_video) VALUES(#{trip_id }, #{category_id} ,#{trip_nickname} , #{trip_address} , #{trip_add1}, #{trip_add2}, #{trip_add3}, #{trip_image} ,#{trip_content} ,#{trip_time},#{trip_site}, #{trip_tel}, #{trip_way} ,#{trip_pay}, #{trip_like}, #{trip_view}, #{trip_video} )
     	</insert>
     	
     	<select id="selectInfo"  parameterType="java.lang.String"  resultType="com.kosta.yolo.vo.TripInfoVO">
@@ -19,6 +18,5 @@
     	<delete id="deletePro"  parameterType="com.kosta.yolo.vo.TripInfoVO">
     		DELETE FROM TripInfo WHERE trip_id = #{trip_id }
     	</delete>
-    	
     	
     </mapper>
