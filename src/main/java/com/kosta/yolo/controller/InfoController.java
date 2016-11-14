@@ -27,7 +27,8 @@ public class InfoController {
 	public ModelAndView list(){
 		System.out.println("여긴 컨트롤러!!! ");
 		ModelAndView mav = infoService.list();
-		mav.setViewName("trip_Info/list");
+		//mav.setViewName("trip_Info/list");
+		mav.setViewName("trip_Info/list_attraction");
 		return mav;
 	}
 	@RequestMapping("/write")

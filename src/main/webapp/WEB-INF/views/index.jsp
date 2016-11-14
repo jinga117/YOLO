@@ -1,77 +1,11 @@
 <%@ page session="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!doctype html>
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="en">
-<!--<![endif]-->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<head>
-    <meta charset="utf-8">
-    <title>YOLO - You Only Live Once</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="css/main.css">
-</head>
-
-<body class="home">
-    <div class="b-preloader animated yt-loader">
-        <div class="b-preloader__decor"></div>
-    </div>
-    <header class="b-header clearfix">
-        <a href="index.jsp" class="logo"> <img src="img/logo.png" alt="YOLO" title="YOLO"></a>
-		  <div class="b-header__ctrl">
-			 <div class="b-header__ctrl__item"></div>
-			<div class="b-header__ctrl__item">
-                <a href="#" class="ab-item login jquery_popup"> <i class="fa fa-unlock-alt" aria-hidden="true"></i><span>Log In</span>
-                </a>
-            </div>
-		  <div class="b-header__ctrl__item">
-                <form class="searchbox">
-                    <input type="search" placeholder="Search......" name="search" class="searchbox-input" onkeyup="buttonUp()">
-                    <button type="submit" class="searchbox-submit"><i class="fa fa-search" aria-hidden="true"></i>
-                    </button> <span class="searchbox-icon"><i class="fa fa-search" aria-hidden="true"></i></span> </form>
-            </div>
-        </div>
-        <!--.b-header__ctrl-->
-        <div class="b-nav-toggle closed"><img src="img/mobile-logo.png" alt="logo" width="130" height="39"><i class="fa fa-chevron-down" aria-hidden="true"></i>
-        </div>
-        <nav class="b-nav">
-            <ul>
-                <li class="menu-item-has-children">
-                    <a href="template/list"> <i class="fa fa-map-marker" aria-hidden="true"></i>Attraction</a>
-                    <ul>
-                        <li><a href="list">연령별</a>
-                        </li>
-                        <li><a href="list">테마별</a>
-                        </li>
-						 <li><a href="list">쇼핑명소</a>
-                        </li>
-                        <li><a href="list">K-POP 한류</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="menu-item-has-children"> <a href="#"><i class="fa fa-star-o" aria-hidden="true"></i>Restaurant</a>
-                    <ul>
-                        <li><a href="list">혼밥</a>
-                        </li>
-                        <li><a href="list">혼술</a>
-                        </li>
-                    </ul>
-                </li>
-                <li> <a href="Single-Post_Standart.jsp"><i class="fa fa-bars" aria-hidden="true"></i>Hot Place</a> </li>
-                <li class="menu-item-has-children"> <a href="#"><i class="fa fa-mobile" aria-hidden="true"></i>Smart Plan</a>
-                    <ul>
-                        <li><a href="list">여행 일정짜기</a>
-                        </li>
-                        <li><a href="list">여행 발자취</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-        <!--//b-nav-->
-    </header>
-    <!-- //b-header -->
+	<!--  헤더 영역 시작 -->
+	<jsp:include page="inc/top.jsp" />
+	<!--  헤더 영역 끝 -->
     <div class="b-main-container" id="content">
         <div class="b-promo lazy" data-src="img/main_visual_img.jpg">
             <div class="b-placeholder"></div>
@@ -86,10 +20,10 @@
                         <div class="b-promo__form__col1">
                             <select data-placeholder="연령대를 선택하세요" class="chosen-select" tabindex="2">
 								<option value=""></option>
-                                <option value="age_2030">20~30대</option>
-                                <option value="age_3040">30~40대</option>
-								<option value="age_4050">40~50대</option>
-								<option value="age_5060">50대 이후</option>
+                                <option value="2030">20~30대</option>
+                                <option value="3040">30~40대</option>
+								<option value="4050">40~50대</option>
+								<option value="5060">50대 이후</option>
                             </select>
 						</div>
                         <div class="b-promo__form__col1">
@@ -112,86 +46,8 @@
      
     </div>
     <!-- //b-main-container -->
-    <div class="b-footer">
-        <div class="b-footer__info">
-            <div class="container clearfix">
-                <div class="row">
-                    <div class="b-footer__text col-md-3 col-sm-12"> <a href="index.jsp" class="b-footer__logo">YOLO</a>
-                        <p>You Only Live Once<br />
-							Enjoy Your Life!
-						</p>
-                        <div class="b-footer__copyright">Â© 2016 All Rights Reserved</div>
-                    </div>
-                    <div class="b-footer__nav__col col-md-2 col-md-offset-1 col-sm-3 col-xs-4">
-                        <div class="b-footer__nav__col__title">About us</div>
-                        <ul>
-                            <li><a href="#">YOLO</a>
-                            </li>
-                            <li><a href="#">Contact us</a>
-                            </li>
-                            <li><a href="#">Hot to use</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="b-footer__nav__col col-md-3 col-sm-5 col-xs-8">
-                        <div class="b-footer__nav__col__title">Categories</div>
-                        <ul>
-                            <li><a href="#">Attraction</a></li>
-                            <li><a href="#">Restaurants</a></li>
-                            <li><a href="#">Hot Place</a></li>
-							<li><a href="#">YOLO Plan</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- //row -->
-            </div>
-            <!-- //container -->
-        </div>
-        <!--//b-footer__info-->
-    </div>
-    <!--//b-footer-->
-
-	<!-- login-->
-	 <div class="hidden b-jquery-popup">
-                <div class="b-form-reg-popup">
-                    <h2 class="b-form-reg-popup__title m--centered">YOLO Login</h2>
-					 <div class="b-form__row">
-                        <input type="text" placeholder="Your ID"> </div>
-                    <div class="b-form__row">
-                        <input type="text" placeholder="Your Name"> </div>
-                    <div class="b-form__row">
-                        <input type="text" placeholder="Email Address"> </div>
-                    <div class="b-form__row">
-                        <input type="text" placeholder="Phone Number"> </div>
-                    <div class="b-form__row">
-                        <select data-placeholder="ê´ì¬ ì§ì­ì ì íí´ ì£¼ì¸ì" class="chosen-select-2" tabindex="2">
-							<option value=""></option>
-                           <option value="seoul">ìì¸</option>
-						   <option value="Gyeonggi">ê²½ê¸°</option>
-                        </select>
-                    </div>
-                    <div class="b-form__row m--centered"> <a href="#" class="btn">ê°ìíê¸°</a> </div>
-                </div>
-            </div>
-        </div>
-	<!--// login-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/dropzone.js"></script>
-    <script src="js/chosen.jquery.min.js"></script>
-    <script src="js/ion.rangeSlider.min.js"></script>
-    <script src="js/jquery.popup.min.js"></script>
-    <script src="js/jssor.slider.mini.js"></script>
-    <script src="js/lightcase.js"></script>
-    <script src="js/imagesloaded.pkgd.min.js"></script>
-    <script src="js/masonry.pkgd.min.js"></script>
-    <script src="js/owl.carousel.js"></script>
-    <script src="js/tabs.js"></script>
-    <script src="js/tooltip.js"></script>
-    <script src="js/compiled_lib.js"></script>
-    <script src="js/custum.js"></script>
-    <script src="js/jquery.custom-scrollbar.js"></script>
-    <script src="js/main.js"></script>
-
-</body>
-
-</html>
+	<!-- 푸터영역 시작 -->
+	<div class="footer">
+		<jsp:include page="inc/bottom.jsp" />
+	</div>
+	<!-- 푸터영역 끝 -->
