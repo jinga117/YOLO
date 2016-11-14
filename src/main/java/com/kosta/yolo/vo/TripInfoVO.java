@@ -5,7 +5,7 @@ public class TripInfoVO {
 	//여행정보
 
 	private String trip_id; //여행지key값
-	private String trip_category_id; //카테고리key값
+	private String category_id; //카테고리key값
 	private String trip_nickname; //여행지 별칭
 	private String trip_address; //주소
 	private String trip_image, trip_content, trip_time; //이미지경로, 내용, 이용시간
@@ -21,11 +21,11 @@ public class TripInfoVO {
 	public void setTrip_id(String trip_id) {
 		this.trip_id = trip_id;
 	}
-	public String getTrip_category_id() {
-		return trip_category_id;
+	public String getCategory_id() {
+		return category_id;
 	}
-	public void setTrip_category_id(String trip_category_id) {
-		this.trip_category_id = trip_category_id;
+	public void setCategory_id(String category_id) {
+		this.category_id = category_id;
 	}
 	public String getTrip_nickname() {
 		return trip_nickname;
