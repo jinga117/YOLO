@@ -22,7 +22,14 @@
                         <div class="b-pop-place__desc clearfix">
                             <div class="b-pop-place__rating">4,8</div> <a href="places" class="b-pop-place__name">${list.trip_nickname}</a>
                             <h5 class="b-pop-place__cat">${list.trip_address}</h5>
-							<div class="b-pop-place-comment">Attraction / 산책하기 좋은 / ${list.trip_content}</div>
+							<div class="b-pop-place-comment">
+								<a href="http://${list.trip_site}" target="_blank"  class="b-pop-place-homepage"><i class="fa fa-home" aria-hidden="true"></i></a>
+								<a href="http://${list.trip_site}" target="_blank" >${list.trip_site}</a>
+							</div>
+							<div class="b-pop-place-comment">
+								<a href="#"  class="b-pop-place-homepage"><i class="fa fa-clock-o" aria-hidden="true"></i></a>
+								${list.trip_time}
+							</div>
 							</a>
 						</div>
                     </div>
