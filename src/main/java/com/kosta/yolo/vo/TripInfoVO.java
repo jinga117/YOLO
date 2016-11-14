@@ -10,8 +10,10 @@ public class TripInfoVO {
 	private String trip_address; //주소
 	private String trip_image, trip_content, trip_time; //이미지경로, 내용, 이용시간
 	private int  trip_pay; //비용
-	private String trip_add1, trip_add2, trip_add3, trip_add4;
-	private int trip_like;
+	private String trip_add1, trip_add2, trip_add3, trip_add4; //상세주소
+	private int trip_like, trip_view; //좋아요, 조회수
+	private String trip_video; //동영상 주소
+	
 	
 	public String getTrip_id() {
 		return trip_id;
@@ -91,5 +93,17 @@ public class TripInfoVO {
 	public void setTrip_like(int trip_like) {
 		this.trip_like = trip_like;
 	}
-	
+	public int getTrip_view() {
+		return trip_view;
+	}
+	public void setTrip_view(int trip_view) {
+		this.trip_view = trip_view;
+	}
+	public String getTrip_video() {
+		return trip_video;
+	}
+	public void setTrip_video(String trip_video) {
+		this.trip_video = trip_video;
+	}
+
 }

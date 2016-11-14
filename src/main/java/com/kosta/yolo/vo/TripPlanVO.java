@@ -4,7 +4,10 @@ public class TripPlanVO {
 
 	//일정 짜기 
 	//사용자 ID, 여행지 이름, 여행지 가격,  내 메모
-	private String user_id;
+	private String user_id; //조인할 user아이디
+	private String trip_day; //일정 짠 날
+	
+	//일정정보 5일까지
 	private String trip_id1, trip_memo1;
 	private int trip_pay1;
 	private String trip_id2, trip_memo2;
@@ -15,7 +18,7 @@ public class TripPlanVO {
 	private int trip_pay4;
 	private String trip_id5, trip_memo5;
 	private int trip_pay5;
-	private String trip_day;
+
 	
 	public String getUser_id() {
 		return user_id;

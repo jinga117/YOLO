@@ -4,7 +4,8 @@ import java.util.Date;
 
 public class UserReviewVO {
 	
-	private String user_id, trip_id, review_content;
+	private String user_id, trip_id; //조인할 키값
+	private String review_content;//리뷰내용
 	private Date review_time;
 	
 	

@@ -27,14 +27,32 @@ public class TripInfoService {
 		
 		return mav;
 	}
-	//글쓰기
-	public ModelAndView writePro(TripInfoVO vo){
-		
-		ModelAndView mav = new ModelAndView();
-		infoDAO.infoInsert(vo);
-		
-		return mav;
-	}
 	
+	//글쓰기
+		public ModelAndView writePro(TripInfoVO vo){
+			
+			ModelAndView mav = new ModelAndView();
+			infoDAO.infoInsert(vo);
+
+			return mav;
+		}
+		
+		//상세보기
+		public ModelAndView info(String trip_category_id){
+			System.out.println("여긴!! info 서비스닷!!! ");
+			ModelAndView mav = new ModelAndView();
+			ArrayList<TripInfoVO> list = infoDAO.selectInfo(trip_category_id);
+			mav.addObject("vo", list);
+
+			return mav;
+		}
+		//정보삭제
+		public ModelAndView delete(String trip_id){
+			
+			ModelAndView mav = new ModelAndView();
+			infoDAO.deletePro(trip_id);
+			
+			return mav;
+		}
 	
 }

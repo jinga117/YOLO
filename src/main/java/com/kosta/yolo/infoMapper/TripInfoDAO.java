@@ -29,5 +29,21 @@ public class TripInfoDAO {
 		info.infoInsert(vo);
 	}
 	
+	//정보수정
+	public ArrayList<TripInfoVO> selectInfo(String trip_category_id){
+		System.out.println("여긴 info Dao닷!! ");
+		
+		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+		ArrayList<TripInfoVO> list = info.selectInfo(trip_category_id);
+		
+		return list;
+	}
+	//정보삭제
+	public void deletePro(String trip_id){
+		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+		info.deletePro(trip_id);
+	}
+	
+	
 
 }

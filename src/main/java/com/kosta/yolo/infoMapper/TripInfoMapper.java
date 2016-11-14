@@ -8,6 +8,8 @@ import com.kosta.yolo.vo.TripInfoVO;
 public interface TripInfoMapper  extends Serializable  {
 	
 	ArrayList<TripInfoVO> selectAll();
+	ArrayList<TripInfoVO> selectInfo(String trip_category_id);
 	public void infoInsert(TripInfoVO vo);
+	public void deletePro(String trip_id);
 	
 }
