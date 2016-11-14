@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!Doctype html>
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!-->
@@ -7,7 +9,28 @@
 <head>
     <meta charset="utf-8">
     <title>YOLO - You Only Live Once</title>
+    <meta name="description" content="">
+    <!-- <meta http-equiv="Cache-Control" content="public"> -->
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- server -->
+<!--     <script>
+        String.prototype.replaceAll = function(search, replacement) {
+            var target = this;
+            return target.split(search).join(replacement);
+        };
+
+        if (window.XMLHttpRequest) {
+            xhr = new XMLHttpRequest();
+        } else {
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhr.open("GET", 'css/main.css', false);
+        xhr.send();
+        var lazyStyle = document.createElement('style');
+        lazyStyle.innerHTML = xhr.responseText.replaceAll('../', './');
+        document.head.appendChild(lazyStyle);
+    </script> -->
     <link rel="stylesheet" href="css/main.css">
     <!--[if lt IE 9]>
     <script src="js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
@@ -15,11 +38,15 @@
 </head>
 
 <body class="home">
+<!--[if lt IE 8]>
+<p class="browserupgrade"></p>
+<![endif]-->
     <div class="b-preloader animated yt-loader">
         <div class="b-preloader__decor"></div>
     </div>
     <header class="b-header clearfix">
         <a href="index.html" class="logo"> <img src="img/logo.png" alt="YOLO" title="YOLO"></a>
+        <a class="weather" href="#"> <img width="35" height="35" src="img/rain-xxl.png" alt="Weather"> <span>+ 24° C</span> </a>
 		  <div class="b-header__ctrl">
 			 <div class="b-header__ctrl__item"></div>
 			<div class="b-header__ctrl__item">

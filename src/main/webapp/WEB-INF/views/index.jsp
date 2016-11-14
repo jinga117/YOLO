@@ -1,3 +1,5 @@
+<%@ page session="false" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!doctype html>
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!-->
@@ -9,21 +11,14 @@
     <title>YOLO - You Only Live Once</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="css/main.css">
-    <!--[if lt IE 9]>
-    <script src="js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
-    <![endif]-->
 </head>
 
 <body class="home">
-<!--[if lt IE 8]>
-<p class="browserupgrade"></p>
-<![endif]-->
     <div class="b-preloader animated yt-loader">
         <div class="b-preloader__decor"></div>
     </div>
     <header class="b-header clearfix">
-        <a href="index.html" class="logo"> <img src="img/logo.png" alt="YOLO" title="YOLO"></a>
-        <a class="weather" href="#"> <img width="35" height="35" src="img/rain-xxl.png" alt="Weather"> <span>+ 24° C</span> </a>
+        <a href="index.jsp" class="logo"> <img src="img/logo.png" alt="YOLO" title="YOLO"></a>
 		  <div class="b-header__ctrl">
 			 <div class="b-header__ctrl__item"></div>
 			<div class="b-header__ctrl__item">
@@ -36,39 +31,39 @@
                     <button type="submit" class="searchbox-submit"><i class="fa fa-search" aria-hidden="true"></i>
                     </button> <span class="searchbox-icon"><i class="fa fa-search" aria-hidden="true"></i></span> </form>
             </div>
-          </div>
+        </div>
         <!--.b-header__ctrl-->
         <div class="b-nav-toggle closed"><img src="img/mobile-logo.png" alt="logo" width="130" height="39"><i class="fa fa-chevron-down" aria-hidden="true"></i>
         </div>
         <nav class="b-nav">
             <ul>
                 <li class="menu-item-has-children">
-                    <a href="attraction.html"> <i class="fa fa-map-marker" aria-hidden="true"></i>Attraction</a>
+                    <a href="template/list"> <i class="fa fa-map-marker" aria-hidden="true"></i>Attraction</a>
                     <ul>
-                        <li><a href="attraction.html">연령별</a>
+                        <li><a href="list">연령별</a>
                         </li>
-                        <li><a href="attraction.html">테마별</a>
+                        <li><a href="list">테마별</a>
                         </li>
-						 <li><a href="attraction.html">쇼핑명소</a>
+						 <li><a href="list">쇼핑명소</a>
                         </li>
-                        <li><a href="attraction.html">K-POP 한류</a>
+                        <li><a href="list">K-POP 한류</a>
                         </li>
                     </ul>
                 </li>
-                <li class="menu-item-has-children"> <a href="Events.html"><i class="fa fa-star-o" aria-hidden="true"></i>Restaurant</a>
+                <li class="menu-item-has-children"> <a href="#"><i class="fa fa-star-o" aria-hidden="true"></i>Restaurant</a>
                     <ul>
-                        <li><a href="attraction.html">혼밥</a>
+                        <li><a href="list">혼밥</a>
                         </li>
-                        <li><a href="attraction.html">혼술</a>
+                        <li><a href="list">혼술</a>
                         </li>
                     </ul>
                 </li>
-                <li> <a href="Single-Post_Standart.html"><i class="fa fa-bars" aria-hidden="true"></i>Hot Place</a> </li>
+                <li> <a href="Single-Post_Standart.jsp"><i class="fa fa-bars" aria-hidden="true"></i>Hot Place</a> </li>
                 <li class="menu-item-has-children"> <a href="#"><i class="fa fa-mobile" aria-hidden="true"></i>Smart Plan</a>
                     <ul>
-                        <li><a href="attraction.html">여행 일정짜기</a>
+                        <li><a href="list">여행 일정짜기</a>
                         </li>
-                        <li><a href="attraction.html">여행 발자취</a>
+                        <li><a href="list">여행 발자취</a>
                         </li>
                     </ul>
                 </li>
@@ -86,14 +81,14 @@
             <div class="overlay"></div>
             <div class="b-promo__search container">
                 <h1 class="b-promo__title">Where do you want to go?</h1>
-                <form method="post" action="attraction.html">
+                <form method="post" action="list">
                     <div class="b-promo__form">
                         <div class="b-promo__form__col1">
                             <select data-placeholder="연령대를 선택하세요" class="chosen-select" tabindex="2">
 								<option value=""></option>
                                 <option value="age_2030">20~30대</option>
-                                <option value="age_3040">30~40대</option>
-								<option value="age_4050">40~50대</option>
+                                <option value="age_3040">30~40대</option>
+								<option value="age_4050">40~50대</option>
 								<option value="age_5060">50대 이후</option>
                             </select>
 						</div>
@@ -121,11 +116,11 @@
         <div class="b-footer__info">
             <div class="container clearfix">
                 <div class="row">
-                    <div class="b-footer__text col-md-3 col-sm-12"> <a href="index.html" class="b-footer__logo">YOLO</a>
+                    <div class="b-footer__text col-md-3 col-sm-12"> <a href="index.jsp" class="b-footer__logo">YOLO</a>
                         <p>You Only Live Once<br />
 							Enjoy Your Life!
 						</p>
-                        <div class="b-footer__copyright">© 2016 All Rights Reserved</div>
+                        <div class="b-footer__copyright">Â© 2016 All Rights Reserved</div>
                     </div>
                     <div class="b-footer__nav__col col-md-2 col-md-offset-1 col-sm-3 col-xs-4">
                         <div class="b-footer__nav__col__title">About us</div>
@@ -169,13 +164,13 @@
                     <div class="b-form__row">
                         <input type="text" placeholder="Phone Number"> </div>
                     <div class="b-form__row">
-                        <select data-placeholder="관심 지역을 선택해 주세요" class="chosen-select-2" tabindex="2">
+                        <select data-placeholder="ê´ì¬ ì§ì­ì ì íí´ ì£¼ì¸ì" class="chosen-select-2" tabindex="2">
 							<option value=""></option>
-                           <option value="seoul">서울</option>
-						   <option value="Gyeonggi">경기</option>
+                           <option value="seoul">ìì¸</option>
+						   <option value="Gyeonggi">ê²½ê¸°</option>
                         </select>
                     </div>
-                    <div class="b-form__row m--centered"> <a href="#" class="btn">가입하기</a> </div>
+                    <div class="b-form__row m--centered"> <a href="#" class="btn">ê°ìíê¸°</a> </div>
                 </div>
             </div>
         </div>

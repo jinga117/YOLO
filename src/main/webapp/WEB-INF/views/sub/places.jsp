@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!doctype html>
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!-->
@@ -34,7 +36,7 @@
         <div class="b-preloader__decor"></div>
     </div>
     <header class="b-header clearfix">
-        <a href="index.html" class="logo"> <img src="img/logo.png" alt="YOLO" title="YOLO"></a>
+        <a href="index.jsp" class="logo"> <img src="img/logo.png" alt="YOLO" title="YOLO"></a>
         <a class="weather" href="#"> <img width="35" height="35" src="img/rain-xxl.png" alt="Weather"> <span>+ 24° C</span> </a>
 		  <div class="b-header__ctrl">
 			 <div class="b-header__ctrl__item"></div>
@@ -48,7 +50,7 @@
                     <button type="submit" class="searchbox-submit"><i class="fa fa-search" aria-hidden="true"></i>
                     </button> <span class="searchbox-icon"><i class="fa fa-search" aria-hidden="true"></i></span> </form>
             </div>
-            <!--div class="b-header__ctrl__item"> <a href="Add-Place.html" class="btn btn--black"><i class="fa fa-plus-square" aria-hidden="true"></i><span>어디를 여행하고 싶으세요?</span></a> </div-->
+            <!--div class="b-header__ctrl__item"> <a href="Add-Place.jsp" class="btn btn--black"><i class="fa fa-plus-square" aria-hidden="true"></i><span>어디를 여행하고 싶으세요?</span></a> </div-->
            
           
         </div>
@@ -58,7 +60,7 @@
         <nav class="b-nav">
             <ul>
                 <li class="menu-item-has-children">
-                    <a href="places.html"> <i class="fa fa-map-marker" aria-hidden="true"></i>Attraction</a>
+                    <a href="places.jsp"> <i class="fa fa-map-marker" aria-hidden="true"></i>Attraction</a>
                     <ul>
                         <li><a href="#">연령별</a>
                         </li>
@@ -210,7 +212,7 @@
                                 </div>
                             </div>
                             <div class="b-pop-place__desc clearfix">
-                                <div class="b-pop-place__rating">4,8</div> <a href="Single-Place.html" class="b-pop-place__name">분당 중앙공원</a>
+                                <div class="b-pop-place__rating">4,8</div> <a href="Single-Place.jsp" class="b-pop-place__name">분당 중앙공원</a>
                                 <h5 class="b-pop-place__cat">Attraction / 산책하기 좋은</h5>
                             </div>
                         </div>
@@ -226,7 +228,7 @@
                                 </div>
                             </div>
                             <div class="b-pop-place__desc clearfix">
-                                <div class="b-pop-place__rating">4,8</div> <a href="Single-Place.html" class="b-pop-place__name">분당 중앙공원</a>
+                                <div class="b-pop-place__rating">4,8</div> <a href="Single-Place.jsp" class="b-pop-place__name">분당 중앙공원</a>
                                 <h5 class="b-pop-place__cat">Attraction / 산책하기 좋은</h5>
                             </div>
                         </div>
@@ -242,7 +244,7 @@
                                 </div>
                             </div>
                             <div class="b-pop-place__desc clearfix">
-                                <div class="b-pop-place__rating">4,8</div> <a href="Single-Place.html" class="b-pop-place__name">분당 중앙공원</a>
+                                <div class="b-pop-place__rating">4,8</div> <a href="Single-Place.jsp" class="b-pop-place__name">분당 중앙공원</a>
                                 <h5 class="b-pop-place__cat">Attraction / 산책하기 좋은</h5>
                             </div>
                         </div>
@@ -258,7 +260,7 @@
                                 </div>
                             </div>
                             <div class="b-pop-place__desc clearfix">
-                                <div class="b-pop-place__rating">4,8</div> <a href="Single-Place.html" class="b-pop-place__name">분당 중앙공원</a>
+                                <div class="b-pop-place__rating">4,8</div> <a href="Single-Place.jsp" class="b-pop-place__name">분당 중앙공원</a>
                                 <h5 class="b-pop-place__cat">Attraction / 산책하기 좋은</h5>
                             </div>
                         </div>
@@ -283,6 +285,7 @@
         <!-- .b-slide-menu -->
         <div class="b-map">
             <div class="b-map__wrapper">
+                <!--div id='gmap_canvas' class="b-gmap-canvas"></div-->
 				<div id="map" class="b-gmap-canvas" style="width:100%;height:100%;"></div>
             </div>
         </div>
@@ -306,7 +309,7 @@
         <div class="b-footer__info">
             <div class="container clearfix">
                 <div class="row">
-                    <div class="b-footer__text col-md-3 col-sm-12"> <a href="index.html" class="b-footer__logo">YOLO</a>
+                    <div class="b-footer__text col-md-3 col-sm-12"> <a href="index.jsp" class="b-footer__logo">YOLO</a>
                         <p>You Only Live Once<br />
 							Enjoy Your Life!
 						</p>
@@ -380,5 +383,7 @@
     <script src="js/custum.js"></script>
     <script src="js/jquery.custom-scrollbar.js"></script>
     <script src="js/main.js"></script>
+
 </body>
+
 </html>

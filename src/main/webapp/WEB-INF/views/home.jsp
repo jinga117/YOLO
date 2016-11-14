@@ -11,6 +11,6 @@
 
 <a href="list">리스트</a>
 <a href="write">글쓰기</a>
-
+<img src="img/logo.png">
 </body>
 </html>
