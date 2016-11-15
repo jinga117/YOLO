@@ -30,11 +30,11 @@ public class AdminDAO {
 	}
 	
 	//정보수정
-	public ArrayList<TripInfoVO> selectInfo(String trip_category_id){
+	public ArrayList<TripInfoVO> selectInfo(String trip_id){
 		System.out.println("여긴 info Dao닷!! ");
 		
 		AdminMapper admin = sqlSession.getMapper(AdminMapper.class);
-		ArrayList<TripInfoVO> list = admin.selectInfo(trip_category_id);
+		ArrayList<TripInfoVO> list = admin.selectInfo(trip_id);
 		
 		return list;
 	}

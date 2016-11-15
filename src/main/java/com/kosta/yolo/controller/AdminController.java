@@ -39,10 +39,10 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/info")
-	public ModelAndView info(@RequestParam String trip_category_id){
+	public ModelAndView info(@RequestParam String trip_id){
 		System.out.println("여긴 info ");
 		
-		ModelAndView mav = adminService.info(trip_category_id);
+		ModelAndView mav = adminService.info(trip_id);
 		mav.setViewName("admin/info");
 		
 		return mav;
