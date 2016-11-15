@@ -27,7 +27,7 @@
             </div>
 		  <div class="b-header__ctrl__item">
                 <form class="searchbox">
-                    <input type="search" placeholder="Search......" name="search" class="searchbox-input" onkeyup="buttonUp()">
+                    <input type="search" placeholder="어디를 여행하고 싶으세요?" name="search" class="searchbox-input" onkeyup="buttonUp()">
                     <button type="submit" class="searchbox-submit"><i class="fa fa-search" aria-hidden="true"></i>
                     </button> <span class="searchbox-icon"><i class="fa fa-search" aria-hidden="true"></i></span> </form>
             </div>
@@ -38,17 +38,26 @@
         <nav class="b-nav">
             <ul>
                 <li class="menu-item-has-children">
-                    <a href="list"> <i class="fa fa-map-marker" aria-hidden="true"></i>Attraction</a>
+                    <a href="list"> <i class="fa fa-map-marker" aria-hidden="true"></i>Travel</a>
+                    <ul>
+                        <li><a href="list">연령별</a></li>
+                        <li><a href="list">테마별</a></li>
+                        <li><a href="list">인원별</a></li>
+                    </ul>
                 </li>
                 <li class="menu-item-has-children"> <a href="#"><i class="fa fa-star-o" aria-hidden="true"></i>Restaurant</a>
                     <ul>
-                        <li><a href="list">혼밥</a>
+                        <li><a href="list">식당</a>
                         </li>
-                        <li><a href="list">혼술</a>
+                        <li><a href="list">카페</a>
                         </li>
                     </ul>
                 </li>
-                <li> <a href="#"><i class="fa fa-bars" aria-hidden="true"></i>Hot Place</a> </li>
+                <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i>Shopping</a>
+                	<ul>
+                        <li><a href="list">쇼핑</a></li>
+                    </ul>
+                </li>
                 <li class="menu-item-has-children"> <a href="#"><i class="fa fa-mobile" aria-hidden="true"></i>Smart Plan</a>
                     <ul>
                         <li><a href="list">여행 일정짜기</a>
