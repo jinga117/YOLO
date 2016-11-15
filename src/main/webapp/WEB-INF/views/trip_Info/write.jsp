@@ -1,17 +1,18 @@
 <%@page contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head><title>회원 가입</title></head>
 	<body align="center">
 		<h3>정보입력 페이지</h3>
 		<hr>
-			<form action="writePro" >
+			<form method="post">
 				<table>
 					<tr><td>여행지key값</td>
 					<td><input type="text" name="trip_id" size="50" ></td></tr>
 					<tr><td>카테고리key값</td>
 					<td>
-						<select name="category_id">
+						<select name="category_id" style="width: 10em; ">
 						  <option value="c01">명소</option>
 						  <option value="c02">쇼핑</option>
 						  <option value="c03">음식점</option>
@@ -34,7 +35,7 @@
 					<tr><td>동영상</td><td><input type="text" name="trip_video" size="50" ></td></tr>
 					<tr>
 						<td colspan="2" align="center">
-							<input type="submit" value="등록"><input type="reset" value="취소">
+							<input type="submit" value="등록"> &nbsp;&nbsp; <input type="reset" value="취소">
 						</td>
 					</tr>
 				</table>

@@ -9,7 +9,7 @@ public class TripInfoVO {
 	private String trip_address; //주소
 	private String trip_image, trip_content, trip_time; //이미지경로, 내용, 이용시간
 	private String trip_site, trip_tel, trip_way; //사이트, 전화번호, 가는방법
-	private int  trip_pay; //비용
+	private String  trip_pay; //비용
 	private String trip_add1, trip_add2, trip_add3; //상세주소(시/구/나머지)
 	private int trip_like, trip_view; //좋아요, 조회수
 	private String trip_video; //동영상 주소
@@ -75,10 +75,10 @@ public class TripInfoVO {
 	public void setTrip_way(String trip_way) {
 		this.trip_way = trip_way;
 	}
-	public int getTrip_pay() {
+	public String getTrip_pay() {
 		return trip_pay;
 	}
-	public void setTrip_pay(int trip_pay) {
+	public void setTrip_pay(String trip_pay) {
 		this.trip_pay = trip_pay;
 	}
 	public String getTrip_add1() {

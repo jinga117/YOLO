@@ -7,11 +7,14 @@
 
 	table{
 		 border-collapse: collapse;
+		 width: 700px;;
 	}
 	tr, td{
 		 border: 1px solid grey;
 		 padding: 10px;
-		 text-align: center;
+	    white-space: nowrap;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
 	}
 </style>
 <title>리스트 페이지</title>
@@ -41,6 +44,6 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<a href="trip_Info/write">글쓰기</a>
+	<a href="write">글쓰기</a>
 </body>
 </html>
