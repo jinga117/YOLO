@@ -32,13 +32,38 @@ public class AdminService {
 			public ModelAndView writePro(HttpServletRequest request){
 				
 				TripInfoVO vo = new TripInfoVO();
+				
+				//연령별 문자열 담기
+				  String[] age = request.getParameterValues("age_id");
+			       StringBuffer ages = new StringBuffer();
+			        for(String s : age){
+			        	ages.append(s).append(", ");
+			        }
+			    String age_id = ages.substring(0, ages.length()-2);
+
+			    //인원별
+			    String[] person = request.getParameterValues("person_id");
+			       StringBuffer persons = new StringBuffer();
+			        for(String s : person){
+			        	persons.append(s).append(", ");
+			        }
+			   String person_id = persons.substring(0, persons.length()-2);
+			   //계절별
+			   String[] season = request.getParameterValues("season_id");
+				 StringBuffer seasons = new StringBuffer();
+				 for(String s : season){
+					 seasons.append(s).append(", ");
+				 }
+				String season_id = seasons.substring(0, seasons.length()-2);	  
+ 
+				vo.setAge_id(age_id);
+				vo.setPerson_id(person_id);
+				vo.setSeason_id(season_id);
+				
 				vo.setTrip_id(request.getParameter("trip_id"));
 				vo.setCategory_id(request.getParameter("category_id"));
 				vo.setTrip_nickname(request.getParameter("trip_nickname"));
 				vo.setTrip_address(request.getParameter("trip_address"));
-				vo.setAge_id(request.getParameter("age_id"));
-				vo.setSeason_id(request.getParameter("season_id"));
-				vo.setPerson_id(request.getParameter("person_id"));
 				vo.setKpop_id(request.getParameter("kpop_id"));
 				vo.setTrip_add1(request.getParameter("trip_add1"));
 				vo.setTrip_add2(request.getParameter("trip_add2"));
