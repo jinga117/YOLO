@@ -12,8 +12,6 @@
 		<result property="age" column="age"/>
 	</resultMap>
 	
-	
-	
 	<insert id="getWrite" >
 		insert into User(id,password,email,gender,age) values(#{id} , #{password} , #{email}, #{gender}, #{age})
 	</insert>
