@@ -80,9 +80,9 @@
 		 		<div class="b-form__row">
                      <input type="text" id="id" name="name" placeholder="Your ID"> </div>
                  <div class="b-form__row">
-                     <input type="password"  id="password" name="password" placeholder="Your Password"> </div>
+                     <input type="password"  id="password" name="password" placeholder="Your Password" class="login_password"> </div>
                  <div class="b-form__row m--centered">
-                 	<input type="submit"  class="btn" id="login" value="Login" >
+                 	 <button class="btn btn-success m--border-radius-right" type="submit">로그인</button>
                  </div>
              </div>
          </form>
