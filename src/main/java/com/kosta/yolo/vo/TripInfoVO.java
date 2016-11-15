@@ -4,7 +4,7 @@ public class TripInfoVO {
 	
 	//여행정보
 	private String trip_id; //여행지key값
-	private String category_id; //카테고리key값
+	private String category_id, age_id, season_id, person_id, kpop_id; //카테고리key값
 	private String trip_nickname; //여행지 별칭
 	private String trip_address; //주소
 	private String trip_image, trip_content, trip_time; //이미지경로, 내용, 이용시간
@@ -26,6 +26,30 @@ public class TripInfoVO {
 	}
 	public void setCategory_id(String category_id) {
 		this.category_id = category_id;
+	}
+	public String getAge_id() {
+		return age_id;
+	}
+	public void setAge_id(String age_id) {
+		this.age_id = age_id;
+	}
+	public String getSeason_id() {
+		return season_id;
+	}
+	public void setSeason_id(String season_id) {
+		this.season_id = season_id;
+	}
+	public String getPerson_id() {
+		return person_id;
+	}
+	public void setPerson_id(String person_id) {
+		this.person_id = person_id;
+	}
+	public String getKpop_id() {
+		return kpop_id;
+	}
+	public void setKpop_id(String kpop_id) {
+		this.kpop_id = kpop_id;
 	}
 	public String getTrip_nickname() {
 		return trip_nickname;

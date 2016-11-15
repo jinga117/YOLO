@@ -1,4 +1,4 @@
-package com.kosta.yolo.infoMapper;
+package com.kosta.yolo.dao;
 
 import java.io.Serializable;
 

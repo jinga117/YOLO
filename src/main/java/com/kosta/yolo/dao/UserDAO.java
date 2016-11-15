@@ -1,4 +1,4 @@
-package com.kosta.yolo.infoMapper;
+package com.kosta.yolo.dao;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;

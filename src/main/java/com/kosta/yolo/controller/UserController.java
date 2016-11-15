@@ -17,8 +17,6 @@ import com.kosta.yolo.vo.UserVO;
 public class UserController {
 	
 	@Autowired
-	private TripInfoService infoService;
-	@Autowired
 	private UserService userService;
 	
 
@@ -39,16 +37,16 @@ public class UserController {
 	
 	
 
-	@RequestMapping("/loginPro")//로그인
-	public String loginPro(HttpServletRequest request ) {
-	
-		int result = userService.login(request);
-		if(result==1){		
-			return "login/loginPro";
-		}
-		else{
-			return "inc/top";
-		}
-	}
+	   @RequestMapping("/loginPro")//로그인
+	   public String loginPro(HttpServletRequest request ) {
+	   
+	      int result = userService.login(request);
+	      if(result==1){      
+	         return "login/loginPro";
+	      }
+	      else{
+	         return "login/loginfail";
+	      }
+	   }
 
 }//class end

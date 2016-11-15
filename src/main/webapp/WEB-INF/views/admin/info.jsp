@@ -15,7 +15,7 @@
 		<input type="hidden" name="trip_category_id"  value ="${vo.trip_category_id }">
 		여행지 : <input type="hidden" name="trip_nickname" >${vo.trip_nickname }  <p>
 		주소 : <input type="hidden" name="trip_address">${vo.trip_address }  <p>
-		이미지<img src="${pageContext.request.contextPath}/resources/images/${vo.trip_image }" width="100px" height ="100px"><p>
+		이미지<img src="${vo.trip_image }" width="100px" height ="100px"><p>
 		내용 : <input type="hidden" name="trip_content" >${vo.trip_content }<p>
 		이용시간 : <input type="hidden" name="trip_time" >${vo.trip_time }<p>
 		비용 : <input type="hidden" name="trip_pay" >${vo.trip_pay }<p>

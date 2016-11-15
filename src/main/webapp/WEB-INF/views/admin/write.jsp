@@ -1,13 +1,20 @@
 <%@page contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
-<head><title>회원 가입</title></head>
-	<body align="center">
-		<h3>정보입력 페이지</h3>
+<head>
+<style type="text/css">
+	#check{
+		text-align: left;
+	}
+</style>
+<title>회원 가입</title>
+</head>
+
+	<body>
+		<h3 align="center">정보입력 페이지</h3>
 		<hr>
 			<form method="post">
-				<table>
+				<table style="margin: 0 auto;">
 					<tr><td>여행지key값</td>
 					<td><input type="text" name="trip_id" size="50" ></td></tr>
 					<tr><td>카테고리key값</td>
@@ -18,6 +25,25 @@
 						  <option value="c03">음식점</option>
 						</select>
 					</td></tr>
+					<tr><td rowspan="4"> 테마별 </td><td id=check  colspan="2">
+						<input type="checkbox" name="age_id" value="a1">꽃청춘
+						<input type="checkbox" name="age_id" value="a2">꽃중년
+					</tr>
+					<tr><td id=check colspan="2">
+						<input type="checkbox" name="season_id" value="s01">봄
+						<input type="checkbox" name="season_id" value="s02">여름
+						<input type="checkbox" name="season_id" value="s03">가을
+						<input type="checkbox" name="season_id" value="s04">겨울
+					</tr>
+					<tr><td id=check colspan="2" >
+						<input type="checkbox" name="person_id" value="p01">나홀로
+						<input type="checkbox" name="person_id" value="p02">커플
+						<input type="checkbox" name="person_id" value="p03">우정
+						<input type="checkbox" name="person_id" value="p04">가족
+					</tr>
+					<tr><td id=check colspan="2">
+						<input type="checkbox" name="kpop_id" value="k01">kpop
+					</tr>
 					<tr><td>여행지 별칭</td><td><input type="text" name="trip_nickname" size="50" ></td></tr>
 					<tr><td>주소</td><td><input type="text" name="trip_address" size="50" ></td></tr>
 					<tr><td>시</td><td><input type="text" name="trip_add1" size="50" ></td></tr>

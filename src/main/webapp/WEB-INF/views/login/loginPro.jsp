@@ -19,13 +19,13 @@
     </div>
     <header class="b-header clearfix">
         <a href="/yolo" class="logo"> <img src="img/logo.png" alt="YOLO" title="YOLO"></a>
-        <div class="b-header__ctrl">
-          <div class="b-header__ctrl__item"></div>
-         <div class="b-header__ctrl__item">
+		  <div class="b-header__ctrl">
+			 <div class="b-header__ctrl__item"></div>
+			<div class="b-header__ctrl__item">
                 <a href="#" class="ab-item login jquery_popup"> <i class="fa fa-unlock-alt" aria-hidden="true"></i><span>Log In</span>
                 </a>
             </div>
-        <div class="b-header__ctrl__item">
+		  <div class="b-header__ctrl__item">
                 <form class="searchbox">
                     <input type="search" placeholder="어디를 여행하고 싶으세요?" name="search" class="searchbox-input" onkeyup="buttonUp()">
                     <button type="submit" class="searchbox-submit"><i class="fa fa-search" aria-hidden="true"></i>
@@ -54,7 +54,7 @@
                     </ul>
                 </li>
                 <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i>Shopping</a>
-                   <ul>
+                	<ul>
                         <li><a href="list">쇼핑</a></li>
                     </ul>
                 </li>
@@ -73,18 +73,13 @@
     <!-- //b-header -->
     
     <!-- login-->
-    <div class="hidden b-jquery-popup">
-       <form action="loginPro" method="post">
+	 <div class="hidden b-jquery-popup">
+	 	<form action="#" method="post">
              <div class="b-form-reg-popup">
-                 <h2 class="b-form-reg-popup__title m--centered">YOLO Login</h2>
-             <div class="b-form__row">
-                     <input type="text" id="id" name="id" placeholder="Your ID"> </div>
-                 <div class="b-form__row">
-                     <input type="password"  id="password" name="password" placeholder="Your Password" class="login_password"> </div>
-                 <div class="b-form__row m--centered">
-                     <button class="btn btn-success m--border-radius-right" type="submit">로그인</button>
-                 </div>
+                 <h2 class="b-form-reg-popup__title m--centered">ㄹ</h2>
+		 		<div class="b-form__row">
+             
              </div>
          </form>
      </div>
-   <!--// login-->
+	<!--// login-->
