@@ -1,11 +1,11 @@
-package com.kosta.yolo.infoMapper;
+package com.kosta.yolo.dao;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
 import com.kosta.yolo.vo.TripInfoVO;
 
-public interface TripInfoMapper  extends Serializable  {
+public interface AdminMapper  extends Serializable  {
 	
 	ArrayList<TripInfoVO> selectAll();
 	ArrayList<TripInfoVO> selectInfo(String category_id);

@@ -26,24 +26,13 @@ public class InfoController {
 		return "index";
 	}
 	
-	@RequestMapping("/list")
-	public ModelAndView list(){
+	@RequestMapping("/list_attraction")
+	public ModelAndView list_attraction(){
 		System.out.println("여긴 컨트롤러!!! ");
 		ModelAndView mav = infoService.list();
 		//mav.setViewName("trip_Info/list");
-		mav.setViewName("trip_Info/list");
+		mav.setViewName("trip_Info/list_attraction");
 		return mav;
-	}
-	@RequestMapping(value="/write", method=RequestMethod.GET)
-	public String write(){
-		return "trip_Info/write";
 	}
 
-	@RequestMapping(value="/write", method=RequestMethod.POST)
-	public ModelAndView writePro(HttpServletRequest request){
-		System.out.println("여긴 write 컨트롤러!!! ");
-		ModelAndView mav = infoService.writePro(request);
-		mav.setViewName("trip_Info/write");
-		return mav;
-	}
 }
