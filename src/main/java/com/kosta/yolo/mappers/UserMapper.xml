@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
      "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
      
-<mapper namespace="com.kosta.yolo.infoMapper.UserMapper">
+<mapper namespace="com.kosta.yolo.dao.UserMapper">
 
 	<resultMap type="com.kosta.yolo.vo.UserVO" id="MemberResultMap" >
 		<result property="id" column="id"/>
@@ -19,5 +19,21 @@
 	<select id="login" resultMap="MemberResultMap" parameterType="java.lang.String">
 		select id, password from User where id=#{id}
 	</select>
+	
 		
+	<select id="selectAll" resultType="com.kosta.yolo.vo.UserVO">
+    		SELECT * FROM User
+    </select>
+	
+	<update id="userUpdate" parameterType="com.kosta.yolo.vo.UserVO">
+    	UPDATE User SET password=#{password}, email=#{email}, gender=#{gender}, age=#{age}, isadmin=#{isadmin}, area=#{area} WHERE id = #{id }
+    </update>
+    	
+    <delete id="userDelete" parameterType="com.kosta.yolo.vo.UserVO">
+    	DELETE FROM User WHERE id=#{id}
+    </delete>
+    
+    <select id="userSelect" resultType="com.kosta.yolo.vo.UserVO">
+    		SELECT * FROM User WHERE id = #{id}
+    </select>
 </mapper>
