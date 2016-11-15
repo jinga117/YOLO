@@ -74,11 +74,11 @@ public class UserService {
 			return vo;
 		}
 
-		public ModelAndView deletePro(String id) {
+		public ModelAndView deletePro(UserVO vo) {
 			ModelAndView mav = new ModelAndView();
-			System.out.println(id);
-			userDAO.userDelete(id);
-			mav.addObject("id", id);
+			System.out.println("서비스:"+vo.getId()+" 서비스 :"+vo.getPassword());
+			userDAO.userDelete(vo);
+			
 			return mav;
 
 		}

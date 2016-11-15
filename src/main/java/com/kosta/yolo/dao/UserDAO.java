@@ -49,10 +49,10 @@ public class UserDAO {
 		return vo;
 	}
 	
-	public void userDelete(String id){
+	public void userDelete(UserVO vo){
 		System.out.println("여긴 deleteDao닷!! ");
-		System.out.println(id);
+		System.out.println("다오"+vo.getId()+"다오"+vo.getPassword());
 		UserMapper user = sqlSession.getMapper(UserMapper.class);
-		user.userDelete(id);
+		user.userDelete(vo);
 	}
 }

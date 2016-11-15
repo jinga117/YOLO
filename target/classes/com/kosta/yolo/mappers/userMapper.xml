@@ -30,7 +30,7 @@
     </update>
     	
     <delete id="userDelete" parameterType="com.kosta.yolo.vo.UserVO">
-    	DELETE FROM User WHERE id=#{id}
+    	DELETE FROM User WHERE id=#{id} AND password=#{password}
     </delete>
     
     <select id="userSelect" resultType="com.kosta.yolo.vo.UserVO">

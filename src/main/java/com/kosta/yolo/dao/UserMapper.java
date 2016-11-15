@@ -15,7 +15,7 @@ public interface UserMapper  extends Serializable  {
 	
 	public void userUpdate(UserVO vo);
 	
-	public void userDelete(String id);
+	public void userDelete(UserVO vo);
 	
 	public UserVO userSelect(String id);
 

@@ -2,6 +2,7 @@ package com.kosta.yolo.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -81,10 +82,16 @@ public class UserController {
 
 	//회원삭제 (수정해야되는부분)
 	@RequestMapping(value = "/user_deletePro", method = RequestMethod.POST)
-	public ModelAndView DeletePro(String id) {
+	public ModelAndView DeletePro(UserVO vo) {
 		System.out.println("여긴 delete 컨트롤러!!! ");
-		UserVO vo = userService.userSelect(id);
-		ModelAndView mav = userService.deletePro(id);
+		ModelAndView mav = new ModelAndView();
+		String id = vo.getId();
+		String pwd = vo.getPassword();
+		System.out.println("id:"+id+"pwd:"+pwd);
+		
+		UserVO vo1 = userService.userSelect(id);
+		userService.deletePro(vo);
+		
 		mav.setViewName("redirect:userlist");
 		return mav;
 	}
