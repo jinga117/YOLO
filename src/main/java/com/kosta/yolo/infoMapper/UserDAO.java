@@ -16,6 +16,7 @@ public class UserDAO {
 		UserMapper usermapper = sqlSession.getMapper(UserMapper.class);
 		usermapper.getWrite(uservo);
 	}
+	
 	public UserVO login(String id) {
 		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 		if(userMapper.login(id)!=null){
