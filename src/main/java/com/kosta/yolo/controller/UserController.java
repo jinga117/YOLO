@@ -55,7 +55,9 @@ public class UserController {
 
 	@RequestMapping("/user_update")
 	public ModelAndView update(@RequestParam String id) {
-		ModelAndView mav = userService.userSelect(id);
+		ModelAndView mav = new ModelAndView();
+		UserVO vo = userService.userSelect(id);
+		mav.addObject("vo",vo);
 		mav.setViewName("user/user_update");
 		return mav;
 	}
@@ -64,13 +66,15 @@ public class UserController {
 	public ModelAndView updatePro(UserVO vo) {
 		System.out.println("여긴 update 컨트롤러!!! ");
 		ModelAndView mav = userService.updatePro(vo);
-		mav.setViewName("redirect:index");
+		mav.setViewName("redirect:userlist");
 		return mav;
 	}
 
 	@RequestMapping("/user_delete")
 	public ModelAndView delete(@RequestParam String id) {
-		ModelAndView mav = userService.userSelect(id);
+		ModelAndView mav = new ModelAndView();
+		UserVO vo = userService.userSelect(id);
+		mav.addObject("vo",vo);
 		mav.setViewName("user/user_delete");
 		return mav;
 	}
@@ -79,8 +83,9 @@ public class UserController {
 	@RequestMapping(value = "/user_deletePro", method = RequestMethod.POST)
 	public ModelAndView DeletePro(String id) {
 		System.out.println("여긴 delete 컨트롤러!!! ");
+		UserVO vo = userService.userSelect(id);
 		ModelAndView mav = userService.deletePro(id);
-		mav.setViewName("redirect:index");
+		mav.setViewName("redirect:userlist");
 		return mav;
 	}
 

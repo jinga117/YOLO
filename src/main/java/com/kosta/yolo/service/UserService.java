@@ -65,16 +65,13 @@ public class UserService {
 			return mav;
 		}
 
-		public ModelAndView userSelect(String id) {
-			ModelAndView mav = new ModelAndView();
+		public UserVO userSelect(String id) {
 			System.out.println(id);
 			UserVO vo = userDAO.userSelect(id);
 
 			System.out.println("여기가 브이오 겟트리아이디 " + vo.getId());
 			System.out.println("여긴!! 서비스닷!!! " + vo);
-			mav.addObject("vo", vo);
-
-			return mav;
+			return vo;
 		}
 
 		public ModelAndView deletePro(String id) {
