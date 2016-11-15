@@ -43,7 +43,4 @@ public class TripInfoDAO {
 		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
 		info.deletePro(trip_id);
 	}
-	
-	
-
 }
