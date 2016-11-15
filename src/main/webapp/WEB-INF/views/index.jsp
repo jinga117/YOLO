@@ -16,7 +16,7 @@
             <div class="overlay"></div>
             <div class="b-promo__search container">
                 <h1 class="b-promo__title">Where do you want to go?</h1>
-                <form method="post" action="list">
+                <form method="post" action="list_attraction">
                     <div class="b-promo__form">
                         <div class="b-promo__form__col1">
                             <select data-placeholder="연령대를 선택하세요" class="chosen-select" tabindex="2">

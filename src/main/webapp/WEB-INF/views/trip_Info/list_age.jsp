@@ -24,8 +24,8 @@
 		<legend>
 			연령별 리스트
 		</legend>
-		<a href="young">꽃청춘</a>
-		<a href="old">꽃중년</a>		
+		<a href="list_age?age_id=a01">꽃청춘</a>
+		<a href="list_age?age_id=a02">꽃중년</a>		
 	</fieldset>
 	
 	<br><br><br>

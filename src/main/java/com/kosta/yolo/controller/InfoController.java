@@ -34,10 +34,10 @@ public class InfoController {
 		mav.setViewName("trip_Info/list_attraction");
 		return mav;
 	}
-	
-	@RequestMapping("/age/list")
-	public ModelAndView selectAge() {
-		ModelAndView mav = infoService.selectListAge();
+
+	@RequestMapping("/list_age")
+	public ModelAndView selectAge(@RequestParam String age_id) {
+		ModelAndView mav = infoService.selectListAge(age_id);
 		mav.setViewName("trip_Info/list_age");
 		return mav;
 	}

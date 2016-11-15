@@ -22,9 +22,9 @@ public class TripInfoDAO {
 		return list;
 	}
 	
-	public ArrayList<TripInfoVO> selectListAge() {
+	public ArrayList<TripInfoVO> selectListAge(String age_id) {
 		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
-		ArrayList<TripInfoVO> avo = info.selectListAge();
+		ArrayList<TripInfoVO> avo = info.selectListAge(age_id);
 		return avo;
 	}
 

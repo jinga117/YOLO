@@ -43,31 +43,31 @@
         <nav class="b-nav">
             <ul>
                 <li class="menu-item-has-children">
-                    <a href="list"> <i class="fa fa-map-marker" aria-hidden="true"></i>Travel</a>
+                    <a href="list_attraction"> <i class="fa fa-map-marker" aria-hidden="true"></i>Travel</a>
                     <ul>
-                        <li><a href="list">연령별</a></li>
-                        <li><a href="list">테마별</a></li>
-                        <li><a href="list">인원별</a></li>
+                        <li><a href="list_attraction">연령별</a></li>
+                        <li><a href="list_attraction">테마별</a></li>
+                        <li><a href="list_attraction">인원별</a></li>
                     </ul>
                 </li>
                 <li class="menu-item-has-children"> <a href="#"><i class="fa fa-star-o" aria-hidden="true"></i>Restaurant</a>
                     <ul>
-                        <li><a href="list">식당</a>
+                        <li><a href="list_attraction">식당</a>
                         </li>
-                        <li><a href="list">카페</a>
+                        <li><a href="list_attraction">카페</a>
                         </li>
                     </ul>
                 </li>
                 <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i>Shopping</a>
                    <ul>
-                        <li><a href="list">쇼핑</a></li>
+                        <li><a href="list_attraction">쇼핑</a></li>
                     </ul>
                 </li>
                 <li class="menu-item-has-children"> <a href="#"><i class="fa fa-mobile" aria-hidden="true"></i>Smart Plan</a>
                     <ul>
-                        <li><a href="list">여행 일정짜기</a>
+                        <li><a href="list_attraction">여행 일정짜기</a>
                         </li>
-                        <li><a href="list">여행 발자취</a>
+                        <li><a href="list_attraction">여행 발자취</a>
                         </li>
                     </ul>
                 </li>
