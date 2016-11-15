@@ -39,7 +39,7 @@ public class UserController {
 	
 	
 
-	@RequestMapping(value="/loginPro" , method = {RequestMethod.GET, RequestMethod.POST})//로그인
+	@RequestMapping("/loginPro")//로그인
 	public String loginPro(HttpServletRequest request ) {
 	
 		int result = userService.login(request);
@@ -47,7 +47,7 @@ public class UserController {
 			return "login/loginPro";
 		}
 		else{
-			return "login/loginfail";	//로그인실패시에해당되는건데 임시로 로그아웃으로해놧어요
+			return "inc/top";
 		}
 	}
 
