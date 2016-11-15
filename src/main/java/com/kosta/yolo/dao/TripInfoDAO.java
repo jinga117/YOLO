@@ -21,5 +21,11 @@ public class TripInfoDAO {
 		ArrayList<TripInfoVO> list = info.selectInfoAll();
 		return list;
 	}
+	
+	public ArrayList<TripInfoVO> selectListAge() {
+		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+		ArrayList<TripInfoVO> avo = info.selectListAge();
+		return avo;
+	}
 
 }

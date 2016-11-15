@@ -8,5 +8,5 @@ import com.kosta.yolo.vo.TripInfoVO;
 public interface TripInfoMapper  extends Serializable  {
 	
 	ArrayList<TripInfoVO> selectInfoAll();
-	
+	ArrayList<TripInfoVO> selectListAge();	
 }

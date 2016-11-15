@@ -28,6 +28,9 @@
 				<td><a href="info?trip_category_id=${list.category_id }">${list.category_id}</a></td>
 				<td>${list.trip_nickname}</td>
 				<td>${list.trip_address}</td>
+				<td>${list.trip_age}</td>
+				<td>${list.trip_person}</td>
+				<td>${list.trip_season}</td>
 				<td>${list.trip_add1}</td>
 				<td>${list.trip_add2}</td>
 				<td>${list.trip_add3}</td>

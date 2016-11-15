@@ -28,4 +28,12 @@ public class TripInfoService {
 		return mav;
 	}
 	
+	public ModelAndView selectListAge() {
+		ModelAndView mav = new ModelAndView();
+		ArrayList<TripInfoVO> avo = infoDAO.selectListAge();
+		mav.addObject("ageList", avo);
+		return mav;
+	}
+	
+	
 }

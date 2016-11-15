@@ -9,22 +9,6 @@
 		text-align: left;
 	}
 </style>
-<script type="text/javascript">
-	function checkboxArr() {
-		var checkArr = []; //배열 초기화
-		$("input[name='age_id']:checked").each(function(i)){
-			checkArr.push($(this).val()); //체크된 것만 값을 뽑아서 배열에 push
-		}
-		$.ajax({
-			url: 'write'
-			, type: 'post'
-			, dataType: 'text'
-			,data: {
-				valueArrTest: checkArr
-			}
-		});
-	}
-</script>
 <title>회원 가입</title>
 </head>
 	<body>
@@ -43,8 +27,8 @@
 						</select>
 					</td></tr>
 					<tr><td rowspan="4"> 테마별 </td><td id=check  colspan="2">
-						<input type="checkbox"   name="age_id" value="a1">꽃청춘
-						<input type="checkbox"   name="age_id" value="a2">꽃중년
+						<input type="checkbox"   name="age_id" value="a01">꽃청춘
+						<input type="checkbox"   name="age_id" value="a02">꽃중년
 					</tr>
 					<tr><td id=check colspan="2">
 						<input type="checkbox" name="season_id" value="s01">봄
