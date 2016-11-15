@@ -531,6 +531,12 @@ label {
     border: 1px solid #e2e2e2;
     margin-top: 0;
 }
+
+.login-btn {
+	padding:10px;
+	background:#de443a;
+}
+
 .b-promo__form__col1 input[name="location"] {
     border-left: none;
 }
@@ -668,6 +674,9 @@ textarea {
     padding: 15px;
     line-height: 20px;
 }
+
+li { list-style-type:none; }
+
 select:focus,
 textarea:focus,
 input[type="text"]:focus,
@@ -1435,6 +1444,17 @@ html .b-promo__search {
     background-size: cover;
     min-height: calc(100vh - 60px);
     background-attachment: fixed;
+}
+
+
+/* 서브 메뉴 리스트 */
+.b-cont-sub-menu  li {
+	display:inline-block;
+	width:20%;
+	height:40px;
+	margin:0;
+	padding:10px;
+	border:1px solid #ddd;
 }
 
 .logged-in .b-promo {
@@ -2879,7 +2899,7 @@ html .btn--buy-ticket:hover {
     padding: 90px 15px;
 }
 .b-desc .b-cont-title {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .b-desc__links {
     padding: 30px 0;
@@ -3644,12 +3664,21 @@ html .btn--buy-ticket:hover {
     padding: 0 10px;
 }
 .b-form--place input[type="text"],
+.b-form--place input[type="password"],
 .b-form--place input[type="email"],
 .b-form--place input[type="tel"],
 .b-form--place input[type="search"],
 .b-form--place input[type="time"],
-.b-form--place textarea {
+.b-form--place textarea,
+ {
     background: #f7f7f7;
+    height: 62px;
+}
+
+.b-form--place input[type="password"] {
+	width:100%;
+	background: #f7f7f7;
+	border:1px solid #ddd;
     height: 62px;
 }
 .b-form--place select {
@@ -18472,6 +18501,7 @@ input[type=password].styler,
 input[type=search].styler,
 input[type=tel].styler,
 input[type=text].styler,
+input[type=password].styler,
 input[type=url].styler,
 textarea.styler {
     padding: 8px 9px;

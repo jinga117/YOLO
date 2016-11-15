@@ -39,30 +39,6 @@
     </div>
     <!--//b-footer-->
 
-	<!-- login-->
-	 <div class="hidden b-jquery-popup">
-                <div class="b-form-reg-popup">
-                    <h2 class="b-form-reg-popup__title m--centered">YOLO Login</h2>
-					 <div class="b-form__row">
-                        <input type="text" placeholder="Your ID"> </div>
-                    <div class="b-form__row">
-                        <input type="text" placeholder="Your Name"> </div>
-                    <div class="b-form__row">
-                        <input type="text" placeholder="Email Address"> </div>
-                    <div class="b-form__row">
-                        <input type="text" placeholder="Phone Number"> </div>
-                    <div class="b-form__row">
-                        <select data-placeholder="관심 지역을 선택해주세요" class="chosen-select-2" tabindex="2">
-							<option value=""></option>
-                           <option value="seoul">서울</option>
-						   <option value="Gyeonggi">경기도</option>
-                        </select>
-                    </div>
-                    <div class="b-form__row m--centered"> <a href="#" class="btn">회원가입</a> </div>
-                </div>
-            </div>
-        </div>
-	<!--// login-->
     <script src="js/jquery.min.js"></script>
     <script src="js/dropzone.js"></script>
     <script src="js/chosen.jquery.min.js"></script>
@@ -79,7 +55,5 @@
     <script src="js/custum.js"></script>
     <script src="js/jquery.custom-scrollbar.js"></script>
     <script src="js/main.js"></script>
-
-</body>
-
+	</body>
 </html>

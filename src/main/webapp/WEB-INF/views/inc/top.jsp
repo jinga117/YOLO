@@ -71,3 +71,20 @@
         <!--//b-nav-->
     </header>
     <!-- //b-header -->
+    
+    <!-- login-->
+	 <div class="hidden b-jquery-popup">
+	 	<form action="#" method="post">
+             <div class="b-form-reg-popup">
+                 <h2 class="b-form-reg-popup__title m--centered">YOLO Login</h2>
+		 		<div class="b-form__row">
+                     <input type="text" id="id" name="name" placeholder="Your ID"> </div>
+                 <div class="b-form__row">
+                     <input type="password"  id="password" name="password" placeholder="Your Password"> </div>
+                 <div class="b-form__row m--centered">
+                 	<input type="submit"  class="btn" id="login" value="Login" >
+                 </div>
+             </div>
+         </form>
+     </div>
+	<!--// login-->
