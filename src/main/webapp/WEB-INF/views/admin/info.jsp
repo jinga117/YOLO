@@ -12,7 +12,6 @@
 <c:forEach items="${vo }" var="vo" >
 		NO.${vo.trip_id }
 		<input type="hidden" name="trip_id"  value ="${vo.trip_id }"><p>
-		<input type="hidden" name="trip_category_id"  value ="${vo.trip_category_id }">
 		여행지 : <input type="hidden" name="trip_nickname" >${vo.trip_nickname }  <p>
 		주소 : <input type="hidden" name="trip_address">${vo.trip_address }  <p>
 		이미지<img src="${vo.trip_image }" width="100px" height ="100px"><p>

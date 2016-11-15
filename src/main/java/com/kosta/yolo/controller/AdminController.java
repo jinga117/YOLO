@@ -34,7 +34,7 @@ public class AdminController {
 		System.out.println("여긴 write 컨트롤러!!! ");
 	
 		ModelAndView mav = adminService.writePro(request);
-		mav.setViewName("admin/write");
+		mav.setViewName("redirect:list");
 		return mav;
 	}
 	
