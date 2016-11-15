@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!-->
@@ -22,8 +23,12 @@
         <div class="b-header__ctrl">
           <div class="b-header__ctrl__item"></div>
          <div class="b-header__ctrl__item">
-                <a href="#" class="ab-item login jquery_popup"> <i class="fa fa-unlock-alt" aria-hidden="true"></i><span>Log In</span>
-                </a>
+         	<c:if test="${id == null }">
+                <a href="#" class="ab-item login jquery_popup"> <i class="fa fa-unlock-alt" aria-hidden="true"></i><span>Log In</span></a>
+            </c:if>
+			<c:if test="${id != null }">
+				<a href="loginpro"><i class="fa fa-unlock-alt" aria-hidden="true"></i><span>Log Out</span></a> 
+			</c:if>
             </div>
         <div class="b-header__ctrl__item">
                 <form class="searchbox">
