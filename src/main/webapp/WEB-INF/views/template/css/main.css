@@ -1448,13 +1448,32 @@ html .b-promo__search {
 
 
 /* 서브 메뉴 리스트 */
+.b-cont-sub-menu {
+	width:100%;
+	margin:10px 0;
+	padding:0;
+}
+
 .b-cont-sub-menu  li {
 	display:inline-block;
-	width:20%;
-	height:40px;
-	margin:0;
-	padding:10px;
-	border:1px solid #ddd;
+	width:49%;
+	height:50px;
+	line-height:50px;
+	margin-left:5px;
+	text-align:center;
+	border:1px dashed #ddd;
+}
+
+.b-cont-sub-menu li a {
+	display:block;
+	width:100%;
+	height:50px;
+	font-size:18px;
+}
+.b-cont-sub-menu li a:hover {
+	color:#fff;
+	background:#43a4a2;
+	pointer:cursor;
 }
 
 .logged-in .b-promo {
