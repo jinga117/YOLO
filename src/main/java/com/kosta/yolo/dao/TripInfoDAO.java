@@ -21,9 +21,9 @@ public class TripInfoDAO {
 		ArrayList<TripInfoVO> list = info.selectInfoAll();
 		return list;
 	}
-	public ArrayList<TripInfoVO> selectTop(){
+	public ArrayList<TripInfoVO> ageAll(){
 		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
-		ArrayList<TripInfoVO> topList = info.selectTop();
+		ArrayList<TripInfoVO> topList = info.ageAll();
 		return topList;
 	}
 	
@@ -31,6 +31,11 @@ public class TripInfoDAO {
 		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
 		ArrayList<TripInfoVO> avo = info.selectListAge(age_id);
 		return avo;
+	}
+	public ArrayList<TripInfoVO> themeAll(){
+		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+		ArrayList<TripInfoVO> seasonList = info.themeAll();
+		return seasonList;
 	}
 
 }

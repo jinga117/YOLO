@@ -10,15 +10,18 @@
     <div class="b-main-container" id="content">
          <div class="b-pop-places container">
          
-            <h2 class="b-cont-title">연령별</h2>
+            <h2 class="b-cont-title">테마별</h2>
               <ul class="b-cont-sub-menu">
-            	<li><a href="list_age?age_id=a01" >꽃청춘</a></li>
-            	<li><a href="list_age?age_id=a02" >꽃중년</a></li>
+            	<li><a href="#" >봄</a></li>
+            	<li><a href="#" >여름</a></li>
+            	<li><a href="#" >가을</a></li>
+            	<li><a href="#" >겨울</a></li>
+            	<li><a href="#" >K-POP</a></li>
             </ul>
             
             <div class="b-slider owl-carousel owl-carousel-1">            
             <!--  리스트 시작 -->
-            <c:forEach items="${ageList }" var="ageList">
+            <c:forEach items="${themeList }" var="ageList">
                 <div class="b-pop-places__item">
                     <div class="b-pop-place">
                         <div class="b-pop-place__img">

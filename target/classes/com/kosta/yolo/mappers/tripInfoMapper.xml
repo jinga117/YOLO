@@ -8,16 +8,20 @@
     		SELECT * FROM TripInfo
     	</select>
     	
-   	<select id="selectTop" resultType="com.kosta.yolo.vo.TripInfoVO">
+    	<!-- 연령별 메인 인기 top5 -->
+   		<select id="ageAll" resultType="com.kosta.yolo.vo.TripInfoVO">
     		SELECT * FROM TripInfo ORDER BY trip_like DESC LIMIT 5
     	</select> 
     	
+    	<!-- 연령별 -->
     	<select id="selectListAge"  parameterType="String"  resultType="com.kosta.yolo.vo.TripInfoVO">
 	    	<bind name="age_id" value="'%' + _parameter + '%'" />
 	    		SELECT * FROM TripInfo WHERE
 	    			age_id LIKE #{age_id} ORDER BY trip_like DESC LIMIT 5
     	</select>
     	
-    	
-    	
+    	<!-- 테마별 -->
+    	<select id="themeAll"  resultType="com.kosta.yolo.vo.TripInfoVO">
+	    		SELECT * FROM TripInfo ORDER BY trip_like DESC LIMIT 5
+    	</select>
     </mapper>

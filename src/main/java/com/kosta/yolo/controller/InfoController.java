@@ -41,12 +41,18 @@ public class InfoController {
 		mav.setViewName("trip_Info/list_age_all");
 		return mav;
 	}
-
+	//연령별 리스트
 	@RequestMapping("/list_age")
 	public ModelAndView selectAge(@RequestParam String age_id) {
 		ModelAndView mav = infoService.selectListAge(age_id);
 		mav.setViewName("trip_Info/list_age");
 		return mav;
 	}
-
+	//테마별 리스트
+	@RequestMapping("/list_theme")
+	public ModelAndView theme() {
+		ModelAndView mav = infoService.theme();
+		mav.setViewName("trip_Info/list_theme");
+		return mav;
+	}
 }

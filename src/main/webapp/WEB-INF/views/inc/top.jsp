@@ -45,8 +45,8 @@
                 <li class="menu-item-has-children">
                     <a href="list_attraction"> <i class="fa fa-map-marker" aria-hidden="true"></i>Travel</a>
                     <ul>
-                        <li><a href="list_attraction">연령별</a></li>
-                        <li><a href="list_attraction">테마별</a></li>
+                        <li><a href="list_age_all">연령별</a></li>
+                        <li><a href="list_theme">테마별</a></li>
                         <li><a href="list_attraction">인원별</a></li>
                     </ul>
                 </li>

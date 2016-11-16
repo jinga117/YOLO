@@ -28,7 +28,7 @@ public class TripInfoService {
 	
 	public ModelAndView age_view(){
 		ModelAndView mav = new ModelAndView();
-		ArrayList<TripInfoVO> topList = infoDAO.selectTop();
+		ArrayList<TripInfoVO> topList = infoDAO.ageAll();
 		mav.addObject("ageList", topList);
 		return mav;
 	}
@@ -39,7 +39,13 @@ public class TripInfoService {
 		mav.addObject("age_id", age_id);
 		mav.addObject("ageList", avo);
 		return mav;
-		
+	}
+	
+	public ModelAndView theme(){
+		ModelAndView mav = new ModelAndView();
+		ArrayList<TripInfoVO> themeList = infoDAO.themeAll();
+		mav.addObject("themeList", themeList);
+		return mav;
 	}
 	
 }
