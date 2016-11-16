@@ -18,4 +18,6 @@
 	    			age_id LIKE #{age_id} ORDER BY trip_like DESC LIMIT 5
     	</select>
     	
+    	
+    	
     </mapper>

@@ -117,15 +117,6 @@ window.addEventListener("scroll", lazyLoadImages);
 
         $('html').removeClass('no-js');
      
-        //클릭시 타이틀변경
-        $(".a01").click(function() {
-            $(".b-cont-title").text("꽃청춘"); 
-        });
-        $(".a02").click(function() {
-            $(".b-cont-title").text("꽃중년"); 
-        });
- 
-
         /*ajax subscribe*/
         jQuery(document).on("click", '.b-gadget__subscribe__button', function(e) {
             e.preventDefault();

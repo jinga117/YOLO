@@ -36,8 +36,10 @@ public class TripInfoService {
 	public ModelAndView selectListAge(String age_id) {
 		ModelAndView mav = new ModelAndView();
 		ArrayList<TripInfoVO> avo = infoDAO.selectListAge(age_id);
+		mav.addObject("age_id", age_id);
 		mav.addObject("ageList", avo);
 		return mav;
+		
 	}
 	
 }
