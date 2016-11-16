@@ -19,7 +19,7 @@
                 <div class="b-pop-places__item">
                     <div class="b-pop-place">
                         <div class="b-pop-place__img">
-                            <a href="places"><img width="370" height="245" class="b-pop-place__img__img"  src="img/photo/centralPark.JPG" alt="${list.trip_content}"></a>
+                            <a href="places"><img width="370" height="245" class="b-pop-place__img__img"  src="img/photo/${list.trip_id}.jpg" alt="${list.trip_nickname}"></a>
 							<a href="#" class="b-icon-medal"></a>
 							<a href="#" class="b-icon-like" data-toggle="tooltip" data-placement="left" title="Like"><i class="fa fa-heart" aria-hidden="true"></i></a>
                         </div>
