@@ -24,7 +24,6 @@ public class TripInfoService {
 		ArrayList<TripInfoVO> list = infoDAO.selectInfoAll();
 		System.out.println("여긴!! 서비스닷!!! " + list);
 		mav.addObject("list", list);
-		
 		return mav;
 	}
 	

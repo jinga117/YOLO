@@ -37,6 +37,7 @@ public class InfoController {
 
 	@RequestMapping("/list_age")
 	public ModelAndView selectAge(@RequestParam String age_id) {
+		System.out.println("age_id : "+ age_id);
 		ModelAndView mav = infoService.selectListAge(age_id);
 		mav.setViewName("trip_Info/list_age");
 		return mav;

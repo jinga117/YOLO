@@ -21,15 +21,15 @@
                         <div class="b-promo__form__col1">
                             <select data-placeholder="연령대를 선택하세요" class="chosen-select" tabindex="2">
 								<option value=""></option>
-                                <option value="a01">꽃청춘</option>
-                                <option value="a02">꽃장년</option>
+                                <option value="a1">꽃청춘</option>
+                                <option value="a2">꽃장년</option>
                             </select>
 						</div>
                         <div class="b-promo__form__col1">
                             <select data-placeholder="도시를 선택하세요" class="chosen-select" tabindex="2">
                                 <option value=""></option>
-                                <option value="l01">서울</option>
-                                <option value="l02">경기도</option>
+                                <option value="l1">서울</option>
+                                <option value="l2">경기도</option>
                             </select>
                         </div>
 						<div class="b-promo__form__col1">
