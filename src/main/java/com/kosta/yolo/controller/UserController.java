@@ -1,6 +1,7 @@
 package com.kosta.yolo.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,83 +18,96 @@ import com.kosta.yolo.vo.UserVO;
 @Controller
 public class UserController {
 
-	@Autowired
-	private UserService userService;
+   @Autowired
+   private UserService userService;
 
-	@RequestMapping("/userWrite_view") // 회원가입 페이지로 이동
-	public String write_view(Model model) {
-		System.out.println("write_view() method");
-		return "userWrite/user_write"; // /WEB-INF/views/write_view.jsp
-	} // write_view() end
+   @RequestMapping("/userWrite_view") // 회원가입 페이지로 이동
+   public String write_view(Model model) {
+      System.out.println("write_view() method");
+      return "userWrite/user_write"; // /WEB-INF/views/write_view.jsp
+   } // write_view() end
 
-	@RequestMapping("/userWrite")
-	public String write(UserVO uservo) {// , Model model
+   @RequestMapping("/userWrite")
+   public String write(UserVO uservo) {// , Model model
 
-		System.out.println("여기까지.");
-		userService.insert(uservo);
+      System.out.println("여기까지.");
+      userService.insert(uservo);
 
-		return "redirect:list";
-	}
+      return "redirect:list";
+   }
 
-	@RequestMapping("/loginPro") // 로그인
-	public String loginPro(HttpServletRequest request) {
+   @RequestMapping("/loginPro") // 로그인
+   public String loginPro(HttpServletRequest request) {
+	  UserVO vo = userService.userSelect(request.getParameter("id"));
+	  request.setAttribute("isadmin", vo.getIsadmin());
+      int result = userService.login(request);
+      if (result == 1) {
+         return "index";
+      } else {
+         return "login/loginfail";
+      }
+   }
+   
+   @RequestMapping("/logout")
+   public String logout(HttpServletRequest request){
+      
+      HttpSession session = request.getSession();
+      System.out.println("세션값:"+session.getAttribute("id"));
+      
+      session.invalidate();
+      
+      return "login/loginfail";
+      
+   }
+   @RequestMapping("/userlist")
+   public ModelAndView list(){
+      System.out.println("여긴 컨트롤러!!! ");
+      ModelAndView mav = userService.list();
+      mav.setViewName("user/list");
+      return mav;
+   }
 
-		int result = userService.login(request);
-		if (result == 1) {
-			return "login/loginPro";
-		} else {
-			return "login/loginfail";
-		}
-	}
-	@RequestMapping("/userlist")
-	public ModelAndView list(){
-		System.out.println("여긴 컨트롤러!!! ");
-		ModelAndView mav = userService.list();
-		mav.setViewName("user/list");
-		return mav;
-	}
 
+   @RequestMapping("/user_update")
+   public ModelAndView update(@RequestParam String id) {
+      ModelAndView mav = new ModelAndView();
+      UserVO vo = userService.userSelect(id);
+      mav.addObject("vo",vo);
+      mav.setViewName("user/user_update");
+      return mav;
+   }
 
-	@RequestMapping("/user_update")
-	public ModelAndView update(@RequestParam String id) {
-		ModelAndView mav = new ModelAndView();
-		UserVO vo = userService.userSelect(id);
-		mav.addObject("vo",vo);
-		mav.setViewName("user/user_update");
-		return mav;
-	}
+   @RequestMapping(value = "/user_updatePro", method = RequestMethod.POST)
+   public ModelAndView updatePro(UserVO vo) {
+      System.out.println("여긴 update 컨트롤러!!! ");
+      ModelAndView mav = userService.updatePro(vo);
+      mav.setViewName("redirect:userlist");
+      return mav;
+   }
 
-	@RequestMapping(value = "/user_updatePro", method = RequestMethod.POST)
-	public ModelAndView updatePro(UserVO vo) {
-		System.out.println("여긴 update 컨트롤러!!! ");
-		ModelAndView mav = userService.updatePro(vo);
-		mav.setViewName("redirect:userlist");
-		return mav;
-	}
+   @RequestMapping("/user_delete")
+   public ModelAndView delete(@RequestParam String id) {
+      ModelAndView mav = new ModelAndView();
+      UserVO vo = userService.userSelect(id);
+      mav.addObject("vo",vo);
+      mav.setViewName("user/user_delete");
+      return mav;
+   }
 
-	@RequestMapping("/user_delete")
-	public ModelAndView delete(@RequestParam String id) {
-		ModelAndView mav = new ModelAndView();
-		UserVO vo = userService.userSelect(id);
-		mav.addObject("vo",vo);
-		mav.setViewName("user/user_delete");
-		return mav;
-	}
-
-	//회원삭제 (수정해야되는부분)
-	@RequestMapping(value = "/user_deletePro", method = RequestMethod.POST)
-	public ModelAndView DeletePro(UserVO vo) {
-		System.out.println("여긴 delete 컨트롤러!!! ");
-		ModelAndView mav = new ModelAndView();
-		String id = vo.getId();
-		String pwd = vo.getPassword();
-		System.out.println("id:"+id+"pwd:"+pwd);
-		
-		UserVO vo1 = userService.userSelect(id);
-		userService.deletePro(vo);
-		
-		mav.setViewName("redirect:userlist");
-		return mav;
-	}
+   //회원삭제 (수정해야되는부분)
+   @RequestMapping(value = "/user_deletePro", method = RequestMethod.POST)
+   public ModelAndView DeletePro(UserVO vo) {
+      System.out.println("여긴 delete 컨트롤러!!! ");
+      ModelAndView mav = new ModelAndView();
+      String id = vo.getId();
+      String pwd = vo.getPassword();
+      System.out.println("id:"+id+"pwd:"+pwd);
+      
+      UserVO vo1 = userService.userSelect(id);
+      userService.deletePro(vo);
+      
+      mav.setViewName("redirect:userlist");
+      return mav;
+   }
 
 }// class end

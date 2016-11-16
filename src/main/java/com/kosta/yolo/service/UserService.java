@@ -39,8 +39,10 @@ public class UserService {
 			if(userVo.getPassword().equals(inputPwd)) { // 로그인성공
 				result = 1;
 			}
-			
-		}//userVO != null end
+			else{
+	            result = 0;
+	        }
+		}
 		else{
 			result = 0;
 		}

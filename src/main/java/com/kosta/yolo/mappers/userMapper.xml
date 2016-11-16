@@ -9,6 +9,7 @@
 		<result property="password" column="password"/>
 		<result property="email" column="email"/>
 		<result property="gender" column="gender"/>
+		<result property="isadmin" column="isadmin"/>
 		<result property="age" column="age"/>
 	</resultMap>
 	
@@ -17,7 +18,7 @@
 	</insert>
 	
 	<select id="login" resultMap="MemberResultMap" parameterType="java.lang.String">
-		select id, password from User where id=#{id}
+		select id, password, isadmin  from User where id=#{id}
 	</select>
 	
 		

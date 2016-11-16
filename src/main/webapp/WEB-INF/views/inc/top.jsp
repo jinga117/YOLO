@@ -23,12 +23,12 @@
         <div class="b-header__ctrl">
           <div class="b-header__ctrl__item"></div>
          <div class="b-header__ctrl__item">
-         	<c:if test="${id == null }">
-                <a href="#" class="ab-item login jquery_popup"> <i class="fa fa-unlock-alt" aria-hidden="true"></i><span>Log In</span></a>
+            <c:if test="${id == null }">
+                <a href="loginPro" class="ab-item login jquery_popup"> <i class="fa fa-unlock-alt" aria-hidden="true"></i><span>Log In</span></a>
             </c:if>
-			<c:if test="${id != null }">
-				<a href="loginpro"><i class="fa fa-unlock-alt" aria-hidden="true"></i><span>Log Out</span></a> 
-			</c:if>
+         <c:if test="${id != null }">
+            <a href="logout"><i class="fa fa-unlock-alt" aria-hidden="true"></i><span>Log Out</span></a> 
+         </c:if>
             </div>
         <div class="b-header__ctrl__item">
                 <form class="searchbox">
@@ -45,7 +45,7 @@
                 <li class="menu-item-has-children">
                     <a href="list_attraction"> <i class="fa fa-map-marker" aria-hidden="true"></i>Travel</a>
                     <ul>
-                        <li><a href="list_age_all">연령별</a></li>
+                        <li><a href="list_attraction">연령별</a></li>
                         <li><a href="list_attraction">테마별</a></li>
                         <li><a href="list_attraction">인원별</a></li>
                     </ul>
@@ -71,6 +71,14 @@
                         </li>
                     </ul>
                 </li>
+                <c:if test="${isadmin==1 }">
+                <li class="menu-item-has-children"> <a href="#"><i class="fa fa-mobile" aria-hidden="true"></i>관리자페이지</a>
+                    <ul>
+                        <li><a href="userlist">회원리스트</a>
+                        </li>
+                    </ul>
+                </li>
+                </c:if>
             </ul>
         </nav>
         <!--//b-nav-->
@@ -80,6 +88,7 @@
     <!-- login-->
     <div class="hidden b-jquery-popup">
        <form action="loginPro" method="post">
+       <input type="hidden" name="isadmin" value="${isadmin }">
              <div class="b-form-reg-popup">
                  <h2 class="b-form-reg-popup__title m--centered">YOLO Login</h2>
              <div class="b-form__row">
