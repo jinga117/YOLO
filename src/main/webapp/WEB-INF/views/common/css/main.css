@@ -1641,6 +1641,7 @@ html .b-promo__search {
     display: block;
     transition: all 0.4s ease 0s;
     background:#f7f7f7 url(../img/logo.png) no-repeat center center;
+    background-size:100px;
 }
 
 .b-pop-place__img:hover .b-pop-place__img__img,
