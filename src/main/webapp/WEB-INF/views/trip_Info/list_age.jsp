@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+
 <!--  헤더 영역 시작 -->
 	<jsp:include page="../inc/top.jsp" />
 	<!--  헤더 영역 끝 -->
@@ -7,10 +8,10 @@
 	<!-- 컨텐츠 영역 시작 -->
     <div class="b-main-container" id="content">
          <div class="b-pop-places container">
-            <h2 class="b-cont-title">Attraction</h2>
+            <h2 class="b-cont-title" >타이틀</h2>
               <ul class="b-cont-sub-menu">
-            	<li><a href="list_age?age_id=a1">꽃청춘</a></li>
-            	<li><a href="list_age?age_id=a2">꽃중년</a></li>
+            	<li><a href="list_age?age_id=a01"  class ="a01">꽃청춘</a></li>
+            	<li><a href="list_age?age_id=a02"  class ="a02">꽃중년</a></li>
             </ul>
             
             <div class="b-slider owl-carousel owl-carousel-1">            
