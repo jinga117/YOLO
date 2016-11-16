@@ -7,7 +7,7 @@
 	<!-- 컨텐츠 영역 시작 -->
     <div class="b-main-container" id="content">
          <div class="b-pop-places container">
-            <h2 class="b-cont-title">Attraction</h2>
+            <h2 class="b-cont-title">연령별</h2>
               <ul class="b-cont-sub-menu">
             	<li><a href="list_age?age_id=a1">꽃청춘</a></li>
             	<li><a href="list_age?age_id=a2">꽃중년</a></li>

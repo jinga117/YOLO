@@ -9,4 +9,5 @@ public interface TripInfoMapper  extends Serializable  {
 	
 	ArrayList<TripInfoVO> selectInfoAll();
 	ArrayList<TripInfoVO> selectListAge(String age_id);	
+	ArrayList<TripInfoVO> selectTop();
 }

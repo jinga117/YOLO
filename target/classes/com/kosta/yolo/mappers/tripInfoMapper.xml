@@ -7,10 +7,15 @@
     	<select id="selectInfoAll" resultType="com.kosta.yolo.vo.TripInfoVO">
     		SELECT * FROM TripInfo
     	</select>
+    	
+   	<select id="selectTop" resultType="com.kosta.yolo.vo.TripInfoVO">
+    		SELECT * FROM TripInfo ORDER BY trip_like DESC LIMIT 5
+    	</select> 
+    	
     	<select id="selectListAge"  parameterType="String"  resultType="com.kosta.yolo.vo.TripInfoVO">
 	    	<bind name="age_id" value="'%' + _parameter + '%'" />
 	    		SELECT * FROM TripInfo WHERE
-	    			age_id LIKE #{age_id}
+	    			age_id LIKE #{age_id} ORDER BY trip_like DESC LIMIT 5
     	</select>
     	
     </mapper>

@@ -19,11 +19,17 @@ public class TripInfoService {
 	
 	//리스트
 	public ModelAndView list(){
-		
 		ModelAndView mav = new ModelAndView();
 		ArrayList<TripInfoVO> list = infoDAO.selectInfoAll();
 		System.out.println("여긴!! 서비스닷!!! " + list);
 		mav.addObject("list", list);
+		return mav;
+	}
+	
+	public ModelAndView age_view(){
+		ModelAndView mav = new ModelAndView();
+		ArrayList<TripInfoVO> topList = infoDAO.selectTop();
+		mav.addObject("ageList", topList);
 		return mav;
 	}
 	
@@ -33,6 +39,5 @@ public class TripInfoService {
 		mav.addObject("ageList", avo);
 		return mav;
 	}
-	
 	
 }

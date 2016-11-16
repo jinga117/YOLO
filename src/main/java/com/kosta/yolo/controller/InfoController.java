@@ -30,8 +30,15 @@ public class InfoController {
 	public ModelAndView list_attraction(){
 		System.out.println("여긴 컨트롤러!!! ");
 		ModelAndView mav = infoService.list();
-		//mav.setViewName("trip_Info/list");
 		mav.setViewName("trip_Info/list_attraction");
+		return mav;
+	}
+	
+	//Top5 인기순위
+	@RequestMapping("/list_age_all")
+	public ModelAndView age_view() {
+		ModelAndView mav = infoService.age_view();
+		mav.setViewName("trip_Info/list_age_all");
 		return mav;
 	}
 

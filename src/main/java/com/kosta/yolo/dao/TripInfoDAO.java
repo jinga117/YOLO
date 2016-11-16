@@ -21,6 +21,11 @@ public class TripInfoDAO {
 		ArrayList<TripInfoVO> list = info.selectInfoAll();
 		return list;
 	}
+	public ArrayList<TripInfoVO> selectTop(){
+		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+		ArrayList<TripInfoVO> topList = info.selectTop();
+		return topList;
+	}
 	
 	public ArrayList<TripInfoVO> selectListAge(String age_id) {
 		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
