@@ -20,14 +20,28 @@ public class TripInfoService {
 	@Autowired
 	private TripInfoDAO infoDAO;
 	
+	
+	// 상세보기
+	public ModelAndView detail_view(String trip_id) {
+		ModelAndView mav = new ModelAndView();
+		ArrayList<TripInfoVO> detail = infoDAO.selectDetail(trip_id);
+		mav.addObject("detailList", detail);
+		return mav;
+	}
+	
+	// 좋아요
+	public int likeCount(String trip_id) {
+		return infoDAO.likeCount(trip_id);
+	}
+	
 	//전체리스트
 	public ModelAndView list(){
 		ModelAndView mav = new ModelAndView();
-		ArrayList<TripInfoVO> ageList = infoDAO.ageAll(); //연령별
+		ArrayList<TripInfoVO> list = infoDAO.selectInfoAll(); //연령별
 		ArrayList<TripInfoVO> seasonList = infoDAO.seasonAll(); //계절별전체
 		ArrayList<TripInfoVO> kpopList = infoDAO.kpopAll(); //한류별
 		ArrayList<TripInfoVO> personList = infoDAO.personAll(); //인원별
-		mav.addObject("ageList", ageList);
+		mav.addObject("list", list);
 		mav.addObject("seasonList", seasonList);
 		mav.addObject("kpopList", kpopList);
 		mav.addObject("personList", personList);

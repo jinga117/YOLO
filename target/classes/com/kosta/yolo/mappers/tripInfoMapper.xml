@@ -72,5 +72,22 @@
 	    			food_id LIKE #{food_id} ORDER BY trip_like DESC LIMIT 5
     	</select>
     	
+    	<!-- 상세보기 -->
+    	<select id="selectDetail"  parameterType="String"  resultType="com.kosta.yolo.vo.TripInfoVO">
+	    		SELECT * FROM TripInfo WHERE
+	    			trip_id = #{trip_id}
+    	</select>
+    	
+    	<!-- 좋아요 -->
+    	<update id="likeCount" parameterType="com.kosta.yolo.vo.TripInfoVO">
+    			UPDATE TripInfo 
+    				SET trip_like = trip_like+1 
+    				WHERE trip_id = #{trip_id}
+    	</update>
+    	<select id="selectLikeCount"  parameterType="String"  resultType="java.lang.Integer">
+	    		SELECT trip_like FROM TripInfo 
+	    		WHERE trip_id = #{trip_id}
+    	</select>
+    	
     	
     </mapper>

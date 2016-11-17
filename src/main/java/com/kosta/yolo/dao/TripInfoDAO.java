@@ -15,6 +15,21 @@ public class TripInfoDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	
+	
+	// 상세보기
+	public ArrayList<TripInfoVO> selectDetail(String trip_id) {
+		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+		ArrayList<TripInfoVO> avo = info.selectDetail(trip_id);
+		return avo;
+	}
+	
+	// 좋아요
+	public int likeCount(String trip_id) {
+		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+		info.likeCount(trip_id);
+		return info.selectLikeCount(trip_id);
+	}
+	
 	//전체 리스트 뿌리기
 	public ArrayList<TripInfoVO> selectInfoAll() {
 		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);

@@ -7,6 +7,12 @@ import com.kosta.yolo.vo.TripInfoVO;
 
 public interface TripInfoMapper  extends Serializable  {
 	
+	//상세보기
+	ArrayList<TripInfoVO> selectDetail(String trip_id);
+	//좋아요
+	int likeCount(String trip_id);
+	int selectLikeCount(String trip_id);
+	
 	//전체 리스트 뿌리기
 	ArrayList<TripInfoVO> selectInfoAll();
 	
@@ -34,4 +40,6 @@ public interface TripInfoMapper  extends Serializable  {
 	
 	//food_id 키값에 따른 리스트 뿌리기
 	ArrayList<TripInfoVO> selectFood(String food_id);	
+	
+
 }

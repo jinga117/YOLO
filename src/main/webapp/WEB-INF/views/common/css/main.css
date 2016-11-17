@@ -990,7 +990,7 @@ input[type="color"]:focus {
     border: 1px solid #5897fb;
     box-shadow: 0 0 5px rgba(0, 0, 0, .3)
 }
-.chosen-container-active.chosen-with-drop .chosen-single {
+/* .chosen-container-active.chosen-with-drop .chosen-single {
     border: 1px solid #aaa;
     -moz-border-radius-bottomright: 0;
     border-bottom-right-radius: 0;
@@ -1002,7 +1002,7 @@ input[type="color"]:focus {
     background-image: -o-linear-gradient(#eee 20%, #fff 80%);
     background-image: linear-gradient(#eee 20%, #fff 80%);
     box-shadow: 0 1px 0 #fff inset
-}
+} */
 .chosen-container-active.chosen-with-drop .chosen-single div {
     border-left: 0;
     background: transparent
@@ -1342,7 +1342,7 @@ input[type="search"].searchbox-input:active {
     margin: 0;
     border: 0;
     outline: 0;
-    line-height: 50px;
+    padding-top:10px;
     text-align: center;
     cursor: pointer;
     color: #fff;
@@ -1702,6 +1702,10 @@ html .b-promo__search {
     width: 12px;
     height: 12px;
     background-image: url(../img/star_rating.png);
+}
+
+.b-pop-place__like {
+	color:#ff5050;
 }
 .b-pop-place__name {
     margin: 5px 0;
@@ -3305,7 +3309,7 @@ html .btn--buy-ticket:hover {
 }
 /* new select */
 
-.b-slide-menu .chosen-container-single .chosen-single,
+. .chosen-container-single .chosen-single,
 .b-promo__search .chosen-container-single .chosen-single,
 .popup .chosen-single {
     height: 50px;
@@ -3374,6 +3378,12 @@ html .btn--buy-ticket:hover {
 	height:100%;
 	text-align:center;
 	margin:0 auto;
+}
+
+.detail_img {
+	width:90%;
+	height:400px;
+	background:#f7f7f7 url(../img/logo.png) no-repeat center center;	
 }
 .b-slide-menu__form .chosen-container-active.chosen-with-drop .chosen-single div b:before {
     top: 20px;
@@ -3727,12 +3737,24 @@ html .btn--buy-ticket:hover {
 .logged-in .b-map-menu,
 .logged-in .b-slide-menu {
     top: 112px;
+    border:1px solid #f00;
+    z-index:999;
 }
+
+.map_wrapper {
+	width:95%;
+	margin:0 auto;
+	text-align:center;
+	padding:10px;
+	border:1px solid #ddd;	
+	margin-bottom:20px;
+}
+
 .b-map-menu {
     position: fixed;
     left: 0;
     top: 80px;
-    width: 100px;
+    width: 50px;
     background: #43a4a2;
     height: 100%;
     z-index: 3;
@@ -3820,20 +3842,22 @@ html .btn--buy-ticket:hover {
 }
 .b-slide-menu {
     height: calc(100% - 80px);
-    left: 100px;
+    left: 50px;
     padding: 0;
     position: fixed;
     top: 80px;
     z-index: 2;
 }
 .b-slide-menu__title {
-    font: bold 16px Roboto-Bold;
+    font: 20px Malgun Gothic;
     text-transform: uppercase;
     text-align: center;
+    color:#2c6d6c ;
     background: #fff;
     margin: 0;
     padding: 25px 0;
 }
+
 .b-slide-menu__form {
     background: #fff;
 }
@@ -3932,6 +3956,80 @@ html .btn--buy-ticket:hover {
     color: white;
     background: #de443a;
 }
+
+/************* Weather ****************************/
+
+.weather_content {
+	width:100%;
+	border:1px dashed #eee;
+	margin:0;
+	padding:0;
+}
+
+.weather_content li {
+	display:inline-block;
+	text-align:center;
+	width:13.6%;
+	margin:0;
+	padding:5px 0;
+	text-align:center;
+	border-right:1px dashed #ddd;
+}
+
+.weather_content li:last-child {
+	border:none;	
+}
+
+.weather_txt {
+	display:block;
+	font-weight:bold;
+	color:#43a4a2;
+	margin:0;
+	padding:0;
+}
+
+.weather_icon {
+	display:block;
+	text-align:center;
+	font-size:25px;
+	color:#ccc;
+	margin:0;
+	padding:5px 0;
+}
+
+/****************** detail view contents *************************/
+.detail_contents {
+	width:100%;
+	padding:10px;
+	font:14px Malgun Gothic;
+	border-bottom:1px dashed #ccc;
+}
+
+.detail_contents_txt {
+	line-height:2em;
+	color:#666;
+}
+
+.detail_contents-icon{
+	display:inline-block;
+	width:40px;
+	height:40px;
+	border-radius:40px;
+	font-size:20px;
+	color:#fff;
+	text-align:center;
+	background:#43a4a2;
+	margin:0 10px;
+	padding-top:10px;
+}
+.m-b-20 {
+	margin-bottom:20px;
+}
+
+.no_border{
+	border:none;
+}
+
 .b-slide-menu__pages-num {
     vertical-align: middle;
     padding-top: 10px;
@@ -4009,6 +4107,7 @@ html .btn--buy-ticket:hover {
     box-shadow: 2px 0 4px #b7b5b5;
     height: 100%;
     width: 670px;
+    padding-left:50px;
 }
 /* Scrollbar */
 
@@ -4090,7 +4189,7 @@ html .btn--buy-ticket:hover {
     height: 100%;
     width: 100%;
 }
-#gmap_canvas .marker_info2 .info img {
+#map .marker_info2 .info img {
     max-width: 100%;
     position: relative;
 }
@@ -4439,6 +4538,7 @@ html .btn--buy-ticket:hover {
     .b-map-menu,
     .b-slide-menu {
         top: 60px;
+        z-index:99999;
     }
     .b-slide-menu {
         height: calc(100% - 60px);
@@ -5032,7 +5132,6 @@ html .btn--buy-ticket:hover {
     -webkit-transform-origin: center bottom;
     transform-origin: center bottom;
 }
-/*------------------------------------- CHANGES 31.05.2016 ------------------------------------- */
 
 .b-gadget ul,
 .b-footer ul {
@@ -19331,4 +19430,7 @@ div.popup {
     background: #fff;
     padding: 20px;
     box-shadow: 0 3px 10px #222
+}
+.b-slide-menu {
+	left:0;
 }

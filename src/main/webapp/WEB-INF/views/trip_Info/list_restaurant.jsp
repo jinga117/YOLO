@@ -9,8 +9,8 @@
          <div class="b-pop-places container">
             <h2 class="b-cont-title">Restaurant</h2>
               <ul class="b-cont-sub-menu">
-            	<li><a href="list_restaurant_search?food_id=f01">식당</a></li>
-            	<li><a href="list_restaurant_search?food_id=f02">카페</a></li>
+            	<li><a href="list_restaurant_search?food_id=f01">Restaurant</a></li>
+            	<li><a href="list_restaurant_search?food_id=f02">Bakery & Cafe</a></li>
             </ul>
             
             <div class="b-slider owl-carousel owl-carousel-1">            

@@ -1,9 +1,12 @@
 package com.kosta.yolo.controller;
 
+import java.io.PrintWriter;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kosta.yolo.service.TripInfoService;
-import com.kosta.yolo.vo.TripInfoVO;
 
 @Controller
 public class InfoController {
@@ -25,6 +27,36 @@ public class InfoController {
 	public String home(Locale locale, Model model) {
 		return "index";
 	}
+	
+	// 상세보기
+	@RequestMapping("/detail_view")
+	public ModelAndView selectDetail(@RequestParam String trip_id) {
+		System.out.println("상세보기 trip_id : "+ trip_id);
+		ModelAndView mav = infoService.detail_view(trip_id);
+		mav.setViewName("trip_Info/detail_view");
+		return mav;
+	}
+	
+	// 좋아요
+	@RequestMapping("/like")
+	public ModelAndView likeCount(HttpServletRequest request, 
+	        HttpServletResponse response, @RequestParam String trip_id) throws Exception{ 
+		System.out.println("좋아요 trip_id : "+ trip_id);
+		int likeCount = infoService.likeCount(trip_id);
+		System.out.println("좋아요 결과 : "+ likeCount);
+		
+		PrintWriter out = response.getWriter();
+	    JSONObject obj = new JSONObject();
+
+	    obj.put("result","ok");
+	    obj.put("likeCount", likeCount);
+	    out.print(obj);
+	    out.flush();
+	    out.close();    		
+		
+		return null;
+	}
+	
 	//list_attraction전체 리스트
 	@RequestMapping("/list_attraction")
 	public ModelAndView list_attraction(){

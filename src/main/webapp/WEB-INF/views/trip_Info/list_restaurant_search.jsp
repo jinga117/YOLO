@@ -12,12 +12,12 @@
             		Restaurant
             	</c:if>
             	<c:if test="${food_id == 'f02'}">
-            		Cafe
+            		Bakery & Cafe
             	</c:if>
             </h2>
               <ul class="b-cont-sub-menu">
-            	<li><a href="list_restaurant?food_id=f01">식당</a></li>
-            	<li><a href="list_restaurant?food_id=f02">카페</a></li>
+            	<li><a href="list_restaurant?food_id=f01">Restaurant</a></li>
+            	<li><a href="list_restaurant?food_id=f02">Bakery & Cafe</a></li>
             </ul>
             
             <div class="b-slider owl-carousel owl-carousel-1">            
