@@ -14,7 +14,7 @@
 				<td>비밀번호 : </td>
 			</tr>
 			<tr>
-				<td><input type="text" name="id" value="${vo.id }" readonly="readonly"></td>
+				<td><input type="text" name="user_id" value="${vo.user_id }" readonly="readonly"></td>
 				<td><input type="password" name="password"></td>
 			</tr>
 			<tr>

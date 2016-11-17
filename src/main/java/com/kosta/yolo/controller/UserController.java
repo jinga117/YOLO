@@ -38,7 +38,9 @@ public class UserController {
 
    @RequestMapping("/loginPro") // 로그인
    public String loginPro(HttpServletRequest request) {
-	  UserVO vo = userService.userSelect(request.getParameter("user_id"));
+	   String user_id = request.getParameter("user_id");
+	  UserVO vo = userService.userSelect(user_id);
+	  System.out.println("user_id : "+user_id);
 	  request.setAttribute("isadmin", vo.getIsadmin());
       int result = userService.login(request);
       if (result == 1) {
