@@ -38,7 +38,7 @@ public class UserController {
 
    @RequestMapping("/loginPro") // 로그인
    public String loginPro(HttpServletRequest request) {
-	  UserVO vo = userService.userSelect(request.getParameter("id"));
+	  UserVO vo = userService.userSelect(request.getParameter("user_id"));
 	  request.setAttribute("isadmin", vo.getIsadmin());
       int result = userService.login(request);
       if (result == 1) {
@@ -52,7 +52,7 @@ public class UserController {
    public String logout(HttpServletRequest request){
       
       HttpSession session = request.getSession();
-      System.out.println("세션값:"+session.getAttribute("id"));
+      System.out.println("세션값:"+session.getAttribute("user_id"));
       
       session.invalidate();
       
@@ -69,9 +69,9 @@ public class UserController {
 
 
    @RequestMapping("/user_update")
-   public ModelAndView update(@RequestParam String id) {
+   public ModelAndView update(@RequestParam String user_id) {
       ModelAndView mav = new ModelAndView();
-      UserVO vo = userService.userSelect(id);
+      UserVO vo = userService.userSelect(user_id);
       mav.addObject("vo",vo);
       mav.setViewName("user/user_update");
       return mav;
@@ -86,9 +86,9 @@ public class UserController {
    }
 
    @RequestMapping("/user_delete")
-   public ModelAndView delete(@RequestParam String id) {
+   public ModelAndView delete(@RequestParam String user_id) {
       ModelAndView mav = new ModelAndView();
-      UserVO vo = userService.userSelect(id);
+      UserVO vo = userService.userSelect(user_id);
       mav.addObject("vo",vo);
       mav.setViewName("user/user_delete");
       return mav;
@@ -99,11 +99,11 @@ public class UserController {
    public ModelAndView DeletePro(UserVO vo) {
       System.out.println("여긴 delete 컨트롤러!!! ");
       ModelAndView mav = new ModelAndView();
-      String id = vo.getId();
+      String user_id = vo.getUser_id();
       String pwd = vo.getPassword();
-      System.out.println("id:"+id+"pwd:"+pwd);
+      System.out.println("user_id:"+user_id+"pwd:"+pwd);
       
-      UserVO vo1 = userService.userSelect(id);
+      UserVO vo1 = userService.userSelect(user_id);
       userService.deletePro(vo);
       
       mav.setViewName("redirect:userlist");

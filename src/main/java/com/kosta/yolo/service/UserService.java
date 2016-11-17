@@ -20,7 +20,7 @@ public class UserService {
 
 	public void insert(UserVO uservo) {///////////////// 회원가입
 
-		System.out.println("insert안에 ID = " + uservo.getId());
+		System.out.println("insert안에 ID = " + uservo.getUser_id());
 
 		userDAO.getWrite(uservo);
 	}
@@ -28,9 +28,9 @@ public class UserService {
 	public int login(HttpServletRequest request) { // 로그인
 		int result = 1;
 		HttpSession session = request.getSession();
-		session.setAttribute("id", request.getParameter("id"));
-		String id = (String) session.getAttribute("id");
-		UserVO userVo = userDAO.login(id);
+		session.setAttribute("user_id", request.getParameter("user_id"));
+		String user_id = (String) session.getAttribute("user_id");
+		UserVO userVo = userDAO.login(user_id);
 		System.out.println(userVo);
 
 		String inputPwd = request.getParameter("password");
@@ -67,18 +67,18 @@ public class UserService {
 			return mav;
 		}
 
-		public UserVO userSelect(String id) {
-			System.out.println(id);
-			UserVO vo = userDAO.userSelect(id);
+		public UserVO userSelect(String user_id) {
+			System.out.println(user_id);
+			UserVO vo = userDAO.userSelect(user_id);
 
-			System.out.println("여기가 브이오 겟트리아이디 " + vo.getId());
+			System.out.println("여기가 브이오 겟트리아이디 " + vo.getUser_id());
 			System.out.println("여긴!! 서비스닷!!! " + vo);
 			return vo;
 		}
 
 		public ModelAndView deletePro(UserVO vo) {
 			ModelAndView mav = new ModelAndView();
-			System.out.println("서비스:"+vo.getId()+" 서비스 :"+vo.getPassword());
+			System.out.println("서비스:"+vo.getUser_id()+" 서비스 :"+vo.getPassword());
 			userDAO.userDelete(vo);
 			
 			return mav;
