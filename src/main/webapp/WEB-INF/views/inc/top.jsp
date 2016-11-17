@@ -23,10 +23,10 @@
         <div class="b-header__ctrl">
           <div class="b-header__ctrl__item"></div>
          <div class="b-header__ctrl__item">
-            <c:if test="${id == null }">
+            <c:if test="${user_id == null }">
                 <a href="loginPro" class="ab-item login jquery_popup"> <i class="fa fa-unlock-alt" aria-hidden="true"></i><span>Log In</span></a>
             </c:if>
-         <c:if test="${id != null }">
+         <c:if test="${user_id != null }">
             <a href="logout"><i class="fa fa-unlock-alt" aria-hidden="true"></i><span>Log Out</span></a> 
          </c:if>
             </div>
@@ -92,7 +92,7 @@
              <div class="b-form-reg-popup">
                  <h2 class="b-form-reg-popup__title m--centered">YOLO Login</h2>
              <div class="b-form__row">
-                     <input type="text" id="id" name="id" placeholder="Your ID"> </div>
+                     <input type="text" id="user_id" name="user_id" placeholder="Your ID"> </div>
                  <div class="b-form__row">
                      <input type="password"  id="password" name="password" placeholder="Your Password" class="login_password"> </div>
                  <div class="b-form__row m--centered">

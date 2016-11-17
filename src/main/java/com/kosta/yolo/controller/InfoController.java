@@ -2,8 +2,6 @@ package com.kosta.yolo.controller;
 
 import java.util.Locale;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kosta.yolo.service.TripInfoService;
-import com.kosta.yolo.vo.TripInfoVO;
 
 @Controller
 public class InfoController {

@@ -5,7 +5,7 @@
 <mapper namespace="com.kosta.yolo.dao.UserMapper">
 
 	<resultMap type="com.kosta.yolo.vo.UserVO" id="MemberResultMap" >
-		<result property="id" column="id"/>
+		<result property="user_id" column="user_id"/>
 		<result property="password" column="password"/>
 		<result property="email" column="email"/>
 		<result property="gender" column="gender"/>
@@ -14,11 +14,11 @@
 	</resultMap>
 	
 	<insert id="getWrite" >
-		insert into User(id,password,email,gender,age) values(#{id} , #{password} , #{email}, #{gender}, #{age})
+		insert into User(user_id,password,email,gender,age) values(#{user_id} , #{password} , #{email}, #{gender}, #{age})
 	</insert>
 	
 	<select id="login" resultMap="MemberResultMap" parameterType="java.lang.String">
-		select id, password, isadmin  from User where id=#{id}
+		select user_id, password, isadmin  from User where user_id=#{user_id}
 	</select>
 	
 		
@@ -27,14 +27,14 @@
     </select>
 	
 	<update id="userUpdate" parameterType="com.kosta.yolo.vo.UserVO">
-    	UPDATE User SET password=#{password}, email=#{email}, gender=#{gender}, age=#{age}, isadmin=#{isadmin}, area=#{area} WHERE id = #{id }
+    	UPDATE User SET password=#{password}, email=#{email}, gender=#{gender}, age=#{age}, isadmin=#{isadmin}, area=#{area} WHERE user_id = #{user_id }
     </update>
     	
     <delete id="userDelete" parameterType="com.kosta.yolo.vo.UserVO">
-    	DELETE FROM User WHERE id=#{id} AND password=#{password}
+    	DELETE FROM User WHERE user_id=#{user_id} AND password=#{password}
     </delete>
     
     <select id="userSelect" resultType="com.kosta.yolo.vo.UserVO">
-    		SELECT * FROM User WHERE id = #{id}
+    		SELECT * FROM User WHERE user_id = #{user_id}
     </select>
 </mapper>

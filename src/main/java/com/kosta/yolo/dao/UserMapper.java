@@ -9,7 +9,7 @@ public interface UserMapper  extends Serializable  {
 	
 	public void getWrite(UserVO uservo);// 회원가입
 	
-	public UserVO login(String id);	//로그인
+	public UserVO login(String user_id);	//로그인
 	
 	ArrayList<UserVO> selectAll();
 	
@@ -17,6 +17,6 @@ public interface UserMapper  extends Serializable  {
 	
 	public void userDelete(UserVO vo);
 	
-	public UserVO userSelect(String id);
+	public UserVO userSelect(String user_id);
 
 }

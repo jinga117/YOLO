@@ -19,10 +19,10 @@ public class UserDAO {
 		usermapper.getWrite(uservo);
 	}
 
-	public UserVO login(String id) {
+	public UserVO login(String user_id) {
 		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-		if (userMapper.login(id) != null) {
-			return userMapper.login(id);
+		if (userMapper.login(user_id) != null) {
+			return userMapper.login(user_id);
 		} else {
 			return null;
 		}
@@ -42,16 +42,16 @@ public class UserDAO {
 		user.userUpdate(vo);
 	}
 	
-	public UserVO userSelect(String id){
+	public UserVO userSelect(String user_id){
 		System.out.println("여긴 selectDao닷!! ");
 		UserMapper user = sqlSession.getMapper(UserMapper.class);
-		UserVO vo = user.userSelect(id);
+		UserVO vo = user.userSelect(user_id);
 		return vo;
 	}
 	
 	public void userDelete(UserVO vo){
 		System.out.println("여긴 deleteDao닷!! ");
-		System.out.println("다오"+vo.getId()+"다오"+vo.getPassword());
+		System.out.println("다오"+vo.getUser_id()+"다오"+vo.getPassword());
 		UserMapper user = sqlSession.getMapper(UserMapper.class);
 		user.userDelete(vo);
 	}
