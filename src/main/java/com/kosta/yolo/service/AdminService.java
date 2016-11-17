@@ -33,38 +33,49 @@ public class AdminService {
 				
 				TripInfoVO vo = new TripInfoVO();
 				
-			//연령별 문자열 담기
+		//연령별 문자열 담기
+				String age_id = request.getParameter("age_id");
+				if(age_id != "" && age_id != null){
 				String[] age = request.getParameterValues("age_id");
 			       StringBuffer ages = new StringBuffer();
 			        for(String s : age){
 			        	ages.append(s).append(", ");
 			        }
-			    String age_id = ages.substring(0, ages.length()-2);
-
+			        age_id = ages.substring(0, ages.length()-2);
+				}
 			    //인원별
+				String person_id = request.getParameter("person_id");
+				if(person_id != "" && person_id != null){
 			    String[] person = request.getParameterValues("person_id");
 			       StringBuffer persons = new StringBuffer();
 			        for(String s : person){
 			        	persons.append(s).append(", ");
 			        }
-			   String person_id = persons.substring(0, persons.length()-2);
+			        person_id = persons.substring(0, persons.length()-2);
+				}
+				
 			   //계절별
+				String season_id = request.getParameter("season_id");
+				if(season_id != "" && season_id != null){
 			   String[] season = request.getParameterValues("season_id");
 				 StringBuffer seasons = new StringBuffer();
 				 for(String s : season){
 					 seasons.append(s).append(", ");
 				 }
-				String season_id = seasons.substring(0, seasons.length()-2);
+				 season_id = seasons.substring(0, seasons.length()-2);
+				}
 				
 				//레스토랑 카테고리별
+				String food_id = request.getParameter("food_id");
+				if(food_id != "" && food_id != null){
 				   String[] food = request.getParameterValues("food_id");
 					 StringBuffer foods = new StringBuffer();
 					 for(String s : food){
 						 foods.append(s).append(", ");
 					 }
-				String food_id = foods.substring(0, foods.length()-2);	  
-	 
-					
+				 food_id = foods.substring(0, foods.length()-2);	  
+				}
+				
 				vo.setAge_id(age_id);
 				vo.setPerson_id(person_id);
 				vo.setSeason_id(season_id);
