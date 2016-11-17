@@ -4,7 +4,7 @@ public class TripInfoVO {
 	
 	//여행정보
 	private String trip_id; //여행지key값
-	private String category_id, age_id, season_id, person_id, kpop_id; //카테고리key값
+	private String category_id, age_id, food_id, season_id, person_id, kpop_id; //카테고리key값
 	private String trip_nickname; //여행지 별칭
 	private String trip_address; //주소
 	private String trip_image, trip_content, trip_time; //이미지경로, 내용, 이용시간
@@ -13,7 +13,6 @@ public class TripInfoVO {
 	private String trip_add1, trip_add2, trip_add3; //상세주소(시/구/나머지)
 	private int trip_like, trip_view; //좋아요, 조회수
 	private String trip_video; //동영상 주소
-	
 	
 	public String getTrip_id() {
 		return trip_id;
@@ -32,6 +31,12 @@ public class TripInfoVO {
 	}
 	public void setAge_id(String age_id) {
 		this.age_id = age_id;
+	}
+	public String getFood_id() {
+		return food_id;
+	}
+	public void setFood_id(String food_id) {
+		this.food_id = food_id;
 	}
 	public String getSeason_id() {
 		return season_id;
@@ -141,4 +146,5 @@ public class TripInfoVO {
 	public void setTrip_video(String trip_video) {
 		this.trip_video = trip_video;
 	}
+	
 }	

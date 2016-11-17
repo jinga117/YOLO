@@ -3,6 +3,7 @@ package com.kosta.yolo.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,20 +38,13 @@ public class UserController {
 
    @RequestMapping("/loginPro") // 로그인
    public String loginPro(HttpServletRequest request) {
-	  UserVO vo = userService.userSelect(request.getParameter("user_id"));
+	  UserVO vo = userService.userSelect(request.getParameter("id"));
 	  request.setAttribute("isadmin", vo.getIsadmin());
-	  int result = userService.login(request);
+      int result = userService.login(request);
       if (result == 1) {
          return "index";
-      } else if(result==2) {   //아이디잘못입력
-         request.setAttribute("result", result);
-         return "login/loginFail";   
-      }
-      else{      //비밀번호 잘못입력
-         request.setAttribute("result", result);
-
-         System.out.println("비밀번호를 잘못입력");
-         return "login/loginFail";
+      } else {
+         return "login/loginfail";
       }
    }
    
@@ -58,11 +52,11 @@ public class UserController {
    public String logout(HttpServletRequest request){
       
       HttpSession session = request.getSession();
-      System.out.println("세션값:"+session.getAttribute("user_id"));
+      System.out.println("세션값:"+session.getAttribute("id"));
       
       session.invalidate();
       
-      return "login/loginOut";
+      return "login/loginfail";
       
    }
    @RequestMapping("/userlist")
@@ -75,9 +69,9 @@ public class UserController {
 
 
    @RequestMapping("/user_update")
-   public ModelAndView update(@RequestParam String user_id) {
+   public ModelAndView update(@RequestParam String id) {
       ModelAndView mav = new ModelAndView();
-      UserVO vo = userService.userSelect(user_id);
+      UserVO vo = userService.userSelect(id);
       mav.addObject("vo",vo);
       mav.setViewName("user/user_update");
       return mav;
@@ -92,9 +86,9 @@ public class UserController {
    }
 
    @RequestMapping("/user_delete")
-   public ModelAndView delete(@RequestParam String user_id) {
+   public ModelAndView delete(@RequestParam String id) {
       ModelAndView mav = new ModelAndView();
-      UserVO vo = userService.userSelect(user_id);
+      UserVO vo = userService.userSelect(id);
       mav.addObject("vo",vo);
       mav.setViewName("user/user_delete");
       return mav;
@@ -105,11 +99,11 @@ public class UserController {
    public ModelAndView DeletePro(UserVO vo) {
       System.out.println("여긴 delete 컨트롤러!!! ");
       ModelAndView mav = new ModelAndView();
-      String user_id = vo.getUser_id();
+      String id = vo.getId();
       String pwd = vo.getPassword();
-      System.out.println("id:"+user_id+"pwd:"+pwd);
+      System.out.println("id:"+id+"pwd:"+pwd);
       
-      UserVO vo1 = userService.userSelect(user_id);
+      UserVO vo1 = userService.userSelect(id);
       userService.deletePro(vo);
       
       mav.setViewName("redirect:userlist");

@@ -20,7 +20,7 @@
 				<td>Áö     ¿ª :</td>
 			</tr>
 			<tr>
-					<td><input type="text" name="user_id" readonly="readonly" value="${vo.getUser_id()}"></td>
+					<td><input type="text" name="id" readonly="readonly" value="${vo.getId()}"></td>
 					<td><input type="text" name="password" value="${vo.getPassword()}"></td>
 					<td><input type="text" name="email" value="${vo.getEmail()}"></td>
 					<td><input type="text" name="gender" value="${vo.getGender()}"></td>

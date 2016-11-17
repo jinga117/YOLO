@@ -23,10 +23,10 @@
         <div class="b-header__ctrl">
           <div class="b-header__ctrl__item"></div>
          <div class="b-header__ctrl__item">
-            <c:if test="${user_id == null }">
+            <c:if test="${id == null }">
                 <a href="loginPro" class="ab-item login jquery_popup"> <i class="fa fa-unlock-alt" aria-hidden="true"></i><span>Log In</span></a>
             </c:if>
-         <c:if test="${user_id != null }">
+         <c:if test="${id != null }">
             <a href="logout"><i class="fa fa-unlock-alt" aria-hidden="true"></i><span>Log Out</span></a> 
          </c:if>
             </div>
@@ -43,24 +43,24 @@
         <nav class="b-nav">
             <ul>
                 <li class="menu-item-has-children">
-                    <a href="list_attraction"> <i class="fa fa-map-marker" aria-hidden="true"></i>Travel</a>
+                    <a href="#"> <i class="fa fa-map-marker" aria-hidden="true"></i>Travel</a>
                     <ul>
-                        <li><a href="list_age_all">연령별</a></li>
+                        <li><a href="list_age">연령별</a></li>
                         <li><a href="list_theme">테마별</a></li>
-                        <li><a href="list_attraction">인원별</a></li>
+                        <li><a href="list_person">인원별</a></li>
                     </ul>
                 </li>
                 <li class="menu-item-has-children"> <a href="#"><i class="fa fa-star-o" aria-hidden="true"></i>Restaurant</a>
                     <ul>
-                        <li><a href="list_attraction">식당</a>
+                        <li><a href="list_restaurant_search?food_id=f01">식당</a>
                         </li>
-                        <li><a href="list_attraction">카페</a>
+                        <li><a href="list_restaurant_search?food_id=f02">카페</a>
                         </li>
                     </ul>
                 </li>
                 <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i>Shopping</a>
                    <ul>
-                        <li><a href="list_attraction">쇼핑</a></li>
+                        <li><a href="list_shopping?category_id=c03">쇼핑</a></li>
                     </ul>
                 </li>
                 <li class="menu-item-has-children"> <a href="#"><i class="fa fa-mobile" aria-hidden="true"></i>Smart Plan</a>
@@ -92,7 +92,7 @@
              <div class="b-form-reg-popup">
                  <h2 class="b-form-reg-popup__title m--centered">YOLO Login</h2>
              <div class="b-form__row">
-                     <input type="text" id="user_id" name="user_id" placeholder="Your ID"> </div>
+                     <input type="text" id="id" name="id" placeholder="Your ID"> </div>
                  <div class="b-form__row">
                      <input type="password"  id="password" name="password" placeholder="Your Password" class="login_password"> </div>
                  <div class="b-form__row m--centered">

@@ -33,8 +33,8 @@ public class AdminService {
 				
 				TripInfoVO vo = new TripInfoVO();
 				
-				//연령별 문자열 담기
-				  String[] age = request.getParameterValues("age_id");
+			//연령별 문자열 담기
+				String[] age = request.getParameterValues("age_id");
 			       StringBuffer ages = new StringBuffer();
 			        for(String s : age){
 			        	ages.append(s).append(", ");
@@ -54,12 +54,21 @@ public class AdminService {
 				 for(String s : season){
 					 seasons.append(s).append(", ");
 				 }
-				String season_id = seasons.substring(0, seasons.length()-2);	  
- 
+				String season_id = seasons.substring(0, seasons.length()-2);
+				
+				//레스토랑 카테고리별
+				   String[] food = request.getParameterValues("food_id");
+					 StringBuffer foods = new StringBuffer();
+					 for(String s : food){
+						 foods.append(s).append(", ");
+					 }
+				String food_id = foods.substring(0, foods.length()-2);	  
+	 
+					
 				vo.setAge_id(age_id);
 				vo.setPerson_id(person_id);
 				vo.setSeason_id(season_id);
-				
+				vo.setFood_id(food_id);
 				vo.setTrip_id(request.getParameter("trip_id"));
 				vo.setCategory_id(request.getParameter("category_id"));
 				vo.setTrip_nickname(request.getParameter("trip_nickname"));

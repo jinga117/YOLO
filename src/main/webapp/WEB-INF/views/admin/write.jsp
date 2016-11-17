@@ -23,12 +23,16 @@
 						<select name="category_id" style="width: 10em; ">
 						  <option value="c01">명소</option>
 						  <option value="c02">쇼핑</option>
-						  <option value="c03">음식점</option>
+						  <option value="c03">먹거리</option>
 						</select>
 					</td></tr>
-					<tr><td rowspan="4"> 테마별 </td><td id=check  colspan="2">
+					<tr><td rowspan="5"> 테마별 </td><td id=check  colspan="2">
 						<input type="checkbox"   name="age_id" value="a01">꽃청춘
 						<input type="checkbox"   name="age_id" value="a02">꽃중년
+					</tr>
+					<tr><td id=check colspan="2">
+						<input type="checkbox" name="food_id" value="f01">식당
+						<input type="checkbox" name="food_id" value="f02">카페
 					</tr>
 					<tr><td id=check colspan="2">
 						<input type="checkbox" name="season_id" value="s01">봄
