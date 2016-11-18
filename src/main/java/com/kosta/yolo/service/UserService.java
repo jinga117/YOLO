@@ -34,20 +34,22 @@ public class UserService {
 		System.out.println(userVo);
 
 		String inputPwd = request.getParameter("password");
-		if (userVo != null) {
-			
-			if(userVo.getPassword().equals(inputPwd)) { // 로그인성공
-				result = 1;
-			}
-			else{
-	            result = 0;
-	        }
-		}
-		else{
-			result = 0;
-		}
-		return result;
-	}
+	      if (userVo != null) {
+	         
+	         if(userVo.getPassword().equals(inputPwd)) { // 로그인성공
+	            result = 1;
+	         }
+	         else{
+	            result = 3;   //비밀번호를 잘못입력하셧습니다.
+	         }
+	         
+	      }//userVO != null end
+	      else{
+	         result = 2;   //아이디를 잘못입력하셧습니다.
+	      }
+	      return result;
+	   }
+	
 	// 리스트
 	public ModelAndView list() {
 

@@ -21,7 +21,6 @@ public class UserDAO {
 
 	public UserVO login(String user_id) {
 		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-		System.out.println("user_id : "+user_id);
 		if (userMapper.login(user_id) != null) {
 			return userMapper.login(user_id);
 		} else {

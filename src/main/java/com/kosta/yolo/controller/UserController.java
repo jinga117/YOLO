@@ -27,7 +27,7 @@ public class UserController {
       return "user/user_write"; // /WEB-INF/views/write_view.jsp
    } // write_view() end
 
-   @RequestMapping("/userwrite")
+   @RequestMapping(value="/userwrite", method=RequestMethod.POST)
    public String write(UserVO uservo) {// , Model model
 
       System.out.println("여기까지.");

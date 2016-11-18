@@ -6,8 +6,13 @@
     
     	<select id="selectInfoAll" resultType="com.kosta.yolo.vo.TripInfoVO">
     		SELECT * FROM TripInfo WHERE 
-    		age_id LIKE concat('%',#{age_id},'%') OR 
-    		trip_add1 LIKE concat('%',#{trip_add1},'%') OR 
-    		trip_nickname LIKE concat('%',#{trip_nickname},'%')
+    		age_id LIKE concat('%',#{age_id},'%')
+    		
+    		<if test='trip_add1 != null or trip_add1 !=""'>
+    		OR trip_add1 LIKE concat('%',#{trip_add1},'%') 
+    		</if>
+    		<if test='trip_nickname != null or trip_nickname !=""'>
+    		OR trip_nickname LIKE concat('%',#{trip_nickname},'%')
+    		</if>
     	</select>
     </mapper>

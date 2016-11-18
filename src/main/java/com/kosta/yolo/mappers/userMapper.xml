@@ -13,7 +13,7 @@
 		<result property="age" column="age"/>
 	</resultMap>
 	
-	<insert id="getWrite"  >
+	<insert id="getWrite" parameterType="com.kosta.yolo.vo.UserVO">
 		insert into User(user_id, password, email, gender,age) values(#{user_id} , #{password} , #{email}, #{gender}, #{age})
 	</insert>
 	
