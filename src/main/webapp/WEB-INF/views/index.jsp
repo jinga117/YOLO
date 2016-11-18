@@ -16,10 +16,10 @@
             <div class="overlay"></div>
             <div class="b-promo__search container">
                 <h1 class="b-promo__title">Where do you want to go?</h1>
-                <form method="post" action="search_list">
+                <form action="search_list">
                     <div class="b-promo__form">
                         <div class="b-promo__form__col1">
-                          <select data-placeholder="연령대를 선택하세요" class="chosen-select" tabindex="2">
+                          <select data-placeholder="연령대를 선택하세요" class="chosen-select" tabindex="2" name="age_id">
                                <option value=""></option>
                         		<option value="">선택 안함</option>
                                 <option value="a01">꽃청춘</option>
@@ -27,7 +27,7 @@
                             </select>
                 	 </div>
                         <div class="b-promo__form__col1">
-                            <select data-placeholder="도시를 선택하세요" class="chosen-select" tabindex="2">
+                            <select data-placeholder="도시를 선택하세요" class="chosen-select" tabindex="2" name="trip_add1">
                                 <option value=""></option>
                                 <option value="">선택 안함</option>
                                 <option value="서울특별시">서울특별시</option>

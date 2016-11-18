@@ -17,7 +17,7 @@ public class TripSearchDAO {
 	//리스트
 	public ArrayList<TripInfoVO> selectInfoAll(TripInfoVO vo) {
 		System.out.println("여긴 listDao닷!! ");
-	
+		System.out.println(vo.getAge_id());
 		TripSearchMapper infoSearch = sqlSession.getMapper(TripSearchMapper.class);
 		ArrayList<TripInfoVO> list = infoSearch.selectInfoAll(vo);
 		return list;
