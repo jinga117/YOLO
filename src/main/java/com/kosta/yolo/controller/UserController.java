@@ -58,7 +58,7 @@ public class UserController {
       
       session.invalidate();
       
-      return "login/loginfail";
+      return "login/loginFail";
       
    }
    @RequestMapping("/userlist")
