@@ -74,7 +74,7 @@
                     </ul>
                 </li>
                 <c:if test="${isadmin==1 }">
-                <li class="menu-item-has-children"> <a href="#"><i class="fa fa-key" aria-hidden="true"></i>Admin</a>
+                <li class="menu-item-has-children"><a href="#"><i class="fa fa-key" aria-hidden="true"></i>Admin</a>
                     <ul>
                         <li><a href="userlist">회원리스트</a>
                         </li>

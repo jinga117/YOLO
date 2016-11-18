@@ -1163,7 +1163,7 @@ only screen and (min-resolution: 1.5dppx) {
 .b-nav > ul {
     min-height: 80px;
     padding-top: 28px;
-	padding-left:200px;
+	padding-left:150px;
     top: 80px;
     z-index: -1;
     text-align: center;
@@ -1174,7 +1174,7 @@ only screen and (min-resolution: 1.5dppx) {
     top: 40px;
 }
 .b-nav > ul > li {
-	width:150px;
+	width:140px;
     height:50px;
 }
 .b-nav > ul > li:before {
