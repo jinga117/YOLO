@@ -1163,7 +1163,7 @@ only screen and (min-resolution: 1.5dppx) {
 .b-nav > ul {
     min-height: 80px;
     padding-top: 28px;
-	padding-left:250px;
+	padding-left:200px;
     top: 80px;
     z-index: -1;
     text-align: center;
@@ -1255,7 +1255,7 @@ only screen and (min-resolution: 1.5dppx) {
     display: inline-block;
     vertical-align: top;
     height: 100%;
-    border-left: 1px dashed #fff;
+    /* border-left: 1px dashed rgba(255,255,255,.6); */
     padding: 16px 30px;
     height: 80px;
     box-sizing: border-box;
@@ -1269,18 +1269,22 @@ only screen and (min-resolution: 1.5dppx) {
 .b-header__ctrl__item:first-child {
     border-left: none;
 }
-.login {
+.login,.member {
     color: #fff;
     text-decoration: none;
     font-size: 16px;
     font-family: Roboto-Light;
     display: inline-block;
     vertical-align: middle;
+    padding:12px 10px;
+    height:100%;
+    border:1px solid rgba(255,255,255,.7);
 }
-.login:hover {
+
+.login:hover, .member:hover {
     color: #e23d37;
 }
-.login .fa {
+.login .fa, .member .fa {
     margin-right: 14px;
 }
 .b-search {

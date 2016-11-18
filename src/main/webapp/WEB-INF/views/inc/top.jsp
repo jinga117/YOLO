@@ -22,14 +22,16 @@
         <a href="/yolo" class="logo"> <img src="img/logo.png" alt="YOLO" title="YOLO"></a>
         <div class="b-header__ctrl">
           <div class="b-header__ctrl__item"></div>
-         <div class="b-header__ctrl__item">
+          <div class="b-header__ctrl__item">
             <c:if test="${user_id == null }">
-                <a href="loginPro" class="ab-item login jquery_popup"> <i class="fa fa-unlock-alt" aria-hidden="true"></i><span>Log In</span></a>
-            </c:if>
-         <c:if test="${user_id != null }">
-            <a href="logout"><i class="fa fa-unlock-alt" aria-hidden="true"></i><span>Log Out</span></a> 
-         </c:if>
-            </div>
+				<a href="loginPro" class="login jquery_popup"> <i class="fa fa-unlock-alt" aria-hidden="true"></i><span>Log In</span></a>
+				<a href="userWrite_view" class="member"><i class="fa fa-user-plus" aria-hidden="true"></i><span>회원가입</span></a>
+			</c:if>
+			<c:if test="${user_id != null }">
+				 <a href="logout" class="login"><i class="fa fa-unlock-alt" aria-hidden="true"></i><span>Log Out</span></a>
+				 <a href="#" class="member"><i class="fa fa-user" aria-hidden="true"></i><span>My Page</span></a>
+			</c:if>
+        </div>
         <div class="b-header__ctrl__item">
                 <form class="searchbox">
                     <input type="search" placeholder="어디를 여행하고 싶으세요?" name="search" class="searchbox-input" onkeyup="buttonUp()">
@@ -43,14 +45,14 @@
         <nav class="b-nav">
             <ul>
                 <li class="menu-item-has-children">
-                    <a href="#"> <i class="fa fa-map-marker" aria-hidden="true"></i>Travel</a>
+                    <a href="#"><i class="fa fa-suitcase" aria-hidden="true"></i>Travel</a>
                     <ul>
                         <li><a href="list_age">연령별</a></li>
                         <li><a href="list_theme">테마별</a></li>
                         <li><a href="list_person">인원별</a></li>
                     </ul>
                 </li>
-                <li class="menu-item-has-children"> <a href="#"><i class="fa fa-star-o" aria-hidden="true"></i>Restaurant</a>
+                <li class="menu-item-has-children"> <a href="#"><i class="fa fa-cutlery" aria-hidden="true"></i>Restaurant</a>
                     <ul>
                         <li><a href="list_restaurant_search?food_id=f01">restaurant</a>
                         </li>
@@ -58,12 +60,12 @@
                         </li>
                     </ul>
                 </li>
-                <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i>Shopping</a>
+                <li><a href="#"><i class="fa fa-gift" aria-hidden="true"></i>Shopping</a>
                    <ul>
                         <li><a href="list_shopping?category_id=c03">쇼핑</a></li>
                     </ul>
                 </li>
-                <li class="menu-item-has-children"> <a href="#"><i class="fa fa-mobile" aria-hidden="true"></i>Smart Plan</a>
+                <li class="menu-item-has-children"> <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Yolo Plan</a>
                     <ul>
                         <li><a href="list_attraction">여행 일정짜기</a>
                         </li>
@@ -72,7 +74,7 @@
                     </ul>
                 </li>
                 <c:if test="${isadmin==1 }">
-                <li class="menu-item-has-children"> <a href="#"><i class="fa fa-mobile" aria-hidden="true"></i>관리자페이지</a>
+                <li class="menu-item-has-children"> <a href="#"><i class="fa fa-key" aria-hidden="true"></i>Admin</a>
                     <ul>
                         <li><a href="userlist">회원리스트</a>
                         </li>
