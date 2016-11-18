@@ -7,33 +7,40 @@
 	
 	<!-- 컨텐츠 영역 시작 -->
 	<div class="b-main-container places-page" id="content">
-        <div id="hellopreloader">
-            <div id="hellopreloader_preload"></div>
-        </div>
-       <!-- login-->
-	 <div class="hidden b-jquery-popup">
-                <div class="b-form-reg-popup">
-                    <h2 class="b-form-reg-popup__title m--centered">YOLO Login</h2>
-					 <div class="b-form__row">
-                        <input type="text" placeholder="Your ID"> </div>
-                    <div class="b-form__row">
-                        <input type="text" placeholder="Your Name"> </div>
-                    <div class="b-form__row">
-                        <input type="text" placeholder="Email Address"> </div>
-                    <div class="b-form__row">
-                        <input type="text" placeholder="Phone Number"> </div>
-                    <div class="b-form__row">
-                        <select data-placeholder="관심 지역을 선택해 주세요" class="chosen-select-2" tabindex="2">
-							<option value="all">관심 지역을 선택해 주세요</option>
-                           <option value="seoul">서울</option>
-						   <option value="kyeonggi">경기</option>
-                        </select>
-                    </div>
-                    <div class="b-form__row m--centered"> <a href="#" class="btn">가입하기</a> </div>
-                </div>
-            </div>
-        </div>
+	        <div id="hellopreloader">
+	            <div id="hellopreloader_preload"></div>
+	        </div>
+	        
+		<!-- login-->
+		<div class="hidden b-jquery-popup">
+			<div class="b-form-reg-popup">
+				<h2 class="b-form-reg-popup__title m--centered">YOLO Login</h2>
+				<div class="b-form__row">
+					<input type="text" placeholder="Your ID">
+				</div>
+	            <div class="b-form__row">
+	                <input type="text" placeholder="Your Name">
+	            </div>
+	            <div class="b-form__row">
+	                <input type="text" placeholder="Email Address">
+	            </div>
+	            <div class="b-form__row">
+	                <input type="text" placeholder="Phone Number">
+	            </div>
+	            <div class="b-form__row">
+	                <select data-placeholder="관심 지역을 선택해 주세요" class="chosen-select-2" tabindex="2">
+						<option value="all">관심 지역을 선택해 주세요</option>
+						<option value="seoul">서울특별시</option>
+			   			<option value="kyeonggi">경기도</option>
+	                </select>
+	            </div>
+				<div class="b-form__row m--centered">
+					<a href="#" class="btn">가입하기</a>
+				</div>
+			</div>
+		</div>
 	<!--// login-->
+	
         <div class="b-map-menu">
             <ul class="b-map-menu__list">
                 <li class="b-map-menu__list__bars active"><a href="#" class="noajax"><i class="fmr fmr-icon-2810"></i>봄</a>

@@ -1,23 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>íšŒì› ì •ë³´ ìˆ˜ì •</title>
 </head>
 <body>
 	<form action="user_updatePro" method="post">
 		<table>
 			<tr>
-				<td>¾Æ ÀÌ µð :</td>
-				<td>ºñ¹Ð¹øÈ£ :</td>
-				<td>ÀÌ ¸Þ ÀÏ :</td>
-				<td>¼º     º° :</td>
-				<td>³ª     ÀÌ :</td>
-				<td>µî     ±Þ :</td>
-				<td>Áö     ¿ª :</td>
+				<td>ì•„ ì´ ë”” :</td>
+				<td>ë¹„ë°€ë²ˆí˜¸ :</td>
+				<td>ì´ ë©” ì¼ :</td>
+				<td>ì„±     ë³„ :</td>
+				<td>ë‚˜     ì´ :</td>
+				<td>ë“±     ê¸‰ :</td>
+				<td>ì§€     ì—­ :</td>
 			</tr>
 			<tr>
 					<td><input type="text" name="user_id" readonly="readonly" value="${vo.user_id}"></td>
@@ -29,8 +29,8 @@
 					<td><input type="text" name="area" value="${vo.getArea()}"></td>
 			</tr>
 			<tr>
-				<td><input type="submit" value="¼öÁ¤"></td>
-				<td><input type="reset" value="Ãë¼Ò"></td>
+				<td><input type="submit" value="ìˆ˜ì •"></td>
+				<td><input type="reset" value="ì·¨ì†Œ"></td>
 			</tr>
 		</table>
 	</form>

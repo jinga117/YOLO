@@ -9,7 +9,7 @@
 	<!-- 컨텐츠 영역 시작 -->
     <div class="b-main-container" id="content">
         <div class="b-promo lazy" data-src="img/main_visual_img.jpg">
-            <div class="b-placeholder"></div>
+			<div class="b-placeholder"></div>
             <div class="b-stars">
                 <div class="stars"></div>
             </div>
@@ -19,13 +19,14 @@
                 <form action="search_list">
                     <div class="b-promo__form">
                         <div class="b-promo__form__col1">
-                          <select data-placeholder="연령대를 선택하세요" class="chosen-select" tabindex="2" name="age_id">
-                               <option value=""></option>
+							<select data-placeholder="연령대를 선택하세요" class="chosen-select" tabindex="2" name="age_id">
+								<option value=""></option>
                         		<option value="">선택 안함</option>
                                 <option value="a01">꽃청춘</option>
                                 <option value="a02">꽃장년</option>
                             </select>
-                	 </div>
+						</div>
+						
                         <div class="b-promo__form__col1">
                             <select data-placeholder="도시를 선택하세요" class="chosen-select" tabindex="2" name="trip_add1">
                                 <option value=""></option>
@@ -34,8 +35,10 @@
                                 <option value="경기도">경기도</option>
                             </select>
                         </div>
+                        
 						<div class="b-promo__form__col1">
-                            <input type="text" class="b-promo__form__input"  placeholder="장소 선택 ex) 경복궁"  name="trip_nickname"> </div>
+                            <input type="text" class="b-promo__form__input"  placeholder="장소 선택 ex) 경복궁"  name="trip_nickname">
+                        </div>
                         <div class="b-promo__form__col2">
                             <button class="btn btn-success m--border-radius-right" type="submit">Search</button>
                         </div>

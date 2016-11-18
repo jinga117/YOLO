@@ -1,17 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
 <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=d1d5e5ad2e3cb3461622dec6c0af6825"></script>
 
 <!-- 
-clusterer: ¸¶Ä¿¸¦ Å¬·¯½ºÅÍ¸µ ÇÒ ¼ö ÀÖ´Â Å¬·¯½ºÅÍ·¯ ¶óÀÌºê·¯¸® ÀÔ´Ï´Ù.
-services: Àå¼Ò °Ë»ö °ú ÁÖ¼Ò-ÁÂÇ¥ º¯È¯ À» ÇÒ ¼ö ÀÖ´Â services ¶óÀÌºê·¯¸® ÀÔ´Ï´Ù.
-drawing: Áöµµ À§¿¡ ¸¶Ä¿¿Í ±×·¡ÇÈ½º °´Ã¼¸¦ ½±°Ô ±×¸± ¼ö ÀÖ°Ô ±×¸®±â ¸ğµå¸¦ Áö¿øÇÏ´Â drawing ¶óÀÌºê·¯¸® ÀÔ´Ï´Ù.
+clusterer: ë§ˆì»¤ë¥¼ í´ëŸ¬ìŠ¤í„°ë§ í•  ìˆ˜ ìˆëŠ” í´ëŸ¬ìŠ¤í„°ëŸ¬ ë¼ì´ë¸ŒëŸ¬ë¦¬ ì…ë‹ˆë‹¤.
+services: ì¥ì†Œ ê²€ìƒ‰ ê³¼ ì£¼ì†Œ-ì¢Œí‘œ ë³€í™˜ ì„ í•  ìˆ˜ ìˆëŠ” services ë¼ì´ë¸ŒëŸ¬ë¦¬ ì…ë‹ˆë‹¤.
+drawing: ì§€ë„ ìœ„ì— ë§ˆì»¤ì™€ ê·¸ë˜í”½ìŠ¤ ê°ì²´ë¥¼ ì‰½ê²Œ ê·¸ë¦´ ìˆ˜ ìˆê²Œ ê·¸ë¦¬ê¸° ëª¨ë“œë¥¼ ì§€ì›í•˜ëŠ” drawing ë¼ì´ë¸ŒëŸ¬ë¦¬ ì…ë‹ˆë‹¤.
  -->
 
-<!-- services¿Í clusterer, drawing ¶óÀÌºê·¯¸® ºÒ·¯¿À±â -->
+<!-- servicesì™€ clusterer, drawing ë¼ì´ë¸ŒëŸ¬ë¦¬ ë¶ˆëŸ¬ì˜¤ê¸° -->
 <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=APIKEY&libraries=services,clusterer,drawing"></script>
 
 <title>Insert title here</title>
@@ -20,34 +19,34 @@ drawing: Áöµµ À§¿¡ ¸¶Ä¿¿Í ±×·¡ÇÈ½º °´Ã¼¸¦ ½±°Ô ±×¸± ¼ö ÀÖ°Ô ±×¸®±â ¸ğµå¸¦ Áö¿øÇÏ
 	<div id="map" style="width:400px;height:350px;"></div>
 	<p id="clickLatlng"></p>
 	<script type="text/javascript">
-		var mapContainer = document.getElementById('map'), // Áöµµ¸¦ Ç¥½ÃÇÒ div 
+		var mapContainer = document.getElementById('map'), // ì§€ë„ë¥¼ í‘œì‹œí•  div 
 	    mapOption = { 
-	        center: new daum.maps.LatLng(33.450701, 126.570667), // ÁöµµÀÇ Áß½ÉÁÂÇ¥
-	        level: 3 // ÁöµµÀÇ È®´ë ·¹º§
+	        center: new daum.maps.LatLng(33.450701, 126.570667), // ì§€ë„ì˜ ì¤‘ì‹¬ì¢Œí‘œ
+	        level: 3 // ì§€ë„ì˜ í™•ëŒ€ ë ˆë²¨
 	    };
 	
-	var map = new daum.maps.Map(mapContainer, mapOption); // Áöµµ¸¦ »ı¼ºÇÕ´Ï´Ù
+	var map = new daum.maps.Map(mapContainer, mapOption); // ì§€ë„ë¥¼ ìƒì„±í•©ë‹ˆë‹¤
 	
-	// Áöµµ¸¦ Å¬¸¯ÇÑ À§Ä¡¿¡ Ç¥ÃâÇÒ ¸¶Ä¿ÀÔ´Ï´Ù
+	// ì§€ë„ë¥¼ í´ë¦­í•œ ìœ„ì¹˜ì— í‘œì¶œí•  ë§ˆì»¤ì…ë‹ˆë‹¤
 	var marker = new daum.maps.Marker({ 
-	    // Áöµµ Áß½ÉÁÂÇ¥¿¡ ¸¶Ä¿¸¦ »ı¼ºÇÕ´Ï´Ù 
+	    // ì§€ë„ ì¤‘ì‹¬ì¢Œí‘œì— ë§ˆì»¤ë¥¼ ìƒì„±í•©ë‹ˆë‹¤ 
 	    position: map.getCenter() 
 	}); 
-	// Áöµµ¿¡ ¸¶Ä¿¸¦ Ç¥½ÃÇÕ´Ï´Ù
+	// ì§€ë„ì— ë§ˆì»¤ë¥¼ í‘œì‹œí•©ë‹ˆë‹¤
 	marker.setMap(map);
 	
-	// Áöµµ¿¡ Å¬¸¯ ÀÌº¥Æ®¸¦ µî·ÏÇÕ´Ï´Ù
-	// Áöµµ¸¦ Å¬¸¯ÇÏ¸é ¸¶Áö¸· ÆÄ¶ó¹ÌÅÍ·Î ³Ñ¾î¿Â ÇÔ¼ö¸¦ È£ÃâÇÕ´Ï´Ù
+	// ì§€ë„ì— í´ë¦­ ì´ë²¤íŠ¸ë¥¼ ë“±ë¡í•©ë‹ˆë‹¤
+	// ì§€ë„ë¥¼ í´ë¦­í•˜ë©´ ë§ˆì§€ë§‰ íŒŒë¼ë¯¸í„°ë¡œ ë„˜ì–´ì˜¨ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•©ë‹ˆë‹¤
 	daum.maps.event.addListener(map, 'click', function(mouseEvent) {        
 	    
-	    // Å¬¸¯ÇÑ À§µµ, °æµµ Á¤º¸¸¦ °¡Á®¿É´Ï´Ù 
+	    // í´ë¦­í•œ ìœ„ë„, ê²½ë„ ì •ë³´ë¥¼ ê°€ì ¸ì˜µë‹ˆë‹¤ 
 	    var latlng = mouseEvent.latLng; 
 	    
-	    // ¸¶Ä¿ À§Ä¡¸¦ Å¬¸¯ÇÑ À§Ä¡·Î ¿Å±é´Ï´Ù
+	    // ë§ˆì»¤ ìœ„ì¹˜ë¥¼ í´ë¦­í•œ ìœ„ì¹˜ë¡œ ì˜®ê¹ë‹ˆë‹¤
 	    marker.setPosition(latlng);
 	    
-	    var message = 'Å¬¸¯ÇÑ À§Ä¡ÀÇ À§µµ´Â ' + latlng.getLat() + ' ÀÌ°í, ';
-	    message += '°æµµ´Â ' + latlng.getLng() + ' ÀÔ´Ï´Ù';
+	    var message = 'í´ë¦­í•œ ìœ„ì¹˜ì˜ ìœ„ë„ëŠ” ' + latlng.getLat() + ' ì´ê³ , ';
+	    message += 'ê²½ë„ëŠ” ' + latlng.getLng() + ' ì…ë‹ˆë‹¤';
 	    
 	    var resultDiv = document.getElementById('clickLatlng'); 
 	    resultDiv.innerHTML = message;
@@ -56,28 +55,28 @@ drawing: Áöµµ À§¿¡ ¸¶Ä¿¿Í ±×·¡ÇÈ½º °´Ã¼¸¦ ½±°Ô ±×¸± ¼ö ÀÖ°Ô ±×¸®±â ¸ğµå¸¦ Áö¿øÇÏ
 </script>
 	
 	
-<!-- 	<p><em>Áöµµ¸¦ ¿òÁ÷¿© ÁÖ¼¼¿ä!</em></p> 
+<!-- 	<p><em>ì§€ë„ë¥¼ ì›€ì§ì—¬ ì£¼ì„¸ìš”!</em></p> 
 	<p id="result"></p>
 
 <script>
-	var mapContainer = document.getElementById('map'), // Áöµµ¸¦ Ç¥½ÃÇÒ div //Áöµµ¸¦ ´ãÀ» ¿µ¿ªÀÇ DOM ·¹ÆÛ·±½º
-	    mapOption = { //Áöµµ¸¦ »ı¼ºÇÒ ¶§ ÇÊ¿äÇÑ ±âº» ¿É¼Ç
-	        center: new daum.maps.LatLng(33.450701, 126.570667), // ÁöµµÀÇ Áß½ÉÁÂÇ¥
-	        level: 3 // ÁöµµÀÇ È®´ë ·¹º§(È®´ë, Ãà¼Ò Á¤µµ)
+	var mapContainer = document.getElementById('map'), // ì§€ë„ë¥¼ í‘œì‹œí•  div //ì§€ë„ë¥¼ ë‹´ì„ ì˜ì—­ì˜ DOM ë ˆí¼ëŸ°ìŠ¤
+	    mapOption = { //ì§€ë„ë¥¼ ìƒì„±í•  ë•Œ í•„ìš”í•œ ê¸°ë³¸ ì˜µì…˜
+	        center: new daum.maps.LatLng(33.450701, 126.570667), // ì§€ë„ì˜ ì¤‘ì‹¬ì¢Œí‘œ
+	        level: 3 // ì§€ë„ì˜ í™•ëŒ€ ë ˆë²¨(í™•ëŒ€, ì¶•ì†Œ ì •ë„)
 	    };
 	
-	var map = new daum.maps.Map(mapContainer, mapOption); // Áöµµ¸¦ »ı¼ºÇÕ´Ï´Ù  //Áöµµ »ı¼º ¹× °´Ã¼ ¸®ÅÏ
+	var map = new daum.maps.Map(mapContainer, mapOption); // ì§€ë„ë¥¼ ìƒì„±í•©ë‹ˆë‹¤  //ì§€ë„ ìƒì„± ë° ê°ì²´ ë¦¬í„´
 
 
-	// ¸¶¿ì½º µå·¡±×·Î Áöµµ ÀÌµ¿ÀÌ ¿Ï·áµÇ¾úÀ» ¶§ ¸¶Áö¸· ÆÄ¶ó¹ÌÅÍ·Î ³Ñ¾î¿Â ÇÔ¼ö¸¦ È£ÃâÇÏµµ·Ï ÀÌº¥Æ®¸¦ µî·ÏÇÕ´Ï´Ù
+	// ë§ˆìš°ìŠ¤ ë“œë˜ê·¸ë¡œ ì§€ë„ ì´ë™ì´ ì™„ë£Œë˜ì—ˆì„ ë•Œ ë§ˆì§€ë§‰ íŒŒë¼ë¯¸í„°ë¡œ ë„˜ì–´ì˜¨ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•˜ë„ë¡ ì´ë²¤íŠ¸ë¥¼ ë“±ë¡í•©ë‹ˆë‹¤
 	daum.maps.event.addListener(map, 'dragend', function() {        
 
-	    // Áöµµ Áß½ÉÁÂÇ¥¸¦ ¾ò¾î¿É´Ï´Ù 
+	    // ì§€ë„ ì¤‘ì‹¬ì¢Œí‘œë¥¼ ì–»ì–´ì˜µë‹ˆë‹¤ 
 	    var latlng = map.getCenter(); 
     
-	    //web¿¡ ¶ç¿ì´Â ¸Ş¼¼Áö
-	    var message = 'º¯°æµÈ Áöµµ Áß½ÉÁÂÇ¥´Â ' + latlng.getLat() + ' ÀÌ°í, ';
-	    message += '°æµµ´Â ' + latlng.getLng() + ' ÀÔ´Ï´Ù';
+	    //webì— ë„ìš°ëŠ” ë©”ì„¸ì§€
+	    var message = 'ë³€ê²½ëœ ì§€ë„ ì¤‘ì‹¬ì¢Œí‘œëŠ” ' + latlng.getLat() + ' ì´ê³ , ';
+	    message += 'ê²½ë„ëŠ” ' + latlng.getLng() + ' ì…ë‹ˆë‹¤';
 	    
 	    var resultDiv = document.getElementById('result');  
 	    resultDiv.innerHTML = message;
@@ -86,11 +85,11 @@ drawing: Áöµµ À§¿¡ ¸¶Ä¿¿Í ±×·¡ÇÈ½º °´Ã¼¸¦ ½±°Ô ±×¸± ¼ö ÀÖ°Ô ±×¸®±â ¸ğµå¸¦ Áö¿øÇÏ
 </script> -->
 		
 <!-- 
-	Map °´Ã¼ÀÇ µÎ ¹øÂ° ÆÄ¶ó¸ŞÅÍ·Î ³Ö´Â options ÀÇ ¼Ó¼º Áß, center ´Â Áöµµ¸¦ »ı¼ºÇÏ´Âµ¥ ¹İµå½Ã ÇÊ¿äÇÕ´Ï´Ù.
+	Map ê°ì²´ì˜ ë‘ ë²ˆì§¸ íŒŒë¼ë©”í„°ë¡œ ë„£ëŠ” options ì˜ ì†ì„± ì¤‘, center ëŠ” ì§€ë„ë¥¼ ìƒì„±í•˜ëŠ”ë° ë°˜ë“œì‹œ í•„ìš”í•©ë‹ˆë‹¤.
 	
-	center ¿¡ ÇÒ´çÇÒ °ªÀº LatLng Å¬·¡½º¸¦ »ç¿ëÇÏ¿© »ı¼ºÇÕ´Ï´Ù. 
-	ÈçÈ÷ À§°æµµ ÁÂÇ¥¶ó°í ºÎ¸£´Â WGS84 ÁÂÇ¥°èÀÇ ÁÂÇ¥°ªÀ» ³Ö¾î¼­ ¸¸µå´Âµ¥¿ä, 
-	»ı¼ºÀÎÀÚ´Â À§µµ(latitude), °æµµ(longitude) ¼øÀ¸·Î ³Ö¾îÁÖ¼¼¿ä.
+	center ì— í• ë‹¹í•  ê°’ì€ LatLng í´ë˜ìŠ¤ë¥¼ ì‚¬ìš©í•˜ì—¬ ìƒì„±í•©ë‹ˆë‹¤. 
+	í”íˆ ìœ„ê²½ë„ ì¢Œí‘œë¼ê³  ë¶€ë¥´ëŠ” WGS84 ì¢Œí‘œê³„ì˜ ì¢Œí‘œê°’ì„ ë„£ì–´ì„œ ë§Œë“œëŠ”ë°ìš”, 
+	ìƒì„±ì¸ìëŠ” ìœ„ë„(latitude), ê²½ë„(longitude) ìˆœìœ¼ë¡œ ë„£ì–´ì£¼ì„¸ìš”.
 	 -->
 	 
 	 

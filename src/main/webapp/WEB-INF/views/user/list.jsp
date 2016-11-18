@@ -19,19 +19,19 @@
 <body>
 	리스트 <hr>
 		<table>
-		<c:forEach items="${list }" var="list">
-			<tr>	
-				<td>${list.user_id}</td>
-				<td>${list.password}</td>
-				<td>${list.email}</td>
-				<td>${list.gender}</td>
-				<td>${list.age}</td>
-				<td>${list.isadmin}</td>
-				<td>${list.area}</td>
-				<td><input type="button" value="수정" onclick="location.href='/yolo/user_update?user_id=${list.user_id}'"></td>
-				<td><input type="button" value="삭제" onclick="location.href='/yolo/user_delete?user_id=${list.user_id}'"></td>
-			</tr>
-		</c:forEach>
+			<c:forEach items="${list }" var="list">
+				<tr>	
+					<td>${list.user_id}</td>
+					<td>${list.password}</td>
+					<td>${list.email}</td>
+					<td>${list.gender}</td>
+					<td>${list.age}</td>
+					<td>${list.isadmin}</td>
+					<td>${list.area}</td>
+					<td><input type="button" value="수정" onclick="location.href='/yolo/user_update?user_id=${list.user_id}'"></td>
+					<td><input type="button" value="삭제" onclick="location.href='/yolo/user_delete?user_id=${list.user_id}'"></td>
+				</tr>
+			</c:forEach>
 		</table>
 </body>
 </html>
