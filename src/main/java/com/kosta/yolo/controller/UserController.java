@@ -24,16 +24,16 @@ public class UserController {
    @RequestMapping("/userWrite_view") // 회원가입 페이지로 이동
    public String write_view(Model model) {
       System.out.println("write_view() method");
-      return "userWrite/user_write"; // /WEB-INF/views/write_view.jsp
+      return "user/user_write"; // /WEB-INF/views/write_view.jsp
    } // write_view() end
 
-   @RequestMapping("/userWrite")
+   @RequestMapping("/userwrite")
    public String write(UserVO uservo) {// , Model model
 
       System.out.println("여기까지.");
       userService.insert(uservo);
 
-      return "redirect:list";
+      return "index";
    }
 
    @RequestMapping("/loginPro") // 로그인
