@@ -16,39 +16,59 @@
 		<hr>
 			<form method="post">
 				<table style="margin: 0 auto;">
-					<tr><td>여행지key값</td>
-					<td><input type="text" name="trip_id" size="50" ></td></tr>
-					<tr><td>카테고리key값</td>
-					<td>
-						<select name="category_id" style="width: 10em; ">
-						  <option value="c01">명소</option>
-						  <option value="c02">쇼핑</option>
-						  <option value="c03">먹거리</option>
-						</select>
-					</td></tr>
-					<tr><td rowspan="5"> 테마별 </td><td id=check  colspan="2">
-						<input type="checkbox"   name="age_id" value="a01">꽃청춘
-						<input type="checkbox"   name="age_id" value="a02">꽃중년
+					<tr>
+						<td>여행지key값</td>
+						<td><input type="text" name="trip_id" size="50" ></td>
 					</tr>
-					<tr><td id=check colspan="2">
-						<input type="checkbox" name="food_id" value="f01">식당
-						<input type="checkbox" name="food_id" value="f02">카페
+					
+					<tr>
+						<td>카테고리key값</td>
+						<td>
+							<select name="category_id" style="width: 10em; ">
+								<option value="c01">명소</option>
+								<option value="c02">쇼핑</option>
+								<option value="c03">먹거리</option>
+							</select>
+						</td>
 					</tr>
-					<tr><td id=check colspan="2">
-						<input type="checkbox" name="season_id" value="s01">봄
-						<input type="checkbox" name="season_id" value="s02">여름
-						<input type="checkbox" name="season_id" value="s03">가을
-						<input type="checkbox" name="season_id" value="s04">겨울
+					
+					<tr>
+						<td rowspan="5"> 테마별 </td>
+						<td id=check  colspan="2">
+							<input type="checkbox"   name="age_id" value="a01">꽃청춘
+							<input type="checkbox"   name="age_id" value="a02">꽃중년
+						</td>
 					</tr>
-					<tr><td id=check colspan="2" >
-						<input type="checkbox" name="person_id" value="p01">나홀로
-						<input type="checkbox" name="person_id" value="p02">커플
-						<input type="checkbox" name="person_id" value="p03">우정
-						<input type="checkbox" name="person_id" value="p04">가족
+					
+					<tr>
+						<td id=check colspan="2">
+							<input type="checkbox" name="food_id" value="f01">식당
+							<input type="checkbox" name="food_id" value="f02">카페
+						</td>
 					</tr>
-					<tr><td id=check colspan="2">
-						<input type="checkbox" name="kpop_id" value="k01">kpop
+					
+					<tr>
+						<td id=check colspan="2">
+							<input type="checkbox" name="season_id" value="s01">봄
+							<input type="checkbox" name="season_id" value="s02">여름
+							<input type="checkbox" name="season_id" value="s03">가을
+							<input type="checkbox" name="season_id" value="s04">겨울
 					</tr>
+					
+					<tr>
+						<td id=check colspan="2" >
+							<input type="checkbox" name="person_id" value="p01">나홀로
+							<input type="checkbox" name="person_id" value="p02">커플
+							<input type="checkbox" name="person_id" value="p03">우정
+							<input type="checkbox" name="person_id" value="p04">가족
+					</tr>
+					
+					<tr>
+						<td id=check colspan="2">
+							<input type="checkbox" name="kpop_id" value="k01">kpop
+						</td>
+					</tr>
+					
 					<tr><td>여행지 별칭</td><td><input type="text" name="trip_nickname" size="50" ></td></tr>
 					<tr><td>주소</td><td><input type="text" name="trip_address" size="50" ></td></tr>
 					<tr><td>시</td><td><input type="text" name="trip_add1" size="50" ></td></tr>
@@ -64,6 +84,9 @@
 					<tr><td>좋아요</td><td><input type="text" name="trip_like" size="50" ></td></tr>
 					<tr><td>조회수</td><td><input type="text" name="trip_view" size="50" ></td></tr>
 					<tr><td>동영상</td><td><input type="text" name="trip_video" size="50" ></td></tr>
+					<tr><td>위도</td><td><input type="text" name="pos_x" size="50" ></td></tr>
+					<tr><td>경도</td><td><input type="text" name="pos_y" size="50" ></td></tr>
+					
 					<tr>
 						<td colspan="2" align="center">
 							<input type="submit" value="등록"> &nbsp;&nbsp; <input type="reset" value="취소">
