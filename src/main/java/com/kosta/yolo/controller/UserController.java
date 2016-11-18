@@ -46,7 +46,7 @@ public class UserController {
       if (result == 1) {
          return "index";
       } else {
-         return "login/loginfail";
+         return "index";
       }
    }
    

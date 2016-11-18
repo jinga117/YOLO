@@ -19,7 +19,6 @@ public class TripSearchService {
 	
 	//리스트
 	public ArrayList<TripInfoVO> search_list(TripInfoVO vo){
-		ModelAndView mav = new ModelAndView();
 		
 		return infoSearchDAO.selectInfoAll(vo);
 		

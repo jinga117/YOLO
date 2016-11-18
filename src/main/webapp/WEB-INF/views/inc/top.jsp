@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <title>YOLO - You Only Live Once</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main1.css">
 </head>
 
 <body class="home">
@@ -86,17 +86,18 @@
     <!-- //b-header -->
     
     <!-- login-->
+    </script>
     <div class="hidden b-jquery-popup">
        <form action="loginPro" method="post">
        <input type="hidden" name="isadmin" value="${isadmin }">
              <div class="b-form-reg-popup">
                  <h2 class="b-form-reg-popup__title m--centered">YOLO Login</h2>
              <div class="b-form__row">
-                     <input type="text" id="user_id" name="user_id" placeholder="Your ID"> </div>
+                     <input type="text" id="user_id" name="user_id" placeholder="Your ID" required="required"> </div>
                  <div class="b-form__row">
-                     <input type="password"  id="password" name="password" placeholder="Your Password" class="login_password"> </div>
+                     <input type="password"  id="password" name="password" placeholder="Your Password" class="login_password"  required="required"> </div>
                  <div class="b-form__row m--centered">
-                     <button class="btn btn-success m--border-radius-right" type="submit">로그인</button>
+                     <button class="btn btn-success m--border-radius-right" id="loginbtn" type="submit">로그인</button>
                  </div>
              </div>
          </form>
