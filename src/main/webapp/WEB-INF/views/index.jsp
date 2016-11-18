@@ -19,17 +19,19 @@
                 <form method="post" action="search_list">
                     <div class="b-promo__form">
                         <div class="b-promo__form__col1">
-                            <select data-placeholder="연령대를 선택하세요" class="chosen-select" tabindex="2" name="age_id">
-								<option value=""></option>
+                          <select data-placeholder="연령대를 선택하세요" class="chosen-select" tabindex="2">
+                               <option value=""></option>
+                        		<option value="">선택 안함</option>
                                 <option value="a01">꽃청춘</option>
                                 <option value="a02">꽃장년</option>
                             </select>
-						</div>
+                	 </div>
                         <div class="b-promo__form__col1">
-                            <select data-placeholder="도시를 선택하세요" class="chosen-select" tabindex="2" name="trip_add1">
+                            <select data-placeholder="도시를 선택하세요" class="chosen-select" tabindex="2">
                                 <option value=""></option>
-                                <option value="서울특별시">서울</option>
-                                <option value="l2">경기도</option>
+                                <option value="">선택 안함</option>
+                                <option value="서울특별시">서울특별시</option>
+                                <option value="경기도">경기도</option>
                             </select>
                         </div>
 						<div class="b-promo__form__col1">
