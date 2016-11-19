@@ -77,7 +77,7 @@
                 
                 <li class="menu-item-has-children"> <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Yolo Plan</a>
                 	<ul>
-                        <li><a href="list_attraction">여행 일정짜기</a></li>
+                        <li><a href="trip_schedule">여행 일정짜기</a></li>
                         <li><a href="list_attraction">여행 발자취</a></li>
                     </ul>
                 </li>

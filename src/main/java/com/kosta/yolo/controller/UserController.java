@@ -38,14 +38,16 @@ public class UserController {
 
    @RequestMapping("/loginPro") // 로그인
    public String loginPro(HttpServletRequest request) {
-	   String user_id = request.getParameter("user_id");
-	  UserVO vo = userService.userSelect(user_id);
+	  String user_id = request.getParameter("user_id");
+	  //UserVO vo = userService.userSelect(user_id);
 	  System.out.println("user_id : "+user_id);
-	  request.setAttribute("isadmin", vo.getIsadmin());
       int result = userService.login(request);
+
       if (result == 1) {
+
          return "index";
       }else if(result == 2){
+
     	  request.setAttribute("result", result);
          return "login/loginFail";
       }else{
@@ -53,6 +55,7 @@ public class UserController {
     	 return "login/loginFail";
       }
    }
+
    
    @RequestMapping("/logout")
    public String logout(HttpServletRequest request){

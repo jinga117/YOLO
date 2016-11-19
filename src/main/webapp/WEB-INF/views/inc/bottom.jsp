@@ -25,10 +25,10 @@
                        
                     	<div class="b-footer__nav__col__title">Categories</div>
                       		<ul>
-	                           	<li><a href="list_attraction?category_id=c01">Attraction</a></li>
+	                           	<li><a href="list_attraction">Attraction</a></li>
 	                           	<li><a href="list_restaurant">Restaurants</a></li>
 	                           	<li><a href="list_shopping?category_id=c03">Shopping</a></li>
-								<li><a href="#">YOLO Plan</a></li>
+								<li><a href="trip_schedule">YOLO Plan</a></li>
                        		</ul>
                    	</div>
                 </div>
@@ -56,4 +56,3 @@
     <script src="js/custum.js"></script>
     <script src="js/jquery.custom-scrollbar.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/list.js"></script>

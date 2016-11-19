@@ -25,19 +25,23 @@ public class UserService {
 		userDAO.getWrite(uservo);
 	}
 
+
 	public int login(HttpServletRequest request) { // 로그인
 		int result = 1;
 		HttpSession session = request.getSession();
 		session.setAttribute("user_id", request.getParameter("user_id"));
 		String user_id = (String) session.getAttribute("user_id");
+		System.out.println("써비쓰~~~~");
 		UserVO userVo = userDAO.login(user_id);
-		System.out.println(userVo);
-
+		
 		String inputPwd = request.getParameter("password");
+
 	      if (userVo != null) {
 	         
 	         if(userVo.getPassword().equals(inputPwd)) { // 로그인성공
 	            result = 1;
+	    		request.setAttribute("isadmin", userVo.getIsadmin());
+
 	         }
 	         else{
 	            result = 3;   //비밀번호를 잘못입력하셧습니다.
@@ -49,7 +53,7 @@ public class UserService {
 	      }
 	      return result;
 	   }
-	
+
 	// 리스트
 	public ModelAndView list() {
 
