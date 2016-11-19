@@ -16,10 +16,21 @@ public class SearchController {
 	private TripSearchService infoSearchService;
 	
 	@RequestMapping("/search_list")
-	public ModelAndView search_list(TripInfoVO vo, Model model){
-		System.out.println("여긴 컨트롤러!!! "+vo);
+	public ModelAndView search_list(TripInfoVO vo){
+		System.out.println("여긴 index search 컨트롤러!!! "+vo);
 		ModelAndView mav =new ModelAndView();
 		mav.addObject("list", infoSearchService.search_list(vo));
+		mav.addObject("count", infoSearchService.search_listCount(vo));
+		mav.setViewName("trip_search/search_list");
+		return mav;
+	}
+	
+	@RequestMapping("/searchAll_list")
+	public ModelAndView searchAll_list(TripInfoVO vo){
+		System.out.println("여긴 top search컨트롤러!!! "+vo);
+		ModelAndView mav =new ModelAndView();
+		mav.addObject("list", infoSearchService.searchAll_list(vo));
+		mav.addObject("count", infoSearchService.searchAll_listCount(vo));
 		mav.setViewName("trip_search/search_list");
 		return mav;
 	}

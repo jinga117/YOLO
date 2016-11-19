@@ -3,7 +3,7 @@
      "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
     <mapper namespace="com.kosta.yolo.dao.TripSearchMapper">
-    
+    	<!-- index.jsp 검색 -->
     	<select id="selectInfoAll" resultType="com.kosta.yolo.vo.TripInfoVO">
     		SELECT * FROM TripInfo WHERE 
     		age_id LIKE concat('%',#{age_id},'%') 
@@ -13,5 +13,20 @@
     		AND trip_nickname LIKE concat('%',#{trip_nickname},'%')
     		
     	</select>
+    	<select id="selectInfoAllCount" resultType="java.lang.Integer">
+    		SELECT count(*) FROM TripInfo WHERE 
+    		age_id LIKE concat('%',#{age_id},'%') 
+    		AND trip_add1 LIKE concat('%',#{trip_add1},'%') 
+    		AND trip_nickname LIKE concat('%',#{trip_nickname},'%')
+    	</select>
+    	<!-- top.jsp 검색 -->
+    	<select id="selectAll" resultType="com.kosta.yolo.vo.TripInfoVO">
+    		SELECT * FROM TripInfo WHERE trip_nickname LIKE concat('%',#{trip_nickname},'%')
+    	</select>
+    	<select id="selectAllCount" resultType="java.lang.Integer">
+    		SELECT count(*) FROM TripInfo WHERE trip_nickname LIKE concat('%',#{trip_nickname},'%')
+    	</select>
+    	
+    	
     </mapper>
      

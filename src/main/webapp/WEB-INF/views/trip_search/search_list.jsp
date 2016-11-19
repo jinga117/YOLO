@@ -29,7 +29,7 @@
 	<!-- 컨텐츠 영역 시작 -->
     <div class="b-main-container" id="content">
 		<div class="b-pop-places container">
-			<h2 class="b-cont-title">검색결과</h2>
+			<h2 class="b-cont-title">검색결과</h2><h5>총 ${count }건이 검색 되었습니다.</h5>
             
             <div class="b-slider owl-carousel owl-carousel-1">            
             <!--  리스트 시작 -->

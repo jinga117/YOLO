@@ -40,8 +40,8 @@
         	</div>
         	
         	<div class="b-header__ctrl__item">
-                <form class="searchbox">
-					<input type="search" placeholder="어디를 여행하고 싶으세요?" name="search" class="searchbox-input" onkeyup="buttonUp()">
+                <form action="searchAll_list" class="searchbox">
+					<input type="search" placeholder="어디를 여행하고 싶으세요?" name="trip_nickname" class="searchbox-input" onkeyup="buttonUp()">
                     <button type="submit" class="searchbox-submit"><i class="fa fa-search" aria-hidden="true"></i></button> 
                     <span class="searchbox-icon"><i class="fa fa-search" aria-hidden="true"></i></span>
                 </form>
