@@ -18,11 +18,11 @@ public interface TripInfoMapper  extends Serializable  {
 	
 	//레스토랑 카테고리별 / 쇼핑별 전체 리스트뿌리기
 	ArrayList<TripInfoVO> foodAll();
-	ArrayList<TripInfoVO> shopAll(String category_id);
+	ArrayList<TripInfoVO> categoryAll(String category_id);
 	
 	//레스토랑 카테고리별 top 리스트
 	ArrayList<TripInfoVO> foodAllTop();
-	ArrayList<TripInfoVO> shopTop(String category_id);
+	ArrayList<TripInfoVO> categoryTop(String category_id);
 
 	
 	

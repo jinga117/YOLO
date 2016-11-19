@@ -11,11 +11,11 @@
     	
     	
     	<!-- 쇼핑카테고리 top5 -->
-    	<select id="shopTop"  resultType="com.kosta.yolo.vo.TripInfoVO">
+    	<select id="categoryTop"  resultType="com.kosta.yolo.vo.TripInfoVO">
     		SELECT * FROM TripInfo WHERE category_id = #{category_id}  ORDER BY trip_like DESC LIMIT 5
     	</select>
     	<!-- 쇼핑카테고리 전체리스트 -->
-    	<select id="shopAll"  resultType="com.kosta.yolo.vo.TripInfoVO">
+    	<select id="categoryAll"  resultType="com.kosta.yolo.vo.TripInfoVO">
     		SELECT * FROM TripInfo WHERE category_id = #{category_id}
     	</select>
     	

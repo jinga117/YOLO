@@ -57,14 +57,14 @@ public class InfoController {
 		return null;
 	}
 	
-	//list_attraction전체 리스트
+/*	//list_attraction전체 리스트
 	@RequestMapping("/list_attraction")
 	public ModelAndView list_attraction(){
 		ModelAndView mav = infoService.list();
 		mav.setViewName("trip_Info/list_attraction");
 		return mav;
 	}
-	
+	*/
 	//list_restaurant전체 리스트
 	@RequestMapping("/list_restaurant")
 	public ModelAndView list_restaurant(){
@@ -80,6 +80,15 @@ public class InfoController {
 		mav.setViewName("trip_Info/list_shopping");
 		return mav;
 	}
+	
+	//list_attraction전체 리스트
+	@RequestMapping("/list_attraction")
+	public ModelAndView list_travel(@RequestParam String category_id){
+		ModelAndView mav = infoService.list_shopping(category_id);
+		mav.setViewName("trip_Info/list_attraction");
+		return mav;
+	}
+
 
 	// 연령별 
 	@RequestMapping("/list_age")

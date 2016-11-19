@@ -25,7 +25,7 @@
                        
                     	<div class="b-footer__nav__col__title">Categories</div>
                       		<ul>
-	                           	<li><a href="list_attraction">Attraction</a></li>
+	                           	<li><a href="list_attraction?category_id=c01">Attraction</a></li>
 	                           	<li><a href="list_restaurant">Restaurants</a></li>
 	                           	<li><a href="list_shopping?category_id=c03">Shopping</a></li>
 								<li><a href="#">YOLO Plan</a></li>

@@ -33,7 +33,7 @@
               
             <div class="b-slider owl-carousel owl-carousel-1">            
             <!--  리스트 시작 -->
-            <c:forEach items="${shopTop }" var="list">
+            <c:forEach items="${cateTop }" var="list">
                  <div class="b-pop-places__item">
                     <div class="b-pop-place">
 						<div class="b-pop-place__img">
@@ -75,7 +75,7 @@
 		<div id="viewList"> 
         <ul class="viewList_list">   
           <!--  View all List 시작 -->
-          <c:forEach items="${shopList }" var="list">
+          <c:forEach items="${cateList }" var="list">
              <li>
                <div class="viewList_item">
                   <div class="b-pop-place">

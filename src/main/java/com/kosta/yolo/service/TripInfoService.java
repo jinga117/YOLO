@@ -61,10 +61,10 @@ public class TripInfoService {
 	//list_shopping전체 리스트
 	public ModelAndView list_shopping(String category_id){
 		ModelAndView mav = new ModelAndView();
-		ArrayList<TripInfoVO> shopList = infoDAO.shopAll(category_id);
-		ArrayList<TripInfoVO> shopTop = infoDAO.shopTop(category_id);
-		mav.addObject("shopList", shopList);
-		mav.addObject("shopTop", shopTop);
+		ArrayList<TripInfoVO> shopList = infoDAO.categoryAll(category_id);
+		ArrayList<TripInfoVO> shopTop = infoDAO.categoryTop(category_id);
+		mav.addObject("cateList", shopList);
+		mav.addObject("cateTop", shopTop);
 		return mav;
 	}
 	

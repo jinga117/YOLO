@@ -37,9 +37,9 @@ public class TripInfoDAO {
 		return list;
 	}
 	//쇼핑 카테고리 /레스토랑카테고리 전체
-	public 	ArrayList<TripInfoVO> shopAll(String category_id){
+	public 	ArrayList<TripInfoVO> categoryAll(String category_id){
 		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
-		ArrayList<TripInfoVO> shopList = info.shopAll(category_id);
+		ArrayList<TripInfoVO> shopList = info.categoryAll(category_id);
 		return shopList;
 	}
 	public 	ArrayList<TripInfoVO> foodAll(){
@@ -49,9 +49,9 @@ public class TripInfoDAO {
 	}
 	
 	//쇼핑 카테고리 /레스토랑카테고리 Top5
-	public 	ArrayList<TripInfoVO> shopTop(String category_id){
+	public 	ArrayList<TripInfoVO> categoryTop(String category_id){
 		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
-		ArrayList<TripInfoVO> shopList = info.shopTop(category_id);
+		ArrayList<TripInfoVO> shopList = info.categoryTop(category_id);
 		return shopList;
 	}
 	public 	ArrayList<TripInfoVO> foodAllTop(){

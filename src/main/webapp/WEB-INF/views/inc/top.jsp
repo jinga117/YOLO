@@ -53,7 +53,7 @@
         <nav class="b-nav">
             <ul>
                 <li class="menu-item-has-children">
-                    <a href="#"><i class="fa fa-suitcase" aria-hidden="true"></i>Travel</a>
+                    <a href="list_attraction?category_id=c01"><i class="fa fa-suitcase" aria-hidden="true"></i>Travel</a>
                     <ul>
                         <li><a href="list_age">연령별</a></li>
                         <li><a href="list_theme">테마별</a></li>
@@ -61,7 +61,7 @@
                     </ul>
                 </li>
                 
-                <li class="menu-item-has-children"> <a href="#"><i class="fa fa-cutlery" aria-hidden="true"></i>Restaurant</a>
+                <li class="menu-item-has-children"> <a href="list_restaurant"><i class="fa fa-cutlery" aria-hidden="true"></i>Restaurant</a>
                     <ul>
                         <li><a href="list_restaurant_search?food_id=f01">restaurant</a></li>
                         <li><a href="list_restaurant_search?food_id=f02">Bakery & Cafe</a></li>
@@ -69,7 +69,7 @@
                 </li>
                 
                 <li>
-                	<a href="#"><i class="fa fa-gift" aria-hidden="true"></i>Shopping</a>
+                	<a href="list_shopping?category_id=c03"><i class="fa fa-gift" aria-hidden="true"></i>Shopping</a>
 	                    <ul>
 	                    	<li><a href="list_shopping?category_id=c03">쇼핑</a></li>
 	                    </ul>
