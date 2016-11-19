@@ -36,18 +36,50 @@ public class TripInfoDAO {
 		ArrayList<TripInfoVO> list = info.selectInfoAll();
 		return list;
 	}
-	//쇼핑 카테고리 전체
+	//쇼핑 카테고리 /레스토랑카테고리 전체
 	public 	ArrayList<TripInfoVO> shopAll(String category_id){
 		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
 		ArrayList<TripInfoVO> shopList = info.shopAll(category_id);
 		return shopList;
 	}
-	
-	//레스토랑카테고리 전체
 	public 	ArrayList<TripInfoVO> foodAll(){
 		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
 		ArrayList<TripInfoVO> foodList = info.foodAll();
 		return foodList;
+	}
+	
+	//쇼핑 카테고리 /레스토랑카테고리 Top5
+	public 	ArrayList<TripInfoVO> shopTop(String category_id){
+		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+		ArrayList<TripInfoVO> shopList = info.shopTop(category_id);
+		return shopList;
+	}
+	public 	ArrayList<TripInfoVO> foodTop(){
+		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+		ArrayList<TripInfoVO> foodList = info.foodTop();
+		return foodList;
+	}
+	
+	//연령별, 계절별, kpop별,인원별 TOP5 리스트 뿌리기
+	public ArrayList<TripInfoVO> ageAllTop(){
+		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+		ArrayList<TripInfoVO> aTopList = info.ageAllTop();
+		return aTopList;
+	}	
+	public ArrayList<TripInfoVO> seasonAllTop(){
+		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+		ArrayList<TripInfoVO> sTopList = info.seasonAllTop();
+		return sTopList;
+	}
+	public ArrayList<TripInfoVO> kpopAllTop(){
+		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+		ArrayList<TripInfoVO> kTopList = info.kpopAllTop();
+		return kTopList;
+	}
+	public ArrayList<TripInfoVO> personAllTop(){
+		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+		ArrayList<TripInfoVO> pTopList = info.personAllTop();
+		return pTopList;
 	}
 	
 	//연령별, 계절별, kpop별,인원별 전체 리스트 뿌리기
@@ -71,6 +103,42 @@ public class TripInfoDAO {
 		ArrayList<TripInfoVO> personList = info.personAll();
 		return personList;
 	}
+	
+	
+	
+	//age_id 키값에 따른 top리스트 뿌리기
+		public ArrayList<TripInfoVO> ageTop(String age_id) {
+			TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+			ArrayList<TripInfoVO> avo = info.ageTop(age_id);
+			return avo;
+		}
+		
+		//season_id 키값에 따른 top리스트 뿌리기
+		public ArrayList<TripInfoVO> seasonTop(String season_id){
+			TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+			ArrayList<TripInfoVO> svo = info.seasonTop(season_id);
+			return svo;
+		}
+		
+		//kpop_id 키값에 따른 top리스트 뿌리기
+		public ArrayList<TripInfoVO>  kpopTop(String kpop_id){
+			TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+			ArrayList<TripInfoVO> kvo = info.kpopTop(kpop_id);
+			return kvo;
+		}
+		//person_id 키값에 따른 top리스트 뿌리기
+		public ArrayList<TripInfoVO> personTop(String person_id){
+			TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+			ArrayList<TripInfoVO> pvo = info.personTop(person_id);
+			return pvo;
+		}
+		//food_id 키값에 따른 top리스트 뿌리기
+		public ArrayList<TripInfoVO> foodTop(String food_id){
+			TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+			ArrayList<TripInfoVO> fvo = info.foodTop(food_id);
+			return fvo;
+		}
+	
 	
 	//age_id 키값에 따른 리스트 뿌리기
 	public ArrayList<TripInfoVO> selectListAge(String age_id) {

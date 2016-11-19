@@ -52,84 +52,111 @@ public class TripInfoService {
 	public ModelAndView list_restaurant(){
 		ModelAndView mav = new ModelAndView();
 		ArrayList<TripInfoVO> foodList = infoDAO.foodAll();
+		ArrayList<TripInfoVO> foodTop = infoDAO.foodTop();
 		mav.addObject("foodList", foodList);
+		mav.addObject("foodTop", foodTop);
 		return mav;
 	}
-	
-	//food_id 키값별 리스트
-	public ModelAndView selectFood(String food_id) {
-		ModelAndView mav = new ModelAndView();
-		ArrayList<TripInfoVO> fvo = infoDAO.selectFood(food_id);
-		mav.addObject("food_id", food_id);
-		mav.addObject("foodList", fvo);
-		return mav;
-	}
-	
+
 	//list_shopping전체 리스트
 	public ModelAndView list_shopping(String category_id){
 		ModelAndView mav = new ModelAndView();
 		ArrayList<TripInfoVO> shopList = infoDAO.shopAll(category_id);
+		ArrayList<TripInfoVO> shopTop = infoDAO.shopTop(category_id);
 		mav.addObject("shopList", shopList);
+		mav.addObject("shopTop", shopTop);
 		return mav;
 	}
 	
-	//연령별 전체 리스트
-	public ModelAndView age_view(){
+	//연령별 Top 리스트, 전체 리스트
+	public ModelAndView age(){
 		ModelAndView mav = new ModelAndView();
-		ArrayList<TripInfoVO> topList = infoDAO.ageAll();
-		mav.addObject("ageList", topList);
+		ArrayList<TripInfoVO> topList = infoDAO.ageAllTop();
+		ArrayList<TripInfoVO> allList = infoDAO.ageAll();
+		mav.addObject("topList", topList);
+		mav.addObject("allList", allList);
 		return mav;
 	}
-	
-	//age_id 키값에 따른 리스트
-	public ModelAndView selectListAge(String age_id) {
-		ModelAndView mav = new ModelAndView();
-		ArrayList<TripInfoVO> avo = infoDAO.selectListAge(age_id);
-		mav.addObject("age_id", age_id);
-		mav.addObject("ageList", avo);
-		return mav;
-	}
-	
-	//테마별 전체 리스트
+
+	//테마별 Top 리스트,전체 리스트
 	public ModelAndView theme(){
 		ModelAndView mav = new ModelAndView();
+		ArrayList<TripInfoVO> seasonTop = infoDAO.seasonAllTop();
+		ArrayList<TripInfoVO> kpopTop = infoDAO.kpopAllTop();
 		ArrayList<TripInfoVO> seasonList = infoDAO.seasonAll();
 		ArrayList<TripInfoVO> kpopList = infoDAO.kpopAll();
 		mav.addObject("seasonList", seasonList);
 		mav.addObject("kpopList", kpopList);
+		mav.addObject("seasonTop", seasonTop);
+		mav.addObject("kpopTop", kpopTop);
 		return mav;
 	}
-	
-	//seaon_id 키값에 따른 리스트
-	public ModelAndView selectListSeason(String season_id) {
-		ModelAndView mav = new ModelAndView();
-		ArrayList<TripInfoVO> svo = infoDAO.selectSeason(season_id);
-		mav.addObject("season_id", season_id);
-		mav.addObject("seasonList", svo);
-		return mav;
-	}
-	//kpop_id 키값에 따른 리스트
-	public ModelAndView selectListKpop(String kpop_id) {
-		ModelAndView mav = new ModelAndView();
-		ArrayList<TripInfoVO> kvo = infoDAO.selectKpop(kpop_id);
-		mav.addObject("kpop_id", kpop_id);
-		mav.addObject("kpopList", kvo);
-		return mav;
-	}
-	//인원별ALL 리스트
+	//인원별Top 리스트
 	public ModelAndView person() {
 		ModelAndView mav = new ModelAndView();
+		ArrayList<TripInfoVO> personTop = infoDAO.personAllTop();
 		ArrayList<TripInfoVO> personList = infoDAO.personAll();
+		mav.addObject("personTop", personTop);
 		mav.addObject("personList", personList);
 		return mav;
 	}
-	//person_id 키값별 리스트
-	public ModelAndView selectListPerson(String person_id) {
+	
+
+	//age_id 키값에 따른 리스트
+	public ModelAndView ageId(String age_id) {
 		ModelAndView mav = new ModelAndView();
-		ArrayList<TripInfoVO> pvo = infoDAO.selectPerson(person_id);
-		mav.addObject("person_id", person_id);
-		mav.addObject("personList", pvo);
+		ArrayList<TripInfoVO> avo = infoDAO.selectListAge(age_id);
+		ArrayList<TripInfoVO> atop = infoDAO.ageTop(age_id);
+		mav.addObject("age_id", age_id);
+		mav.addObject("ageList", avo);
+		mav.addObject("ageTop", atop);
 		return mav;
 	}
+	
+
+	//season_id 키값에 따른 리스트
+	public ModelAndView seasonId(String season_id) {
+		ModelAndView mav = new ModelAndView();
+		ArrayList<TripInfoVO> svo = infoDAO.selectSeason(season_id);
+		ArrayList<TripInfoVO> stop = infoDAO.seasonTop(season_id);
+		mav.addObject("season_id", season_id);
+		mav.addObject("seasonList", svo);
+		mav.addObject("seasonTop", stop);
+		return mav;
+	}
+	
+	//kpop_id 키값에 따른 리스트
+	public ModelAndView kpopId(String kpop_id) {
+		ModelAndView mav = new ModelAndView();
+		ArrayList<TripInfoVO> kvo = infoDAO.selectKpop(kpop_id);
+		ArrayList<TripInfoVO> ktop = infoDAO.kpopTop(kpop_id);
+		mav.addObject("kpop_id", kpop_id);
+		mav.addObject("kpopList", kvo);
+		mav.addObject("kpopTop", ktop);
+		return mav;
+	}
+
+	//person_id 키값별 리스트
+	public ModelAndView personId(String person_id) {
+		ModelAndView mav = new ModelAndView();
+		ArrayList<TripInfoVO> pvo = infoDAO.selectPerson(person_id);
+		ArrayList<TripInfoVO> ptop = infoDAO.personTop(person_id);
+		mav.addObject("person_id", person_id);
+		mav.addObject("personList", pvo);
+		mav.addObject("personTop", ptop);
+		return mav;
+	}
+	
+	//food_id 키값별 리스트
+	public ModelAndView foodId(String food_id) {
+		ModelAndView mav = new ModelAndView();
+		ArrayList<TripInfoVO> fvo = infoDAO.selectFood(food_id);
+		ArrayList<TripInfoVO> ftop = infoDAO.foodTop(food_id);
+		mav.addObject("food_id", food_id);
+		mav.addObject("foodList", fvo);
+		mav.addObject("foodTop", ftop);
+		return mav;
+	}
+	
 	
 }

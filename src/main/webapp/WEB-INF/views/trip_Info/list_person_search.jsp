@@ -30,10 +30,10 @@
     <div class="b-main-container" id="content">
          <div class="b-pop-places container">
             <h2 class="b-cont-title" >
-				<c:if test="${person_id == 'p01'}">나홀로여행</c:if>
-            	<c:if test="${person_id == 'p02'}">커플</c:if>
-            	<c:if test="${person_id == 'p03'}">우정</c:if>
-            	<c:if test="${person_id == 'p04'}">가족</c:if>
+				<c:if test="${person_id == 'p01'}">나홀로여행 Top5</c:if>
+            	<c:if test="${person_id == 'p02'}">커플 Top5</c:if>
+            	<c:if test="${person_id == 'p03'}">우정 Top5</c:if>
+            	<c:if test="${person_id == 'p04'}">가족 Top5</c:if>
             </h2>
 			<ul class="b-cont-sub-menu">
             	<li><a href="list_person_search?person_id=p01" >나홀로여행</a></li>
@@ -44,7 +44,7 @@
             
             <div class="b-slider owl-carousel owl-carousel-1">            
             <!--  리스트 시작 -->
-			<c:forEach items="${personList }" var="list">
+			<c:forEach items="${personTop }" var="list">
                  <div class="b-pop-places__item">
                     <div class="b-pop-place">
                         <div class="b-pop-place__img">
@@ -78,10 +78,50 @@
 			<!--  리스트 끝-->
             </div>
             
-            <!-- .b-slider -->
+<!-- *********************************************************전체보기************************************************************************ -->	
+			            <!-- .b-slider -->
             <div class="row m--centered">
-                <div class="col-md-4 col-md-offset-4"><a href="#" class="btn">View all places</a></div>
+                <div class="col-md-4 col-md-offset-4"><a class="btn"  id="view">View all places</a></div>
             </div>
+		<div id="viewList"> 
+        <ul class="viewList_list">   
+          <!--  View all List 시작 -->
+          <c:forEach items="${personList }" var="list">
+             <li>
+               <div class="viewList_item">
+                  <div class="b-pop-place">
+                      <div class="b-pop-place__img">
+                          <a href="detail_view?trip_id=${list.trip_id}">
+                             <img width="370" height="245" class="b-pop-place__img__img"  src="img/photo/${list.trip_id}.jpg" alt="${list.trip_nickname}"></a>
+                         <a href="#" class="b-icon-medal"></a>
+                         <a href="#" onClick="likeIt(this)" value="${list.trip_id}" class="b-icon-like" data-toggle="tooltip" data-placement="left" title="좋아요"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                      </div>
+                      
+                      <div class="b-pop-place__desc clearfix">
+                          <div class="b-pop-place__rating">
+                             <span class="b-pop-place__like"><i class="fa fa-heart" aria-hidden="true"></i></span>
+                             <span id="likeCount">${list.trip_like}</span>
+                          </div>
+                          <a href="detail_view?trip_id=${list.trip_id}" class="b-pop-place__name">${list.trip_nickname}</a>
+                          <h5 class="b-pop-place__cat">${list.trip_address}</h5>
+                          
+                  <div class="b-pop-place-comment">
+                     <a href="http://${list.trip_site}" target="_blank"  class="b-pop-place-homepage"><i class="fa fa-home" aria-hidden="true"></i></a>
+                     <a href="http://${list.trip_site}" target="_blank" >${list.trip_site}</a>
+                  </div>
+                         
+                         <div class="b-pop-place-comment">
+                            <a href="#"  class="b-pop-place-homepage"><i class="fa fa-clock-o" aria-hidden="true"></i></a>
+                            ${list.trip_time}</div>
+                      </div>
+               </div>
+                 </div>
+             </li>
+         </c:forEach>
+         </ul>
+          <!--  View all List 끝-->
+      </div>
+      <!-- //View List Container 끝-->
         </div>
     <!-- //main-container -->
     </div>

@@ -5,10 +5,30 @@
 	<jsp:include page="../inc/top.jsp" />
 	<!--  헤더 영역 끝 -->
 
+   <!-- 좋아요 시작-->
+ <script type="text/javascript">
+    	function likeIt(obj) {
+             var trip_id =$(obj).attr("value");
+             $.ajax({
+                   url : "like?trip_id="+trip_id,
+                   type : "GET",
+                   datatype: "json",
+                   success : function(responseFromServer) {
+                      var data = jQuery.parseJSON(responseFromServer);
+                      var obj2 =$(obj).parent().parent().find('#likeCount');
+                      $(obj2).text(data.likeCount);
+                   },
+                   error : function(jqXHR, textStatus, errorThrown) {
+                      alert("오류 발생 \n"+textStatus + " : " + errorThrown);
+                   }      
+    		});
+    	}  
+</script>
+    <!-- 좋아요 끝 -->
 	<!-- 컨텐츠 영역 시작 -->
     <div class="b-main-container" id="content">
 		<div class="b-pop-places container">
-			<h2 class="b-cont-title">연령별</h2>
+			<h2 class="b-cont-title">연령별 Top5</h2>
 			<ul class="b-cont-sub-menu">
 				<li><a href="list_age_search?age_id=a01">꽃청춘</a></li>
             	<li><a href="list_age_search?age_id=a02">꽃중년</a></li>
@@ -16,7 +36,7 @@
             
             <div class="b-slider owl-carousel owl-carousel-1">            
             <!--  리스트 시작 -->
-            <c:forEach items="${ageList }" var="list">
+            <c:forEach items="${topList }" var="list">
                  <div class="b-pop-places__item">
                     <div class="b-pop-place">
                         <div class="b-pop-place__img">
@@ -49,48 +69,51 @@
 			</c:forEach>
             <!--  리스트 끝-->
 			</div>
-			
-            <!-- .b-slider -->
+			<!-- *********************************************************전체보기************************************************************************ -->	
+			            <!-- .b-slider -->
             <div class="row m--centered">
                 <div class="col-md-4 col-md-offset-4"><a class="btn"  id="view">View all places</a></div>
             </div>
+		<div id="viewList"> 
+        <ul class="viewList_list">   
+          <!--  View all List 시작 -->
+          <c:forEach items="${allList }" var="list">
+             <li>
+               <div class="viewList_item">
+                  <div class="b-pop-place">
+                      <div class="b-pop-place__img">
+                          <a href="detail_view?trip_id=${list.trip_id}">
+                             <img width="370" height="245" class="b-pop-place__img__img"  src="img/photo/${list.trip_id}.jpg" alt="${list.trip_nickname}"></a>
+                         <a href="#" class="b-icon-medal"></a>
+                         <a href="#" onClick="likeIt(this)" value="${list.trip_id}" class="b-icon-like" data-toggle="tooltip" data-placement="left" title="좋아요"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                      </div>
+                      
+                      <div class="b-pop-place__desc clearfix">
+                          <div class="b-pop-place__rating">
+                             <span class="b-pop-place__like"><i class="fa fa-heart" aria-hidden="true"></i></span>
+                             <span id="likeCount">${list.trip_like}</span>
+                          </div>
+                          <a href="detail_view?trip_id=${list.trip_id}" class="b-pop-place__name">${list.trip_nickname}</a>
+                          <h5 class="b-pop-place__cat">${list.trip_address}</h5>
+                          
+                  <div class="b-pop-place-comment">
+                     <a href="http://${list.trip_site}" target="_blank"  class="b-pop-place-homepage"><i class="fa fa-home" aria-hidden="true"></i></a>
+                     <a href="http://${list.trip_site}" target="_blank" >${list.trip_site}</a>
+                  </div>
+                         
+                         <div class="b-pop-place-comment">
+                            <a href="#"  class="b-pop-place-homepage"><i class="fa fa-clock-o" aria-hidden="true"></i></a>
+                            ${list.trip_time}</div>
+                      </div>
+               </div>
+                 </div>
+             </li>
+         </c:forEach>
+         </ul>
+          <!--  View all List 끝-->
+      </div>
+      <!-- //View List Container 끝-->
         </div>
-          <div class="b-slider owl-carousel owl-carousel-1" id="viewList">            
-            <!--  리스트 시작 -->
-            <c:forEach items="${ageList }" var="list">
-                 <div class="b-pop-places__item">
-                    <div class="b-pop-place">
-                        <div class="b-pop-place__img">
-                            <a href="detail_view?trip_id=${list.trip_id}">
-                            	<img width="370" height="245" class="b-pop-place__img__img"  src="img/photo/${list.trip_id}.jpg" alt="${list.trip_nickname}"></a>
-                     		<a href="#" class="b-icon-medal"></a>
-                     		<a href="#" onClick="likeIt(this)" value="${list.trip_id}" class="b-icon-like" data-toggle="tooltip" data-placement="left" title="좋아요"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                        </div>
-                        
-                        <div class="b-pop-place__desc clearfix">
-                            <div class="b-pop-place__rating">
-                            	<span class="b-pop-place__like"><i class="fa fa-heart" aria-hidden="true"></i></span>
-                            	<span id="likeCount">${list.trip_like}</span>
-                            </div>
-                            <a href="detail_view?trip_id=${list.trip_id}" class="b-pop-place__name">${list.trip_nickname}</a>
-                            <h5 class="b-pop-place__cat">${list.trip_address}</h5>
-                            
-                    		<div class="b-pop-place-comment">
-                        		<a href="http://${list.trip_site}" target="_blank"  class="b-pop-place-homepage"><i class="fa fa-home" aria-hidden="true"></i></a>
-                        		<a href="http://${list.trip_site}" target="_blank" >${list.trip_site}</a>
-                     		</div>
-                     		
-                     		<div class="b-pop-place-comment">
-                        		<a href="#"  class="b-pop-place-homepage"><i class="fa fa-clock-o" aria-hidden="true"></i></a>
-                        		${list.trip_time}
-                     		</div>
-                  		</div>
-					</div>
-                </div>
-			</c:forEach>
-            <!--  리스트 끝-->
-			</div>
-			
     <!-- //main-container -->
     </div>
     <!-- 컨텐츠 영역 끝 -->
