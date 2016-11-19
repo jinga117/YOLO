@@ -56,3 +56,4 @@
     <script src="js/custum.js"></script>
     <script src="js/jquery.custom-scrollbar.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/list.js"></script>
