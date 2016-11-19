@@ -1,6 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
-
+<style rel="stylesheet" type="text/css">
+	.b-map {position:relative;overflow:hidden;width:100%;height:350px;}
+	.radius_border{border:1px solid #43a4a2;border-radius:5px;margin-top:70px;}     
+	.custom_typecontrol {position:absolute;top:10px;right:10px;overflow:hidden;width:130px;height:30px;margin:0;padding:0;z-index:1;font-size:12px;font-family:'Malgun Gothic', '맑은 고딕', sans-serif;}
+	.custom_typecontrol span {display:block;width:65px;height:30px;float:left;text-align:center;line-height:30px;cursor:pointer;}
+	.custom_typecontrol .btn {background:#fff;background:linear-gradient(#fff,  #e6e6e6);}       
+	.custom_typecontrol .btn:hover {background:#f5f5f5;background:linear-gradient(#f5f5f5,#e3e3e3);}
+	.custom_typecontrol .btn:active {background:#e6e6e6;background:linear-gradient(#e6e6e6, #fff);}    
+	.custom_typecontrol .selected_btn {color:#fff;background:#425470;background:linear-gradient(#425470, #5b6d8a);}
+	.custom_typecontrol .selected_btn:hover {color:#fff;}   
+	.custom_zoomcontrol {position:absolute;top:50px;right:10px;width:36px;height:80px;overflow:hidden;z-index:1;background-color:#f5f5f5;} 
+	.custom_zoomcontrol span {display:block;width:36px;height:40px;padding-top:12px;text-align:center;color:#43a4a2;cursor:pointer;}     
+	.custom_zoomcontrol span img {width:15px;height:15px;padding:12px 0;border:none;}             
+	.custom_zoomcontrol span:first-child{border-bottom:1px solid #bfbfbf;}      
+</style>
 <body onload="setCenter()">
 	<!--  헤더 영역 시작 -->
 	<jsp:include page="../inc/top.jsp" />
@@ -13,7 +27,17 @@
         </div>
          <div class="b-map">
             <div class="b-map__wrapper"><div id="map" style="width:100%;height:780px;"></div></div>
-         </div>
+            <!-- 지도타입 컨트롤 div 입니다 -->
+			    <div class="custom_typecontrol radius_border">
+			        <span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
+			        <span id="btnSkyview" class="btn" onclick="setMapType('skyview')">스카이뷰</span>
+			    </div>
+			    <!-- 지도 확대, 축소 컨트롤 div 입니다 -->
+			    <div class="custom_zoomcontrol radius_border"> 
+			        <span onclick="zoomIn()"><!-- <img src="img/ico_plus.png" alt="확대"> --><i class="fa fa-plus" aria-hidden="true"></i></span>  
+        			<span onclick="zoomOut()"><!-- <img src="img/ico_minus.png" alt="축소"> --><i class="fa fa-minus" aria-hidden="true"></i></span>
+			    </div>
+         	</div>
         <div class="b-map-menu"></div>
         <!-- .b-map-menu -->
         <c:forEach items="${detailList }" var="list">
@@ -106,13 +130,16 @@
                             <div class="detail_contents">
                            	 <span class="detail_contents-icon"><i class="fa fa-home" aria-hidden="true"></i></span>
                            	 <span class="detail_contents_txt"><a href="http://${list.trip_site}" target="_blank">${list.trip_site}</a></span>
-                            </div>	                           
+                            </div>
+							<input type="hidden"  id="pos_x" value=" ${list.pos_x}">
+							<input type="hidden"  id="pos_y" value=" ${list.pos_y}">                        
                         </div>
 					</div>
                     <!--  상세보기 컨텐츠 끝 -->
                </c:forEach>
-	     </div>
-    </div>
+               </div>
+	     	</div>
+    	</div>
   	<!-- 컨텐츠 영역 끝 -->
    
 	<!-- 푸터영역 시작 -->
@@ -126,9 +153,20 @@
 <!-- DAUM MAP -->
 <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=d1d5e5ad2e3cb3461622dec6c0af6825"></script>
 <script type="text/javascript">
-	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	var pos_x = $("#pos_x").val();
+	var pos_y = $("#pos_y").val();
+	
+	var pos_x_center = parseFloat($("#pos_x").val()) - 0.000250;
+	var pos_y_center = parseFloat($("#pos_y").val()) - 0.002500;
+	
+	//alert(pos_x2);
+	//alert(pos_x_center);
+	
+	var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+
     mapOption = { 
-        center: new daum.maps.LatLng(37.579855, 126.977052), // 지도의 중심좌표
+        //center: new daum.maps.LatLng(37.579855, 126.977052), // 지도의 중심좌표
+        center: new daum.maps.LatLng(pos_x, pos_y), // 지도의 중심좌표
         level: 3 // 지도의 확대 레벨
     };
 	
@@ -136,7 +174,8 @@
 
 	function setCenter() {            
 	    // 이동할 위도 경도 위치를 생성합니다 
-	    var moveLatLon = new daum.maps.LatLng(37.579549, 126.972696);
+	    //var moveLatLon = new daum.maps.LatLng(37.579549, 126.972696);
+	    var moveLatLon = new daum.maps.LatLng(pos_x_center, pos_y_center);
 	    
 	    // 지도 중심을 이동 시킵니다
 	    map.setCenter(moveLatLon);
@@ -160,7 +199,7 @@
       
 	// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
 	var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imageOption),
-	    markerPosition = new daum.maps.LatLng(37.579855, 126.977052); // 마커가 표시될 위치입니다
+	    markerPosition = new daum.maps.LatLng(pos_x, pos_y); // 마커가 표시될 위치입니다
 	
 	// 마커를 생성합니다
 	var marker = new daum.maps.Marker({
@@ -170,8 +209,8 @@
 	
 	// 마커가 지도 위에 표시되도록 설정합니다
 	marker.setMap(map);  
-	
-	 // 주소-좌표 변환 객체를 생성합니다
+	 
+	/* // 주소-좌표 변환 객체를 생성합니다
     var geocoder = new daum.maps.services.Geocoder();
 
     // 주소로 좌표를 검색합니다
@@ -197,6 +236,16 @@
            // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
            map.setCenter(coords);
        } 
-   	});
+   	}); */
+   	
+ 	// 지도 확대, 축소 컨트롤에서 확대 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
+   	function zoomIn() {
+   	    map.setLevel(map.getLevel() - 1);
+   	}
+
+   	// 지도 확대, 축소 컨트롤에서 축소 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
+   	function zoomOut() {
+   	    map.setLevel(map.getLevel() + 1);
+   	}
 </script>
 <!-- //DAUM MAP -->
