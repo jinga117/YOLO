@@ -54,9 +54,9 @@ public class TripInfoDAO {
 		ArrayList<TripInfoVO> shopList = info.shopTop(category_id);
 		return shopList;
 	}
-	public 	ArrayList<TripInfoVO> foodTop(){
+	public 	ArrayList<TripInfoVO> foodAllTop(){
 		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
-		ArrayList<TripInfoVO> foodList = info.foodTop();
+		ArrayList<TripInfoVO> foodList = info.foodAllTop();
 		return foodList;
 	}
 	

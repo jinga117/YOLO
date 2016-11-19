@@ -52,7 +52,7 @@ public class TripInfoService {
 	public ModelAndView list_restaurant(){
 		ModelAndView mav = new ModelAndView();
 		ArrayList<TripInfoVO> foodList = infoDAO.foodAll();
-		ArrayList<TripInfoVO> foodTop = infoDAO.foodTop();
+		ArrayList<TripInfoVO> foodTop = infoDAO.foodAllTop();
 		mav.addObject("foodList", foodList);
 		mav.addObject("foodTop", foodTop);
 		return mav;

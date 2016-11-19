@@ -21,7 +21,7 @@
     	
     	
     	<!-- 레스토랑카테고리 메인 인기 top5 -->
-   		<select id="foodTop" parameterType="String"  resultType="com.kosta.yolo.vo.TripInfoVO">
+   		<select id="foodAllTop" parameterType="String"  resultType="com.kosta.yolo.vo.TripInfoVO">
     		SELECT * FROM TripInfo WHERE food_id NOT IN ("") ORDER BY trip_like DESC LIMIT 5
     	</select> 
     	<!-- 레스토랑카테고리 메인  -->
