@@ -37,7 +37,7 @@ public class TripInfoService {
 	//전체리스트
 	public ModelAndView list(){
 		ModelAndView mav = new ModelAndView();
-		ArrayList<TripInfoVO> list = infoDAO.selectInfoAll(); //연령별
+		ArrayList<TripInfoVO> list = infoDAO.InfoAll(); //연령별
 		ArrayList<TripInfoVO> seasonList = infoDAO.seasonAll(); //계절별전체
 		ArrayList<TripInfoVO> kpopList = infoDAO.kpopAll(); //한류별
 		ArrayList<TripInfoVO> personList = infoDAO.personAll(); //인원별

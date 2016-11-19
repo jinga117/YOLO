@@ -31,9 +31,9 @@ public class TripInfoDAO {
 	}
 	
 	//전체 리스트 뿌리기
-	public ArrayList<TripInfoVO> selectInfoAll() {
+	public ArrayList<TripInfoVO> InfoAll() {
 		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
-		ArrayList<TripInfoVO> list = info.selectInfoAll();
+		ArrayList<TripInfoVO> list = info.InfoAll();
 		return list;
 	}
 	//쇼핑 카테고리 /레스토랑카테고리 전체

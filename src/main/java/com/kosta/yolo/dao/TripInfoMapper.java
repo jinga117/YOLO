@@ -14,7 +14,7 @@ public interface TripInfoMapper  extends Serializable  {
 	int selectLikeCount(String trip_id);
 	
 	//전체 리스트 뿌리기
-	ArrayList<TripInfoVO> selectInfoAll();
+	ArrayList<TripInfoVO> InfoAll();
 	
 	//레스토랑 카테고리별 / 쇼핑별 전체 리스트뿌리기
 	ArrayList<TripInfoVO> foodAll();
