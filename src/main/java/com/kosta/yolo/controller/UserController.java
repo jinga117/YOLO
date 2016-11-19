@@ -45,8 +45,12 @@ public class UserController {
       int result = userService.login(request);
       if (result == 1) {
          return "index";
-      } else {
-         return "index";
+      }else if(result == 2){
+    	  request.setAttribute("result", result);
+         return "login/loginFail";
+      }else{
+    	  request.setAttribute("result", result);
+    	 return "login/loginFail";
       }
    }
    
