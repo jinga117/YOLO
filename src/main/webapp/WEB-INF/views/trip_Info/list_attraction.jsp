@@ -3,7 +3,14 @@
 	<!--  헤더 영역 시작 -->
 	<jsp:include page="../inc/top.jsp" />
 	<!--  헤더 영역 끝 -->
-	
+<style>
+#viewList_list li{
+	 display:none;
+	}
+#loadMore, #showLess {
+    cursor:pointer;
+}
+</style>
 	<!-- 좋아요 시작-->
 	<script>
 		function likeIt(obj) {
