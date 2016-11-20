@@ -30,7 +30,7 @@
     <div class="b-main-container" id="content">
          <div class="b-pop-places container">
             <h2 class="b-cont-title">Shopping</h2>
-              
+              <div id="hidediv">
             <div class="b-slider owl-carousel owl-carousel-1">            
             <!--  리스트 시작 -->
             <c:forEach items="${cateTop }" var="list">
@@ -71,6 +71,7 @@
 			            <!-- .b-slider -->
             <div class="row m--centered">
                 <div class="col-md-4 col-md-offset-4"><a class="btn"  id="view">View all places</a></div>
+            </div>
             </div>
 		<div id="viewList"> 
         <ul class="viewList_list">   

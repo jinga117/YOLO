@@ -34,7 +34,7 @@
             	<li><a href="list_restaurant_search?food_id=f01">Restaurant</a></li>
             	<li><a href="list_restaurant_search?food_id=f02">Bakery & Cafe</a></li>
             </ul>
-           
+           <div id="hidediv">
             <div class="b-slider owl-carousel owl-carousel-1">            
             <!--  리스트 시작 -->
             <c:forEach items="${foodTop }" var="list">
@@ -75,6 +75,7 @@
 			            <!-- .b-slider -->
             <div class="row m--centered">
                 <div class="col-md-4 col-md-offset-4"><a class="btn"  id="view">View all places</a></div>
+            </div>
             </div>
 		<div id="viewList"> 
         <ul class="viewList_list">   

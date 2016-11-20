@@ -37,7 +37,7 @@
            		<li><a href="list_age_search?age_id=a01"  class ="a01">꽃청춘</a></li>
            		<li><a href="list_age_search?age_id=a02"  class ="a02">꽃중년</a></li>
             </ul>
-            
+            <div id="hidediv">
             <div class="b-slider owl-carousel owl-carousel-1">             
             <!--  리스트 시작 -->
 			<c:forEach items="${ageTop }" var="list">
@@ -79,6 +79,7 @@
             <div class="row m--centered">
                 <div class="col-md-4 col-md-offset-4"><a class="btn"  id="view">View all places</a></div>
             </div>
+          </div>
 		<div id="viewList"> 
         <ul class="viewList_list">   
           <!--  View all List 시작 -->

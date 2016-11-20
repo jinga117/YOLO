@@ -27,14 +27,13 @@
     <!-- 좋아요 끝 -->
 	<!-- 컨텐츠 영역 시작 -->
     <div class="b-main-container" id="content">
-		<div class="b-pop-places container" >
-			<div id="hidediv">
-			<h2 class="b-cont-title">연령별 Top5</h2>
+	   <div class="b-pop-places container" >
+		  <h2 class="b-cont-title">연령별 Top5</h2>
 			<ul class="b-cont-sub-menu">
 				<li><a href="list_age_search?age_id=a01">꽃청춘</a></li>
             	<li><a href="list_age_search?age_id=a02">꽃중년</a></li>
             </ul>
-            
+          	<div id="hidediv">  
             <div class="b-slider owl-carousel owl-carousel-1">            
             <!--  리스트 시작 -->
             <c:forEach items="${topList }" var="list">
@@ -76,7 +75,7 @@
             <div class="row m--centered">
                 <div class="col-md-4 col-md-offset-4"><a class="btn"  id="view">View all places</a></div>
             </div>
-           </div>
+          </div>
 		<div id="viewList"> 
         <ul class="viewList_list">   
           <!--  View all List 시작 -->

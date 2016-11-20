@@ -25,19 +25,6 @@
 		}      
 	</script>
 	<!-- 좋아요 끝-->
-<script> 
-	$(document).ready(function () {
-	    // Load the first 3 list items from another HTML file
-	    //$('#myList').load('externalList.html li:lt(3)');
-	    $('#myList li:lt(3)').show();
-	    $('#loadMore').click(function () {
-	        $('#myList li:lt(10)').show();
-	    });
-	    $('#showLess').click(function () {
-	        $('#myList li').not(':lt(3)').hide();
-	    });
-	});
-</script> 
 	<!-- 컨텐츠 영역 시작 -->
     <div class="b-main-container" id="content">
 		<div class="b-pop-places container">
@@ -81,7 +68,6 @@
           <!--  View all List 끝-->
         </div>
     <!-- //main-container -->
-    <div onclick='addlist()'> 더보기 </div>
     </div>
     <!-- 컨텐츠 영역 끝 -->
     

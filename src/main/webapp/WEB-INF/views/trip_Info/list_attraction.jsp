@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
-
 	<!--  헤더 영역 시작 -->
 	<jsp:include page="../inc/top.jsp" />
 	<!--  헤더 영역 끝 -->
-   
+	
 	<!-- 좋아요 시작-->
 	<script>
 		function likeIt(obj) {
@@ -25,11 +24,30 @@
 		}      
 	</script>
 	<!-- 좋아요 끝-->
+	<!-- 더보기 -->
+	<script>
+		$(document).ready(function () {
+		    size_li = $('#viewList_list li').size();
+		    x=8;
+		    $('#viewList_list li:lt('+x+')').show();
+		    
+		    $("#loadMore").click(function() {
+		        x= (x+4 <= size_li) ? x+4 : size_li;
+		        $('#viewList_list li:lt('+x+')').show();
+		    });
+		    
+		    $("#showLess").click(function() {
+		        x=(x-4<0) ? 4 : x-4;
+		        $('#viewList_list li').not(':lt('+x+')').hide();
+		    });
+		});
+	</script>
+	<!-- 더보기 끗 -->
   <!-- 컨텐츠 영역 시작 -->
     <div class="b-main-container" id="content">
          <div class="b-pop-places container">
             <h2 class="b-cont-title">travel</h2>
-              
+            <div id="hidediv">  
             <div class="b-slider owl-carousel owl-carousel-1">            
             <!--  리스트 시작 -->
             <c:forEach items="${cateTop }" var="list">
@@ -67,12 +85,13 @@
             </div>
 
   	<!-- *********************************************************전체보기************************************************************************ -->	
-			            <!-- .b-slider -->
+		<!-- .b-slider -->
             <div class="row m--centered">
                 <div class="col-md-4 col-md-offset-4"><a class="btn"  id="view">View all places</a></div>
             </div>
-		<div id="viewList"> 
-        <ul class="viewList_list">   
+            </div>
+		<div id="viewList" > 
+        <ul class="viewList_list"  id="viewList_list">   
           <!--  View all List 시작 -->
           <c:forEach items="${cateList }" var="list">
              <li>
@@ -102,12 +121,18 @@
                             <a href="#"  class="b-pop-place-homepage"><i class="fa fa-clock-o" aria-hidden="true"></i></a>
                             ${list.trip_time}</div>
                       </div>
-               </div>
+               		</div>
                  </div>
              </li>
          </c:forEach>
          </ul>
           <!--  View all List 끝-->
+       	<div class="row m--centered" >
+       		 <div class="col-md-4 col-md-offset-4">
+	        	<a class="btn"  id="loadMore">Load more</a>&nbsp;
+	        	<a class="btn"  id="showLess">Show less</a>
+	        </div>
+        </div>
       </div>
       <!-- //View List Container 끝-->
         </div>
