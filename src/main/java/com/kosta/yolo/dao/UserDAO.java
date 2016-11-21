@@ -37,7 +37,6 @@ public class UserDAO {
 		}
 		
 	public void userUpdate(UserVO vo){
-		System.out.println("여긴 updateDao닷!! ");
 		UserMapper user = sqlSession.getMapper(UserMapper.class);
 		user.userUpdate(vo);
 	}

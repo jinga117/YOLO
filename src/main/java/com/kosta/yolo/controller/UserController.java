@@ -83,7 +83,6 @@ public class UserController {
 		  HttpSession session = request.getSession();
 		  
 		   String user_id = (String) session.getAttribute("user_id");
-		  System.out.println("유저아이디"+user_id);
 	      ModelAndView mav = new ModelAndView();
 	      UserVO vo = userService.userSelect(user_id);
 	      mav.addObject("vo",vo);
@@ -93,7 +92,6 @@ public class UserController {
 
    @RequestMapping(value = "/user_updatePro", method = RequestMethod.POST)
    public ModelAndView updatePro(UserVO vo) {
-      System.out.println("여긴 update 컨트롤러!!! ");
       ModelAndView mav = userService.updatePro(vo);
       mav.setViewName("mypage/mypage_main");
       return mav;

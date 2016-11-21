@@ -3,10 +3,15 @@ package com.kosta.yolo.vo;
 public class UserVO {
 
 	//사용자(회원) 정보
-	private String user_id, password, email, gender,  area;
+	private String user_id,name, password, email, gender,  area;
 	private int isadmin, age;
 	
-
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public String getUser_id() {
 		return user_id;
 	}

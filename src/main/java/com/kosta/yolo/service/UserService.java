@@ -94,9 +94,7 @@ public class UserService {
 	// 수정
 		public ModelAndView updatePro(UserVO vo) {
 			ModelAndView mav = new ModelAndView();
-
 			userDAO.userUpdate(vo);
-
 			return mav;
 		}
 
