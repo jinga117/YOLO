@@ -37,4 +37,8 @@
     <select id="userSelect" resultType="com.kosta.yolo.vo.UserVO">
     		SELECT * FROM User WHERE user_id = #{user_id}
     </select>
+    
+    <select id="userIdFind" resultType="com.kosta.yolo.vo.UserVO">
+    		SELECT * FROM User WHERE email = #{email} AND password=#{password}
+    </select>
 </mapper>

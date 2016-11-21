@@ -36,7 +36,18 @@ public class UserService {
 		}
 		return check;
 	}
-
+	public int userIdFindCheck(UserVO vo){
+		int check = 0;
+		
+		vo = userDAO.userIdFind(vo);
+		
+		if(vo !=null){
+			check = 1;
+		}else{
+			check = 0;
+		}	
+		return check;
+	}
 
 	public int login(HttpServletRequest request) { // 로그인
 		int result = 1;
@@ -96,6 +107,12 @@ public class UserService {
 			System.out.println("여기가 브이오 겟트리아이디 " + vo.getUser_id());
 			System.out.println("여긴!! 서비스닷!!! " + vo);
 			return vo;
+		}
+		public UserVO userIdFind(UserVO vo) {
+			System.out.println(vo);	
+			System.out.println("여기가 브이오 겟트리아이디 " + vo.getUser_id());
+			System.out.println("여긴!! 서비스닷!!! " + vo);	
+			return vo = userDAO.userIdFind(vo);
 		}
 
 		public ModelAndView deletePro(UserVO vo) {

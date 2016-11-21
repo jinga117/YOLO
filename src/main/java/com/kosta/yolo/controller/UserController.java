@@ -139,4 +139,27 @@ public class UserController {
 	       return mav;
 	   }
    }
+   @RequestMapping("/findid") // 회원가입 페이지로 이동
+   public String find_id(Model model) {
+     
+      return "user/findid"; 
+   } 
+   
+   @RequestMapping("/find_idCheck")
+   public ModelAndView find_idPro(UserVO vo){
+	   ModelAndView mav = new ModelAndView();
+	   int check = userService.userIdFindCheck(vo);
+	   System.out.println(check + " " + vo.getUser_id());
+	   if(check ==1){
+		   mav.addObject("check", check);
+		   mav.addObject("user_id",vo.getUser_id());
+		   mav.setViewName("user/find_idPro");
+		   return mav;
+	   }else{
+		   mav.addObject("check", check);
+		   mav.setViewName("user/find_idPro");
+		   return mav;
+	   }
+	   
+   }
 }// class end

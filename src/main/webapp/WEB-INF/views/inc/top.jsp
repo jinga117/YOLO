@@ -109,6 +109,7 @@
 	            <div class="b-form__row">
 	                 <input type="password"  id="password" name="password" placeholder="Your Password" class="login_password"  required="required">
 	            </div>
+	            <h6><a href="findid">아이디찾기</a>/<a href="">비밀번호찾기</a></h6>
 	            <div class="b-form__row m--centered">
 	                 <button class="btn btn-success m--border-radius-right" id="loginbtn" type="submit">로그인</button>
 	            </div>
