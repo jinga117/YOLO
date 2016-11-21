@@ -4407,7 +4407,10 @@ html .btn--buy-ticket:hover {
     border-top: 1px solid #202022;
 }
 .b-soc {
+	margin-top:20px;
     float: left;
+    color:#fff;
+    font-size:18px;
 }
 .b-content .b-loadmore {
     margin: 40px auto;
