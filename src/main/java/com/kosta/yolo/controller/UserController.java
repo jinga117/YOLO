@@ -79,19 +79,23 @@ public class UserController {
 
 
    @RequestMapping("/user_update")
-   public ModelAndView update(@RequestParam String user_id) {
-      ModelAndView mav = new ModelAndView();
-      UserVO vo = userService.userSelect(user_id);
-      mav.addObject("vo",vo);
-      mav.setViewName("user/user_update");
-      return mav;
-   }
+   public ModelAndView update(HttpServletRequest request) {
+		  HttpSession session = request.getSession();
+		  
+		   String user_id = (String) session.getAttribute("user_id");
+		  System.out.println("유저아이디"+user_id);
+	      ModelAndView mav = new ModelAndView();
+	      UserVO vo = userService.userSelect(user_id);
+	      mav.addObject("vo",vo);
+	      mav.setViewName("user/user_update");
+	      return mav;
+	   }
 
    @RequestMapping(value = "/user_updatePro", method = RequestMethod.POST)
    public ModelAndView updatePro(UserVO vo) {
       System.out.println("여긴 update 컨트롤러!!! ");
       ModelAndView mav = userService.updatePro(vo);
-      mav.setViewName("redirect:userlist");
+      mav.setViewName("mypage/mypage_main");
       return mav;
    }
 

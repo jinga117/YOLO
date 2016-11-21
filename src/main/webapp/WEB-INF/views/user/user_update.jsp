@@ -9,24 +9,25 @@
 </head>
 <body>
 	<form action="user_updatePro" method="post">
+	
 		<table>
 			<tr>
-				<td>아 이 디 :</td>
-				<td>비밀번호 :</td>
-				<td>이 메 일 :</td>
-				<td>성     별 :</td>
-				<td>나     이 :</td>
-				<td>등     급 :</td>
-				<td>지     역 :</td>
+				<td>아 이 디 :</td><p>
+				<td>비밀번호 :</td><p>
+				<td>이  메 일:</td><p>
+				<td>성     별 :</td><p>
+				<td>나     이 :</td><p>
 			</tr>
 			<tr>
-					<td><input type="text" name="user_id" readonly="readonly" value="${vo.user_id}"></td>
-					<td><input type="text" name="password" value="${vo.getPassword()}"></td>
-					<td><input type="text" name="email" value="${vo.getEmail()}"></td>
-					<td><input type="text" name="gender" value="${vo.getGender()}"></td>
-					<td><input type="text" name="age" value="${vo.getAge()}"></td>
-					<td><input type="text" name="isadmin" value="${vo.getIsadmin()}"></td>
-					<td><input type="text" name="area" value="${vo.getArea()}"></td>
+					<td><input type="text" name="user_id" readonly="readonly" value="${vo.user_id}"></td><p>
+					<td><input type="text" name="password" value="${vo.getPassword()}"></td><p>
+					<td><input type="text" name="email" value="${vo.getEmail()}"></td><p>
+					<td> 
+			<select name="gender" value="${vo.getGender()}">
+			<option>Man</option>
+			<option>Woman</option>
+		</select></td><p>
+					<td><input type="text" name="age" value="${vo.getAge()}"></td><p>
 			</tr>
 			<tr>
 				<td><input type="submit" value="수정"></td>

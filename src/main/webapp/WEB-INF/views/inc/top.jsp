@@ -36,7 +36,7 @@
 				<!-- 로그인 했을 때 -->
 				<c:if test="${user_id != null }">
 					 <a href="logout" class="login"><i class="fa fa-unlock-alt" aria-hidden="true"></i><span>Log Out</span></a>
-					 <a href="#" class="member"><i class="fa fa-user" aria-hidden="true"></i><span>My Page</span></a>
+					 <a href="my_page" class="member"><i class="fa fa-user" aria-hidden="true"></i><span>My Page</span></a>
 				</c:if>
         	</div>
         	
