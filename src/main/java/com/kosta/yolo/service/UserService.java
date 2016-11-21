@@ -57,11 +57,15 @@ public class UserService {
 	         }
 	         else{
 	            result = 3;   //비밀번호를 잘못입력하셧습니다.
+		         session.invalidate();
+
 	         }
 	         
 	      }//userVO != null end
 	      else{
 	         result = 2;   //아이디를 잘못입력하셧습니다.
+	         session.invalidate();
+
 	      }
 	      return result;
 	   }

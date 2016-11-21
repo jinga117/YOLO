@@ -41,14 +41,14 @@ public class UserController {
 	  
 	  System.out.println("user_id : "+user_id);
       int result = userService.login(request);
-      UserVO vo = userService.userSelect(user_id);
+   /*   UserVO vo = userService.userSelect(user_id);
       request.setAttribute("isadmin", vo.getIsadmin());
-      
+   */   
+      System.out.println("result값:"+result);
       if (result == 1) {
     	  request.setAttribute("result", result);
          return "index";
       }else if(result == 2){
-
     	  request.setAttribute("result", result);
          return "login/loginFail";
       }else{
