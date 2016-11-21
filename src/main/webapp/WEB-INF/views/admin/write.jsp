@@ -73,15 +73,12 @@
 					<tr><td>시</td><td><input type="text" name="trip_add1" size="50" ></td></tr>
 					<tr><td>구</td><td><input type="text" name="trip_add2" size="50" ></td></tr>
 					<tr><td>상세주소</td><td><input type="text" name="trip_add3" size="50" ></td></tr>
-					<tr><td>이미지</td><td><input type="text" name="trip_image" ></td></tr>
 					<tr><td>내용</td><td><input type="text" name="trip_content" size="50" ></td></tr>
 					<tr><td>이용시간</td><td><input type="text" name="trip_time" size="50" ></td></tr>
 					<tr><td>홈페이지</td><td><input type="text" name="trip_site" size="50" ></td></tr>
 					<tr><td>전화번호</td><td><input type="text" name="trip_tel" size="50" ></td></tr>
 					<tr><td>가는방법</td><td><input type="text" name="trip_way" size="50" ></td></tr>
 					<tr><td>비용</td><td><input type="text" name="trip_pay" size="50" ></td></tr>
-					<tr><td>좋아요</td><td><input type="text" name="trip_like" size="50" ></td></tr>
-					<tr><td>조회수</td><td><input type="text" name="trip_view" size="50" ></td></tr>
 					<tr><td>동영상</td><td><input type="text" name="trip_video" size="50" ></td></tr>
 					<tr><td>위도</td><td><input type="text" name="pos_x" size="50" ></td></tr>
 					<tr><td>경도</td><td><input type="text" name="pos_y" size="50" ></td></tr>

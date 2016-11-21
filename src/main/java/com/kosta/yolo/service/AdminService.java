@@ -88,16 +88,15 @@ public class AdminService {
 				vo.setTrip_add1(request.getParameter("trip_add1"));
 				vo.setTrip_add2(request.getParameter("trip_add2"));
 				vo.setTrip_add3(request.getParameter("trip_add3"));
-				vo.setTrip_image(request.getParameter("trip_image"));
 				vo.setTrip_content(request.getParameter("trip_content"));
 				vo.setTrip_time(request.getParameter("trip_time"));
 				vo.setTrip_site(request.getParameter("trip_site"));
 				vo.setTrip_tel(request.getParameter("trip_tel"));
 				vo.setTrip_way(request.getParameter("trip_way"));
 				vo.setTrip_pay(request.getParameter("trip_pay"));
-				vo.setTrip_like(Integer.parseInt(request.getParameter("trip_like")));
-				vo.setTrip_view(Integer.parseInt(request.getParameter("trip_view")));
 				vo.setTrip_video(request.getParameter("trip_video"));
+				vo.setPos_x(Double.parseDouble(request.getParameter("pos_x")));
+				vo.setPos_y(Double.parseDouble(request.getParameter("pos_y")));
 				
 				ModelAndView mav = new ModelAndView();
 				adminDAO.infoInsert(vo);
