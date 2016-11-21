@@ -1362,6 +1362,14 @@ only screen and (min-resolution: 1.5dppx) {
 	text-align:left;
 }
 
+/* LOAD MORE */
+#viewList_list li{
+	 display:none;
+	}
+#loadMore, #showLess {
+    cursor:pointer;
+}
+
 .b-pop-place__name_txt {
 	font-size:15px;
 	font-weight:bold;
@@ -1769,6 +1777,7 @@ html .b-promo__search {
 .b-pop-place__desc {
     background-color: #fff;
     padding: 20px;
+    font:13px "Malgun Gothic";
 }
 .b-pop-place__rating {
     float: left;
@@ -3388,7 +3397,7 @@ html .btn--buy-ticket:hover {
     background: #fff;
     padding: 10px 30px 0;
     width: 500px;
-	z-index:99999;
+	z-index:9999999;
 }
 .b-form-reg-popup input{
 	width:100%;
@@ -19524,7 +19533,7 @@ input[type=submit].styler[disabled] {
     .b-slider .owl-prev {
         position: static;
         display: inline-block;
-        margin: 0 15px
+        margin: 0 15px;
     }
 }
 .popup_back {
@@ -19533,11 +19542,11 @@ input[type=submit].styler[disabled] {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 100
+    z-index: 100;
 }
 .popup_cont {
     position: fixed;
-    z-index: 102
+    z-index: 102;
 }
 .popup_close {
     color: #888;

@@ -39,6 +39,8 @@
         <!--//b-footer__info-->
     </div>
     <!--//b-footer-->
+  </body>
+ </html>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/dropzone.js"></script>
