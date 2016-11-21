@@ -12,7 +12,7 @@ import com.kosta.yolo.service.MypageService;
 import com.kosta.yolo.service.ScheduleService;
 
 @Controller
-public class MypageControlle {
+public class MypageController {
 
    @Autowired
    private MypageService mypageService;

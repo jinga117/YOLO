@@ -12,9 +12,9 @@
 					</p>
 					<div class="b-footer__copyright">© 2016 All Rights Reserved</div>
 					<div class="b-soc"> 
-                    	<a href="#" class="soc-item"><i class="fa fa-facebook" aria-hidden="true"></i></a> 
-                    	<a href="#" class="soc-item"><i class="fa fa-twitter" aria-hidden="true"></i></a> 
-                    	<a href="#" class="soc-item"><i class="fa fa-instagram" aria-hidden="true"></i></a> 
+                    	<a href="https://www.facebook.com/YOLO.Reisen/" class="soc-item"><i class="fa fa-facebook" aria-hidden="true"></i></a> 
+                    	<a href="https://twitter.com/YouOnlyLiveOnce" class="soc-item"><i class="fa fa-twitter" aria-hidden="true"></i></a> 
+                    	<a href="https://www.instagram.com/yolo/" class="soc-item"><i class="fa fa-instagram" aria-hidden="true"></i></a> 
                     </div>
 				</div>
 
@@ -24,7 +24,7 @@
 					<ul>
 						<li><a href="#">YOLO</a></li>
 						<li><a href="#">Contact us</a></li>
-						<li><a href="#">Hot to use</a></li>
+						<li><a href="https://www.instagram.com/yolo/">Hot to use</a></li>
 					</ul>
 				</div>
 
