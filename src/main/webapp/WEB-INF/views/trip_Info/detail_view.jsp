@@ -131,6 +131,29 @@
 							<input type="hidden"  id="trip_nickname" value=" ${list.trip_nickname}"> 
 							<input type="hidden"  id="trip_like" value=" ${list.trip_like}">                       
                         </div>
+                        <div> 
+							<c:forEach items="${reviewList }" var="list">
+								<b>user_id : ${list.user_id }</b><br>
+								<b>review_content : ${list.review_content }</b><br>
+								<b>review_time : ${list.review_time }</b><hr>
+							</c:forEach>
+						</div>
+						<div> 
+							<form method="post">
+							<c:if test="${user == null}">
+								<script type="text/javascript">
+									$('#content').mousedown(function () { 
+										alert("로그인 하신 후 이용 가능합니다.");
+										});
+								</script>
+							</c:if>
+								user_id : <input type="hidden"  name="user_id" value=" ${user}">${user}<br>
+								<input type="hidden"  name="trip_id" value=" ${trip_id}">
+								review_content : <input type="text"  id="content" name="review_content"  width="20px">
+								<input type="submit" value="coment" >
+							</form>
+							
+							</div>
 					</div>
                     <!--  상세보기 컨텐츠 끝 -->
 		  		</div>

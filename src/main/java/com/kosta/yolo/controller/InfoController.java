@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kosta.yolo.service.TripInfoService;
 
@@ -29,12 +30,20 @@ public class InfoController {
 	}
 	
 	// 상세보기
-	@RequestMapping("/detail_view")
-	public ModelAndView selectDetail(@RequestParam String trip_id) {
+	@RequestMapping(value="/detail_view", method=RequestMethod.GET)
+	public ModelAndView selectDetail(HttpServletRequest request, @RequestParam String trip_id) {
 		System.out.println("상세보기 trip_id : "+ trip_id);
-		ModelAndView mav = infoService.detail_view(trip_id);
+		ModelAndView mav = infoService.detail_view(request, trip_id);
 		infoService.view_Count(trip_id);
 		mav.setViewName("trip_Info/detail_view");
+		return mav;
+	}
+	
+	@RequestMapping(value="/detail_view", method = RequestMethod.POST)
+	public ModelAndView writeRe(HttpServletRequest request ){
+		ModelAndView mav = infoService.writeRe(request);
+		String trip_id = request.getParameter("trip_id");
+		mav.setViewName("redirect:/detail_view?trip_id="+trip_id);
 		return mav;
 	}
 	

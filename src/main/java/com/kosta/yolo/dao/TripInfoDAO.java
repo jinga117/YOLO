@@ -1,13 +1,13 @@
 package com.kosta.yolo.dao;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kosta.yolo.vo.TripInfoVO;
+import com.kosta.yolo.vo.UserReviewVO;
 
 @Repository
 public class TripInfoDAO {
@@ -15,6 +15,18 @@ public class TripInfoDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	
+	// 리뷰보기
+	public ArrayList<TripInfoVO> inforeview(String trip_id) {
+		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+		ArrayList<TripInfoVO> reList = info.inforeview(trip_id);
+		return reList;
+	}
+	//리뷰쓰기
+	
+	public void writeReview(UserReviewVO vo){
+		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+		info.writeReview(vo);
+	}
 	
 	// 상세보기
 	public ArrayList<TripInfoVO> selectDetail(String trip_id) {

@@ -1,18 +1,17 @@
 package com.kosta.yolo.service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kosta.yolo.dao.TripInfoDAO;
 import com.kosta.yolo.vo.TripInfoVO;
+import com.kosta.yolo.vo.UserReviewVO;
 
 @Service
 public class TripInfoService {
@@ -22,12 +21,42 @@ public class TripInfoService {
 	
 	
 	// 상세보기
-	public ModelAndView detail_view(String trip_id) {
+	public ModelAndView detail_view(HttpServletRequest request, String trip_id) {
 		ModelAndView mav = new ModelAndView();
+		
+		//로그인되었을 때 세션에 저장된 user_id가져오기
+				HttpSession session = request.getSession(false);
+				String user = (String) session.getAttribute("user_id");
+				if(user == null){
+					mav.addObject("user", user);
+					
+					}else{//로그인 되어있을시
+					mav.addObject("user", user);
+					mav.addObject("trip_id", trip_id);
+					}
+				
 		ArrayList<TripInfoVO> detail = infoDAO.selectDetail(trip_id);
+		ArrayList<TripInfoVO> review = infoDAO.inforeview(trip_id);
 		mav.addObject("detailList", detail);
+		mav.addObject("reviewList", review);
+		
 		return mav;
 	}
+	
+	//리뷰쓰기
+	public ModelAndView writeRe(HttpServletRequest request){
+		ModelAndView mav = new ModelAndView();
+		UserReviewVO vo = new UserReviewVO();
+		
+		vo.setUser_id(request.getParameter("user_id"));
+		vo.setTrip_id(request.getParameter("trip_id"));
+		vo.setReview_content(request.getParameter("review_content"));
+		
+		infoDAO.writeReview(vo);
+		
+		return mav;
+	}
+	
 	
 	//조회수
 	public int view_Count(String trip_id) {

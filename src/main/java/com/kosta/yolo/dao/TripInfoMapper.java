@@ -4,11 +4,17 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import com.kosta.yolo.vo.TripInfoVO;
+import com.kosta.yolo.vo.UserReviewVO;
 
 public interface TripInfoMapper  extends Serializable  {
 	
 	//상세보기
 	ArrayList<TripInfoVO> selectDetail(String trip_id);
+	
+	//리뷰보기
+		ArrayList<TripInfoVO> inforeview(String trip_id);
+	//리뷰쓰기
+		void writeReview(UserReviewVO vo);
 	
 	//조회수
 	int viewCount(String trip_id);
