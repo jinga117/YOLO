@@ -57,6 +57,9 @@ public class TripInfoService {
 		return mav;
 	}
 	
+	//리뷰 삭제
+	
+	
 	
 	//조회수
 	public int view_Count(String trip_id) {

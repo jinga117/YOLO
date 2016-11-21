@@ -148,9 +148,11 @@
     	<select id="inforeview" parameterType="String"  resultType="com.kosta.yolo.vo.UserReviewVO">
     		SELECT * FROM UserReview u, TripInfo t WHERE u.trip_id = t.trip_id and u.trip_id = #{trip_id}
   	  	</select>
+  	  	
   	  	<!-- 리뷰쓰기 -->
-  	  	<insert id="writeReview" parameterType="com.kosta.yolo.vo.UserReviewVO">
-  	  		INSERT INTO UserReview VALUES(#{user_id}, #{trip_id}, #{review_content}, NOW())
+  	  	<!-- useGeneratedKeys="true" keyProperty="review_no" 이 있으면 오라클의 sql.nextval의 대신 -->
+  	  	<insert id="writeReview" parameterType="com.kosta.yolo.vo.UserReviewVO"  useGeneratedKeys="true" keyProperty="review_no">
+  	  		INSERT INTO UserReview VALUES(#{review_no}, #{user_id}, #{trip_id}, #{review_content}, NOW())
   	  	</insert>
     	
     	<!-- 조회수 -->

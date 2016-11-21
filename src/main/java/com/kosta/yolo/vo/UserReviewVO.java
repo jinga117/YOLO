@@ -4,11 +4,18 @@ import java.util.Date;
 
 public class UserReviewVO {
 	
+	private int review_no;
 	private String user_id, trip_id; //조인할 키값
 	private String review_content;//리뷰내용
 	private Date review_time;
 	
 	
+	public int getReview_no() {
+		return review_no;
+	}
+	public void setReview_no(int review_no) {
+		this.review_no = review_no;
+	}
 	public String getUser_id() {
 		return user_id;
 	}
