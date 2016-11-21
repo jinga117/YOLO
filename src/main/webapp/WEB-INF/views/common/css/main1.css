@@ -1807,7 +1807,6 @@ html .b-promo__search {
 
 .b-pop-place__like2 {
 	display:inline-block;
-	font-size:16px;
 	color:#ff5050;
 	padding:0 5px;
 	font-weight:normal;
@@ -1815,10 +1814,17 @@ html .b-promo__search {
 
 .b-pop-place__view {
 	display:inline-block;
-	font-size:16px;
 	color:#666;
-	padding:0 10px;
+	padding:10px 10px 0 10px;
 	font-weight:normal;
+}
+
+.list_icon {
+	width:22px;
+}
+
+.p-t-10 {
+	padding-top:10px;
 }
 
 .b-pop-place__name {

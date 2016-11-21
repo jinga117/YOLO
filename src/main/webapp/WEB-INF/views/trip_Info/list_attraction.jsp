@@ -71,12 +71,18 @@
 								<h5 class="b-pop-place__cat">${list.trip_address}</h5>
 
 								<div class="b-pop-place-comment">
-									<a href="http://${list.trip_site}" target="_blank" class="b-pop-place-homepage"><i class="fa fa-home" aria-hidden="true"></i></a> <a href="http://${list.trip_site}"target="_blank">${list.trip_site}</a>
+									<a href="http://${list.trip_site}" target="_blank" class="b-pop-place-homepage" data-toggle="tooltip" data-placement="top" title="홈페이지 바로가기"><i class="fa fa-home" aria-hidden="true"></i></a> 
+									<%-- <a href="http://${list.trip_site}" target="_blank">${list.trip_site}</a> --%>
+								
+										<span class="b-pop-place__view"><img src="img/heart_icon.png" class="list_icon"></span><span id="likeCount">${list.trip_like}</span> 
+										<span class="b-pop-place__view"><img src="img/view_icon.png" class="list_icon"></span> ${list.trip_view}
+										<span class="b-pop-place__view"><img src="img/review_icon.png" class="list_icon"></span> ${list.trip_view}
+							
 								</div>
 
-								<div class="b-pop-place-comment">
+								<%-- <div class="b-pop-place-comment">
 									<span class="b-pop-place-homepage"><i class="fa fa-clock-o" aria-hidden="true"></i></span>${list.trip_time}
-								</div>
+								</div> --%>
 							</div>
 						</div>
 					</div>
@@ -99,31 +105,22 @@
 						<div class="viewList_item">
 							<div class="b-pop-place">
 								<div class="b-pop-place__img">
-									<a href="detail_view?trip_id=${list.trip_id}"> <img
-										width="370" height="245" class="b-pop-place__img__img"
-										src="img/photo/${list.trip_id}.jpg"
-										alt="${list.trip_nickname}"></a><button onClick="likeIt(this)" value="${list.trip_id}"
-										class="b-icon-like" data-toggle="tooltip"
-										data-placement="left" title="좋아요">
+									<a href="detail_view?trip_id=${list.trip_id}"> <img width="370" height="245" class="b-pop-place__img__img" src="img/photo/${list.trip_id}.jpg" alt="${list.trip_nickname}"></a>
+									<button onClick="likeIt(this)" value="${list.trip_id}" class="b-icon-like" data-toggle="tooltip" data-placement="left" title="좋아요">
 										<i class="fa fa-heart" aria-hidden="true"></i>
 									</button>
 								</div>
 
 								<div class="b-pop-place__desc clearfix">
-									<a href="detail_view?trip_id=${list.trip_id}"
-										class="b-pop-place__name"><span
-										class="b-pop-place__name_txt">${list.trip_nickname}</span></a>
-									<h5 class="b-pop-place__cat">${list.trip_add1}
-										${list.trip_add2}</h5>
+									<a href="detail_view?trip_id=${list.trip_id}" class="b-pop-place__name">
+										<span class="b-pop-place__name_txt">${list.trip_nickname}</span>
+									</a>
+									<h5 class="b-pop-place__cat">${list.trip_add1} ${list.trip_add2}</h5>
 
-									<div class="b-pop-place-comment">
-										<a href="http://${list.trip_site}" target="_blank"
-											class="b-pop-place-homepage"><i class="fa fa-home"
-											aria-hidden="true"></i></a> <span class="b-pop-place__like2"><i
-											class="fa fa-heart" aria-hidden="true"></i></span><span
-											id="likeCount"> ${list.trip_like}</span> <span
-											class="b-pop-place__view"><i class="fa fa-eye"
-											aria-hidden="true"></i> ${list.trip_view}</span>
+									<div class="b-pop-place-comment m--centered">
+										<span class="b-pop-place__view"><img src="img/heart_icon.png" class="list_icon"></span><span id="likeCount">${list.trip_like}</span> 
+										<span class="b-pop-place__view"><img src="img/view_icon.png" class="list_icon"> ${list.trip_view}</span>
+										<span class="b-pop-place__view"><img src="img/review_icon.png" class="list_icon"> ${list.trip_view}</span>
 									</div>
 								</div>
 							</div>
@@ -142,7 +139,6 @@
 		<!-- *********************************************************전체보기 끝************************************************************************ -->
 		<!-- //View List Container 끝-->
 	</div>
-	<!-- //main-container -->
 </div>
 <!-- 컨텐츠 영역 끝 -->
 
