@@ -3,7 +3,6 @@ package com.kosta.yolo.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,10 +38,12 @@ public class UserController {
    @RequestMapping("/loginPro") // 로그인
    public String loginPro(HttpServletRequest request) {
 	  String user_id = request.getParameter("user_id");
-	  //UserVO vo = userService.userSelect(user_id);
+	  
 	  System.out.println("user_id : "+user_id);
       int result = userService.login(request);
-
+      UserVO vo = userService.userSelect(user_id);
+      request.setAttribute("isadmin", vo.getIsadmin());
+      
       if (result == 1) {
     	  request.setAttribute("result", result);
          return "index";
@@ -112,11 +113,30 @@ public class UserController {
       String pwd = vo.getPassword();
       System.out.println("user_id:"+user_id+"pwd:"+pwd);
       
-      UserVO vo1 = userService.userSelect(user_id);
+      userService.userSelect(user_id);
       userService.deletePro(vo);
       
       mav.setViewName("redirect:userlist");
       return mav;
    }
-
+   @RequestMapping("/confirm_Id")
+   public ModelAndView confirm_Id(UserVO vo){
+	   ModelAndView mav = new ModelAndView();
+	   int check = userService.confirmCheck(vo);
+	   System.out.println(check);
+	   if (check == 1) {
+		   mav.addObject("check",check);
+		   mav.addObject("user_id",vo.getUser_id());
+		   mav.setViewName("login/confirm_Id");
+	       return mav;
+	   }else if(check == 0){
+		   mav.addObject("check",check);
+		   mav.addObject("user_id",vo.getUser_id());
+		   mav.setViewName("login/confirm_Id");
+	       return mav;
+	   }else{
+		   mav.setViewName("login/confirm_Id");
+	       return mav;
+	   }
+   }
 }// class end

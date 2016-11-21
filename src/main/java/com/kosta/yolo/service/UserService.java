@@ -24,6 +24,18 @@ public class UserService {
 
 		userDAO.getWrite(uservo);
 	}
+	public int confirmCheck(UserVO vo){
+		int check = 1;
+		String user_id = vo.getUser_id();
+		vo = userDAO.userSelect(user_id);
+		
+		if(vo != null){
+			check = 1;
+		}else {
+			check = 0;	
+		}
+		return check;
+	}
 
 
 	public int login(HttpServletRequest request) { // 로그인
