@@ -29,6 +29,14 @@ public class TripInfoService {
 		return mav;
 	}
 	
+	//조회수
+	public int view_Count(String trip_id) {
+		
+		int count =  infoDAO.viewCount(trip_id);
+		System.out.println("count !!!! "+count);
+		return count;
+	}
+		
 	// 좋아요
 	public int likeCount(String trip_id) {
 		return infoDAO.likeCount(trip_id);

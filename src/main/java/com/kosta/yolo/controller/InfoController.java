@@ -33,6 +33,7 @@ public class InfoController {
 	public ModelAndView selectDetail(@RequestParam String trip_id) {
 		System.out.println("상세보기 trip_id : "+ trip_id);
 		ModelAndView mav = infoService.detail_view(trip_id);
+		infoService.view_Count(trip_id);
 		mav.setViewName("trip_Info/detail_view");
 		return mav;
 	}
@@ -40,7 +41,7 @@ public class InfoController {
 	// 좋아요
 	@RequestMapping("/like")
 	public ModelAndView likeCount(HttpServletRequest request, 
-	        HttpServletResponse response, @RequestParam String trip_id) throws Exception{ 
+	    HttpServletResponse response, @RequestParam String trip_id) throws Exception{ 
 		System.out.println("좋아요 trip_id : "+ trip_id);
 		int likeCount = infoService.likeCount(trip_id);
 		System.out.println("좋아요 결과 : "+ likeCount);

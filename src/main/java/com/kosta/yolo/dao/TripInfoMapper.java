@@ -9,6 +9,10 @@ public interface TripInfoMapper  extends Serializable  {
 	
 	//상세보기
 	ArrayList<TripInfoVO> selectDetail(String trip_id);
+	
+	//조회수
+	int viewCount(String trip_id);
+
 	//좋아요
 	int likeCount(String trip_id);
 	int selectLikeCount(String trip_id);
