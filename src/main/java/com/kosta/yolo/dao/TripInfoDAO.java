@@ -23,6 +23,14 @@ public class TripInfoDAO {
 		return avo;
 	}
 	
+	// 조회수
+	public int viewCount(String trip_id) {
+		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+		int view_count = info.viewCount(trip_id);
+		System.out.println("view_count : "+view_count);
+		return view_count;
+	}
+	
 	// 좋아요
 	public int likeCount(String trip_id) {
 		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
