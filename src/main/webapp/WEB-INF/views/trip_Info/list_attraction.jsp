@@ -68,28 +68,20 @@
 									<span class="b-pop-place__like"><i class="fa fa-heart" aria-hidden="true"></i></span> <span id="likeCount">${list.trip_like}</span>
 								</div>
 								<a href="detail_view?trip_id=${list.trip_id}" class="b-pop-place__name">${list.trip_nickname}</a>
-								<h5 class="b-pop-place__cat">${list.trip_address}</h5>
+								<h5 class="b-pop-place__cat">${list.trip_add1} ${list.trip_add2}</h5>
 
 								<div class="b-pop-place-comment">
 									<a href="http://${list.trip_site}" target="_blank" class="b-pop-place-homepage" data-toggle="tooltip" data-placement="top" title="홈페이지 바로가기"><i class="fa fa-home" aria-hidden="true"></i></a> 
-									<%-- <a href="http://${list.trip_site}" target="_blank">${list.trip_site}</a> --%>
-								
-										<span class="b-pop-place__view"><img src="img/heart_icon.png" class="list_icon"></span><span id="likeCount">${list.trip_like}</span> 
-										<span class="b-pop-place__view"><img src="img/view_icon.png" class="list_icon"></span> ${list.trip_view}
-										<span class="b-pop-place__view"><img src="img/review_icon.png" class="list_icon"></span> ${list.trip_view}
-							
+									<span class="b-pop-place__view"><img src="img/heart_icon.png" class="list_icon"></span><span id="likeCount">${list.trip_like}</span>
+									<span class="b-pop-place__view"><img src="img/view_icon.png" class="list_icon"></span> ${list.trip_view}
+									<span class="b-pop-place__view"><img src="img/review_icon.png" class="list_icon"></span> ${list.trip_view}
 								</div>
-
-								<%-- <div class="b-pop-place-comment">
-									<span class="b-pop-place-homepage"><i class="fa fa-clock-o" aria-hidden="true"></i></span>${list.trip_time}
-								</div> --%>
 							</div>
 						</div>
 					</div>
 				</c:forEach>
 				<!--  리스트 끝-->
 			</div>
-
 			<!-- *********************************************************전체보기 시작************************************************************************ -->
 			<div class="row m--centered">
 				<div class="col-md-4 col-md-offset-4">
@@ -129,16 +121,20 @@
 				</c:forEach>
 			</ul>
 			<!--  View all List 끝-->
+			
+			<!--  Load More 시작 -->
 			<div class="row m--centered">
 				<div class="col-md-4 col-md-offset-4">
 					<a class="btn" id="loadMore">Load more</a>&nbsp; <a class="btn"
 						id="showLess">Show less</a>
 				</div>
 			</div>
+			<!--  Load More 끝 -->
 		</div>
-		<!-- *********************************************************전체보기 끝************************************************************************ -->
-		<!-- //View List Container 끝-->
 	</div>
+<!-- *********************************************************전체보기 끝************************************************************************ -->
+<!-- //View List Container 끝-->
+<!-- //main-container -->
 </div>
 <!-- 컨텐츠 영역 끝 -->
 
