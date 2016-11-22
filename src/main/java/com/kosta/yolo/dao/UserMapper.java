@@ -20,5 +20,7 @@ public interface UserMapper  extends Serializable  {
 	public UserVO userSelect(String id);
 	
 	public UserVO userIdFind(UserVO vo);
+	
+	public UserVO userPwdFind(UserVO vo);
 
 }

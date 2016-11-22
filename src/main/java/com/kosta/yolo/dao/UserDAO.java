@@ -59,4 +59,9 @@ public class UserDAO {
 		UserMapper user = sqlSession.getMapper(UserMapper.class); 
 		return user.userIdFind(vo);
 	}
+	
+	public UserVO userPwdFind(UserVO vo){
+		UserMapper user = sqlSession.getMapper(UserMapper.class); 
+		return user.userPwdFind(vo);
+	}
 }

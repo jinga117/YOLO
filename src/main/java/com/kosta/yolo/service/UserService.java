@@ -39,6 +39,11 @@ public class UserService {
 		vo = userDAO.userIdFind(vo);
 		return vo;
 	}
+	
+	public UserVO userPwdFindCheck(UserVO vo){
+		vo = userDAO.userPwdFind(vo);
+		return vo;
+	}
 
 	public int login(HttpServletRequest request) { // 로그인
 		int result = 1;

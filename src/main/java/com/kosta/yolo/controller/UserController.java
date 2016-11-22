@@ -152,6 +152,11 @@ public class UserController {
      
       return "user/findid"; 
    } 
+   @RequestMapping("/findpwd") // 회원가입 페이지로 이동
+   public String find_pwd(Model model) {
+     
+      return "user/findpwd"; 
+   }
    
    @RequestMapping("/find_idCheck")
    public ModelAndView find_idPro(UserVO vo){
@@ -168,6 +173,26 @@ public class UserController {
 		   int num=0;
 		   mav.addObject("num", num);
 		   mav.setViewName("user/find_idPro");
+		   return mav;
+	   }
+	   
+   }
+   
+   @RequestMapping("/find_pwdCheck")
+   public ModelAndView find_pwdPro(UserVO vo){
+	   ModelAndView mav = new ModelAndView();
+	  vo = userService.userPwdFindCheck(vo);
+	   if(vo!=null){
+		   int num =1;
+		   mav.addObject("num",num);
+		   mav.addObject("password",vo.getPassword());
+		   mav.setViewName("user/find_pwdPro");
+		   return mav;
+	   }
+	   else{
+		   int num=0;
+		   mav.addObject("num", num);
+		   mav.setViewName("user/find_pwdPro");
 		   return mav;
 	   }
 	   
