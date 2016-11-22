@@ -82,9 +82,9 @@ public class AdminService {
 				vo.setFood_id(food_id);
 				vo.setTrip_id(request.getParameter("trip_id"));
 				vo.setCategory_id(request.getParameter("category_id"));
+				vo.setKpop_id(request.getParameter("kpop_id"));
 				vo.setTrip_nickname(request.getParameter("trip_nickname"));
 				vo.setTrip_address(request.getParameter("trip_address"));
-				vo.setKpop_id(request.getParameter("kpop_id"));
 				vo.setTrip_add1(request.getParameter("trip_add1"));
 				vo.setTrip_add2(request.getParameter("trip_add2"));
 				vo.setTrip_add3(request.getParameter("trip_add3"));
@@ -94,7 +94,6 @@ public class AdminService {
 				vo.setTrip_tel(request.getParameter("trip_tel"));
 				vo.setTrip_way(request.getParameter("trip_way"));
 				vo.setTrip_pay(request.getParameter("trip_pay"));
-				vo.setTrip_video(request.getParameter("trip_video"));
 				vo.setPos_x(Double.parseDouble(request.getParameter("pos_x")));
 				vo.setPos_y(Double.parseDouble(request.getParameter("pos_y")));
 				
