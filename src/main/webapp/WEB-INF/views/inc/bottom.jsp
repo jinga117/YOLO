@@ -12,9 +12,9 @@
 					</p>
 					<div class="b-footer__copyright">© 2016 All Rights Reserved</div>
 					<div class="b-soc"> 
-                    	<a href="https://www.facebook.com/YOLO.Reisen/" class="soc-item"><i class="fa fa-facebook" aria-hidden="true"></i></a> 
-                    	<a href="https://twitter.com/YouOnlyLiveOnce" class="soc-item"><i class="fa fa-twitter" aria-hidden="true"></i></a> 
-                    	<a href="https://www.instagram.com/yolo/" class="soc-item"><i class="fa fa-instagram" aria-hidden="true"></i></a> 
+                    	<a href="https://www.facebook.com/YOLO.Reisen/" target="_new" class="soc-item"><i class="fa fa-facebook" aria-hidden="true"></i></a> 
+                    	<a href="https://twitter.com/YouOnlyLiveOnce" target="_new" class="soc-item"><i class="fa fa-twitter" aria-hidden="true"></i></a> 
+                    	<a href="https://www.instagram.com/yolo/" target="_new" class="soc-item"><i class="fa fa-instagram" aria-hidden="true"></i></a> 
                     </div>
 				</div>
 
