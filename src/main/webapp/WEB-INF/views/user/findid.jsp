@@ -9,7 +9,7 @@
 <body>
 	<form action="find_idPro" name="findID">
 	이름 : <input type="text" name="name" >
-	비밀번호 : <input type="password" name="password"> 
+	이메일: <input type="email" name="email"> 
 	<input type="button" onclick="openConfirmid(this.form)" value="확인"/>
 	</form>
 </body>
@@ -23,7 +23,7 @@
 			findID.name.focus();
 			return false; //사용자가 서비스를 요청한 시점으로 돌아감
 		}
-		if (!findID.password.value) { //비밀번호를 입력하지 않으면 수행
+		if (!findID.email.value) { //비밀번호를 입력하지 않으면 수행
 			alert("비밀번호 입력하세요.");
 			return false;
 	
@@ -32,8 +32,8 @@
 
 	function openConfirmid(findID) {
 		
-		url = "find_idCheck?name=" + findID.name.value + "&password="+findID.password.value;
-		winObject = window.open(url, "name&password", "width=600, height=100");
+		url = "find_idCheck?name=" + findID.name.value + "&email="+findID.email.value;
+		winObject = window.open(url, "name&email", "width=600, height=100");
 		winObject.document.all.value = document.all.value;
 	}
 </script>

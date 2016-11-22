@@ -37,9 +37,7 @@ public class UserService {
 		return check;
 	}
 	public UserVO userIdFindCheck(UserVO vo){
-		int check = 0;
 		vo = userDAO.userIdFind(vo);
-	
 		return vo;
 	}
 

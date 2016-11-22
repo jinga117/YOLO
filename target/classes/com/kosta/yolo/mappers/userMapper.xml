@@ -39,6 +39,6 @@
     </select>
     
     <select id="userIdFind" resultType="com.kosta.yolo.vo.UserVO">
-    		SELECT * FROM User WHERE name = #{name} AND password=#{password}
+    		SELECT * FROM User WHERE name = #{name} AND email=#{email}
     </select>
 </mapper>

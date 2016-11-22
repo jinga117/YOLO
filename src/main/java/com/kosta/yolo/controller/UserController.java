@@ -141,6 +141,7 @@ public class UserController {
 	       return mav;
 	   }
    }
+   
    @RequestMapping("/findid") // 회원가입 페이지로 이동
    public String find_id(Model model) {
      
@@ -157,7 +158,8 @@ public class UserController {
 		   mav.addObject("user_id",vo.getUser_id());
 		   mav.setViewName("user/find_idPro");
 		   return mav;
-	   }else{
+	   }
+	   else{
 		   int num=0;
 		   mav.addObject("num", num);
 		   mav.setViewName("user/find_idPro");
