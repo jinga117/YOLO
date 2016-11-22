@@ -20,7 +20,6 @@ public class UserService {
 
 	public void insert(UserVO uservo) {///////////////// 회원가입
 
-		System.out.println("insert안에 ID = " + uservo.getUser_id());
 
 		userDAO.getWrite(uservo);
 	}
@@ -36,17 +35,14 @@ public class UserService {
 		}
 		return check;
 	}
-	public int userIdFindCheck(UserVO vo){
-		int check = 0;
-		
+	public UserVO userIdFindCheck(UserVO vo){
 		vo = userDAO.userIdFind(vo);
-		
-		if(vo !=null){
-			check = 1;
-		}else{
-			check = 0;
-		}	
-		return check;
+		return vo;
+	}
+	
+	public UserVO userPwdFindCheck(UserVO vo){
+		vo = userDAO.userPwdFind(vo);
+		return vo;
 	}
 
 	public int login(HttpServletRequest request) { // 로그인

@@ -12,7 +12,7 @@
 <c:if test="${num==1 }">
 		<table>
 			<tr>
-				<td>${user_id} 입니다.</td>
+				<td>${password} 입니다.</td>
 				<td>
 					<input type="submit" value="확 인" onclick="window.close()">
 				</td>
@@ -24,7 +24,7 @@
 
 		<table>
 				<tr>
-					<td>일치하는 ID가 존재하지 않습니다.</td>		
+					<td>일치한 정보가 없습니다.</td>		
 					<td>
 						<input type="submit" value="확 인" onclick="window.close()">
 					</td>

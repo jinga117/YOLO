@@ -79,7 +79,6 @@
 					<tr><td>전화번호</td><td><input type="text" name="trip_tel" size="50" ></td></tr>
 					<tr><td>가는방법</td><td><input type="text" name="trip_way" size="50" ></td></tr>
 					<tr><td>비용</td><td><input type="text" name="trip_pay" size="50" ></td></tr>
-					<tr><td>동영상</td><td><input type="text" name="trip_video" size="50" ></td></tr>
 					<tr><td>위도</td><td><input type="text" name="pos_x" size="50" ></td></tr>
 					<tr><td>경도</td><td><input type="text" name="pos_y" size="50" ></td></tr>
 					

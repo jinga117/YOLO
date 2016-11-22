@@ -14,7 +14,7 @@
 	</resultMap>
 	
 	<insert id="getWrite" parameterType="com.kosta.yolo.vo.UserVO">
-		insert into User(user_id, password, email, gender,age) values(#{user_id} , #{password} , #{email}, #{gender}, #{age})
+		insert into User(user_id, name, password, email, gender,age) values(#{user_id} , #{name}, #{password} , #{email}, #{gender}, #{age})
 	</insert>
 	
 	<select id="login" resultMap="MemberResultMap" parameterType="java.lang.String">
@@ -39,6 +39,10 @@
     </select>
     
     <select id="userIdFind" resultType="com.kosta.yolo.vo.UserVO">
-    		SELECT * FROM User WHERE email = #{email} AND password=#{password}
+    		SELECT * FROM User WHERE name = #{name} AND email=#{email}
+    </select>
+    
+    <select id="userPwdFind" resultType="com.kosta.yolo.vo.UserVO">
+    		SELECT * FROM User WHERE user_id = #{user_id} AND email=#{email}
     </select>
 </mapper>

@@ -12,6 +12,7 @@
 	<jsp:include page="inc/top.jsp" />
 	<!--  헤더 영역 끝 -->
 	
+	
 	<!-- 컨텐츠 영역 시작 -->
     <div class="b-main-container" id="content">
         <div class="b-promo lazy" data-src="img/main_visual_img.jpg">

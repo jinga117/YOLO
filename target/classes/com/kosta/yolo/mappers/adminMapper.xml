@@ -8,8 +8,8 @@
     	</select>
 
     	<insert id="infoInsert"  parameterType="com.kosta.yolo.vo.TripInfoVO">
-    		INSERT INTO TripInfo VALUES
-    		(#{trip_id }, #{category_id}, #{age_id},#{food_id}, #{season_id}, #{person_id}, #{kpop_id}, #{trip_nickname} , #{trip_address} , #{trip_add1}, #{trip_add2}, #{trip_add3}, #{trip_image} ,#{trip_content} ,#{trip_time},#{trip_site}, #{trip_tel}, #{trip_way} ,#{trip_pay}, #{trip_like}, #{trip_view}, #{trip_video}, #{pos_x}, #{pos_y} )
+    		INSERT INTO TripInfo
+    		 (trip_id, category_id, age_id, food_id, season_id, person_id, kpop_id, trip_nickname, trip_address, trip_add1, trip_add2, trip_add3, trip_content, trip_time, trip_site, trip_tel, trip_way, trip_pay, pos_x, pos_y) VALUES( #{trip_id }, #{category_id}, #{age_id}, #{food_id}, #{season_id}, #{person_id}, #{kpop_id}, #{trip_nickname}, #{trip_address}, #{trip_add1}, #{trip_add2}, #{trip_add3}, #{trip_content}, #{trip_time}, #{trip_site}, #{trip_tel}, #{trip_way}, #{trip_pay}, #{pos_x}, #{pos_y} )
     	</insert>
     	
     	<select id="selectInfo"  parameterType="java.lang.String"  resultType="com.kosta.yolo.vo.TripInfoVO">
