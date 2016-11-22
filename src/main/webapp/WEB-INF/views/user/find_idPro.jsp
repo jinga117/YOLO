@@ -8,8 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<!-- 입력한 ID값이 Member DB에 있을 경우 -->
-	<c:if test="${check==1 }">
+<!-- 입력한 값이 Member DB에 있을 경우 -->
+<c:if test="${num==1 }">
 		<table>
 			<tr>
 				<td>${user_id} 입니다.</td>
@@ -18,10 +18,9 @@
 				</td>
 			</tr>
 		</table>
-	</c:if>
-
-	<!-- 입력한 ID값이 Member DB에 없을 경우 -->
-	<c:if test="${check==0}">
+</c:if>
+	<!-- 입력한 값이 Member DB에 없을 경우 -->
+	<c:if test="${num==0}">
 
 		<table>
 				<tr>

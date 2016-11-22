@@ -56,7 +56,6 @@ public class UserDAO {
 	}
 	
 	public UserVO userIdFind(UserVO vo){
-		System.out.println("여긴 selectDao닷!! ");
 		UserMapper user = sqlSession.getMapper(UserMapper.class); 
 		return user.userIdFind(vo);
 	}

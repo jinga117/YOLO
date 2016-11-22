@@ -36,17 +36,11 @@ public class UserService {
 		}
 		return check;
 	}
-	public int userIdFindCheck(UserVO vo){
+	public UserVO userIdFindCheck(UserVO vo){
 		int check = 0;
-		
 		vo = userDAO.userIdFind(vo);
-		
-		if(vo !=null){
-			check = 1;
-		}else{
-			check = 0;
-		}	
-		return check;
+	
+		return vo;
 	}
 
 	public int login(HttpServletRequest request) { // 로그인

@@ -150,15 +150,16 @@ public class UserController {
    @RequestMapping("/find_idCheck")
    public ModelAndView find_idPro(UserVO vo){
 	   ModelAndView mav = new ModelAndView();
-	   int check = userService.userIdFindCheck(vo);
-	   System.out.println(check + " " + vo.getUser_id());
-	   if(check ==1){
-		   mav.addObject("check", check);
+	  vo = userService.userIdFindCheck(vo);
+	   if(vo!=null){
+		   int num =1;
+		   mav.addObject("num",num);
 		   mav.addObject("user_id",vo.getUser_id());
 		   mav.setViewName("user/find_idPro");
 		   return mav;
 	   }else{
-		   mav.addObject("check", check);
+		   int num=0;
+		   mav.addObject("num", num);
 		   mav.setViewName("user/find_idPro");
 		   return mav;
 	   }
