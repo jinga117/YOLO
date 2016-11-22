@@ -17,7 +17,7 @@ public class ScheduleController {
    private ScheduleService scheduleservice;
 
    @RequestMapping("/trip_schedule") //
-   public String schedule_lo(HttpServletRequest request){
+   public ModelAndView schedule_lo(HttpServletRequest request){
 	   
 	   HttpSession session = request.getSession();
 	   String user_id = (String)session.getAttribute("user_id");
@@ -25,12 +25,18 @@ public class ScheduleController {
 	   int result = scheduleservice.s_login(user_id);
 	   
 	   if(result==1){
-		   
-		   return "schedule/schedule_login";
+		   ModelAndView mav = scheduleservice.allList();
+			mav.setViewName("schedule/schedule_login");
+		   return mav;
 	   }
 	   else{
-		   return "schedule/schedule_notlogin";
-		   
+		   ModelAndView mav = new ModelAndView();
+		   mav.setViewName("schedule/schedule_notlogin");
+		   return mav;
 	   }
    }
+
+   
+   
+   
 }//class end
