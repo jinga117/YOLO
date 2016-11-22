@@ -26,7 +26,6 @@
 		if (!findID.email.value) { //비밀번호를 입력하지 않으면 수행
 			alert("비밀번호 입력하세요.");
 			return false;
-	
 		}
 	}
 

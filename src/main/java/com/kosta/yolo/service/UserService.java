@@ -20,7 +20,6 @@ public class UserService {
 
 	public void insert(UserVO uservo) {///////////////// 회원가입
 
-		System.out.println("insert안에 ID = " + uservo.getUser_id());
 
 		userDAO.getWrite(uservo);
 	}
