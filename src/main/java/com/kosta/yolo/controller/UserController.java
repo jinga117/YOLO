@@ -35,7 +35,7 @@ public class UserController {
 		   return mav;
 	   }else{
 		   userService.insert(uservo);
-		   mav.setViewName("index");
+		   mav.setViewName("user/FindFail");
 		   return mav;
 	   }
    }
