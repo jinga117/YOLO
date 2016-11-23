@@ -26,12 +26,18 @@ public class UserController {
    } // write_view() end
 
    @RequestMapping(value="/userwrite", method=RequestMethod.POST)
-   public String write(UserVO uservo) {// , Model model
-
-      userService.insert(uservo);
-
-      return "index";
-      
+   public ModelAndView write(UserVO uservo) {// , Model model
+	   ModelAndView mav = new ModelAndView();
+	   int num = userService.confirmCheck(uservo);
+	   if(num == 1){
+		   mav.addObject("num",num);
+		   mav.setViewName("user/FindFail");
+		   return mav;
+	   }else{
+		   userService.insert(uservo);
+		   mav.setViewName("index");
+		   return mav;
+	   }
    }
 
    @RequestMapping("/loginPro") // 로그인
@@ -47,6 +53,7 @@ public class UserController {
       if (result == 1) {
     	  request.setAttribute("result", result);
     	  vo = userService.userSelect(user_id);
+    	  session.setAttribute("user_id", user_id);
     	  session.setAttribute("isadmin", vo.getIsadmin());		// 관리자 세션 유지
     	  session.setAttribute("vo", vo);
          return "index";

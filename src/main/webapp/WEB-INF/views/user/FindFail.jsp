@@ -3,13 +3,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<c:if test="${check == 0 }">
+<c:if test="${num == 2 }">
 <script type="text/javascript">
-	alert("이메일 또는 비밀번호가 잘못되었습니다.");
+	alert("ID가 중복되었습니다.");
 	history.go(-1);
 </script>
 </c:if>
-
+<c:if test="${num != 2 }">
+<script type="text/javascript">
+	alert("Yolo 회원가입을 해주셔서 감사합니다.");
+</script>
+<meta http-equiv="Refresh" content="0; url=/yolo">
+</c:if>
+		
 <title>Insert title here</title>
 </head>
 

@@ -62,9 +62,9 @@
 			alert("성별을 선택해 주세요");
 			return false;
 		}
-		alert("Yolo 회원가입을 해주셔서 감사합니다.");
 		document.userwrite.submit();
 	});
+
 	
 	 function openConfirmid(userwrite) {
 		 if ($('#id').val()=='') { 	//아이디를 입력했는지 검사

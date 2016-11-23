@@ -19,8 +19,6 @@ public class UserService {
 	private UserDAO userDAO;
 
 	public void insert(UserVO uservo) {///////////////// 회원가입
-
-
 		userDAO.getWrite(uservo);
 	}
 	public int confirmCheck(UserVO vo){
