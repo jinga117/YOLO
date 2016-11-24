@@ -37,7 +37,9 @@ function likeIt(obj) {
 		success : function(responseFromServer) {
 			var data = jQuery.parseJSON(responseFromServer);
         	var obj2 =$(obj).parent().parent().find('#likeCount');
+        	var obj3 =$(obj).parent().parent().find('#heart_icon');
 			$(obj2).text(data.likeCount);
+			$(obj3).attr("src","heart_full_icon.png");
 			setCookie('likeCookie_'+trip_id, 'done', 1);
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
