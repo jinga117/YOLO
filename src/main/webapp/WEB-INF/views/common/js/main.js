@@ -248,11 +248,11 @@ window.addEventListener("scroll", lazyLoadImages);
 
 
         //****************************** Simple popup plugin activate ******************************//
-       /*YOLO PLAN POPUP*/
+      /* YOLO PLAN POPUP
         $('.html_popup').popup({
             content: '<div class="b-sm-post__popup"> <div class="b-sm-post__popup__title">Yolo Plan</div> <div class="b-sm-post__popup__row">Day1 <div><div class="b-sm-post__popup__share-link">Day2</div><div class="b-sm-post__popup__link">Day3</div></div>',
             type: 'html'
-        });
+        });*/
 
         if ($("div").is(".b-map-menu")) {
             $(".b-footer").hide(0);

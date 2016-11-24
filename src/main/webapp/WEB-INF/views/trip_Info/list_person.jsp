@@ -9,7 +9,7 @@
 <div class="b-main-container" id="content">
 	<div class="b-pop-places container">
 		<h2 class="b-cont-title">인원별 HOT5</h2>
-		<ul class="b-cont-sub-menu">
+		<ul class="b-cont-sub-menu b-cont-sub-menu-04">
 			<li><a href="list_person_search?person_id=p01">나홀로여행</a></li>
 			<li><a href="list_person_search?person_id=p02">커플</a></li>
 			<li><a href="list_person_search?person_id=p03">우정</a></li>

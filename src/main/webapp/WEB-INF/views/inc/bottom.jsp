@@ -47,8 +47,17 @@
 </body>
 </html>
 
+<script type="text/javascript">
+	$(document).ready(function() {
+	 	$('.html_popup').popup({
+	      	content: '<div class="b-sm-post__popup"> <div class="b-sm-post__popup__title">Yolo Plan</div> <div class="b-sm-post__popup__link">Day1 <div><div class="b-sm-post__popup__link">Day2</div><div class="b-sm-post__popup__link">Day3</div></div>',
+	      type: 'html'
+	  	});
+	});
+</script>
+
 <!-- 여행일정짜기 팝업 시작-->
-	<div class="hidden plan_popup">
+	<div class="hidden b-sm-post__popup">
        <div class="container clearfix">
            <div class="stores">
               <ul>

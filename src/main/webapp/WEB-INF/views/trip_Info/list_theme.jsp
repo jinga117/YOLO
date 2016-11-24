@@ -10,7 +10,7 @@
 <div class="b-main-container" id="content">
 	<div class="b-pop-places container">
 		<h2 class="b-cont-title">테마별 HOT5</h2>
-		<ul class="b-cont-sub-menu">
+		<ul class="b-cont-sub-menu b-cont-sub-menu-04">
 			<li><a href="list_theme_search?season_id=s01">봄</a></li>
 			<li><a href="list_theme_search?season_id=s02">여름</a></li>
 			<li><a href="list_theme_search?season_id=s03">가을</a></li>

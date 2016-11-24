@@ -15,7 +15,7 @@
 			<c:if test="${person_id == 'p03'}">우정 Top5</c:if>
 			<c:if test="${person_id == 'p04'}">가족 Top5</c:if>
 		</h2>
-		<ul class="b-cont-sub-menu">
+		<ul class="b-cont-sub-menu b-cont-sub-menu-04">
 			<li><a href="list_person_search?person_id=p01">나홀로여행</a></li>
 			<li><a href="list_person_search?person_id=p02">커플</a></li>
 			<li><a href="list_person_search?person_id=p03">우정</a></li>
@@ -115,7 +115,6 @@
 	</div>
 	<!-- *********************************************************전체보기 끝************************************************************************ -->
 	<!-- //View List Container 끝-->
-	<!-- //main-container -->
 </div>
 <!-- 컨텐츠 영역 끝 -->
 

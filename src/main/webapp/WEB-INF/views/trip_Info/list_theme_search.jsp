@@ -16,7 +16,7 @@
 			<c:if test="${season_id == 's04'}">겨울 Top5</c:if>
 		</h2>
 
-		<ul class="b-cont-sub-menu">
+		<ul class="b-cont-sub-menu b-cont-sub-menu-04">
 			<li><a href="list_theme_search?season_id=s01">봄</a></li>
 			<li><a href="list_theme_search?season_id=s02">여름</a></li>
 			<li><a href="list_theme_search?season_id=s03">가을</a></li>
