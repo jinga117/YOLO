@@ -13,6 +13,7 @@ public interface TripInfoMapper  extends Serializable  {
 	
 	//리뷰보기
 		ArrayList<TripInfoVO> inforeview(String trip_id);
+		
 	//리뷰쓰기
 		void writeReview(UserReviewVO vo);
 	
@@ -34,8 +35,6 @@ public interface TripInfoMapper  extends Serializable  {
 	ArrayList<TripInfoVO> foodAllTop();
 	ArrayList<TripInfoVO> categoryTop(String category_id);
 
-	
-	
 	//연령별, 계절별, kpop별, 인원별 Top5 리스트 뿌리기
 	ArrayList<TripInfoVO> ageAllTop();
 	ArrayList<TripInfoVO> seasonAllTop();
@@ -48,8 +47,6 @@ public interface TripInfoMapper  extends Serializable  {
 	ArrayList<TripInfoVO> kpopAll();
 	ArrayList<TripInfoVO> personAll();
 
-	
-	
 	//age_id 키값에 따른 top5리스트 뿌리기
 	ArrayList<TripInfoVO> ageTop(String age_id);	
 	//season_id 키값에 따른  top5리스트 뿌리기
@@ -61,8 +58,6 @@ public interface TripInfoMapper  extends Serializable  {
 	//food_id 키값에 따른 top5 리스트 뿌리기
 	ArrayList<TripInfoVO> foodTop(String food_id);	
 	
-	
-	
 	//age_id 키값에 따른 리스트 뿌리기
 	ArrayList<TripInfoVO> selectListAge(String age_id);	
 	//season_id 키값에 따른 리스트 뿌리기
@@ -73,6 +68,5 @@ public interface TripInfoMapper  extends Serializable  {
 	ArrayList<TripInfoVO> selectPerson(String person_id);	
 	//food_id 키값에 따른 리스트 뿌리기
 	ArrayList<TripInfoVO> selectFood(String food_id);	
-	
 
 }

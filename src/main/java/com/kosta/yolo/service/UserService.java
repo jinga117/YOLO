@@ -18,9 +18,11 @@ public class UserService {
 	@Autowired
 	private UserDAO userDAO;
 
-	public void insert(UserVO uservo) {///////////////// 회원가입
+	// 회원가입
+	public void insert(UserVO uservo) {
 		userDAO.getWrite(uservo);
 	}
+	
 	public int confirmCheck(UserVO vo){
 		int check = 1;
 		String user_id = vo.getUser_id();
@@ -33,6 +35,7 @@ public class UserService {
 		}
 		return check;
 	}
+	
 	public UserVO userIdFindCheck(UserVO vo){
 		vo = userDAO.userIdFind(vo);
 		return vo;
@@ -43,76 +46,61 @@ public class UserService {
 		return vo;
 	}
 
-	public int login(HttpServletRequest request) { // 로그인
+	//로그인
+	public int login(HttpServletRequest request) {
 		int result = 1;
 		HttpSession session = request.getSession();
 		session.setAttribute("user_id", request.getParameter("user_id"));
 		String user_id = (String) session.getAttribute("user_id");
-		System.out.println("써비쓰~~~~");
 		UserVO userVo = userDAO.login(user_id);
 		
 		String inputPwd = request.getParameter("password");
 
 	      if (userVo != null) {
-	         
 	         if(userVo.getPassword().equals(inputPwd)) { // 로그인성공
 	            result = 1;
 	    		request.setAttribute("isadmin", userVo.getIsadmin());
-
 	         }
 	         else{
 	            result = 3;   //비밀번호를 잘못입력하셧습니다.
 		         session.invalidate();
-
 	         }
-	         
 	      }//userVO != null end
 	      else{
 	         result = 2;   //아이디를 잘못입력하셧습니다.
 	         session.invalidate();
-
 	      }
 	      return result;
 	   }
 
 	// 리스트
 	public ModelAndView list() {
-
 		ModelAndView mav = new ModelAndView();
 		ArrayList<UserVO> list = userDAO.selectAll();
 		System.out.println("여긴!! 서비스닷!!! " + list);
 		mav.addObject("list", list);
-
 		return mav;
 	}
+	
 	// 수정
-		public ModelAndView updatePro(UserVO vo) {
-			ModelAndView mav = new ModelAndView();
-			userDAO.userUpdate(vo);
-			return mav;
-		}
+	public ModelAndView updatePro(UserVO vo) {
+		ModelAndView mav = new ModelAndView();
+		userDAO.userUpdate(vo);
+		return mav;
+	}
 
-		public UserVO userSelect(String user_id) {
-			System.out.println(user_id);
-			UserVO vo = userDAO.userSelect(user_id);
+	public UserVO userSelect(String user_id) {
+		UserVO vo = userDAO.userSelect(user_id);
+		return vo;
+	}
+	
+	public UserVO userIdFind(UserVO vo) {
+		return vo = userDAO.userIdFind(vo);
+	}
 
-			System.out.println("여기가 브이오 겟트리아이디 " + vo.getUser_id());
-			System.out.println("여긴!! 서비스닷!!! " + vo);
-			return vo;
-		}
-		public UserVO userIdFind(UserVO vo) {
-			System.out.println(vo);	
-			System.out.println("여기가 브이오 겟트리아이디 " + vo.getUser_id());
-			System.out.println("여긴!! 서비스닷!!! " + vo);	
-			return vo = userDAO.userIdFind(vo);
-		}
-
-		public ModelAndView deletePro(UserVO vo) {
-			ModelAndView mav = new ModelAndView();
-			System.out.println("서비스:"+vo.getUser_id()+" 서비스 :"+vo.getPassword());
-			userDAO.userDelete(vo);
-			
-			return mav;
-
-		}
+	public ModelAndView deletePro(UserVO vo) {
+		ModelAndView mav = new ModelAndView();
+		userDAO.userDelete(vo);
+		return mav;
+	}
 }

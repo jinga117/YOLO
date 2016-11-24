@@ -24,16 +24,16 @@ public class TripInfoService {
 	public ModelAndView detail_view(HttpServletRequest request, String trip_id) {
 		ModelAndView mav = new ModelAndView();
 		
-		//로그인되었을 때 세션에 저장된 user_id가져오기
-				HttpSession session = request.getSession(false);
-				String user = (String) session.getAttribute("user_id");
-				if(user == null){
-					mav.addObject("user", user);
+		//로그인 되었을 때 세션에 저장된 user_id 가져오기
+		HttpSession session = request.getSession(false);
+		String user = (String) session.getAttribute("user_id");
+		if(user == null){
+			mav.addObject("user", user);
 					
-					}else{//로그인 되어있을시
-					mav.addObject("user", user);
-					mav.addObject("trip_id", trip_id);
-					}
+		}else{ //로그인 되어있을시
+			mav.addObject("user", user);
+			mav.addObject("trip_id", trip_id);
+		}
 				
 		ArrayList<TripInfoVO> detail = infoDAO.selectDetail(trip_id);
 		ArrayList<TripInfoVO> review = infoDAO.inforeview(trip_id);
@@ -63,7 +63,6 @@ public class TripInfoService {
 	
 	//조회수
 	public int view_Count(String trip_id) {
-		
 		int count =  infoDAO.viewCount(trip_id);
 		System.out.println("count !!!! "+count);
 		return count;
@@ -131,6 +130,7 @@ public class TripInfoService {
 		mav.addObject("kpopTop", kpopTop);
 		return mav;
 	}
+	
 	//인원별Top 리스트
 	public ModelAndView person() {
 		ModelAndView mav = new ModelAndView();
@@ -140,7 +140,6 @@ public class TripInfoService {
 		mav.addObject("personList", personList);
 		return mav;
 	}
-	
 
 	//age_id 키값에 따른 리스트
 	public ModelAndView ageId(String age_id) {
@@ -153,7 +152,6 @@ public class TripInfoService {
 		return mav;
 	}
 	
-
 	//season_id 키값에 따른 리스트
 	public ModelAndView seasonId(String season_id) {
 		ModelAndView mav = new ModelAndView();
@@ -197,6 +195,5 @@ public class TripInfoService {
 		mav.addObject("foodTop", ftop);
 		return mav;
 	}
-	
 	
 }

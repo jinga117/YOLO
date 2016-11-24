@@ -4,34 +4,33 @@
     
     <mapper namespace="com.kosta.yolo.dao.TripInfoMapper">
     
-<!--     	카테고리별 전체리스트 -->
+		<!-- 카테고리별 전체리스트 -->
     	<select id="lnfoAll"  resultType="com.kosta.yolo.vo.TripInfoVO">
     		SELECT * FROM TripInfo
     	</select>
-    	
     	
     	<!-- 쇼핑카테고리 top5 -->
     	<select id="categoryTop"  resultType="com.kosta.yolo.vo.TripInfoVO">
     		SELECT * FROM TripInfo WHERE category_id = #{category_id}  ORDER BY trip_like DESC LIMIT 5
     	</select>
+    	
     	<!-- 쇼핑카테고리 전체리스트 -->
     	<select id="categoryAll"  resultType="com.kosta.yolo.vo.TripInfoVO">
     		SELECT * FROM TripInfo WHERE category_id = #{category_id}
     	</select>
     	
-    	
     	<!-- 레스토랑카테고리 메인 인기 top5 -->
    		<select id="foodAllTop" parameterType="String"  resultType="com.kosta.yolo.vo.TripInfoVO">
     		SELECT * FROM TripInfo WHERE food_id NOT IN ("") ORDER BY trip_like DESC LIMIT 5
     	</select> 
+    	
     	<!-- 레스토랑카테고리 메인  -->
     	<select id="foodAll" parameterType="String"  resultType="com.kosta.yolo.vo.TripInfoVO">
     		SELECT * FROM TripInfo WHERE food_id NOT IN ("") 
     	</select> 
     	
+<!--*****************************************************************************************************************************************-->
     	
-    	
-<!--*************************************************************************************************************************************************************-->
     	<!-- 연령별 메인 인기 top5 -->
    		<select id="ageAllTop" parameterType="String"  resultType="com.kosta.yolo.vo.TripInfoVO">
     		SELECT * FROM TripInfo WHERE age_id NOT IN ("") ORDER BY trip_like DESC LIMIT 5
@@ -46,6 +45,7 @@
     	<select id="seasonAllTop"  resultType="com.kosta.yolo.vo.TripInfoVO">
     		SELECT * FROM TripInfo WHERE season_id NOT IN ("") ORDER BY trip_like DESC LIMIT 5
     	</select>
+    	
     	<select id="kpopAllTop"  resultType="com.kosta.yolo.vo.TripInfoVO">
     		SELECT * FROM TripInfo WHERE kpop_id NOT IN ("") ORDER BY trip_like DESC LIMIT 5
     	</select>
@@ -54,6 +54,7 @@
     	<select id="seasonAll"  resultType="com.kosta.yolo.vo.TripInfoVO">
     		SELECT * FROM TripInfo WHERE season_id NOT IN ("")
     	</select>
+    	
     	<select id="kpopAll"  resultType="com.kosta.yolo.vo.TripInfoVO">
     		SELECT * FROM TripInfo WHERE kpop_id NOT IN ("")
     	</select>
@@ -68,80 +69,68 @@
     		SELECT * FROM TripInfo WHERE person_id NOT IN ("") 
     	</select>
     	
-  <!--*************************************************************************************************************************************************************-->
+  <!--************************************************************************************************************************************-->
   
-    	    	
-    	
     	<!-- 연령별 -->
     	<select id="ageTop" parameterType="String" resultType="com.kosta.yolo.vo.TripInfoVO">
 	    	<bind name="age_id" value="'%' + _parameter + '%'" />
-	    		SELECT * FROM TripInfo WHERE
-	    			age_id LIKE #{age_id} ORDER BY trip_like DESC LIMIT 5
+	    		SELECT * FROM TripInfo WHERE age_id LIKE #{age_id} ORDER BY trip_like DESC LIMIT 5
     	</select>
     	
     	<select id="selectListAge" parameterType="String" resultType="com.kosta.yolo.vo.TripInfoVO">
 	    	<bind name="age_id" value="'%' + _parameter + '%'" />
-	    		SELECT * FROM TripInfo WHERE
-	    			age_id LIKE #{age_id} 
+	    		SELECT * FROM TripInfo WHERE age_id LIKE #{age_id} 
     	</select>
     	
     	 <!-- 계절별 -->
     	<select id="seasonTop"  parameterType="String"  resultType="com.kosta.yolo.vo.TripInfoVO">
 	    	<bind name="season_id" value="'%' + _parameter + '%'" />
-	    		SELECT * FROM TripInfo WHERE
-	    			season_id LIKE #{season_id} ORDER BY trip_like DESC LIMIT 5
+	    		SELECT * FROM TripInfo WHERE season_id LIKE #{season_id} ORDER BY trip_like DESC LIMIT 5
     	</select>
     	
     	<select id="selectSeason"  parameterType="String"  resultType="com.kosta.yolo.vo.TripInfoVO">
 	    	<bind name="season_id" value="'%' + _parameter + '%'" />
-	    		SELECT * FROM TripInfo WHERE
-	    			season_id LIKE #{season_id}
+	    		SELECT * FROM TripInfo WHERE season_id LIKE #{season_id}
     	</select>
     	
     	<!-- kpop -->
     	<select id="kpopTop"  parameterType="String"  resultType="com.kosta.yolo.vo.TripInfoVO">
 	    	<bind name="kpop_id" value="'%' + _parameter + '%'" />
-	    		SELECT * FROM TripInfo WHERE
-	    			kpop_id LIKE #{kpop_id} ORDER BY trip_like DESC LIMIT 5
+	    		SELECT * FROM TripInfo WHERE kpop_id LIKE #{kpop_id} ORDER BY trip_like DESC LIMIT 5
     	</select>
     	    	
     	<select id="selectKpop"  parameterType="String"  resultType="com.kosta.yolo.vo.TripInfoVO">
 	    	<bind name="kpop_id" value="'%' + _parameter + '%'" />
-	    		SELECT * FROM TripInfo WHERE
-	    			kpop_id LIKE #{kpop_id} ORDER BY trip_like DESC LIMIT 5
+	    		SELECT * FROM TripInfo WHERE kpop_id LIKE #{kpop_id} ORDER BY trip_like DESC LIMIT 5
     	</select>
-    	
     	
     	<!-- 인원별 -->
     	<select id="personTop"  parameterType="String"  resultType="com.kosta.yolo.vo.TripInfoVO">
 	    	<bind name="person_id" value="'%' + _parameter + '%'" />
-	    		SELECT * FROM TripInfo WHERE
-	    			person_id LIKE #{person_id} ORDER BY trip_like DESC LIMIT 5
+	    		SELECT * FROM TripInfo WHERE person_id LIKE #{person_id} ORDER BY trip_like DESC LIMIT 5
     	</select>
+    	
     	<select id="selectPerson"  parameterType="String"  resultType="com.kosta.yolo.vo.TripInfoVO">
 	    	<bind name="person_id" value="'%' + _parameter + '%'" />
-	    		SELECT * FROM TripInfo WHERE
-	    			person_id LIKE #{person_id}
+	    		SELECT * FROM TripInfo WHERE person_id LIKE #{person_id}
     	</select>
     	
     	<!-- 쇼핑카테고리 식당/카페별 -->
     	<select id="foodTop"  parameterType="String"  resultType="com.kosta.yolo.vo.TripInfoVO">
 	    	<bind name="food_id" value="'%' + _parameter + '%'" />
-	    		SELECT * FROM TripInfo WHERE
-	    			food_id LIKE #{food_id} ORDER BY trip_like DESC LIMIT 5
+	    		SELECT * FROM TripInfo WHERE food_id LIKE #{food_id} ORDER BY trip_like DESC LIMIT 5
     	</select>
+    	
     	<select id="selectFood"  parameterType="String"  resultType="com.kosta.yolo.vo.TripInfoVO">
 	    	<bind name="food_id" value="'%' + _parameter + '%'" />
-	    		SELECT * FROM TripInfo WHERE
-	    			food_id LIKE #{food_id} 
+	    		SELECT * FROM TripInfo WHERE food_id LIKE #{food_id} 
     	</select>
     
-    
-    <!--*************************************************************************************************************************************************************-->	
+    <!--******************************************************************************************************************************************-->	
+    	
     	<!-- 상세보기 -->
     	<select id="selectDetail"  parameterType="String"  resultType="com.kosta.yolo.vo.TripInfoVO">
-	    		SELECT * FROM TripInfo WHERE
-	    			trip_id = #{trip_id}
+	    		SELECT * FROM TripInfo WHERE trip_id = #{trip_id}
     	</select>
     	
     	<!-- 리뷰보기 -->
@@ -157,21 +146,15 @@
     	
     	<!-- 조회수 -->
     	<update id="viewCount" parameterType="com.kosta.yolo.vo.TripInfoVO">
-    			UPDATE TripInfo 
-    				SET trip_view = trip_view+1 
-    				WHERE trip_id = #{trip_id}
+    		UPDATE TripInfo SET trip_view = trip_view+1 WHERE trip_id = #{trip_id}
     	</update>
     	
     	<!-- 좋아요 -->
     	<update id="likeCount" parameterType="com.kosta.yolo.vo.TripInfoVO">
-    			UPDATE TripInfo 
-    				SET trip_like = trip_like+1 
-    				WHERE trip_id = #{trip_id}
+    			UPDATE TripInfo SET trip_like = trip_like+1 WHERE trip_id = #{trip_id}
     	</update>
     	<select id="selectLikeCount"  parameterType="String"  resultType="java.lang.Integer">
-	    		SELECT trip_like FROM TripInfo 
-	    		WHERE trip_id = #{trip_id}
+	    		SELECT trip_like FROM TripInfo WHERE trip_id = #{trip_id}
     	</select>
-    	
     	
     </mapper>

@@ -51,9 +51,7 @@ public class InfoController {
 	@RequestMapping("/like")
 	public ModelAndView likeCount(HttpServletRequest request, 
 	    HttpServletResponse response, @RequestParam String trip_id) throws Exception{ 
-		System.out.println("좋아요 trip_id : "+ trip_id);
 		int likeCount = infoService.likeCount(trip_id);
-		System.out.println("좋아요 결과 : "+ likeCount);
 		
 		PrintWriter out = response.getWriter();
 	    JSONObject obj = new JSONObject();
@@ -67,7 +65,8 @@ public class InfoController {
 		return null;
 	}
 	
-/*	//list_attraction전체 리스트
+/*	
+  	//list_attraction전체 리스트
 	@RequestMapping("/list_attraction")
 	public ModelAndView list_attraction(){
 		ModelAndView mav = infoService.list();
@@ -75,6 +74,7 @@ public class InfoController {
 		return mav;
 	}
 	*/
+	
 	//list_restaurant전체 리스트
 	@RequestMapping("/list_restaurant")
 	public ModelAndView list_restaurant(){
@@ -99,8 +99,7 @@ public class InfoController {
 		return mav;
 	}
 
-
-	// 연령별 
+	// 연령별 리스트
 	@RequestMapping("/list_age")
 	public ModelAndView age() {
 		ModelAndView mav = infoService.age();
@@ -116,7 +115,7 @@ public class InfoController {
 		return mav;
 	}
 	
-	//인원별ALL 리스트
+	//인원별 전체 리스트
 	@RequestMapping("/list_person")
 	public ModelAndView person() {
 		ModelAndView mav = infoService.person();
@@ -139,28 +138,29 @@ public class InfoController {
 			mav.setViewName("trip_Info/list_theme_search");
 			return mav;
 		}
+	
 	//kpop_id별 리스트
-		@RequestMapping("/list_kpop_search")
-			public ModelAndView selectKpop(@RequestParam String kpop_id) {
-				ModelAndView mav = infoService.kpopId(kpop_id);
-				mav.setViewName("trip_Info/list_kpop_search");
-				return mav;
-		}
+	@RequestMapping("/list_kpop_search")
+	public ModelAndView selectKpop(@RequestParam String kpop_id) {
+		ModelAndView mav = infoService.kpopId(kpop_id);
+		mav.setViewName("trip_Info/list_kpop_search");
+		return mav;
+	}
 
-		//person_id 키값별 리스트
-		@RequestMapping("/list_person_search")
-		public ModelAndView selectPerson(@RequestParam String person_id) {
-			ModelAndView mav = infoService.personId(person_id);
-			mav.setViewName("trip_Info/list_person_search");
-			return mav;
-		}
-		
-		//food_id별 리스트
-		@RequestMapping("/list_restaurant_search")
-			public ModelAndView selectFood(@RequestParam String food_id) {
-				ModelAndView mav = infoService.foodId(food_id);
-				mav.setViewName("trip_Info/list_restaurant_search");
-				return mav;
-			}
+	//person_id 키값별 리스트
+	@RequestMapping("/list_person_search")
+	public ModelAndView selectPerson(@RequestParam String person_id) {
+		ModelAndView mav = infoService.personId(person_id);
+		mav.setViewName("trip_Info/list_person_search");
+		return mav;
+	}
+
+	//food_id별 리스트
+	@RequestMapping("/list_restaurant_search")
+	public ModelAndView selectFood(@RequestParam String food_id) {
+		ModelAndView mav = infoService.foodId(food_id);
+		mav.setViewName("trip_Info/list_restaurant_search");
+		return mav;
+	}
 
 }

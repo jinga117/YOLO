@@ -20,7 +20,6 @@
 	<select id="login" resultMap="MemberResultMap" parameterType="java.lang.String">
 		select user_id, password, isadmin  from User where user_id=#{user_id}
 	</select>
-	
 		
 	<select id="selectAll" resultType="com.kosta.yolo.vo.UserVO">
     		SELECT * FROM User

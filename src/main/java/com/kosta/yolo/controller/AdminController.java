@@ -19,11 +19,12 @@ public class AdminController {
 	
 	@RequestMapping("/list")
 	public ModelAndView list(){
-		System.out.println("여긴 컨트롤러!!! ");
 		ModelAndView mav = adminService.list();
 		mav.setViewName("admin/list");
+		
 		return mav;
 	}
+	
 	@RequestMapping(value="/write", method=RequestMethod.GET)
 	public String write(){
 		return "admin/write";
@@ -31,17 +32,14 @@ public class AdminController {
 
 	@RequestMapping(value="/write", method=RequestMethod.POST)
 	public ModelAndView writePro(HttpServletRequest request){
-		System.out.println("여긴 write 컨트롤러!!! ");
-	
 		ModelAndView mav = adminService.writePro(request);
 		mav.setViewName("redirect:list");
+		
 		return mav;
 	}
 	
 	@RequestMapping("/info")
 	public ModelAndView info(@RequestParam String trip_id){
-		System.out.println("여긴 info ");
-		
 		ModelAndView mav = adminService.info(trip_id);
 		mav.setViewName("admin/info");
 		
@@ -50,8 +48,6 @@ public class AdminController {
 	
 	@RequestMapping("/delete")
 	public ModelAndView delete(@RequestParam String trip_id){
-		
-		System.out.println("여긴 delete");
 		ModelAndView mav = adminService.delete(trip_id);
 		mav.setViewName("redirect:list");
 		

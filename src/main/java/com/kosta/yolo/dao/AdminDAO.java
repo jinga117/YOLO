@@ -16,23 +16,20 @@ public class AdminDAO {
 	
 	//리스트
 	public ArrayList<TripInfoVO> selectAll() {
-		System.out.println("여긴 listDao닷!! ");
 		AdminMapper admin = sqlSession.getMapper(AdminMapper.class);
 		ArrayList<TripInfoVO> list = admin.selectAll();
+		
 		return list;
 	}
 	
 	//정보입력
 	public void infoInsert(TripInfoVO vo){
-		System.out.println("여긴 insert Dao닷!! ");
 		AdminMapper admin = sqlSession.getMapper(AdminMapper.class);
 		admin.infoInsert(vo);
 	}
 	
 	//정보수정
 	public ArrayList<TripInfoVO> selectInfo(String trip_id){
-		System.out.println("여긴 info Dao닷!! ");
-		
 		AdminMapper admin = sqlSession.getMapper(AdminMapper.class);
 		ArrayList<TripInfoVO> list = admin.selectInfo(trip_id);
 		

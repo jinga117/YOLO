@@ -14,7 +14,8 @@ public class UserDAO {
 	@Autowired
 	private SqlSession sqlSession;
 
-	public void getWrite(UserVO uservo) { /////////// 회원가입
+	// 회원가입
+	public void getWrite(UserVO uservo) { 
 		UserMapper usermapper = sqlSession.getMapper(UserMapper.class);
 		usermapper.getWrite(uservo);
 	}
@@ -29,11 +30,10 @@ public class UserDAO {
 	}
 	
 	//리스트
-		public ArrayList<UserVO> selectAll() {
-			System.out.println("여긴 listDao닷!! ");
-			UserMapper user = sqlSession.getMapper(UserMapper.class);
-			ArrayList<UserVO> list = user.selectAll();
-			return list;
+	public ArrayList<UserVO> selectAll() {
+		UserMapper user = sqlSession.getMapper(UserMapper.class);
+		ArrayList<UserVO> list = user.selectAll();
+		return list;
 		}
 		
 	public void userUpdate(UserVO vo){
@@ -42,15 +42,12 @@ public class UserDAO {
 	}
 	
 	public UserVO userSelect(String user_id){
-		System.out.println("여긴 selectDao닷!! ");
 		UserMapper user = sqlSession.getMapper(UserMapper.class);
 		UserVO vo = user.userSelect(user_id);
 		return vo;
 	}
 	
 	public void userDelete(UserVO vo){
-		System.out.println("여긴 deleteDao닷!! ");
-		System.out.println("다오"+vo.getUser_id()+"다오"+vo.getPassword());
 		UserMapper user = sqlSession.getMapper(UserMapper.class);
 		user.userDelete(vo);
 	}

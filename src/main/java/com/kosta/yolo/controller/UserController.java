@@ -20,13 +20,14 @@ public class UserController {
    @Autowired
    private UserService userService;
 
-   @RequestMapping("/userWrite_view") // 회원가입 페이지로 이동
+   // 회원가입 페이지로 이동
+   @RequestMapping("/userWrite_view")
    public String write_view(Model model) {
       return "user/user_write"; // /WEB-INF/views/write_view.jsp
-   } // write_view() end
+   } 
 
    @RequestMapping(value="/userwrite", method=RequestMethod.POST)
-   public ModelAndView write(UserVO uservo) {// , Model model
+   public ModelAndView write(UserVO uservo) {	// , Model model
 	   ModelAndView mav = new ModelAndView();
 	   int num = userService.confirmCheck(uservo);
 	   if(num == 1){
@@ -40,12 +41,12 @@ public class UserController {
 	   }
    }
 
-   @RequestMapping("/loginPro") // 로그인
+   // 로그인
+   @RequestMapping("/loginPro")
    public String loginPro(HttpServletRequest request) {
 	  String user_id = request.getParameter("user_id");
 	  HttpSession session = request.getSession();
 	  
-	  System.out.println("user_id : "+user_id);
       int result = userService.login(request);
       UserVO vo = null;
       
@@ -66,17 +67,18 @@ public class UserController {
       }
    }
 
+   // 로그아웃
    @RequestMapping("/logout")
    public String logout(HttpServletRequest request){
       
       HttpSession session = request.getSession();
-      System.out.println("세션값:"+session.getAttribute("user_id"));
-      
       session.invalidate();
       
       return "login/loginOut";
       
    }
+   
+   // 회원 리스트
    @RequestMapping("/userlist")
    public ModelAndView list(){
       System.out.println("여긴 컨트롤러!!! ");
@@ -86,7 +88,7 @@ public class UserController {
       return mav;
    }
 
-
+   // 회원 수정
    @RequestMapping("/user_update")
    public ModelAndView update(HttpServletRequest request) {
 		  HttpSession session = request.getSession();
@@ -107,6 +109,7 @@ public class UserController {
       return mav;
    }
 
+   // 회원 삭제
    @RequestMapping("/user_delete")
    public ModelAndView delete(@RequestParam String user_id) {
       ModelAndView mav = new ModelAndView();
@@ -120,11 +123,9 @@ public class UserController {
    //회원삭제 (수정해야되는부분)
    @RequestMapping(value = "/user_deletePro", method = RequestMethod.POST)
    public ModelAndView DeletePro(UserVO vo) {
-      System.out.println("여긴 delete 컨트롤러!!! ");
       ModelAndView mav = new ModelAndView();
       String user_id = vo.getUser_id();
       String pwd = vo.getPassword();
-      System.out.println("user_id:"+user_id+"pwd:"+pwd);
       
       userService.userSelect(user_id);
       userService.deletePro(vo);
@@ -133,6 +134,7 @@ public class UserController {
       
       return mav;
    }
+   
    @RequestMapping("/confirm_Id")
    public ModelAndView confirm_Id(UserVO vo){
 	   ModelAndView mav = new ModelAndView();
@@ -154,17 +156,21 @@ public class UserController {
 	   }
    }
    
-   @RequestMapping("/findid") // 회원가입 페이지로 이동
+   // 아이디 찾기
+   @RequestMapping("/findid") 
    public String find_id(Model model) {
      
       return "user/findid"; 
    } 
-   @RequestMapping("/findpwd") // 회원가입 페이지로 이동
+   
+   // 비밀번호 찾기
+   @RequestMapping("/findpwd") 
    public String find_pwd(Model model) {
      
       return "user/findpwd"; 
    }
    
+   // 아이디 중복확인
    @RequestMapping("/find_idCheck")
    public ModelAndView find_idPro(UserVO vo){
 	   ModelAndView mav = new ModelAndView();
@@ -204,4 +210,4 @@ public class UserController {
 	   }
 	   
    }
-}// class end
+}

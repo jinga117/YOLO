@@ -2,7 +2,6 @@ package com.kosta.yolo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -17,7 +16,6 @@ public class SearchController {
 	
 	@RequestMapping("/search_list")
 	public ModelAndView search_list(TripInfoVO vo){
-		System.out.println("여긴 index search 컨트롤러!!! "+vo);
 		ModelAndView mav =new ModelAndView();
 		mav.addObject("list", infoSearchService.search_list(vo));
 		mav.addObject("count", infoSearchService.search_listCount(vo));
@@ -27,7 +25,6 @@ public class SearchController {
 	
 	@RequestMapping("/searchAll_list")
 	public ModelAndView searchAll_list(TripInfoVO vo){
-		System.out.println("여긴 top search컨트롤러!!! "+vo);
 		ModelAndView mav =new ModelAndView();
 		mav.addObject("list", infoSearchService.searchAll_list(vo));
 		mav.addObject("count", infoSearchService.searchAll_listCount(vo));
