@@ -41,6 +41,16 @@
             <div class="b-slide-menu__toggle"><i class="fa fa-caret-left" aria-hidden="true"></i><i class="fa fa-caret-right hidden" aria-hidden="true"></i></div>
             <div class="b-slide-menu__content custom-scroll default-skin">
                 <h2 class="b-slide-menu__title">${list.trip_nickname}</h2>
+                	<!--  북마크 추가 시작 -->
+                	<div class="add_icon_wrap">
+	                	<span class="add_bookmark_icon p-t-15" data-toggle="tooltip" data-placement="left" title="북마크 추가">
+	                		<a href="#"><i class="fa fa-bookmark-o" aria-hidden="true"></i></a>
+	                	</span>
+	                	<span class="add_plan_icon p-t-15" data-toggle="tooltip" data-placement="left" title="일정추가">
+	                		<a href="#"><i class="fa fa-calendar" aria-hidden="true"></i></a>
+	                	</span>
+                	</div>
+					<!--  북마크 추가 끝 -->
                 <div class="b-slide-menu__form container-fluid opened">       
                 	<%-- <c:if test="${list.trip_video != null}" >
 						<!-- 동영상 시작-->
@@ -142,25 +152,31 @@
 						</div>
 						<!-- 리뷰 쓰기 -->
 						<div> 					
-							<form method="post">
-								<c:if test="${user == null}">
-									<script type="text/javascript">
-										$('#content').mousedown(function () { 
-											alert("로그인 하신 후 이용 가능합니다.");
-											});
-									</script>
-								</c:if>
+							<form method="post" onsubmit="return checkComment()">
 								<input type="hidden" name="review_no" value="review_no"><br>
 								user_id : <input type="hidden"  name="user_id" value=" ${user}">${user}<br>
 								<input type="hidden"  name="trip_id" value=" ${trip_id}">
-								review_content : <input type="text"  id="content" name="review_content"  width="20px">
-								<input type="submit" value="coment" >
+								review_content : <input type="text"  id="review_content" name="review_content"  width="20px" onfocus="<c:if test="${user == null}">$('#comment_btn').focus();alert('로그인 하신 후 이용 가능합니다'); return false;</c:if>"<c:if test="${user == null}">readonly placeholder="로그인 하신 후 이용 가능합니다." </c:if> placeholder="댓글을 달아주세요" >
+								<input type="submit" value="comment" id="comment_btn" onClick="<c:if test="${user == null}">alert('로그인 하신 후 이용 가능합니다'); return false;</c:if>">
 							</form>
 							
 							</div>
 					</div>
                     <!--  상세보기 컨텐츠 끝 -->
-		  		</div>
+                    <!--  추가 -->
+					<div class="b-plan-menu">
+			            <ul class="b-map-menu__list">
+			                <li class="b-map-menu__list__bars active"><a href="#" class="noajax"><i class="fmr fmr-icon-2810"></i>봄</a>
+			                </li>
+			                <li class="b-map-menu__list__food"><a href="#" class="noajax"><i class="fmr fmr-icon-467"></i>여름</a>
+			                </li>
+			                <li class="b-map-menu__list__restaurants"><a href="#" class="noajax"><i class="fmr fmr-icon-466"></i>가을</a>
+			                </li>
+			                <li class="b-map-menu__list__night-life"><a href="#" class="noajax"><i class="fmr fmr-icon-1100"></i>겨울</a>
+			                </li>
+			            </ul>
+			        </div>
+				</div>
 			</div>
 		</div>
 		</c:forEach>
@@ -274,6 +290,15 @@
    	        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
    	        map.setCenter(coords);
    	    }
-   	});  */   
+   	});  */
+   	
+   	function checkComment() {
+   		if ($('#review_content').val()=='') {
+   			alert('댓글을 입력하세요.');
+   			$('#review_content').focus();
+   			return false;
+   		}
+		return true;
+   	}
 </script>
 <!-- //DAUM MAP -->

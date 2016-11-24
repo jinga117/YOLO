@@ -1370,6 +1370,68 @@ only screen and (min-resolution: 1.5dppx) {
     cursor:pointer;
 }
 
+/* 일정추가 */
+.list_add_icon_wrap {
+	position:absolute;
+	top:260px;
+	right:15px;
+	padding:0;
+	margin:0;
+}
+
+.list_add_icon {
+	display:inline-block;
+	width:60px;
+	height:60px;
+	border-radius:60px;
+	font-size:28px;
+	padding:10px;
+	box-shadow:2px 2px 6px #ddd;
+	background:#FF5733;
+	color:#fff;
+	text-align:center;
+	margin-right:10px;
+	z-index:5;
+}
+
+.list_add_icon:hover {
+	background:#36EEC7;
+}
+
+.add_icon_wrap {
+	position:absolute;
+	right:40px;
+	top:15px;
+}
+.add_plan_icon, .add_bookmark_icon {
+	display:inline-block;
+	width:50px;
+	height:50px;
+	line-height:50px;
+	border-radius:50px;
+	font-size:20px;
+	box-shadow:2px 2px 6px #ddd;
+	background:#43a4a2;
+	color:#fff;
+	text-align:center;
+	margin-right:10px;
+	z-index:5;
+}
+
+.add_plan_icon a, .add_bookmark_icon a {
+	width:100%;
+	height:100%;
+}
+.add_plan_icon:hover, .add_bookmark_icon:hover {
+	color:#fff;
+	background:#FF5733;
+}
+
+.add_plan_icon a:hover, .add_bookmark_icon a:hover,.add_plan_icon a:visited, .add_bookmark_icon a:visited, .add_plan_icon a:link, .add_bookmark_icon a:link{
+	color:#fff;
+}
+
+
 .b-pop-place__name_txt {
 	font-size:15px;
 	font-weight:bold;
@@ -1825,6 +1887,10 @@ html .b-promo__search {
 
 .p-t-10 {
 	padding-top:10px;
+}
+
+.p-t-15 {
+	padding-top:15px;
 }
 
 .b-pop-place__name {
@@ -3403,7 +3469,7 @@ html .btn--buy-ticket:hover {
     background: #fff;
     padding: 10px 30px 0;
     width: 500px;
-	z-index:9999999;
+	z-index:99999999;
 }
 .b-form-reg-popup input{
 	width:100%;
@@ -3882,6 +3948,17 @@ html .btn--buy-ticket:hover {
     height: 100%;
     z-index: 3;
 }
+
+.b-plan-menu {
+    position: fixed;
+    right: 0;
+    top: 80px;
+    width: 100px;
+    background: rgba(67,164,162,.7 );
+    height: 100%;
+    z-index: 3;
+}
+
 .b-map-menu__list {
     list-style-type: none;
     padding: 0;
@@ -4099,9 +4176,11 @@ html .btn--buy-ticket:hover {
 }
 
 .viewList_item {
+	position:relative;
 	width:100%;
 	margin-bottom:20px;
 	border:1px solid #ddd;
+	z-index:9;
 }
 
 /************* Weather ****************************/
@@ -4412,6 +4491,7 @@ html .btn--buy-ticket:hover {
 .shared {
     padding: 15px 0;
     border-top: 1px solid #202022;
+    z-index:99999;
 }
 .b-soc {
 	margin-top:20px;

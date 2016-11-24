@@ -5,51 +5,24 @@
 <jsp:include page="../inc/top.jsp" />
 <!--  헤더 영역 끝 -->
 
-<!-- 좋아요 시작-->
-<script type="text/javascript">
-	function likeIt(obj) {
-		var trip_id = $(obj).attr("value");
-		$.ajax({
-			url : "like?trip_id=" + trip_id,
-			type : "GET",
-			datatype : "json",
-			success : function(responseFromServer) {
-				var data = jQuery.parseJSON(responseFromServer);
-				var obj2 = $(obj).parent().parent().find('#likeCount');
-				$(obj2).text(data.likeCount);
-			},
-			error : function(jqXHR, textStatus, errorThrown) {
-				alert("오류 발생 \n" + textStatus + " : " + errorThrown);
-			}
-		});
-	}
-</script>
-<!-- 좋아요 끝 -->
-
-<!-- 더보기 시작 -->
-	<script>
-		$(document).ready(function () {
-		    size_li = $('#viewList_list li').size();
-		    x=8;
-		    $('#viewList_list li:lt('+x+')').slideDown();
-		    
-		    $("#loadMore").click(function() {
-		        x= (x+4 <= size_li) ? x+4 : size_li;
-		        $('#viewList_list li:lt('+x+')').slideDown();
-		    });
-		    
-		    $("#showLess").click(function() {
-		        x=(x-4<0) ? 4 : x-4;
-		        $('#viewList_list li').not(':lt('+x+')').slideUp();
-		    });
-		});
-	</script>
-<!-- 더보기 끝 -->
-
 <!-- 컨텐츠 영역 시작 -->
 <div class="b-main-container" id="content">
 	<div class="b-pop-places container">
-		<h2 class="b-cont-title">연령별 Top5</h2>
+		<h2 class="b-cont-title">
+			<c:choose>
+				<c:when test="${age_id == 'a01'}">
+					꽃청춘 Hot 5
+				</c:when>
+				<c:when test="${age_id == 'a02'}">
+					꽃중년 Hot 5
+				</c:when>
+				<c:otherwise>
+					연령별 Top5		
+				</c:otherwise>
+			</c:choose>
+		
+		
+		</h2>
 		<ul class="b-cont-sub-menu">
 			<li><a href="list_age_search?age_id=a01">꽃청춘</a></li>
 			<li><a href="list_age_search?age_id=a02">꽃중년</a></li>
@@ -69,16 +42,15 @@
 							</div>
 
 							<div class="b-pop-place__desc clearfix">
-								<div class="b-pop-place__rating">
-									<span class="b-pop-place__like"><i class="fa fa-heart" aria-hidden="true"></i></span> <span id="likeCount">${list.trip_like}</span>
-								</div>
 								<a href="detail_view?trip_id=${list.trip_id}" class="b-pop-place__name">${list.trip_nickname}</a>
 								<h5 class="b-pop-place__cat">${list.trip_add1} ${list.trip_add2}</h5>
+								<!-- 일정추가 시작 -->
+								<div class="list_add_icon_wrap">
+									<div class="list_add_icon" data-toggle="tooltip" data-placement="top" title="일정추가"><i class="fa fa-calendar" aria-hidden="true"></i></div>
+								</div>
+								<!-- 일정추가 끝 -->
 
-								<div class="b-pop-place-comment">
-									<a href="http://${list.trip_site}" target="_blank" class="b-pop-place-homepage" data-toggle="tooltip" data-placement="top" title="홈페이지 바로가기">
-										<i class="fa fa-home" aria-hidden="true"></i>
-									</a>
+								<div class="b-pop-place-comment m--centered">
 									<span class="b-pop-place__view"><img src="img/heart_icon.png" class="list_icon"></span><span id="likeCount">${list.trip_like}</span>
 									<span class="b-pop-place__view"><img src="img/view_icon.png" class="list_icon"></span> ${list.trip_view} 
 									<span class="b-pop-place__view"><img src="img/review_icon.png" class="list_icon"></span> ${list.trip_view}
@@ -115,7 +87,15 @@
 								<div class="b-pop-place__desc clearfix">
 									<a href="detail_view?trip_id=${list.trip_id}" class="b-pop-place__name"><span class="b-pop-place__name_txt">${list.trip_nickname}</span></a>
 									<h5 class="b-pop-place__cat">${list.trip_add1} ${list.trip_add2}</h5>
-
+									<!-- 일정추가 시작 -->
+									<div class="list_add_icon_wrap">
+										<div class="add_plan_icon" data-toggle="tooltip" data-placement="top" title="일정추가">
+											<a href="#" class="html_popup">
+												<i class="fa fa-calendar" aria-hidden="true"></i>
+											</a>
+										</div>
+									</div>
+									<!-- 일정추가 끝 -->
 									<div class="b-pop-place-comment m--centered">
 										<span class="b-pop-place__view"><img src="img/heart_icon.png" class="list_icon"></span> <span id="likeCount">${list.trip_like}</span> 
 										<span class="b-pop-place__view"><img src="img/view_icon.png" class="list_icon"></span> ${list.trip_view}

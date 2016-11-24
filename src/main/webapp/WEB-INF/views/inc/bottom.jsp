@@ -47,11 +47,26 @@
 </body>
 </html>
 
+<!-- 여행일정짜기 팝업 시작-->
+	<div class="hidden plan_popup">
+       <div class="container clearfix">
+           <div class="stores">
+              <ul>
+              	<li>Day 1</li>
+              	<li>Day 2</li>
+              	<li>Day 3</li>
+              </ul>
+           </div>
+       </div>
+   </div>
+ <!--//여행일정짜기 팝업 끝-->
+
 <script src="js/jquery.min.js"></script>
 <script src="js/dropzone.js"></script>
 <script src="js/chosen.jquery.min.js"></script>
 <script src="js/ion.rangeSlider.min.js"></script>
 <script src="js/jquery.popup.min.js"></script>
+<script src="jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/jssor.slider.mini.js"></script>
 <script src="js/lightcase.js"></script>
 <script src="js/imagesloaded.pkgd.min.js"></script>
