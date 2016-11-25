@@ -8,17 +8,23 @@ import com.kosta.yolo.vo.UserReviewVO;
 
 public interface TripInfoMapper  extends Serializable  {
 	
-	//상세보기
+	//상세 보기
 	ArrayList<TripInfoVO> selectDetail(String trip_id);
 	
-	//리뷰보기
-		ArrayList<TripInfoVO> inforeview(String trip_id);
+	//리뷰 보기
+	ArrayList<TripInfoVO> inforeview(String trip_id);
 		
-	//리뷰쓰기
-		void writeReview(UserReviewVO vo);
+	//리뷰 쓰기
+	void writeReview(UserReviewVO vo);
+	
+	//리뷰 삭제
+    void deleteReview(UserReviewVO vo);
 	
 	//조회수
 	int viewCount(String trip_id);
+	
+	//댓글수
+	int reviewCount(String trip_id);
 
 	//좋아요
 	int likeCount(String trip_id);
@@ -67,6 +73,6 @@ public interface TripInfoMapper  extends Serializable  {
 	//person_id 키값에 따른 리스트 뿌리기
 	ArrayList<TripInfoVO> selectPerson(String person_id);	
 	//food_id 키값에 따른 리스트 뿌리기
-	ArrayList<TripInfoVO> selectFood(String food_id);	
+	ArrayList<TripInfoVO> selectFood(String food_id);
 
 }

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <style type="text/css">
 .b-map {
 	position: relative;
@@ -193,6 +194,7 @@
 								<input type="hidden" id="pos_y" value=" ${list.pos_y}">
 								<input type="hidden" id="trip_nickname" value=" ${list.trip_nickname}">
 								<input type="hidden" id="trip_like" value=" ${list.trip_like}">
+								<input type="hidden" id="trip_id" value="${list.trip_id}">
 							</div>
 						</div>
 
@@ -203,7 +205,12 @@
 							<c:forEach items="${reviewList }" var="list">
 								<div class="review_list">
 									<ul>
-										<li><span class="review_list_user">${list.user_id }</span> | <span class="review_list_time"><i class="fa fa-clock-o" aria-hidden="true"></i> ${list.review_time }</span></li>
+										<li>
+											<span class="review_list_user">${list.user_id }</span> | <span class="review_list_time"><i class="fa fa-clock-o" aria-hidden="true"></i>${list.review_time }</span>
+											<c:if test="${fn:trim(list.user_id) == fn:trim(user)}">
+                                    			<input type="button" value="X" onclick="document.location='detail_delete?review_no=${list.review_no}&trip_id=${list.trip_id }'">
+                                 			</c:if>
+										</li>
 										<li><span class="review_list_content">${list.review_content }</span></li>
 									</ul>
 								</div>
@@ -213,6 +220,7 @@
 							<div class="review_write_wrap">
 								<form method="post" onsubmit="return checkComment()">
 									<input type="hidden" name="review_no" value="review_no"> 
+									<input type="hidden" name="trip_id" value="trip_id"> <!-- 댓글 고침 -->
 									<ul>
 										<li class="review_write_li_user">
 											<span class="review_user_id"><i class="fa fa-user fa-4" aria-hidden="true"></i></span>
@@ -235,7 +243,6 @@
 			</div>
 	</c:forEach>
 
-
 <!-- 추가 <div class="b-plan-menu">
 		<ul class="b-map-menu__list">
 			<li class="b-map-menu__list__bars active"><a href="#"
@@ -245,8 +252,8 @@
 			<li class="b-map-menu__list__restaurants"><a href="#" class="noajax"><i class="fmr fmr-icon-466"></i>Day3</a></li>
 			<li class="b-map-menu__list__night-life"><a href="#" class="noajax"><i class="fmr fmr-icon-1100"></i>Day4</a></li>
 			<li class="b-map-menu__list__night-life"><a href="#" class="noajax"><i class="fmr fmr-icon-1100"></i>Day5</a></li>
-		</ul>
-	</div> -->
+		</ul> -->
+	</div>
 	<!-- 컨텐츠 영역 끝 -->
 
 	<!-- 푸터영역 시작 -->

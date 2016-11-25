@@ -50,7 +50,6 @@ public class UserController {
       int result = userService.login(request);
       UserVO vo = null;
       
-      System.out.println("result값:"+result);
       if (result == 1) {
     	  request.setAttribute("result", result);
     	  vo = userService.userSelect(user_id);
@@ -75,7 +74,6 @@ public class UserController {
       session.invalidate();
       
       return "login/loginOut";
-      
    }
    
    // 회원 리스트
@@ -91,15 +89,15 @@ public class UserController {
    // 회원 수정
    @RequestMapping("/user_update")
    public ModelAndView update(HttpServletRequest request) {
-		  HttpSession session = request.getSession();
-		  String user_id = (String) session.getAttribute("user_id");
-	      ModelAndView mav = new ModelAndView();
-	      UserVO vo = userService.userSelect(user_id);
-	      mav.addObject("vo",vo);
-	      mav.setViewName("user/user_update");
+	  HttpSession session = request.getSession();
+	  String user_id = (String) session.getAttribute("user_id");
+	  ModelAndView mav = new ModelAndView();
+	  UserVO vo = userService.userSelect(user_id);
+	  mav.addObject("vo",vo);
+	  mav.setViewName("user/user_update");
 	      
-	      return mav;
-	   }
+	  return mav;
+   }
 
    @RequestMapping(value = "/user_updatePro", method = RequestMethod.POST)
    public ModelAndView updatePro(UserVO vo) {

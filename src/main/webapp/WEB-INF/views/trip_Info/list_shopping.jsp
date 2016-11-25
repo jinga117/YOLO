@@ -35,7 +35,7 @@
 								<div class="b-pop-place-comment m--centered">
 									<span class="b-pop-place__view"><img src="img/heart_icon.png" class="list_icon"></span><span id="likeCount"> ${list.trip_like}</span>
 									<span class="b-pop-place__view"><img src="img/view_icon.png" class="list_icon"></span> ${list.trip_view} 
-									<span class="b-pop-place__view"><img src="img/review_icon.png" class="list_icon"></span> ${list.trip_view}
+									<span class="b-pop-place__view"><img src="img/review_icon.png" class="list_icon"></span> ${list.trip_review}
 								</div>
 							</div>
 						</div>
@@ -79,7 +79,7 @@
 									<div class="b-pop-place-comment m--centered">
 										<span class="b-pop-place__view"><img src="img/heart_icon.png" class="list_icon"></span> <span id="likeCount">${list.trip_like}</span> 
 										<span class="b-pop-place__view"><img src="img/view_icon.png" class="list_icon"></span> ${list.trip_view}
-										<span class="b-pop-place__view"><img src="img/review_icon.png" class="list_icon"></span> ${list.trip_view}
+										<span class="b-pop-place__view"><img src="img/review_icon.png" class="list_icon"></span> ${list.trip_review}
 									</div>
 								</div>
 							</div>

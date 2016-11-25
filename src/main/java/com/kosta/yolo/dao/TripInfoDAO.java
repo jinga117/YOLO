@@ -15,19 +15,6 @@ public class TripInfoDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	// 리뷰보기
-	public ArrayList<TripInfoVO> inforeview(String trip_id) {
-		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
-		ArrayList<TripInfoVO> reList = info.inforeview(trip_id);
-		return reList;
-	}
-	
-	//리뷰쓰기
-	public void writeReview(UserReviewVO vo){
-		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
-		info.writeReview(vo);
-	}
-	
 	// 상세보기
 	public ArrayList<TripInfoVO> selectDetail(String trip_id) {
 		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
@@ -35,12 +22,38 @@ public class TripInfoDAO {
 		return avo;
 	}
 	
+	// 리뷰보기
+	public ArrayList<TripInfoVO> inforeview(String trip_id) {
+		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+		ArrayList<TripInfoVO> reList = info.inforeview(trip_id);
+		return reList;
+	}
+	
+	// 리뷰 쓰기
+	public void writeReview(UserReviewVO vo){
+		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+		info.writeReview(vo);
+	}
+	
+	// 리뷰 삭제
+	public void deleteReview(UserReviewVO vo){
+	   TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+	   info.deleteReview(vo);
+	}
+	
 	// 조회수
 	public int viewCount(String trip_id) {
 		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
 		int view_count = info.viewCount(trip_id);
-		System.out.println("view_count : "+view_count);
 		return view_count;
+	}
+	
+	// 댓글수
+	public int reviewCount(String trip_id) {
+		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+		int review_count = info.reviewCount(trip_id);
+		System.out.println("review_count" + review_count);
+		return review_count;
 	}
 	
 	// 좋아요
@@ -202,4 +215,5 @@ public class TripInfoDAO {
 		ArrayList<TripInfoVO> fvo = info.selectFood(food_id);
 		return fvo;
 	}
+
 }

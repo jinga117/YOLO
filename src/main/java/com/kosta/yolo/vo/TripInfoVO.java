@@ -11,8 +11,7 @@ public class TripInfoVO {
 	private String trip_site, trip_tel, trip_way; //사이트, 전화번호, 가는방법
 	private String  trip_pay; //비용
 	private String trip_add1, trip_add2, trip_add3; //상세주소(시/구/나머지)
-	private int trip_like, trip_view; //좋아요, 조회수
-	private String trip_video; //동영상 주소
+	private int trip_like, trip_view, trip_review; //좋아요, 조회수, 댓글수
 	private double pos_x, pos_y; //위도, 경도
 	
 	public String getTrip_id() {
@@ -141,11 +140,11 @@ public class TripInfoVO {
 	public void setTrip_view(int trip_view) {
 		this.trip_view = trip_view;
 	}
-	public String getTrip_video() {
-		return trip_video;
+	public int getTrip_review() {
+		return trip_review;
 	}
-	public void setTrip_video(String trip_video) {
-		this.trip_video = trip_video;
+	public void setTrip_review(int trip_review) {
+		this.trip_review = trip_review;
 	}
 	public double getPos_x() {
 		return pos_x;

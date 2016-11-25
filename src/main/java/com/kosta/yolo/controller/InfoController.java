@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kosta.yolo.service.TripInfoService;
 
@@ -34,13 +33,13 @@ public class InfoController {
 	public ModelAndView selectDetail(HttpServletRequest request, @RequestParam String trip_id) {
 		System.out.println("상세보기 trip_id : "+ trip_id);
 		ModelAndView mav = infoService.detail_view(request, trip_id);
-		infoService.view_Count(trip_id);
+		infoService.view_Count(trip_id);	// 조회수
 		mav.setViewName("trip_Info/detail_view");
 		return mav;
 	}
 	
 	@RequestMapping(value="/detail_view", method = RequestMethod.POST)
-	public ModelAndView writeRe(HttpServletRequest request ){
+	public ModelAndView writeRe(HttpServletRequest request){
 		ModelAndView mav = infoService.writeRe(request);
 		String trip_id = request.getParameter("trip_id");
 		mav.setViewName("redirect:/detail_view?trip_id="+trip_id);
@@ -49,8 +48,7 @@ public class InfoController {
 	
 	// 좋아요
 	@RequestMapping("/like")
-	public ModelAndView likeCount(HttpServletRequest request, 
-	    HttpServletResponse response, @RequestParam String trip_id) throws Exception{ 
+	public ModelAndView likeCount(HttpServletRequest request, HttpServletResponse response, @RequestParam String trip_id) throws Exception{ 
 		int likeCount = infoService.likeCount(trip_id);
 		
 		PrintWriter out = response.getWriter();
@@ -65,15 +63,14 @@ public class InfoController {
 		return null;
 	}
 	
-/*	
-  	//list_attraction전체 리스트
-	@RequestMapping("/list_attraction")
-	public ModelAndView list_attraction(){
-		ModelAndView mav = infoService.list();
-		mav.setViewName("trip_Info/list_attraction");
-		return mav;
-	}
-	*/
+	// 리뷰 삭제
+	@RequestMapping(value="/detail_delete", method=RequestMethod.GET)
+	public ModelAndView deleteRe(HttpServletRequest request){
+		ModelAndView mav = infoService.deleteRe(request);
+		String trip_id = request.getParameter("trip_id");
+		mav.setViewName("redirect:/detail_view?trip_id="+trip_id);
+	    return mav;
+	   }
 	
 	//list_restaurant전체 리스트
 	@RequestMapping("/list_restaurant")

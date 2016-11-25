@@ -19,7 +19,6 @@ public class TripInfoService {
 	@Autowired
 	private TripInfoDAO infoDAO;
 	
-	
 	// 상세보기
 	public ModelAndView detail_view(HttpServletRequest request, String trip_id) {
 		ModelAndView mav = new ModelAndView();
@@ -34,16 +33,17 @@ public class TripInfoService {
 			mav.addObject("user", user);
 			mav.addObject("trip_id", trip_id);
 		}
-				
+		int count = infoDAO.reviewCount(trip_id);
 		ArrayList<TripInfoVO> detail = infoDAO.selectDetail(trip_id);
 		ArrayList<TripInfoVO> review = infoDAO.inforeview(trip_id);
 		mav.addObject("detailList", detail);
+		mav.addObject("count", count);
 		mav.addObject("reviewList", review);
 		
 		return mav;
 	}
 	
-	//리뷰쓰기
+	//리뷰 쓰기
 	public ModelAndView writeRe(HttpServletRequest request){
 		ModelAndView mav = new ModelAndView();
 		UserReviewVO vo = new UserReviewVO();
@@ -52,22 +52,29 @@ public class TripInfoService {
 		vo.setTrip_id(request.getParameter("trip_id"));
 		vo.setReview_content(request.getParameter("review_content"));
 		
-		infoDAO.writeReview(vo);
+		infoDAO.writeReview(vo);		// 리뷰 쓰기
+		infoDAO.reviewCount(vo.getTrip_id());		// 댓글수
 		
 		return mav;
 	}
 	
 	//리뷰 삭제
+	public ModelAndView deleteRe(HttpServletRequest request){
+		ModelAndView mav = new ModelAndView();
+		UserReviewVO vo = new UserReviewVO();
+	    vo.setReview_no(Integer.parseInt(request.getParameter("review_no")));
+	    infoDAO.deleteReview(vo);
+	      
+	    return mav;
+	}
 	
 	
-	
-	//조회수
+	// 조회수
 	public int view_Count(String trip_id) {
 		int count =  infoDAO.viewCount(trip_id);
-		System.out.println("count !!!! "+count);
 		return count;
 	}
-		
+
 	// 좋아요
 	public int likeCount(String trip_id) {
 		return infoDAO.likeCount(trip_id);

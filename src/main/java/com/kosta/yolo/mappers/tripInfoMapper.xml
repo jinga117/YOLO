@@ -4,27 +4,27 @@
     
     <mapper namespace="com.kosta.yolo.dao.TripInfoMapper">
     
-		<!-- 카테고리별 전체리스트 -->
+		<!-- 카테고리별 전체 리스트 -->
     	<select id="lnfoAll"  resultType="com.kosta.yolo.vo.TripInfoVO">
     		SELECT * FROM TripInfo
     	</select>
     	
-    	<!-- 쇼핑카테고리 top5 -->
+    	<!-- 쇼핑 카테고리 top5 -->
     	<select id="categoryTop"  resultType="com.kosta.yolo.vo.TripInfoVO">
     		SELECT * FROM TripInfo WHERE category_id = #{category_id}  ORDER BY trip_like DESC LIMIT 5
     	</select>
     	
-    	<!-- 쇼핑카테고리 전체리스트 -->
+    	<!-- 쇼핑 카테고리 전체 리스트 -->
     	<select id="categoryAll"  resultType="com.kosta.yolo.vo.TripInfoVO">
     		SELECT * FROM TripInfo WHERE category_id = #{category_id}
     	</select>
     	
-    	<!-- 레스토랑카테고리 메인 인기 top5 -->
+    	<!-- 레스토랑 카테고리 메인 인기 top5 -->
    		<select id="foodAllTop" parameterType="String"  resultType="com.kosta.yolo.vo.TripInfoVO">
     		SELECT * FROM TripInfo WHERE food_id NOT IN ("") ORDER BY trip_like DESC LIMIT 5
     	</select> 
     	
-    	<!-- 레스토랑카테고리 메인  -->
+    	<!-- 레스토랑 카테고리 메인  -->
     	<select id="foodAll" parameterType="String"  resultType="com.kosta.yolo.vo.TripInfoVO">
     		SELECT * FROM TripInfo WHERE food_id NOT IN ("") 
     	</select> 
@@ -115,7 +115,7 @@
 	    		SELECT * FROM TripInfo WHERE person_id LIKE #{person_id}
     	</select>
     	
-    	<!-- 쇼핑카테고리 식당/카페별 -->
+    	<!-- 쇼핑 카테고리 식당/카페별 -->
     	<select id="foodTop"  parameterType="String"  resultType="com.kosta.yolo.vo.TripInfoVO">
 	    	<bind name="food_id" value="'%' + _parameter + '%'" />
 	    		SELECT * FROM TripInfo WHERE food_id LIKE #{food_id} ORDER BY trip_like DESC LIMIT 5
@@ -133,28 +133,39 @@
 	    		SELECT * FROM TripInfo WHERE trip_id = #{trip_id}
     	</select>
     	
-    	<!-- 리뷰보기 -->
+    	<!-- 리뷰 보기 -->
     	<select id="inforeview" parameterType="String"  resultType="com.kosta.yolo.vo.UserReviewVO">
     		SELECT * FROM UserReview u, TripInfo t WHERE u.trip_id = t.trip_id and u.trip_id = #{trip_id}
   	  	</select>
   	  	
-  	  	<!-- 리뷰쓰기 -->
+  	  	<!-- 리뷰 쓰기 -->
   	  	<!-- useGeneratedKeys="true" keyProperty="review_no" 이 있으면 오라클의 sql.nextval의 대신 -->
   	  	<insert id="writeReview" parameterType="com.kosta.yolo.vo.UserReviewVO"  useGeneratedKeys="true" keyProperty="review_no">
   	  		INSERT INTO UserReview VALUES(#{review_no}, #{user_id}, #{trip_id}, #{review_content}, NOW())
   	  	</insert>
+  	  	
+  	  	<!-- 리뷰 삭제 -->
+          <delete id="deleteReview" parameterType="com.kosta.yolo.vo.UserReviewVO">
+             DELETE FROM UserReview WHERE review_no = #{review_no}
+          </delete> 
     	
     	<!-- 조회수 -->
     	<update id="viewCount" parameterType="com.kosta.yolo.vo.TripInfoVO">
     		UPDATE TripInfo SET trip_view = trip_view+1 WHERE trip_id = #{trip_id}
     	</update>
     	
+    	<!-- 댓글수 -->
+    	<update id="reviewCount" parameterType="com.kosta.yolo.vo.TripInfoVO">
+    		UPDATE TripInfo SET trip_review = (SELECT COUNT(*) FROM UserReview WHERE trip_id = #{trip_id}) where trip_id= #{trip_id}
+    	</update>
+    	
     	<!-- 좋아요 -->
     	<update id="likeCount" parameterType="com.kosta.yolo.vo.TripInfoVO">
-    			UPDATE TripInfo SET trip_like = trip_like+1 WHERE trip_id = #{trip_id}
+    		UPDATE TripInfo SET trip_like = trip_like+1 WHERE trip_id = #{trip_id}
     	</update>
+    	
     	<select id="selectLikeCount"  parameterType="String"  resultType="java.lang.Integer">
-	    		SELECT trip_like FROM TripInfo WHERE trip_id = #{trip_id}
+	    	SELECT trip_like FROM TripInfo WHERE trip_id = #{trip_id}
     	</select>
     	
     </mapper>
