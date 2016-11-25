@@ -5,6 +5,7 @@ import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +17,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kosta.yolo.service.TripInfoService;
+import com.kosta.yolo.service.UserService;
+import com.kosta.yolo.vo.UserVO;
 
 @Controller
 public class InfoController {
 	
 	@Autowired
 	private TripInfoService infoService;
+	@Autowired
+	   private UserService userService;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
@@ -31,9 +36,13 @@ public class InfoController {
 	// 상세보기
 	@RequestMapping(value="/detail_view", method=RequestMethod.GET)
 	public ModelAndView selectDetail(HttpServletRequest request, @RequestParam String trip_id) {
+		HttpSession session = request.getSession();
+	      String user_id = (String) session.getAttribute("user_id");
+	      UserVO vo = userService.userSelect(user_id);
 		System.out.println("상세보기 trip_id : "+ trip_id);
 		ModelAndView mav = infoService.detail_view(request, trip_id);
 		infoService.view_Count(trip_id);	// 조회수
+		mav.addObject("isadmin",vo.getIsadmin());
 		mav.setViewName("trip_Info/detail_view");
 		return mav;
 	}

@@ -210,6 +210,9 @@
 											<c:if test="${fn:trim(list.user_id) == fn:trim(user)}">
                                     			<input type="button" value="X" onclick="document.location='detail_delete?review_no=${list.review_no}&trip_id=${list.trip_id }'">
                                  			</c:if>
+                                 			<c:if test="${isadmin == 1}">
+                                  			    <input type="button" value="X" onclick="document.location='detail_delete?review_no=${list.review_no}&trip_id=${list.trip_id }'">
+                               				  </c:if>
 										</li>
 										<li><span class="review_list_content">${list.review_content }</span></li>
 									</ul>
