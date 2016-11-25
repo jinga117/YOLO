@@ -37,8 +37,12 @@ public class ScheduleController {
    }
    
    @RequestMapping("/yoloplan")
-   public String yoloplan(){
-	   return "myplan/yoloplan";
+   public ModelAndView plan(HttpServletRequest request){
+	   
+	   ModelAndView mav = new ModelAndView();
+	   scheduleservice.calendar(request);
+	   mav.setViewName("myplan/yoloplaner");
+	   return mav;
    }
    
    
