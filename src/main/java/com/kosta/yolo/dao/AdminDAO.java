@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kosta.yolo.vo.TripInfoVO;
+import com.kosta.yolo.vo.UserVO;
 
 @Repository
 public class AdminDAO {
@@ -14,7 +15,7 @@ public class AdminDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	//리스트
+	// 여행지 리스트
 	public ArrayList<TripInfoVO> selectAll() {
 		AdminMapper admin = sqlSession.getMapper(AdminMapper.class);
 		ArrayList<TripInfoVO> list = admin.selectAll();
@@ -22,22 +23,42 @@ public class AdminDAO {
 		return list;
 	}
 	
-	//정보입력
+	// 여행지 입력
 	public void infoInsert(TripInfoVO vo){
 		AdminMapper admin = sqlSession.getMapper(AdminMapper.class);
 		admin.infoInsert(vo);
 	}
 	
-	//정보수정
+	// 여행지 수정
 	public ArrayList<TripInfoVO> selectInfo(String trip_id){
 		AdminMapper admin = sqlSession.getMapper(AdminMapper.class);
 		ArrayList<TripInfoVO> list = admin.selectInfo(trip_id);
 		
 		return list;
 	}
-	//정보삭제
-	public void deletePro(String trip_id){
+
+	// 여행지 한 곳 보여주기
+	public TripInfoVO selectTrip(String trip_id) {
 		AdminMapper admin = sqlSession.getMapper(AdminMapper.class);
-		admin.deletePro(trip_id);
+		return admin.selectTrip(trip_id);
 	}
+	
+	public UserVO userSelect(String user_id){
+		UserMapper user = sqlSession.getMapper(UserMapper.class);
+		UserVO vo = user.userSelect(user_id);
+		return vo;
+	}
+	
+	// 여행지 삭제
+	public void deleteTrip(String trip_id) {
+		AdminMapper admin = sqlSession.getMapper(AdminMapper.class);
+		admin.deleteTrip(trip_id);
+	}
+
+	// 여행지 수정
+	public void updateTrip(TripInfoVO vo) {
+		AdminMapper admin = sqlSession.getMapper(AdminMapper.class);
+		admin.updateTrip(vo);
+	}
+	
 }

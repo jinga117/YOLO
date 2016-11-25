@@ -18,10 +18,11 @@
 	    text-overflow: ellipsis;
 	}
 </style>
-<title>리스트 페이지</title>
+
+<title>여행지 리스트</title>
 </head>
 <body>
-	리스트 <hr>
+	여행지 리스트 <hr>
 		<table>
 			<c:forEach items="${list }" var="list">
 				<tr>	
@@ -45,12 +46,14 @@
 					<td>${list.trip_pay}</td>
 					<td>${list.trip_like}</td>
 					<td>${list.trip_view}</td>
-					<td>${list.trip_video}</td>
+					<td>${list.trip_review}</td>
 					<td>${list.pos_x}</td>
-					<td>${list.pos_y}</td>
+					<td>${list.pos_y}</td>				
+					<td><input type="button" value="수정" onclick="location.href='update?trip_id=${list.trip_id}'"></td>
+					<td><input type="button" value="삭제" onclick="location.href='delete?trip_id=${list.trip_id}'"></td>
 				</tr>
 			</c:forEach>
 		</table>
-	<a href="write">글쓰기</a>
+	<a href="write">여행지 추가</a>
 </body>
 </html>

@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kosta.yolo.dao.AdminDAO;
 import com.kosta.yolo.vo.TripInfoVO;
+import com.kosta.yolo.vo.UserVO;
 
 @Service
 public class AdminService {
@@ -19,7 +20,6 @@ public class AdminService {
 		
 		//리스트
 		public ModelAndView list(){
-			
 			ModelAndView mav = new ModelAndView();
 			ArrayList<TripInfoVO> list = adminDAO.selectAll();
 			mav.addObject("list", list);
@@ -27,7 +27,7 @@ public class AdminService {
 			return mav;
 		}
 		
-		//글쓰기
+		// 여행지 추가
 		public ModelAndView writePro(HttpServletRequest request){
 			TripInfoVO vo = new TripInfoVO();
 				
@@ -103,24 +103,37 @@ public class AdminService {
 			ModelAndView mav = new ModelAndView();
 			adminDAO.infoInsert(vo);
 			return mav;
-			}
+		}
 			
-			//상세보기
-			public ModelAndView info(String trip_category_id){
-				ModelAndView mav = new ModelAndView();
-				ArrayList<TripInfoVO> list = adminDAO.selectInfo(trip_category_id);
-				mav.addObject("vo", list);
+		// 상세보기
+		public ModelAndView info(String trip_category_id){
+			ModelAndView mav = new ModelAndView();
+			ArrayList<TripInfoVO> list = adminDAO.selectInfo(trip_category_id);
+			mav.addObject("vo", list);
+			return mav;
+		}
+		
+		// info
+		public ArrayList<TripInfoVO> selectInfo(String trip_id) {
+			return adminDAO.selectInfo(trip_id);
+		}
+		
+		// 여행지 한 곳 보여주기
+		public TripInfoVO selectTrip(String trip_id) {
+			TripInfoVO vo = adminDAO.selectTrip(trip_id);
+			return vo;
+		}
 
-				return mav;
-			}
-			
-			//정보삭제
-			public ModelAndView delete(String trip_id){
-				
-				ModelAndView mav = new ModelAndView();
-				adminDAO.deletePro(trip_id);
-				
-				return mav;
-			}
+		// 여행지 삭제
+		public void deleteTrip(String trip_id) {
+			adminDAO.deleteTrip(trip_id);
+		}
+		
+		// 여행지 수정
+		public ModelAndView updatePro(TripInfoVO vo) {
+			ModelAndView mav = new ModelAndView();
+			adminDAO.updateTrip(vo);
+			return mav;
+		}
 
 }

@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
 <head>
-<title>여행정보</title>
+<title>여행지 정보</title>
 </head>
 <body>
-	<h2>여행 정보</h2>
+	<h2>여행지 정보</h2>
 	
 	<c:forEach items="${vo }" var="vo" >
 		NO.${vo.trip_id }

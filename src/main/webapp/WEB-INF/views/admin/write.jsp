@@ -8,10 +8,10 @@
 		text-align: left;
 	}
 </style>
-<title>회원 가입</title>
+<title>여행지 정보</title>
 </head>
 	<body>
-		<h3 align="center">정보입력 페이지</h3>
+		<h3 align="center">정보 입력 페이지</h3>
 		<hr>
 			<form method="post">
 				<table style="margin: 0 auto;">
@@ -69,10 +69,10 @@
 					</tr>
 					
 					<tr><td>여행지 별칭</td><td><input type="text" name="trip_nickname" size="50" ></td></tr>
-					<tr><td>주소</td><td><input type="text" name="trip_address" size="50" ></td></tr>
+					<tr><td>전체 주소</td><td><input type="text" name="trip_address" size="50" ></td></tr>
 					<tr><td>시</td><td><input type="text" name="trip_add1" size="50" ></td></tr>
 					<tr><td>구</td><td><input type="text" name="trip_add2" size="50" ></td></tr>
-					<tr><td>상세주소</td><td><input type="text" name="trip_add3" size="50" ></td></tr>
+					<tr><td>나머지 주소</td><td><input type="text" name="trip_add3" size="50" ></td></tr>
 					<tr><td>내용</td><td><input type="text" name="trip_content" size="50" ></td></tr>
 					<tr><td>이용시간</td><td><input type="text" name="trip_time" size="50" ></td></tr>
 					<tr><td>홈페이지</td><td><input type="text" name="trip_site" size="50" ></td></tr>

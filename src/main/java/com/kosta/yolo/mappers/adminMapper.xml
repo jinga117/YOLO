@@ -4,7 +4,7 @@
     
     <mapper namespace="com.kosta.yolo.dao.AdminMapper">
     	<select id="selectAll" resultType="com.kosta.yolo.vo.TripInfoVO">
-    		SELECT * FROM TripInfo
+    		SELECT * FROM TripInfo order by trip_id
     	</select>
 
     	<insert id="infoInsert"  parameterType="com.kosta.yolo.vo.TripInfoVO">
@@ -16,8 +16,17 @@
     		SELECT * FROM TripInfo WHERE trip_id = #{trip_id}
     	</select>
     	
-    	<delete id="deletePro"  parameterType="com.kosta.yolo.vo.TripInfoVO">
+    	<select id="selectTrip"  parameterType="java.lang.String"  resultType="com.kosta.yolo.vo.TripInfoVO">
+    		SELECT * FROM TripInfo WHERE trip_id = #{trip_id}
+   		</select>
+    	
+    	<delete id="deleteTrip"  parameterType="java.lang.String">
     		DELETE FROM TripInfo WHERE trip_id = #{trip_id }
     	</delete>
+    	
+    	<update id="updateTrip" parameterType="com.kosta.yolo.vo.TripInfoVO">
+        	UPDATE TripInfo set category_id = #{category_id}, age_id = #{age_id}, food_id = #{food_id}, season_id = #{season_id}, person_id = #{person_id}, kpop_id = #{kpop_id}, trip_nickname = #{trip_nickname}, trip_address = #{trip_address}, trip_add1 = #{trip_add1}, trip_add2 = #{trip_add2}, trip_add3 = #{trip_add3}, trip_content = #{trip_content}, trip_time = #{trip_time}, trip_site = #{trip_site}, trip_tel = #{trip_tel}, trip_way = #{trip_way}, trip_pay = #{trip_pay}, pos_x = #{pos_x}, pos_y = #{pos_y} 
+        		WHERE trip_id = #{trip_id}
+   		</update>
     	
     </mapper>
