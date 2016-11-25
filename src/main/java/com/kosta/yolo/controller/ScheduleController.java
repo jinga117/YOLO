@@ -35,7 +35,11 @@ public class ScheduleController {
 		   return mav;
 	   }
    }
-
+   
+   @RequestMapping("/yoloplan")
+   public String yoloplan(){
+	   return "myplan/yoloplan";
+   }
    
    
    

@@ -71,23 +71,19 @@
                 
                 <li>
                 	<a href="list_shopping?category_id=c03"><i class="fa fa-gift" aria-hidden="true"></i>Shopping</a>
-	                    <ul>
-	                    	<li><a href="list_shopping?category_id=c03">쇼핑</a></li>
-	                    </ul>
                 </li>
                 
-                <li class="menu-item-has-children"> <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>Yolo Plan</a>
-                	<ul>
-                        <li><a href="trip_schedule">여행 일정짜기</a></li>
-                        <li><a href="list_attraction">여행 발자취</a></li>
-                    </ul>
+                <li>
+                	<a href="yoloplan"><i class="fa fa-calendar" aria-hidden="true"></i>Yolo Plan</a>
                 </li>
                 
                 <!-- 관리자 일 때 -->
                 <c:if test="${isadmin==1 }">
                 	<li class="menu-item-has-children"><a href="#"><i class="fa fa-key" aria-hidden="true"></i>Admin</a>
                     	<ul>
-                        	<li><a href="userlist">회원리스트</a></li>
+                        	<li><a href="userlist">회원 리스트</a></li>
+                        	<li><a href="admin/list">여행지 리스트</a></li>
+                        	<li><a href="admin/write">여행지 추가</a></li>
                     	</ul>
                 	</li>
                 </c:if>

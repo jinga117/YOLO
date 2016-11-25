@@ -30,7 +30,7 @@
 								<option value=""></option>
                         		<option value="">선택 안함</option>
                                 <option value="a01">꽃청춘</option>
-                                <option value="a02">꽃장년</option>
+                                <option value="a02">꽃중년</option>
                             </select>
 						</div>
 						
