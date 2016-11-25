@@ -68,6 +68,7 @@
 									<i class="fa fa-heart" aria-hidden="true"></i>
 								</button>
 							</div>
+                         
 
 							<div class="b-pop-place__desc clearfix">
 								<a href="detail_view?trip_id=${list.trip_id}" class="b-pop-place__name"><span class="b-pop-place__name_txt">${list.trip_nickname}</span></a>

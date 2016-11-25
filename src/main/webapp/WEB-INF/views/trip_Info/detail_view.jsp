@@ -132,7 +132,7 @@
 					<!--  북마크 추가 시작 -->
 					<div class="add_icon_wrap">
 						<span class="add_bookmark_icon p-t-15" data-toggle="tooltip"
-							data-placement="left" title="북마크 추가"> <a href="#"><i
+							data-placement="left" title="북마크 추가"> <a href="bookmark_log?trip_id=${list.trip_id }"><i
 								class="fa fa-bookmark-o" aria-hidden="true"></i></a>
 						</span> <span class="add_plan_icon p-t-15" data-toggle="tooltip"
 							data-placement="left" title="일정추가"> <a href="#"><i
