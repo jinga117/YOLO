@@ -58,7 +58,7 @@
                     <ul>
                         <li><a href="list_age">연령별</a></li>
                         <li><a href="list_theme">테마별</a></li>
-                        <li><a href="list_person">인원별</a></li>
+                        <li><a href="list_person">동행별</a></li>
                     </ul>
                 </li>
                 
