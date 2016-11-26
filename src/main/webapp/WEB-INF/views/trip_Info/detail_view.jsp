@@ -112,41 +112,45 @@
 			<div class="b-map__wrapper">
 				<div id="map" style="width: 100%; height: 780px;"></div>
 			</div>
+			
 			<!-- 지도 확대, 축소 컨트롤 div 입니다 -->
 			<div class="custom_zoomcontrol radius_border">
-				<span onclick="zoomIn()"><i class="fa fa-plus"
-					aria-hidden="true"></i></span> <span onclick="zoomOut()"><i
-					class="fa fa-minus" aria-hidden="true"></i></span>
+				<span onclick="zoomIn()"><i class="fa fa-plus" aria-hidden="true"></i></span>
+				<span onclick="zoomOut()"><i class="fa fa-minus" aria-hidden="true"></i></span>
 			</div>
 		</div>
 		<div class="b-map-menu"></div>
-		<!-- 상세보기 컨텐츠시작 -->
+		
+		<!-- 상세보기 컨텐츠 시작 -->
 		<c:forEach items="${detailList }" var="list">
 			<div class="b-slide-menu opened">
 				<div class="b-slide-menu__toggle">
-					<i class="fa fa-caret-left" aria-hidden="true"></i><i
-						class="fa fa-caret-right hidden" aria-hidden="true"></i>
+					<i class="fa fa-caret-left" aria-hidden="true"></i>
+					<i class="fa fa-caret-right hidden" aria-hidden="true"></i>
 				</div>
 				<div class="b-slide-menu__content custom-scroll default-skin">
 					<h2 class="b-slide-menu__title">${list.trip_nickname}</h2>
+					
 					<!--  북마크 추가 시작 -->
 					<div class="add_icon_wrap">
-						<span class="add_bookmark_icon p-t-15" data-toggle="tooltip"
-							data-placement="left" title="북마크 추가"> <a href="bookmark_log?trip_id=${list.trip_id }"><i
-								class="fa fa-bookmark-o" aria-hidden="true"></i></a>
-						</span> <span class="add_plan_icon p-t-15" data-toggle="tooltip"
-							data-placement="left" title="일정추가"> <a href="#"><i
-								class="fa fa-calendar" aria-hidden="true"></i></a>
+						<span class="add_bookmark_icon p-t-15" data-toggle="tooltip" data-placement="left" title="북마크 추가">
+							<a href="bookmark_log?trip_id=${list.trip_id }"><i class="fa fa-bookmark-o" aria-hidden="true"></i></a>
+						</span>
+						<span class="add_plan_icon p-t-15" data-toggle="tooltip" data-placement="left" title="일정추가">
+							<a href="#"><i class="fa fa-calendar" aria-hidden="true"></i></a>
 						</span>
 					</div>
 					<!--  북마크 추가 끝 -->
+					
 					<div class="b-slide-menu__form container-fluid opened">
+					
 						<!-- 이미지 시작-->
 						<div class="b-slide-menu-movie">
 							<img src="img/photo/${list.trip_id}.jpg" class="detail_img">
 						</div>
 						<!-- // 이미지 끝-->
 
+						<!-- 날씨 -->
 						<h2 class="b-slide-menu__title">Weather</h2>
 						<div class="b-slide-menu__form__row__item">
 							<!-- 날씨 API 시작 -->
@@ -364,6 +368,7 @@
    	        map.setCenter(coords);
    	    }
    	});  */
+<!-- //DAUM MAP -->
    	
    	function checkComment() {
    		if ($('#review_content').val()=='') {
@@ -374,4 +379,3 @@
 		return true;
    	}
 </script>
-<!-- //DAUM MAP -->
