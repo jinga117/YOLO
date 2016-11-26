@@ -1,15 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>ë¶ë§ˆí¬ ì‹¤íŒ¨</title>
 </head>
 <body>
-		<script type="text/javascript">
-		alert("ºÏ¸¶Å©°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.")
- 			history.go(-1);
-		</script>
+	<script type="text/javascript">
+		alert("ë¶ë§ˆí¬ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.")
+ 		history.go(-1);
+	</script>
 </body>
 </html>

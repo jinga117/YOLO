@@ -1,29 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>ë§ˆì´íŽ˜ì´ì§€</title>
+</head>
+<body>
 <%-- <c:if test="${modify ==1 }">
 <script type="text/javascript">
-	alert("¼öÁ¤¿Ï·áµÇ¾ú½À´Ï´Ù..");
+	alert("ìˆ˜ì •ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤..");
 	history.go(1);
 </script>
 </c:if>
 
 <c:if test="${modify ==0 }">
 <script type="text/javascript">
-	alert("¼öÁ¤½ÇÆÐÇÏ¿´½À´Ï´Ù..");
+	alert("ìˆ˜ì •ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤..");
 	history.go(-1);
 </script>
 </c:if> --%>
-</head>
-<body>
 
-<a href="user_update">°è Á¤ ¼³ Á¤</a><p>
-<a href="review_view">³»°¡ ¾´ ´ñ±Û</a><p>
-<a href="bookmark_view">ºÏ¸¶Å©</a><p>
+<a href="user_update">ê³„ ì • ì„¤ ì •</a><p>
+<a href="review_view">ë‚´ê°€ ì“´ ëŒ“ê¸€</a><p>
+<a href="bookmark_view">ë¶ë§ˆí¬</a><p>
 
 </body>
 </html>

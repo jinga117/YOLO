@@ -1,32 +1,31 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 </head>
 <body>
-<!-- ÀÔ·ÂÇÑ °ªÀÌ Member DB¿¡ ÀÖÀ» °æ¿ì -->
+<!-- ì…ë ¥í•œ ê°’ì´ Member DBì— ìˆì„ ê²½ìš° -->
 <c:if test="${num==1 }">
 		<table>
 			<tr>
-				<td>${password} ÀÔ´Ï´Ù.</td>
+				<td>${password} ì…ë‹ˆë‹¤.</td>
 				<td>
-					<input type="submit" value="È® ÀÎ" onclick="window.close()">
+					<input type="submit" value="í™• ì¸" onclick="window.close()">
 				</td>
 			</tr>
 		</table>
 </c:if>
-	<!-- ÀÔ·ÂÇÑ °ªÀÌ Member DB¿¡ ¾øÀ» °æ¿ì -->
+	<!-- ì…ë ¥í•œ ê°’ì´ Member DBì— ì—†ì„ ê²½ìš° -->
 	<c:if test="${num==0}">
 
 		<table>
 				<tr>
-					<td>ÀÏÄ¡ÇÑ Á¤º¸°¡ ¾ø½À´Ï´Ù.</td>		
+					<td>ì¼ì¹˜í•œ ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤.</td>		
 					<td>
-						<input type="submit" value="È® ÀÎ" onclick="window.close()">
+						<input type="submit" value="í™• ì¸" onclick="window.close()">
 					</td>
 				</tr>
 			</table>

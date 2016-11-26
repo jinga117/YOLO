@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>회원 삭제</title>
 </head>
 <body>
 	<form action="user_deletePro" method="post">
