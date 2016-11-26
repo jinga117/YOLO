@@ -25,8 +25,9 @@ public class InfoController {
 	
 	@Autowired
 	private TripInfoService infoService;
+	
 	@Autowired
-	   private UserService userService;
+	private UserService userService;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
@@ -37,14 +38,16 @@ public class InfoController {
 	@RequestMapping(value="/detail_view", method=RequestMethod.GET)
 	public ModelAndView selectDetail(HttpServletRequest request, @RequestParam String trip_id) {
 		HttpSession session = request.getSession();
-	      String user_id = (String) session.getAttribute("user_id");
-	      UserVO vo = userService.userSelect(user_id);
-		System.out.println("상세보기 trip_id : "+ trip_id);
+	    String user_id = (String) session.getAttribute("user_id");
+	    UserVO vo = userService.userSelect(user_id);
 		ModelAndView mav = infoService.detail_view(request, trip_id);
 		infoService.view_Count(trip_id);	// 조회수
+		
+		// admin 널 값일 때 에러페이지가 뜨는데 vo 객체에 if문으로 유무 확인 후 isadmin 처리
 		if(vo != null){
-		mav.addObject("isadmin",vo.getIsadmin()); // admin 널값일때 에러페이지가 뜨는데 vo 객체에 if문으로 유무 확인후 isadmin처리
+		mav.addObject("isadmin", vo.getIsadmin());
 		}
+		
 		mav.setViewName("trip_Info/detail_view");
 		return mav;
 	}
