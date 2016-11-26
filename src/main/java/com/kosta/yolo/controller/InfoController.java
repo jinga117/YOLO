@@ -42,7 +42,9 @@ public class InfoController {
 		System.out.println("상세보기 trip_id : "+ trip_id);
 		ModelAndView mav = infoService.detail_view(request, trip_id);
 		infoService.view_Count(trip_id);	// 조회수
-		mav.addObject("isadmin",vo.getIsadmin());
+		if(vo != null){
+		mav.addObject("isadmin",vo.getIsadmin()); // admin 널값일때 에러페이지가 뜨는데 vo 객체에 if문으로 유무 확인후 isadmin처리
+		}
 		mav.setViewName("trip_Info/detail_view");
 		return mav;
 	}

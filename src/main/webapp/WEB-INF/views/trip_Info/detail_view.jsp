@@ -151,10 +151,8 @@
 						<div class="b-slide-menu__form__row__item">
 							<!-- 날씨 API 시작 -->
 							<ul class="weather_content">
-								<li><span class="weather_txt">월</span> <span
-									class="weather_icon"><i class="fa fa-sun-o" aria-hidden="true"></i></span> <span class="weather_txt">13℃</span></li>
-								<li><span class="weather_txt">화</span> <span
-									class="weather_icon"><i class="fa fa-cloud" aria-hidden="true"></i></span> <span class="weather_txt">7℃</span></li>
+								<li><span class="weather_txt">월</span> <span class="weather_icon"><i class="fa fa-sun-o" aria-hidden="true"></i></span> <span class="weather_txt">13℃</span></li>
+								<li><span class="weather_txt">화</span> <span class="weather_icon"><i class="fa fa-cloud" aria-hidden="true"></i></span> <span class="weather_txt">7℃</span></li>
 								<li><span class="weather_txt">수</span> <span class="weather_icon"><i class="fa fa-tint" aria-hidden="true"></i></span> <span class="weather_txt">4℃</span></li>
 								<li><span class="weather_txt">목</span> <span class="weather_icon"><i class="fa fa-cloud" aria-hidden="true"></i></span> <span class="weather_txt">4℃</span></li>
 								<li><span class="weather_txt">금</span> <span class="weather_icon"><i class="fa fa-sun-o" aria-hidden="true"></i></span> <span class="weather_txt">7℃</span></li>
