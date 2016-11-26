@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
@@ -10,7 +9,7 @@
 <body>
 	<c:if test="${result==0 }">
 		<script type="text/javascript">
-		alert("�α����� ��밡���մϴ�.")
+		alert("로그인후 사용가능합니다.")
  			history.go(-1);
  
 		</script>
@@ -19,7 +18,7 @@
 
 <c:if test="${result==1 }">
 		<script type="text/javascript">
-		alert("�̹� �ϸ�ũ�� �������Դϴ�.")
+		alert("이미 북마크된 여행지입니다.")
  			history.go(-1);
  
 		</script>
