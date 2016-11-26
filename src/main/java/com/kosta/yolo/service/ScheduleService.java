@@ -43,8 +43,6 @@ public class ScheduleService {
 	//달력만들기
 	public HttpServletRequest calendar(HttpServletRequest request){
 		
-		ModelAndView mav = new ModelAndView();
-
 		Calendar cal= Calendar.getInstance();
 		
 	    int currentYear = cal.get(Calendar.YEAR); 
@@ -64,13 +62,13 @@ public class ScheduleService {
 			     if(month<0) { month=11; year=year-1; } //1월부터 12월까지 범위 지정.
 			     if(month>11) { month=0; year=year+1; }
 	    }
-	    
-	    
 	    cal.set(year, month, 1); //현재 날짜를 현재 월의 1일로 설정
 	    int startDay=cal.get(Calendar.DAY_OF_WEEK); //현재날짜(1일)의 요일
 	    int end=cal.getActualMaximum(Calendar.DAY_OF_MONTH); //이 달의 끝나는 날
 	    int br = 0; //7일마다 줄 바꾸기
-	    int count = 0;
+	    
+	   
+	    
 	    
 	    
 	    request.setAttribute("year", new Integer(year));
@@ -81,7 +79,6 @@ public class ScheduleService {
 	    request.setAttribute("startDay", new Integer(startDay));
 	    request.setAttribute("end", new Integer(end));
 	    request.setAttribute("br", br);
-	    request.setAttribute("count", count);
 	    
 	    return request;
 	}
