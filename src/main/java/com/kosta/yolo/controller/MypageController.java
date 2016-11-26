@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kosta.yolo.service.MypageService;
-import com.kosta.yolo.service.ScheduleService;
 import com.kosta.yolo.vo.TripInfoVO;
+import com.kosta.yolo.vo.UserReviewVO;
 
 @Controller
 public class MypageController {
@@ -24,7 +24,23 @@ public class MypageController {
    public String mypage(){
 	   
    return "mypage/mypage_main";
-   } 
+   }
+   @RequestMapping("/review_view")	//마이페이지에서 내가쓴댓글	 미완료///이름앞에 띄어쓰기때문에 안먹히는현상, mypage뷰창에 뿌려줄것!~!~!~!~!~!~!~!~!~!~!~!~!
+	public ModelAndView review_view(HttpServletRequest request){
+		
+	   HttpSession session = request.getSession();
+		String user_id = (String) session.getAttribute("user_id");
+		ArrayList<UserReviewVO> list =mypageService.review_my(user_id);
+		ModelAndView mav = new ModelAndView();
+		if(list.size()==0){
+			mav.setViewName("mypage/myreview_list_fail");
+		}else{
+			mav.addObject("list", list);
+			mav.setViewName("mypage/myreview_list");
+		}return mav;
+	}
+   
+  
    @RequestMapping("/bookmark_view")	//마이페이지에서 본인이 북마크한 현황보기~
    public ModelAndView bookmark_view(HttpServletRequest request){
 	   ArrayList<TripInfoVO> list = mypageService.bookmark_my(request);
@@ -44,4 +60,5 @@ public class MypageController {
 	   
 	   
    }
+   
 }//class end

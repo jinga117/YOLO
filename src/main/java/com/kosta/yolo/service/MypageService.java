@@ -7,9 +7,11 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.kosta.yolo.dao.MypageDAO;
 import com.kosta.yolo.vo.TripInfoVO;
+import com.kosta.yolo.vo.UserReviewVO;
 
 
 @Service
@@ -18,7 +20,7 @@ public class MypageService {
 	@Autowired
 	private MypageDAO mypageDAO;
 
-	public int s_login(String user_id) {///////////////// 회원가입
+	public int s_login(String user_id) {/////////////////계정설정
 		System.out.println("서비스단 세션로그인아이디" + user_id);
 		int result;
 		if (user_id != null) {	// 로그인시 
@@ -31,6 +33,15 @@ public class MypageService {
 
 	}
 	
+	//마이페이지에서 내가 쓴 리뷰
+	public ArrayList<UserReviewVO> review_my(String user_id){
+		ModelAndView mav = new ModelAndView();
+		ArrayList<UserReviewVO> list = mypageDAO.reviewMypage(user_id);
+		
+		return list;
+		
+	}
+
 	//북마크 현황보기
 	public ArrayList<TripInfoVO> bookmark_my(HttpServletRequest request){
 		HttpSession session = request.getSession();
@@ -42,5 +53,4 @@ public class MypageService {
 	*/	return list;
 		
 	}
-
 }

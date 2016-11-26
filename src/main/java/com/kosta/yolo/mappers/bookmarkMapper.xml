@@ -8,4 +8,8 @@
 		insert into BookMark(user_id,trip_id) values(#{user_id} , #{trip_id})
 	</insert>
     	
+    <select id="select_s" parameterType="com.kosta.yolo.vo.BookMarkVO" resultType="com.kosta.yolo.vo.BookMarkVO">
+    	select * from BookMark where (user_id = #{user_id}) and (trip_id =#{trip_id})
+    </select>
+    
 </mapper>

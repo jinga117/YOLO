@@ -22,8 +22,8 @@
 <body>
 
 <a href="user_update">°è Á¤ ¼³ Á¤</a><p>
-<a href="#">¸®ºä</a><p>
-<a href="#">ºÏ¸¶Å©</a><p>
-<a href="#">Q&A</a><p>
+<a href="review_view">³»°¡ ¾´ ´ñ±Û</a><p>
+<a href="bookmark_view">ºÏ¸¶Å©</a><p>
+
 </body>
 </html>
