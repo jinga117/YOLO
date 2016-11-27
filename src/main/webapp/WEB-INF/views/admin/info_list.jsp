@@ -1,15 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
-<!DOCTYPE html>
-<html>
-<head>
-<style type="text/css">
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<!--  헤더 영역 시작 -->
+	<jsp:include page="../inc/top.jsp" />
+	<!--  헤더 영역 끝 -->
+	<style type="text/css">
 	table{
 		 border-collapse: collapse;
 		 width: 700px;;
 	}
-	
 	tr, td{
 		 border: 1px solid grey;
 		 padding: 10px;
@@ -17,12 +15,19 @@
 	    overflow: hidden;
 	    text-overflow: ellipsis;
 	}
+	h3{
+	margin-top: 20px;
+	text-align: center; 
+	}
+	h5{
+	text-align: left;
+	margin: -30px 30px 15px 0 ;
+	}
 </style>
+	<!-- 컨텐츠 영역 시작 -->
 
-<title>여행지 리스트</title>
-</head>
-<body>
-	여행지 리스트 <hr>
+	<h3>여행지 리스트</h3> 
+	<h5><a href="info_write">Add tripInfo</a></h5><hr>
 		<table>
 			<c:forEach items="${list }" var="list">
 				<tr>	
@@ -54,6 +59,12 @@
 				</tr>
 			</c:forEach>
 		</table>
-	<a href="write">여행지 추가</a>
-</body>
-</html>
+
+	<!-- 컨텐츠 영역 끝 -->
+	
+	<!-- 푸터영역 시작 -->
+	<div class="footer">
+		<jsp:include page="../inc/bottom.jsp" />
+	</div>
+	<!-- 푸터영역 끝 -->
+	

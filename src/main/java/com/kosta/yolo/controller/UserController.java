@@ -81,7 +81,7 @@ public class UserController {
    public ModelAndView list(){
       System.out.println("여긴 컨트롤러!!! ");
       ModelAndView mav = userService.list();
-      mav.setViewName("user/list");
+      mav.setViewName("user/userlist");
       return mav;
    }
 

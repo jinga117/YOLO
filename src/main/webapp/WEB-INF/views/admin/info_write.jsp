@@ -1,15 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<!--  헤더 영역 시작 -->
+	<!--  헤더 영역 끝 -->
+<style>
+table {
+	margin: 0 auto;
+}
+.info_write{
+	margin: 0 auto;
+	width: 60%;
+}
+h3{
+	margin-top: 20px;
+	text-align: center; 
+}
+h5{
+	text-align: right;
+	margin: -30px 30px 15px 0 ;
+}
 
-<!--  헤더 영역 시작 -->
-<jsp:include page="../inc/top.jsp" />
-<!--  헤더 영역 끝 -->
-
-<!-- 컨텐츠 영역 시작 -->
-<div class="b-main-container" id="content">
-	<div>
-		<h3 align="center">정보 입력 페이지</h3>
+</style>
+	<!-- 컨텐츠 영역 시작 -->
+	<div class="info_write">
+		<h3>정보 입력 페이지</h3>
+		<h5><a href="info_list">Back List</a></h5>
 		<hr>
 		<form method="post">
 			<table>
@@ -82,11 +96,3 @@
 			</table>
 		</form>
 	</div>
-</div>
-<!-- 컨텐츠 영역 끝 -->
-
-<!-- 푸터영역 시작 -->
-<div class="footer">
-	<jsp:include page="../inc/bottom.jsp" />
-</div>
-<!-- 푸터영역 끝 -->

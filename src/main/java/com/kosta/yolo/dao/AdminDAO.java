@@ -28,25 +28,11 @@ public class AdminDAO {
 		AdminMapper admin = sqlSession.getMapper(AdminMapper.class);
 		admin.infoInsert(vo);
 	}
-	
-	// 여행지 수정
-	public ArrayList<TripInfoVO> selectInfo(String trip_id){
-		AdminMapper admin = sqlSession.getMapper(AdminMapper.class);
-		ArrayList<TripInfoVO> list = admin.selectInfo(trip_id);
-		
-		return list;
-	}
 
 	// 여행지 한 곳 보여주기
 	public TripInfoVO selectTrip(String trip_id) {
 		AdminMapper admin = sqlSession.getMapper(AdminMapper.class);
 		return admin.selectTrip(trip_id);
-	}
-	
-	public UserVO userSelect(String user_id){
-		UserMapper user = sqlSession.getMapper(UserMapper.class);
-		UserVO vo = user.userSelect(user_id);
-		return vo;
 	}
 	
 	// 여행지 삭제

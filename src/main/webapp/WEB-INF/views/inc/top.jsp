@@ -82,8 +82,8 @@
                 	<li class="menu-item-has-children"><a href="#"><i class="fa fa-key" aria-hidden="true"></i>Admin</a>
                     	<ul>
                         	<li><a href="userlist">회원 리스트</a></li>
-                        	<li><a href="admin/list">여행지 리스트</a></li>
-                        	<li><a href="admin/write">여행지 추가</a></li>
+                        	<li><a href="info_list">여행지 리스트</a></li>
+                        	<li><a href="info_write">여행지 추가</a></li>
                     	</ul>
                 	</li>
                 </c:if>

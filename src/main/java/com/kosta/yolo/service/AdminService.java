@@ -23,7 +23,6 @@ public class AdminService {
 			ModelAndView mav = new ModelAndView();
 			ArrayList<TripInfoVO> list = adminDAO.selectAll();
 			mav.addObject("list", list);
-			
 			return mav;
 		}
 		
@@ -103,19 +102,6 @@ public class AdminService {
 			ModelAndView mav = new ModelAndView();
 			adminDAO.infoInsert(vo);
 			return mav;
-		}
-			
-		// 상세보기
-		public ModelAndView info(String trip_category_id){
-			ModelAndView mav = new ModelAndView();
-			ArrayList<TripInfoVO> list = adminDAO.selectInfo(trip_category_id);
-			mav.addObject("vo", list);
-			return mav;
-		}
-		
-		// info
-		public ArrayList<TripInfoVO> selectInfo(String trip_id) {
-			return adminDAO.selectInfo(trip_id);
 		}
 		
 		// 여행지 한 곳 보여주기

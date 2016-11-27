@@ -32,9 +32,7 @@
 		<jsp:include page="../inc/bottom.jsp" />
 	</div>
 	<!-- 푸터영역 끝 -->
-	
-</body>
-</html>
+
 <script type="text/javascript">
 	// 회원가입 체크
 	var userwrite = eval("document.userwrite");
