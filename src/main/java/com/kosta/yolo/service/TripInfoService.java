@@ -1,5 +1,6 @@
 package com.kosta.yolo.service;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -45,7 +46,6 @@ public class TripInfoService {
 	
 	//리뷰 쓰기
 	 public ArrayList<UserReviewVO> writeRe(HttpServletRequest request){
-		ModelAndView mav = new ModelAndView();
 		UserReviewVO vo = new UserReviewVO();
 		
 		vo.setUser_id(request.getParameter("user_id"));
