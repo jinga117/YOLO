@@ -14,7 +14,7 @@
 	</resultMap>
 	
 	<insert id="getWrite" parameterType="com.kosta.yolo.vo.UserVO">
-		insert into User(user_id, name, password, email, gender,age) values(#{user_id} , #{name}, #{password} , #{email}, #{gender}, #{age})
+		insert into User(user_id, name, password, email, gender,age,isadmin) values(#{user_id} , #{name}, #{password} , #{email}, #{gender}, #{age}, #{isadmin})
 	</insert>
 	
 	<select id="login" resultMap="MemberResultMap" parameterType="java.lang.String">
@@ -22,8 +22,9 @@
 	</select>
 		
 	<select id="selectAll" resultType="com.kosta.yolo.vo.UserVO">
-    		SELECT * FROM User
+    		SELECT * FROM User  where isadmin NOT IN ('1')
     </select>
+	
 	
 	<update id="userUpdate" parameterType="com.kosta.yolo.vo.UserVO">
     	UPDATE User SET password=#{password},name=#{name}, email=#{email}, gender=#{gender}, age=#{age}, isadmin=#{isadmin}, area=#{area} WHERE user_id = #{user_id }

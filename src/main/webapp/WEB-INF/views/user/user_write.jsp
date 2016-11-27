@@ -17,7 +17,9 @@
 				<li class="member-subject"><i class="fa fa-street-view" aria-hidden="true"></i> 성별</li><li class="member-input m--left">
 					<input type="radio" name="gender" value="m" id="gender" checked><span class="gender_txt">Male</span>
 					<input type="radio" name="gender" value="f" id="gender"><span class="gender_txt">Female</span>
+					<input type="hidden" name="isadmin" value="0">
 				</li>
+					
 			</ul>
 			 <div class="b-form__row m--centered"><button id="btn_member" class="btn btn-success m--border-radius-right"  type="submit">회원가입</button></div>
 		</div>

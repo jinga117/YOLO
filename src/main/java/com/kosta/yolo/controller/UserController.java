@@ -82,7 +82,6 @@ public class UserController {
       System.out.println("여긴 컨트롤러!!! ");
       ModelAndView mav = userService.list();
       mav.setViewName("user/list");
-      
       return mav;
    }
 

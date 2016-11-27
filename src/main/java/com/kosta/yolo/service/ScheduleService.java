@@ -67,10 +67,6 @@ public class ScheduleService {
 	    int end=cal.getActualMaximum(Calendar.DAY_OF_MONTH); //이 달의 끝나는 날
 	    int br = 0; //7일마다 줄 바꾸기
 	    
-	   
-	    
-	    
-	    
 	    request.setAttribute("year", new Integer(year));
 	    request.setAttribute("month", new Integer(month));
 	    request.setAttribute("currentYear", new Integer(currentYear));

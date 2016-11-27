@@ -12,7 +12,7 @@ public interface UserMapper  extends Serializable  {
 	public UserVO login(String user_id);	//로그인
 	
 	ArrayList<UserVO> selectAll();
-	
+
 	public void userUpdate(UserVO vo);
 	
 	public void userDelete(UserVO vo);

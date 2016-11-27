@@ -1,40 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>회원 정보 수정</title>
-</head>
-<body>
-	<form action="user_updatePro" method="post">
+	<!--  헤더 영역 시작 -->
+	<jsp:include page="../inc/top.jsp" />
+	<!--  헤더 영역 끝 -->
+<style>
+#gender_select {
+}
+</style>
+	<!-- 컨텐츠 영역 시작 -->
+	<div class="member-form-wrap">
+		<form action="user_updatePro" method="post">
+			<div class="b-promo__form member-form m--centered">
+				<h2 class="b-form-reg-popup__title m--centered">관리자 정보 수정</h2>
+				<ul>
+					<li class="member-subject"><i class="fa fa-user" aria-hidden="true"></i> 아이디</li><li class="member-input"><input type="text" name="user_id" readonly="readonly" value="${vo.user_id}"></li>
+					<li class="member-subject"><i class="fa fa-key" aria-hidden="true"></i> 비밀번호</li><li class="member-input"><input type="text" name="password"  id="pwd" value="${vo.getPassword()}"></li>
+					<li class="member-subject"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 이름</li><li class="member-input"><input type="text" name="name"  id="name"  value="${vo.getName() }"></li>
+					<li class="member-subject"><i class="fa fa-envelope-o" aria-hidden="true"></i> 이메일</li><li class="member-input"><input type="text" name="email"  id="email"  value="${vo.getEmail()}"></li>
+					<li class="member-subject"><i class="fa fa-dot-circle-o" aria-hidden="true"></i> 나이</li><li class="member-input"><input type="text" name="age" id="age" value="${vo.getAge()}"></li>
+					<li class="member-subject"><i class="fa fa-street-view" aria-hidden="true"></i> 성별</li><li class="member-input m--left">
+						<select id="gender_select" name="gender"  value="${vo.getGender()}"><option>Man</option><option>Woman</option></select>
+					</li>
+				</ul>
+				<div class="b-form__row m--centered" ><button id="btn_member" class="btn btn-success m--border-radius-right"  type="submit">수정</button></div>
+			</div>
+		</form>
+	</div>
+	<!-- 컨텐츠 영역 끝 -->
 	
-		<table>
-			<tr>
-				<td>아 이 디 :</td><p>
-				<td>비밀번호 :</td><p>
-				<td>이	 름:</td><p> 
-				<td>이  메 일:</td><p>
-				<td>성     별 :</td><p>
-				<td>나     이 :</td><p>
-			</tr>
-			<tr>
-					<td><input type="text" name="user_id" readonly="readonly" value="${vo.user_id}"></td><p>
-					<td><input type="text" name="password" value="${vo.getPassword()}"></td><p>
-					<td><input type="text" name="name" value="${vo.getName() }">
-					<td><input type="text" name="email" value="${vo.getEmail()}"></td><p>
-					<td> 
-			<select name="gender" value="${vo.getGender()}">
-			<option>Man</option>
-			<option>Woman</option>
-		</select></td><p>
-					<td><input type="text" name="age" value="${vo.getAge()}"></td><p>
-			</tr>
-			<tr>
-				<td><input type="submit" value="수정"></td>
-				<td><input type="reset" value="취소"></td>
-			</tr>
-		</table>
-	</form>
-</body>
-</html>
+	<!-- 푸터영역 시작 -->
+	<div class="footer">
+		<jsp:include page="../inc/bottom.jsp" />
+	</div>
+	<!-- 푸터영역 끝 -->

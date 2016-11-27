@@ -78,6 +78,9 @@ public class UserService {
 		ModelAndView mav = new ModelAndView();
 		ArrayList<UserVO> list = userDAO.selectAll();
 		System.out.println("여긴!! 서비스닷!!! " + list);
+		int count = list.size();
+		System.out.println("회원수!!! : "+count);
+		mav.addObject("userCount", count);
 		mav.addObject("list", list);
 		return mav;
 	}
