@@ -31,7 +31,7 @@
 								</div>
 								<!-- 일정추가 끝 -->
 								<div class="b-pop-place-comment m--centered"> 
-									<span class="b-pop-place__view"><img src="img/heart_icon.png" class="list_icon"></span><span id="likeCount">${list.trip_like}</span>
+									<span class="b-pop-place__view"><img src="img/heart_icon.png" class="list_icon" id="heart_icon"  trip_id="${list.trip_id}"></span><span id="likeCount">${list.trip_like}</span>
 									<span class="b-pop-place__view"><img src="img/view_icon.png" class="list_icon"></span> ${list.trip_view}
 									<span class="b-pop-place__view"><img src="img/review_icon.png" class="list_icon"></span> ${list.trip_review}
 								</div>
@@ -69,7 +69,7 @@
 									<h5 class="b-pop-place__cat">${list.trip_add1} ${list.trip_add2}</h5>
 									<!-- 일정추가 시작 -->
 									<div class="list_add_icon_wrap">
-										<div class="add_plan_icon" data-toggle="tooltip" data-placement="top" title="일정추가">
+										<div class="add_plan_icon" data-toggle="tooltip" data-placement="top" title="일정추가" onClick="setTripId('${list.trip_id}', '${list.trip_nickname}')">
 											<a href="#" class="html_popup">
 												<i class="fa fa-calendar" aria-hidden="true"></i>
 											</a>
@@ -77,7 +77,7 @@
 									</div>
 									<!-- 일정추가 끝 -->
 									<div class="b-pop-place-comment m--centered">
-										<span class="b-pop-place__view"><img src="img/heart_icon.png" class="list_icon" id="heart_icon"></span><span id="likeCount">${list.trip_like}</span> 
+										<span class="b-pop-place__view"><img src="img/heart_icon.png" class="list_icon" id="heart_icon"  trip_id="${list.trip_id}"></span><span id="likeCount">${list.trip_like}</span> 
 										<span class="b-pop-place__view"><img src="img/view_icon.png" class="list_icon"> ${list.trip_view}</span>
 										<span class="b-pop-place__view"><img src="img/review_icon.png" class="list_icon"> ${list.trip_review}</span>
 									</div>

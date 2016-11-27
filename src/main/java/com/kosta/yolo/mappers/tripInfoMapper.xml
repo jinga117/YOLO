@@ -135,7 +135,7 @@
     	
     	<!-- 리뷰 보기 -->
     	<select id="inforeview" parameterType="String"  resultType="com.kosta.yolo.vo.UserReviewVO">
-    		SELECT * FROM UserReview u, TripInfo t WHERE u.trip_id = t.trip_id and u.trip_id = #{trip_id}
+    		SELECT * FROM UserReview u, TripInfo t WHERE u.trip_id = t.trip_id and u.trip_id = #{trip_id} ORDER BY u.review_no DESC
   	  	</select>
   	  	
   	  	<!-- 리뷰 쓰기 -->
@@ -143,9 +143,18 @@
   	  	<insert id="writeReview" parameterType="com.kosta.yolo.vo.UserReviewVO"  useGeneratedKeys="true" keyProperty="review_no">
   	  		INSERT INTO UserReview VALUES(#{review_no}, #{user_id}, #{trip_id}, #{review_content}, NOW())
   	  	</insert>
+
+    	<!-- 리뷰 보기 -->
+    	<select id="recentReview" parameterType="String"  resultType="com.kosta.yolo.vo.UserReviewVO">
+    		SELECT u.review_no, u.user_id, u.trip_id, u.review_content, u.review_time as review_time
+    		 FROM UserReview u 
+    		WHERE u.trip_id = #{trip_id} 
+    		ORDER BY u.review_no DESC 
+    		limit 1
+  	  	</select>
   	  	
   	  	<!-- 리뷰 삭제 -->
-          <delete id="deleteReview" parameterType="com.kosta.yolo.vo.UserReviewVO">
+          <delete id="deleteReview" parameterType="String">
              DELETE FROM UserReview WHERE review_no = #{review_no}
           </delete> 
     	

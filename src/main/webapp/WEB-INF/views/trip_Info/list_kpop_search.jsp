@@ -35,7 +35,7 @@
 									<a href="http://${list.trip_site}" target="_blank" class="b-pop-place-homepage" data-toggle="tooltip" data-placement="top" title="홈페이지 바로가기">
 										<i class="fa fa-home" aria-hidden="true"></i>
 									</a>
-									<span class="b-pop-place__view"><img src="img/heart_icon.png" class="list_icon"></span><span id="likeCount">${list.trip_like}</span>
+									<span class="b-pop-place__view"><img src="img/heart_icon.png" class="list_icon" id="heart_icon" trip_id="${list.trip_id}"></span><span id="likeCount">${list.trip_like}</span>
 									<span class="b-pop-place__view"><img src="img/view_icon.png" class="list_icon"></span> ${list.trip_view} 
 									<span class="b-pop-place__view"><img src="img/review_icon.png" class="list_icon"></span> ${list.trip_review}
 								</div>
@@ -85,7 +85,7 @@
 								<!-- 일정추가 끝 -->
 
 								<div class="b-pop-place-comment m--centered">
-									<span class="b-pop-place__view"><img src="img/heart_icon.png" class="list_icon"></span> <span id="likeCount">${list.trip_like}</span> 
+									<span class="b-pop-place__view"><img src="img/heart_icon.png" class="list_icon" id="heart_icon" trip_id="${list.trip_id}"></span> <span id="likeCount">${list.trip_like}</span> 
 									<span class="b-pop-place__view"><img src="img/view_icon.png" class="list_icon"></span> ${list.trip_view}
 									<span class="b-pop-place__view"><img src="img/review_icon.png" class="list_icon"></span> ${list.trip_review}
 								</div>

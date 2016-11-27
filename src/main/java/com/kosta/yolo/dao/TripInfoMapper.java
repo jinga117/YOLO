@@ -18,7 +18,7 @@ public interface TripInfoMapper  extends Serializable  {
 	void writeReview(UserReviewVO vo);
 	
 	//리뷰 삭제
-    void deleteReview(UserReviewVO vo);
+    void deleteReview(String string);
 	
 	//조회수
 	int viewCount(String trip_id);
@@ -74,5 +74,7 @@ public interface TripInfoMapper  extends Serializable  {
 	ArrayList<TripInfoVO> selectPerson(String person_id);	
 	//food_id 키값에 따른 리스트 뿌리기
 	ArrayList<TripInfoVO> selectFood(String food_id);
+
+	ArrayList<UserReviewVO> recentReview(String trip_id);
 
 }

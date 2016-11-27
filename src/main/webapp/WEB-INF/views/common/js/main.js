@@ -1,3 +1,20 @@
+function loginPro() {
+	$.ajax({
+		url : "loginPro",
+		type : "POST",
+		user_id: $('#user_id').val(),
+		password: $('#password').val(),
+		datatype: "json",
+		success : function(responseFromServer) {
+			var data = jQuery.parseJSON(responseFromServer);
+			alert(data.result);
+			location.reload();
+		},
+		error : function(jqXHR, textStatus, errorThrown) {
+			alert("오류 발생 \n"+textStatus + " : " + errorThrown);
+		}      
+	});
+}
    // 쿠키 생성
     function setCookie(cName, cValue, cDay){
         var expire = new Date();
@@ -39,14 +56,41 @@ function likeIt(obj) {
         	var obj2 =$(obj).parent().parent().find('#likeCount');
         	var obj3 =$(obj).parent().parent().find('#heart_icon');
 			$(obj2).text(data.likeCount);
-			$(obj3).attr("src","heart_full_icon.png");
+			$(obj3).attr("src","img/heart_full_icon.png");
 			setCookie('likeCookie_'+trip_id, 'done', 1);
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			alert("오류 발생 \n"+textStatus + " : " + errorThrown);
 		}      
 	});
-}      
+}  
+
+/*//리뷰 쓰기
+function writeReview(obj) {
+	//var user = $("#user_id").attr("value");
+	var user = $("#user_id").val();
+	var trip_id =$(obj).attr("value");
+	if (user=='') {
+		alert('로그인 후 이용해 주세요');
+		return;
+	}
+	if ((user !==null) && ($('#review_content').val()=='')) {
+		alert('리뷰를 입력하세요.');
+		$('#review_content').focus();
+		return false;
+	} 
+	$.ajax({
+		url : "writeReview?trip_id="+trip_id,
+		type : "get",
+		datatype: "json",
+		success : function(responseFromServer) {
+			var data = jQuery.parseJSON(responseFromServer);
+		},
+		error : function(jqXHR, textStatus, errorThrown) {
+			alert("오류 발생 \n"+textStatus + " : " + errorThrown);
+		}      
+	});
+} */
 
 // 더보기
 $(document).ready(function () {
@@ -62,6 +106,14 @@ $(document).ready(function () {
     $("#showLess").click(function() {
         x=(x-4<0) ? 4 : x-4;
         $('#viewList_list li').not(':lt('+x+')').slideUp();
+    });
+    
+    $('#heart_icon*').each(function () {
+    	var obj = $(this);
+    	var trip_id = $(obj).attr('trip_id');
+    	if (getCookie('likeCookie_'+trip_id)=='done') {
+    		$(obj).attr("src","img/heart_full_icon.png");
+    	}
     });
 });
 
@@ -260,9 +312,11 @@ window.addEventListener("scroll", lazyLoadImages);
             $(".b-footer").show(0);
         }
 
-
-
-
+        /*index 페이지에서 오른쪽 plan 안보이기*/
+        if ($("div").is(".b-stars")) {
+            $(".b-plan-menu").hide(0);
+        }
+        
         var submitIcon = $('.searchbox-icon');
         var inputBox = $('.searchbox-input');
         var searchBox = $('.searchbox');
@@ -450,7 +504,9 @@ window.addEventListener("scroll", lazyLoadImages);
                         filterBtn.text('Hide filters');
                     }
                     jQuery('.b-slide-menu__form').slideToggle('medium');
-                   // jQuery('.b-plan-menu').slideToggle('medium');
+                   /* jQuery('.b-plan-menu').click(function() {
+                    	 jQuery('.b-plan-menu').slideToggle('medium');
+                    });*/
                 });
 
                 //****************************** Ion range slider plugin activate ******************************//

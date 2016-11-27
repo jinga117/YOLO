@@ -36,9 +36,9 @@ public class TripInfoDAO {
 	}
 	
 	// 리뷰 삭제
-	public void deleteReview(UserReviewVO vo){
+	public void deleteReview(String string){
 	   TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
-	   info.deleteReview(vo);
+	   info.deleteReview(string);
 	}
 	
 	// 조회수
@@ -214,6 +214,12 @@ public class TripInfoDAO {
 		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
 		ArrayList<TripInfoVO> fvo = info.selectFood(food_id);
 		return fvo;
+	}
+
+	public ArrayList<UserReviewVO> recentReview(String trip_id) {
+		TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+		ArrayList<UserReviewVO> reList = info.recentReview(trip_id);
+		return reList;
 	}
 
 }

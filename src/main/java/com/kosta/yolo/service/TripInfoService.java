@@ -44,7 +44,7 @@ public class TripInfoService {
 	}
 	
 	//리뷰 쓰기
-	public ModelAndView writeRe(HttpServletRequest request){
+	 public ArrayList<UserReviewVO> writeRe(HttpServletRequest request){
 		ModelAndView mav = new ModelAndView();
 		UserReviewVO vo = new UserReviewVO();
 		
@@ -55,19 +55,9 @@ public class TripInfoService {
 		infoDAO.writeReview(vo);		// 리뷰 쓰기
 		infoDAO.reviewCount(vo.getTrip_id());		// 댓글수
 		
-		return mav;
+		ArrayList<UserReviewVO> review = infoDAO.recentReview(vo.getTrip_id());
+		return review;
 	}
-	
-	//리뷰 삭제
-	public ModelAndView deleteRe(HttpServletRequest request){
-		ModelAndView mav = new ModelAndView();
-		UserReviewVO vo = new UserReviewVO();
-	    vo.setReview_no(Integer.parseInt(request.getParameter("review_no")));
-	    infoDAO.deleteReview(vo);
-	      
-	    return mav;
-	}
-	
 	
 	// 조회수
 	public int view_Count(String trip_id) {
@@ -201,6 +191,10 @@ public class TripInfoService {
 		mav.addObject("foodList", fvo);
 		mav.addObject("foodTop", ftop);
 		return mav;
+	}
+
+	public void deleteReview(HttpServletRequest request) {
+		infoDAO.deleteReview(request.getParameter("review_no"));
 	}
 	
 }

@@ -6,47 +6,6 @@
 <jsp:include page="../inc/top.jsp" />
 <!--  헤더 영역 끝 -->
 
-<!-- 좋아요 시작-->
-<script>
-		function likeIt(obj) {
-			var trip_id =$(obj).attr("value");
-			$.ajax({
-				url : "like?trip_id="+trip_id,
-				type : "GET",
-				datatype: "json",
-				success : function(responseFromServer) {
-					var data = jQuery.parseJSON(responseFromServer);
-                	var obj2 =$(obj).parent().parent().find('#likeCount');
-					$(obj2).text(data.likeCount);
-				},
-				error : function(jqXHR, textStatus, errorThrown) {
-					alert("오류 발생 \n"+textStatus + " : " + errorThrown);
-				}      
-			});
-		}      
-	</script>
-<!-- 좋아요 끝-->
-
-<!-- 더보기 시작 -->
-<script>
-		$(document).ready(function () {
-		    size_li = $('#viewList_list li').size();
-		    x=8;
-		    $('#viewList_list li:lt('+x+')').slideDown();
-		    
-		    $("#loadMore").click(function() {
-		        x= (x+4 <= size_li) ? x+4 : size_li;
-		        $('#viewList_list li:lt('+x+')').slideDown();
-		    });
-		    
-		    $("#showLess").click(function() {
-		        x=(x-4<0) ? 4 : x-4;
-		        $('#viewList_list li').not(':lt('+x+')').slideUp();
-		    });
-		});
-	</script>
-<!-- 더보기 끝 -->
-
 <!-- 컨텐츠 영역 시작 -->
 <div class="b-main-container" id="content">
 	<div class="b-pop-places container">
@@ -71,9 +30,17 @@
 										<span class="b-pop-place__name_txt">${list.trip_nickname}</span>
 									</a>
 									<h5 class="b-pop-place__cat">${list.trip_add1} ${list.trip_add2}</h5>
-
+									<!-- 일정추가 시작 -->
+									<div class="list_add_icon_wrap">
+										<div class="add_plan_icon" data-toggle="tooltip" data-placement="top" title="일정추가" onClick="setTripId('${list.trip_id}', '${list.trip_nickname}')">
+											<a href="#" class="html_popup">
+												<i class="fa fa-calendar" aria-hidden="true"></i>
+											</a>
+										</div>
+									</div>
+									<!-- 일정추가 끝 -->
 									<div class="b-pop-place-comment m--centered">
-										<span class="b-pop-place__view"><img src="img/heart_icon.png" class="list_icon"></span><span id="likeCount">${list.trip_like}</span> 
+										<span class="b-pop-place__view"><img src="img/heart_icon.png" class="list_icon" id="heart_icon" trip_id="${list.trip_id}"></span><span id="likeCount">${list.trip_like}</span> 
 										<span class="b-pop-place__view"><img src="img/view_icon.png" class="list_icon"> ${list.trip_view}</span>
 										<span class="b-pop-place__view"><img src="img/review_icon.png" class="list_icon"> ${list.trip_view}</span>
 									</div>

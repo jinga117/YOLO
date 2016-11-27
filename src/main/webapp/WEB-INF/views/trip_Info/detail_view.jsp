@@ -187,7 +187,7 @@
 								</div>
 								<div class="detail_contents">
 									<span class="detail_contents-icon"><i class="fa fa-clock-o" aria-hidden="true"></i></span> 
-									<span class="detail_contents_txt">${list.trip_time}</span>
+									<span class="detail_contents_txt"> ${list.trip_time}</span>
 								</div>
 								<div class="detail_contents">
 									<span class="detail_contents-icon"><i class="fa fa-home" aria-hidden="true"></i></span> 
@@ -203,26 +203,105 @@
 
 						<!-- 리뷰 시작-->
 						<div class="review_list_wrap">
-							
 							<h5 class="review_title">Review</h5>
-							<c:forEach items="${reviewList }" var="list">
-								<div class="review_list">
+							<!-- ajax 리뷰 쓰기 시작-->
+							<div class="review_write_wrap">
+								<form method="get">
+									<input type="hidden" name="review_no" value="review_no"> 
 									<ul>
-										<li>
-											<span class="review_list_user">${list.user_id }</span> | <span class="review_list_time"><i class="fa fa-clock-o" aria-hidden="true"></i>${list.review_time }</span>
-											<c:if test="${fn:trim(list.user_id) == fn:trim(user)}">
-                                    			<input type="button" value="X" onclick="document.location='detail_delete?review_no=${list.review_no}&trip_id=${list.trip_id }'">
-                                 			</c:if>
-                                 			<c:if test="${isadmin == 1}">
-                                  			    <input type="button" value="X" onclick="document.location='detail_delete?review_no=${list.review_no}&trip_id=${list.trip_id }'">
-                               				  </c:if>
+										<li class="review_write_li_user">
+											<span class="review_user_id"><img src="img/user_icon.png" class="user_icon"></span>
+											<span class="review_list_user"><span id="user">${user}</span></span>
+											<input type="hidden" name="user_id" value="${user}">
+											<input type="hidden" name="trip_id" value=" ${trip_id}">
 										</li>
-										<li><span class="review_list_content">${list.review_content }</span></li>
+										<li class="review_write_cotent_wrap"> 
+											<input type="text" id="review_content" name="review_content"  onfocus="<c:if test="${user == null}">$('#comment_btn').focus();alert('로그인 하신 후 이용 가능합니다'); return false;</c:if>"
+												<c:if test="${user == null}">readonly placeholder="로그인 하신 후 이용 가능합니다."</c:if> placeholder="한 줄 리뷰를 적어 주세요~!">
+											<input type="button" value="comment" id="comment_btn" onClick="writeReview();">
+										</li>
 									</ul>
-								</div>
-							</c:forEach>
+								</form>
+							</div>
+								<script type="text/javascript">
+									function deleteReview(obj) {
+										$.ajax({
+											url : "deleteReview?review_no="+$(obj).attr('review_no'),
+											type : "GET",
+											datatype: "json",
+											success : function(responseFromServer) {
+												alert("댓글이 삭제 되었습니다.")
+												$(obj).closest('div').remove();
+											},
+											error : function(jqXHR, textStatus, errorThrown) {
+												alert("오류 발생 \n"+textStatus + " : " + errorThrown);
+											}      
+										});
+									}
+									// 리뷰 쓰기 ajax
+									function writeReview(obj) {
+										var user_id =$("#user").text();
+										var trip_id = $("#trip_id").val();
+										var review_content =$("#review_content").val();
+										if (user_id=='') {
+											alert('로그인 후 이용해 주세요');
+											return;
+										}
+										else if (user_id !==''){
+											if ($('#review_content').val()==''){
+									   			alert('리뷰를 입력하세요.');
+									   			$('#review_content').focus();
+									   			return false;
+											}
+										} 
+										$.ajax({
+											url : "writeReview?trip_id="+trip_id+'&user_id='+user_id+'&review_content='+review_content,
+											/* url : "writeReview", */
+											type : "GET",
+											datatype: "json",
+											//data: {trip_id:trip_id, user_id: user_id, review_content: review_content}
+											success : function(responseFromServer) {
+												alert("댓글이 등록되었습니다.")
+												var data = jQuery.parseJSON(responseFromServer);
+												var obj2 =$(this).closest('#review_list');
+												var html = "<div class='review_list' id='review_list'>";
+												html+=	"<ul>";
+												html+=   "	<li>";
+												html+=   "      <span class='review_list_user'>" + data.user_id+ "</span>";
+												html+=   "		| <span class='review_list_time'><i class='fa fa-clock-o' aria-hidden='true'></i> "+ data.review_time +"</span>";
+												html+= 	"	<input type='button' value='X' onclick='deleteReview( this ) ' review_no='" + data.review_no + "'></li>";
+												html+= 	"	<li><span class='review_list_content'>"+ data.review_content + "</span></li>";
+												html+=	"</ul>";
+												html+="</div>";
+												$('#commentArea').find('#review_list').eq(0).before(html);
+											},
+											error : function(jqXHR, textStatus, errorThrown) {
+												alert("오류 발생 \n"+textStatus + " : " + errorThrown);
+											}      
+										});
+									} 
+								</script>
+							<!-- 리뷰 쓰기 끝 -->
+							<div id="commentArea">
+								<c:forEach items="${reviewList }" var="list">
+									<div class="review_list" id="review_list">
+										<ul>
+											<li>
+												<span class="review_list_user">${list.user_id }</span> | <span class="review_list_time"><i class="fa fa-clock-o" aria-hidden="true"></i> ${list.review_time }</span>
+												<c:if test="${fn:trim(list.user_id) == fn:trim(user)}">
+	                                    			<input type='button' value='X' onclick="deleteReview( this )" review_no= "${ list.review_no }">
+	                                 			</c:if>
+	                                 			<c:if test="${isadmin == 1}">
+	                                    			<input type='button' value='X' onclick="deleteReview( this )" review_no= "${ list.review_no }">
+												</c:if>
+											</li>
+											<li><span class="review_list_content">${list.review_content }</span></li>
+										</ul>
+									</div>
+								</c:forEach>
+							</div>
 
-							<!-- 리뷰 쓰기 시작-->
+							<%-- <!-- 리뷰 쓰기 시작-->
 							<div class="review_write_wrap">
 								<form method="post" onsubmit="return checkComment()">
 									<input type="hidden" name="review_no" value="review_no"> 
@@ -241,7 +320,7 @@
 									</ul>
 								</form>
 							</div>
-							<!-- 리뷰 쓰기 끝 -->
+							<!-- 리뷰 쓰기 끝 --> --%>
 						</div>
 					</div>
 					<!--  상세보기 컨텐츠 끝 -->
@@ -270,7 +349,7 @@
 
 <!-- DAUM MAP -->
 <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=d1d5e5ad2e3cb3461622dec6c0af6825"></script>
-<script type="text/javascript">
+<script type="text/javascript"> 
 	var pos_x = $("#pos_x").val();
 	var pos_y = $("#pos_y").val();
 	var trip_nickname = $("#trip_nickname").val();
@@ -369,7 +448,7 @@
    	    }
    	});  */
 <!-- //DAUM MAP -->
-   	
+/*    	
    	function checkComment() {
    		if ($('#review_content').val()=='') {
    			alert('리뷰를 입력하세요.');
@@ -377,7 +456,8 @@
    			return false;
    		}
 		return true;
-   	}
+   	} */
+   	
 </script>
 
 <!-- 날씨 api 넣어주세요ㅠㅠㅠㅠㅠㅠㅠㅠㅠ -->

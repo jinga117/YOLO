@@ -1462,11 +1462,11 @@ only screen and (min-resolution: 1.5dppx) {
 
 .review_list_user {
 	display:inline-block;
+	woidth:100%;
 	text-align:center;
 	color:#43a4a2;
 	font:bold 15px "Malgun Gothic";
 	padding:5px 5px 10px 5px;
-	/* border-right:1px dotted #666; */
 }
 
 .review_list_time {
@@ -1486,6 +1486,7 @@ only screen and (min-resolution: 1.5dppx) {
 	line-height:60px;
 	color:#666;
 	padding-top:10px;
+	margin-left:10px;
 	text-align:center;
 	font-size:36px;
 	background:#eee;
@@ -1494,14 +1495,28 @@ only screen and (min-resolution: 1.5dppx) {
 	-moz-border-radius:10px;
 	-o-border-radius:10px;
 	-ms-border-radius:10px;
-	border-radius:10px;
+	border-radius:40px;
+}
+.user_icon {
+	margin-top:3px;
+	width:40px;
+}
+
+#user {
+	padding-left:5px;
 }
 
 .review_write_wrap {
 	position:relative;
 	display:block;
 	width:100%;
-	margin:20px auto;
+	padding-bottom:30px;
+	margin:15px auto;
+}
+
+.review_write_wrap ul {
+	margin:0;
+	padding:0;
 }
 
 .review_write_li_user {
@@ -1513,27 +1528,29 @@ only screen and (min-resolution: 1.5dppx) {
 .review_write_cotent_wrap {
 	position:absolute;
 	display:inline-block;
-	width:90%;
-	left:110px;
+	width:93%;
+	/* left:80px; */
+	text-align:center;
 }
 
 #review_content {
-	width:90%;
+	width:92%;
 	height:60px;
 	padding:10px;
 	color:#666;
+	font:13px "Malgun Gothic";
 }
 
 #comment_btn {
-	display:block;
 	padding:10px;
 	background:#eee;
 	border:1px solid #cacaca;
 	text-align:center;
-	margin:10px auto;
+	border-radius:5px;
+	margin:10px 40px 10px 0;
 }
 
-.review_title {
+.review_title, .plan_popup_title{
 	margin:0 auto;
 	text-align:center;
 	color:#43a4a2;
@@ -1541,6 +1558,7 @@ only screen and (min-resolution: 1.5dppx) {
 }
 
 .b-pop-place__name_txt {
+	letter-spacing:-2px;
 	font-size:15px;
 	font-weight:bold;
 }
@@ -2790,12 +2808,30 @@ html .b-gadget__subscribe__field {
     width: 33.33333333%;
 }
 .b-sm-post__popup {
-    width: 270px;
+    width: 500px;
+    padding:10px;
 }
 .b-sm-post__popup__title {
     font: 400 20px Roboto;
     margin-bottom: 15px;
 }
+.b-sm-post_popup_day {
+	width:80%;
+	height:50px;
+	line-height:30px;
+	padding:10px;
+	margin:10px auto;
+	color:#fff;
+	text-align:center;
+	border-radius:10px;
+	background:#43a4a2;
+}
+
+.b-sm-post_popup_day:hover {
+	cursor:pointer;
+	background:#FF5733;
+}
+
 .b-sm-post__popup__row {
     margin-bottom: 15px;
 }
@@ -4074,15 +4110,57 @@ html .btn--buy-ticket:hover {
     z-index: 3;
 }
 
+/* Yolo Plan */
 .b-plan-menu {
     position: fixed;
-    right: 0;
-    top: 80px;
-    width: 100px;
+    right:0;
+    top:0;
+    /* top:80px; */
+    width:90px;
     background: rgba(67,164,162,.7 );
-    height: 100%;
-    z-index: 3;
+    height:100%;
+    z-index: 9999;
+    padding:0;
+    margin:0;
 }
+
+.b-plan-menu-wrap {
+	width:100%;
+	margin:0 0 20px 0;
+	padding:0;
+	position:absolute;
+	top:25%;
+}
+
+.b-plan-menu ul {
+	margin:0;
+	padding:0;
+	padding-bottom:25%;
+}
+
+.b-plan-menu-day {
+	width:100%;
+	padding:20px 0;
+	text-align:center;
+	color: #ffffcc;
+	border-bottom:1px dashed #fff;
+}
+
+.b-plan-menu-day-txt {
+	width:90%;
+	color:#fff;
+	padding:10px 3px;
+	margin:3px auto;
+	background:rgba(0,0,0,.3);
+	font:bold 12px "Malgun Gothic";
+	border-radius:10px;
+}
+
+/* .b-plan-menu-day-txt::after {
+	content: " - Let's Go";
+	background-color: #FFBA10;
+	padding:5px;
+} */
 
 .b-map-menu__list {
     list-style-type: none;
