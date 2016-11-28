@@ -1431,6 +1431,21 @@ only screen and (min-resolution: 1.5dppx) {
 	color:#fff;
 }
 
+.btn_plan {
+	display:inline-block;
+	width:60px;
+	height:40px;
+	line-height:20px;
+	text-align:center;
+	border:1px solid #cacaca;
+	background:#eee;
+	color:#444;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	-ms-border-radius:4px;
+	-o-border-radius:4px;
+	border-radius:4px;
+}
 /* ¸®ºä */
 #commentArea {
 	height:auto !important;

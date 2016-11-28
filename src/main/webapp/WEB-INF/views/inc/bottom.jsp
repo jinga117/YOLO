@@ -40,34 +40,78 @@
 			</div>
 			<!-- //row -->
 		</div>
-		<!-- .container -->
+		<!-- //container -->
 	</div>
 </div>
 <!--//b-footer-->
+
+<!--  일정 리스트 시작 -->
+ <div class="b-plan-menu">
+ 	<div class="b-plan-menu-wrap">
+		<ul>
+			<li class="b-plan-menu-day" id="day1">
+				Day1
+			</li>
+			<li class="b-plan-menu-day"  id="day2">
+				Day2
+			</li>
+			<li class="b-plan-menu-day" id="day3">
+				Day3
+			</li>
+			<li class="b-plan-menu-day" ><button class="btn_dup">일정저장</button></li>
+		</ul>
+	</div>
+</div>
+<!--  일정 리스트 끝 -->
 </body>
 </html>
 
+<!-- 여행일정짜기 팝업 시작-->
 <script type="text/javascript">
 	$(document).ready(function() {
+		var str = '<div class="b-sm-post__popup">';
+		str+='<div class="plan_popup_title">Yolo Plan</div>';
+		str+='<div>출발일 : <input type="date" name="plan_start_day" /></div>';
+		for (var i=1;i<=3;i++) 
+		{
+			str+='<div class="b-sm-post_popup_day" day="' + i + '" onClick="appendDay(this)">Day' + i + '</div>';
+		}
 	 	$('.html_popup').popup({
-	      	content: '<div class="b-sm-post__popup"> <div class="b-sm-post__popup__title">Yolo Plan</div> <div class="b-sm-post__popup__link">Day1 <div><div class="b-sm-post__popup__link">Day2</div><div class="b-sm-post__popup__link">Day3</div></div>',
+	      	content: str,
 	      type: 'html'
 	  	});
 	});
-</script>
 
-<!-- 여행일정짜기 팝업 시작-->
-	<div class="hidden b-sm-post__popup">
-       <div class="container clearfix">
-           <div class="stores">
-              <ul>
-              	<li>Day 1</li>
-              	<li>Day 2</li>
-              	<li>Day 3</li>
-              </ul>
-           </div>
-       </div>
-   </div>
+	function appendDay(obj) {
+
+		var trip_id = $('#plan_trip_id').val();
+		var trip_nickname = $('#plan_trip_nickname').val();
+		var trip_day = $(obj).attr('day');
+		
+		/* $('#day'+trip_day).append('<li>day' + day + '</li>'); */
+		$('#day'+trip_day).append('<li class="b-plan-menu-day-txt">' + trip_nickname + '</li>');
+		$('.popup_close').trigger('click');
+
+		/* $.ajax({
+			url : "tripPlan?trip_day="+trip_day+"&trip_id="+trip_id+'&trip_nickname='+trip_nickname,
+			type : "GET",
+			datatype: "json",
+			success : function(responseFromServer) {
+				var data = jQuery.parseJSON(responseFromServer);
+			},
+			error : function(jqXHR, textStatus, errorThrown) {
+				alert("오류 발생 \n"+textStatus + " : " + errorThrown);
+			}      
+		}); */
+	}
+
+	function setTripId(trip_id, trip_nickname) {
+		$('#plan_trip_id').val(trip_id);
+		$('#plan_trip_nickname').val(trip_nickname);
+	}
+</script>
+<input type="hidden" id="plan_trip_id">
+<input type="hidden" id="plan_trip_nickname">
  <!--//여행일정짜기 팝업 끝-->
 
 <script src="js/jquery.min.js"></script>
@@ -75,7 +119,6 @@
 <script src="js/chosen.jquery.min.js"></script>
 <script src="js/ion.rangeSlider.min.js"></script>
 <script src="js/jquery.popup.min.js"></script>
-<script src="jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/jssor.slider.mini.js"></script>
 <script src="js/lightcase.js"></script>
 <script src="js/imagesloaded.pkgd.min.js"></script>
