@@ -52,7 +52,7 @@
                          </div>
                          <a href="detail_view?trip_id=${list.trip_id}" class="b-pop-place__name">${list.trip_nickname}</a>
                          <h5 class="b-pop-place__cat">${list.trip_address}</h5>
-                          <a href ="bookmark_delete?trip_id=${list.trip_id }">X</a>
+                         <a href ="bookmark_delete?trip_id=${list.trip_id }">X</a>
                      <div class="b-pop-place-comment">
                   <a href="http://${list.trip_site}" target="_blank"  class="b-pop-place-homepage">
                      <i class="fa fa-home" aria-hidden="true"></i></a>

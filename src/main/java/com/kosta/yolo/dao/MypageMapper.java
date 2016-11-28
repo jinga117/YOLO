@@ -12,4 +12,6 @@ public interface MypageMapper  extends Serializable  {
    public ArrayList<UserReviewVO>reviewMypage(String user_id);
    public ArrayList<TripInfoVO> bookmark_mypage(String user_id);   //mypage북마크 
    public void bookmark_delete(String trip_id);//북마크삭제
+	public void review_delete(int review_no);	//mypage에서 리뷰 삭제
+
 }

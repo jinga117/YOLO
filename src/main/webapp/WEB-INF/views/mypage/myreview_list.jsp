@@ -7,9 +7,11 @@
 </head>
 <body>  
 	<c:forEach items="${list }" var="list">
+		<a href ="review_delete?review_no=${list.review_no }">X</a>
 		<b>user_id : ${list.user_id }</b><br>
 		<b>review_content : ${list.review_content }</b><br>
 		<b>review_time : ${list.review_time }</b><hr>
+		
 	</c:forEach>
 </body>
 </html>

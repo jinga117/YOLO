@@ -23,4 +23,8 @@
    <delete id="bookmark_delete" parameterType="java.lang.String">
          DELETE FROM BookMark WHERE trip_id = #{trip_id}
    </delete>
+   
+   	<delete id="review_delete" parameterType="com.kosta.yolo.vo.UserReviewVO">
+		Delete from UserReview where review_no = #{review_no}
+	</delete>
 </mapper>
