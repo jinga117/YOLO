@@ -1,6 +1,5 @@
 package com.kosta.yolo.service;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;

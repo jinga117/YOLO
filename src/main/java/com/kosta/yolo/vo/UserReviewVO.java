@@ -1,5 +1,6 @@
 package com.kosta.yolo.vo;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -8,7 +9,7 @@ public class UserReviewVO {
 	private int review_no;
 	private String user_id, trip_id; //조인할 키값
 	private String review_content;//리뷰내용
-	private String review_time;
+	private Timestamp review_time;
 	
 	
 	public int getReview_no() {
@@ -35,15 +36,10 @@ public class UserReviewVO {
 	public void setReview_content(String review_content) {
 		this.review_content = review_content;
 	}
-	public String getReview_time() {
-		
-		 SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd E요일 HH:mm");
-		 Date now = new Date();
-		 String review_time = sdfDate.format(now);
-		 
+	public Timestamp getReview_time() {
 		return review_time;
 	}
-	public void setReview_time(String review_time) {
+	public void setReview_time(Timestamp review_time) {
 		this.review_time = review_time;
 	}
 	
