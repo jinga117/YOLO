@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kosta.yolo.service.MypageService;
@@ -57,8 +58,13 @@ public class MypageController {
 		}
 
 	   return mav;
+	   }
+
+   @RequestMapping("bookmark_delete")	//마이페이지에서 북마크삭제
+	public String deleteRe(TripInfoVO vo){
+	   System.out.println(vo.getTrip_id());
+	   mypageService.delete(vo);
 	   
-	   
-   }
-   
+	    return "mypage/bookmark_delete";
+	   }   
 }//class end

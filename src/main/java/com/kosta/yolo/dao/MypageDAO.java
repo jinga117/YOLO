@@ -34,6 +34,13 @@ public class MypageDAO {
 		
 		
 	}//함수 end
+	//북마크 삭제
+	public void bookmark_delete(String trip_id){
+		MypageMapper mypageMapper= sqlSession.getMapper(MypageMapper.class);
+	 mypageMapper.bookmark_delete(trip_id);
+				
+		
+	}
 	}//class end
 
 

@@ -53,4 +53,12 @@ public class MypageService {
 	*/	return list;
 		
 	}
+	//북마크 삭제하기.
+	public void delete(TripInfoVO vo){
+		String trip_id = vo.getTrip_id();
+		mypageDAO.bookmark_delete(trip_id);
+		
+		
+		
+	}
 }
