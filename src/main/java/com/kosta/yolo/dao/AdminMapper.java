@@ -10,10 +10,13 @@ public interface AdminMapper  extends Serializable  {
 	// 여행지 리스트
 	ArrayList<TripInfoVO> selectAll();
 	
+	// 여행지 정보
+	ArrayList<TripInfoVO> selectInfo(String trip_id);
+	
 	// 여행지 입력
 	public void infoInsert(TripInfoVO vo);
 	
-	// 여행지 한 곳 보여주기(수정)
+	// 여행지 한 곳 보여주기
 	public TripInfoVO selectTrip(String trip_id);
 	
 	// 여행지 삭제

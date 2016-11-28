@@ -5,52 +5,31 @@
 <jsp:include page="../inc/top.jsp" />
 <!--  헤더 영역 끝 -->
 
-<style>
-
-.calendar{
-   margin: o auto;
-}
-
-.weekdays {
-   margin-left: 34%;
-   height: 200px;
-   width: 30%;
-   border: 1px solid;
-}
-.choose{
-   margin-left: 40%;
-}
-.choose_year{
-   float: left;
-   margin-right: 20px;
-}
-.week th{
-   text-align: center;
-   border: 1px solid;
-}
-.day {
-   border: 1px solid;
-   height: 40px;
-   vertical-align: top;
-}
-
-</style>
-
 <!-- 컨텐츠 영역 시작 -->
 <div class="b-main-container" id="content">
    <div class="calendar">
-      <div class="choose">
-         <div class="choose_year">
-            <a href="yoloplan?year=${year-1}&month=${month}"><b>◀</b></a><font color="#004d66" size="5"><b>${year}년</b></font><a href="yoloplan?year=${year+1}&month=${month}"><b>▶</b></a>
-         </div>
-         <div class="choose_month">
-            <a href="yoloplan?year=${year}&month=${month-1}"><b>◀</b></a><font color="#004d66" size="5"><b>${month+1}월</b></font><a href="yoloplan?year=${year}&month=${month+1}"><b>▶</b></a>
-         </div>
-      </div>
-      <table class="weekdays" ">
+	<table class="weekdays">
+		<tr class="choose">
+			<th class="choose_year">
+		    	<a href="yoloplan?year=${year-1}&month=${month}"> « Prev Year </a>
+			</th>
+			<th class="choose_month">
+				<a href="yoloplan?year=${year}&month=${month-1}">« Prev Month</a>
+			</th>
+			<th colspan="3" class="current_year">
+				 <span class="calendar_icon"><i class="fa fa-calendar" aria-hidden="true"></i></span> <span class="year_txt">${year}년</span>
+				<span class="month_txt"> ${month+1}월 </span>
+			</th>
+			<th class="choose_month">
+				<a href="yoloplan?year=${year}&month=${month+1}"> Next Month »</a>
+			</th>
+			<th  class="choose_year">
+				<a href="yoloplan?year=${year+1}&month=${month}"> Next Year »</a>
+			</th>
+		</tr>            
          <!-- 달력 부분 -->
-         <tr class="week">
-            <th><font style="color: #cc3300">일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th><font color="#004d66" >토</th>
+         <tr class="weekday">
+            <th><span class="sunday">일</span></th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th><span class="saturday">토</span></th>
          </tr>
           <c:set var="br" value="0" />
 

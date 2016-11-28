@@ -5,9 +5,9 @@
 <title>북마크 실패</title>
 </head>
 <body>
-	<script type="text/javascript">
-		alert("삭제되었습니다.")
- 		history.go(-2);
-	</script>
+   <script type="text/javascript">
+      alert("삭제되었습니다.")
+       history.go(-2);
+   </script>
 </body>
 </html>

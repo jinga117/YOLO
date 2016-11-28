@@ -94,22 +94,22 @@
     <!-- //b-header -->
     
     <!-- login-->
+	<input type="hidden" id="realId">
+	<input type="hidden" id="realPassword">
 	<div class="hidden b-jquery-popup">
-    	<form action="loginPro" method="post">
-			<input type="hidden" name="isadmin" value="${isadmin }">
-            <div class="b-form-reg-popup">
-                <h2 class="b-form-reg-popup__title m--centered">YOLO Login</h2>
+		<input type="hidden" name="isadmin" value="${isadmin }">
+           <div class="b-form-reg-popup">
+               <h2 class="b-form-reg-popup__title m--centered">YOLO Login</h2>
 	            <div class="b-form__row">
-	                 <input type="text" id="user_id" name="user_id" placeholder="Your ID" required="required">
+	                 <input type="text" id="user_id" name="user_id" placeholder="Your ID" value="" onChange="changeUserId(this)" onKeyup="loginProKeyUp(event)">
 	            </div>
 	            <div class="b-form__row">
-	                 <input type="password"  id="password" name="password" placeholder="Your Password" class="login_password"  required="required">
+	                 <input type="password"  id="password" name="password" placeholder="Your Password" class="login_password"  required="required" value="" onChange="changePassword(this)" onKeyup="loginProKeyUp(event)">
 	            </div>
 	            <h6><a href="findid">아이디찾기</a>/<a href="findpwd">비밀번호찾기</a></h6>
 	            <div class="b-form__row m--centered">
-	                 <button class="btn btn-success m--border-radius-right" id="loginbtn" type="submit">로그인</button>
+	                 <button class="btn btn-success m--border-radius-right" id="loginbtn" onClick="loginPro();">로그인</button>
 	            </div>
-             </div>
-         </form>
+	        </div>
      </div>
    <!--// login-->

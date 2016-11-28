@@ -34,40 +34,40 @@
         ${ list.pos_y}<p>
        </c:forEach> --%>
        
-	<c:forEach items="${bookmarklist }" var="list">
-		<li>
-			<div class="viewList_item">
-				<div class="b-pop-place">
-					<div class="b-pop-place__img">
-						<a href="detail_view?trip_id=${list.trip_id}">
-							<img width="370" height="245" class="b-pop-place__img__img"  src="img/photo/${list.trip_id}.jpg" alt="${list.trip_nickname}"></a>
+   <c:forEach items="${bookmarklist }" var="list">
+      <li>
+         <div class="viewList_item">
+            <div class="b-pop-place">
+               <div class="b-pop-place__img">
+                  <a href="detail_view?trip_id=${list.trip_id}">
+                     <img width="370" height="245" class="b-pop-place__img__img"  src="img/photo/${list.trip_id}.jpg" alt="${list.trip_nickname}"></a>
                          <a href="#" class="b-icon-medal"></a>
                          <a href="#" onClick="likeIt(this)" value="${list.trip_id}" class="b-icon-like" data-toggle="tooltip" data-placement="left" title="좋아요"><i class="fa fa-heart" aria-hidden="true"></i></a>
-					</div>
+               </div>
                       
-					<div class="b-pop-place__desc clearfix">
+               <div class="b-pop-place__desc clearfix">
                          <div class="b-pop-place__rating">
-                         	<span class="b-pop-place__like"><i class="fa fa-heart" aria-hidden="true"></i></span>
+                            <span class="b-pop-place__like"><i class="fa fa-heart" aria-hidden="true"></i></span>
                             <span id="likeCount">${list.trip_like}</span>
                          </div>
                          <a href="detail_view?trip_id=${list.trip_id}" class="b-pop-place__name">${list.trip_nickname}</a>
                          <h5 class="b-pop-place__cat">${list.trip_address}</h5>
                           <a href ="bookmark_delete?trip_id=${list.trip_id }">X</a>
-                  	<div class="b-pop-place-comment">
-						<a href="http://${list.trip_site}" target="_blank"  class="b-pop-place-homepage">
-							<i class="fa fa-home" aria-hidden="true"></i></a>
-                    	<a href="http://${list.trip_site}" target="_blank" >${list.trip_site}</a>
-					</div>
+                     <div class="b-pop-place-comment">
+                  <a href="http://${list.trip_site}" target="_blank"  class="b-pop-place-homepage">
+                     <i class="fa fa-home" aria-hidden="true"></i></a>
+                       <a href="http://${list.trip_site}" target="_blank" >${list.trip_site}</a>
+               </div>
                          
-					<div class="b-pop-place-comment">
-						<a href="#"  class="b-pop-place-homepage"><i class="fa fa-clock-o" aria-hidden="true"></i></a>
+               <div class="b-pop-place-comment">
+                  <a href="#"  class="b-pop-place-homepage"><i class="fa fa-clock-o" aria-hidden="true"></i></a>
                             ${list.trip_time}
                     </div>
-				</div>
-			</div>
-		</div>
-		</li>
-	</c:forEach>
+            </div>
+         </div>
+      </div>
+      </li>
+   </c:forEach>
 
 </body>
 </html>

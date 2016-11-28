@@ -65,7 +65,7 @@ public class InfoController {
 	 */
 
 	// 리뷰 쓰기 Ajax
-	@RequestMapping(value = "/writeReview")
+	@RequestMapping(value = "/writeReview", produces = "application/text; charset=utf8")
 	public ModelAndView writeRe(HttpServletRequest request, HttpServletResponse response, @RequestParam String trip_id,
 			@RequestParam String user_id) throws Exception {
 		ArrayList<UserReviewVO> writeRe = infoService.writeRe(request);
@@ -74,6 +74,7 @@ public class InfoController {
 				+ writeRe.get(0).getUser_id() + "\",\"trip_id\":\"" + writeRe.get(0).getTrip_id()
 				+ "\",\"review_time\":\"" + writeRe.get(0).getReview_time() + "\",\"review_content\":\""
 				+ writeRe.get(0).getReview_content() + "\"}";
+		response.setContentType("text/html;charset=UTF-8");
 		response.getWriter().print(json);
 		return null;
 	}

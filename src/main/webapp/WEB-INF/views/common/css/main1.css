@@ -1432,9 +1432,15 @@ only screen and (min-resolution: 1.5dppx) {
 }
 
 /* ¸®ºä */
+#commentArea {
+	height:auto !important;
+	padding-bottom:50px;
+}
+
 .review_list_wrap {
 	position:relative;
 	width:100%;
+	height:auto;
 	padding:10px;
 	margin:10px auto;
 	background:#fff;
@@ -1555,6 +1561,79 @@ only screen and (min-resolution: 1.5dppx) {
 	text-align:center;
 	color:#43a4a2;
 	font: bold 24px Philosopher; 
+}
+
+/* YoloPlaner */
+.calendar {
+	margin:50px auto;
+	width:75%;
+	font:13px "Malgun Gothic";
+	background:#ddd;
+	padding:5px;
+}
+
+.weekdays{
+	width:100%;
+	table-layout: auto;
+	box-sizing: content-box;
+}
+
+.calendar th, td, .day{
+	width:14%;
+	height:50px;
+	line-height:50px;
+	color:#999;
+	background:#fff;
+	border:1px solid #ddd;
+	padding: 8px;
+	text-align:right;
+}
+
+.calendar th {
+	color:#fff;
+	text-align:center;
+	background:#5aa4a3;
+}
+
+.weekday th{
+	padding:10px;
+	text-align:center;
+	height:30px;
+	line-height:30px;
+	background:#eee;
+	color:#5aa4a3;
+}
+
+.week td {
+	background:#fff;
+}
+
+.choose, .choose_year, .choose_month {
+	height:60px;
+	color:#fff;
+	background:#43a4a2;
+}
+
+.choose a, .choose_year a, .choose_month a{
+	color:#fff;
+}
+
+.calendar_icon {
+	color:#fff;
+	font-size:24px;
+	padding-right:5px;
+}
+.current_year, .year_txt, .month_txt {
+	color:#fff;
+	font:bold 18px "Malgun Gothic";
+}
+
+.saturday {
+	color:#004d66;
+}
+
+.sunday {
+	color:#cc3300;
 }
 
 .b-pop-place__name_txt {
@@ -4262,6 +4341,7 @@ html .btn--buy-ticket:hover {
 }
 
 .b-slide-menu__form {
+	height:auto;
     background: #fff;
 }
 .b-slide-menu__form__row {

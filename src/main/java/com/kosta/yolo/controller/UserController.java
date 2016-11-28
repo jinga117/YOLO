@@ -1,6 +1,7 @@
 package com.kosta.yolo.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +44,7 @@ public class UserController {
 
    // 로그인
    @RequestMapping("/loginPro")
-   public String loginPro(HttpServletRequest request) {
+   public String loginPro(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	  String user_id = request.getParameter("user_id");
 	  HttpSession session = request.getSession();
 	  
@@ -56,14 +57,16 @@ public class UserController {
     	  session.setAttribute("user_id", user_id);
     	  session.setAttribute("isadmin", vo.getIsadmin());		// 관리자 세션 유지
     	  session.setAttribute("vo", vo);
-         return "index";
       }else if(result == 2){
     	  request.setAttribute("result", result);
-    	  return "login/loginFail";
       }else{
     	  request.setAttribute("result", result);
-    	  return "login/loginFail";
       }
+
+	String json = "{\"result\":\"" + result + "\"}";
+	response.getWriter().print(json);
+      
+      return null;
    }
 
    // 로그아웃
@@ -82,6 +85,7 @@ public class UserController {
       System.out.println("여긴 컨트롤러!!! ");
       ModelAndView mav = userService.list();
       mav.setViewName("user/userlist");
+      
       return mav;
    }
 

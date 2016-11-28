@@ -204,6 +204,7 @@
 						<!-- 리뷰 시작-->
 						<div class="review_list_wrap">
 							<h5 class="review_title">Review</h5>
+							
 							<!-- ajax 리뷰 쓰기 시작-->
 							<div class="review_write_wrap">
 								<form method="get">
@@ -223,64 +224,75 @@
 									</ul>
 								</form>
 							</div>
-								<script type="text/javascript">
-									function deleteReview(obj) {
-										$.ajax({
-											url : "deleteReview?review_no="+$(obj).attr('review_no'),
-											type : "GET",
-											datatype: "json",
-											success : function(responseFromServer) {
-												alert("댓글이 삭제 되었습니다.")
-												$(obj).closest('div').remove();
-											},
-											error : function(jqXHR, textStatus, errorThrown) {
-												alert("오류 발생 \n"+textStatus + " : " + errorThrown);
-											}      
-										});
+							<!-- ajax 리뷰 쓰기 끝-->
+							
+							<script type="text/javascript">
+								function deleteReview(obj) {
+									$.ajax({
+										url : "deleteReview?review_no="+$(obj).attr('review_no'),
+										type : "GET",
+										datatype: "json",
+										success : function(responseFromServer) {
+											alert("댓글이 삭제 되었습니다.")
+											$(obj).closest('div').remove();
+										},
+										error : function(jqXHR, textStatus, errorThrown) {
+											alert("오류 발생 \n"+textStatus + " : " + errorThrown);
+										}      
+									});
+								}
+								// 리뷰 쓰기 ajax
+								function writeReview(obj) {
+									var user_id =$("#user").text();
+									var trip_id = $("#trip_id").val();
+									var review_content =$("#review_content").val();
+									if (user_id=='') {
+										alert('로그인 후 이용해 주세요');
+										return;
 									}
-									// 리뷰 쓰기 ajax
-									function writeReview(obj) {
-										var user_id =$("#user").text();
-										var trip_id = $("#trip_id").val();
-										var review_content =$("#review_content").val();
-										if (user_id=='') {
-											alert('로그인 후 이용해 주세요');
-											return;
+									else if (user_id !==''){
+										if ($('#review_content').val()==''){
+								   			alert('리뷰를 입력하세요.');
+								   			$('#review_content').focus();
+								   			return false;
 										}
-										else if (user_id !==''){
-											if ($('#review_content').val()==''){
-									   			alert('리뷰를 입력하세요.');
-									   			$('#review_content').focus();
-									   			return false;
-											}
-										} 
-										$.ajax({
-											url : "writeReview?trip_id="+trip_id+'&user_id='+user_id+'&review_content='+review_content,
-											/* url : "writeReview", */
-											type : "GET",
-											datatype: "json",
-											//data: {trip_id:trip_id, user_id: user_id, review_content: review_content}
-											success : function(responseFromServer) {
-												alert("댓글이 등록되었습니다.")
-												var data = jQuery.parseJSON(responseFromServer);
-												var obj2 =$(this).closest('#review_list');
-												var html = "<div class='review_list' id='review_list'>";
-												html+=	"<ul>";
-												html+=   "	<li>";
-												html+=   "      <span class='review_list_user'>" + data.user_id+ "</span>";
-												html+=   "		| <span class='review_list_time'><i class='fa fa-clock-o' aria-hidden='true'></i> "+ data.review_time +"</span>";
-												html+= 	"	<input type='button' value='X' onclick='deleteReview( this ) ' review_no='" + data.review_no + "'></li>";
-												html+= 	"	<li><span class='review_list_content'>"+ data.review_content + "</span></li>";
-												html+=	"</ul>";
-												html+="</div>";
-												$('#commentArea').find('#review_list').eq(0).before(html);
-											},
-											error : function(jqXHR, textStatus, errorThrown) {
-												alert("오류 발생 \n"+textStatus + " : " + errorThrown);
-											}      
-										});
 									} 
-								</script>
+									$.ajax({
+										url : "writeReview?trip_id="+trip_id+'&user_id='+user_id+'&review_content='+review_content,
+										/* url : "writeReview", */
+										type : "GET",
+										contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+										datatype: "json",
+										//data: {trip_id:trip_id, user_id: user_id, review_content: review_content}
+										success : function(responseFromServer) {
+											alert("댓글이 등록되었습니다.");
+											$("#review_content").val('');
+											var data = jQuery.parseJSON(responseFromServer);
+											var obj2 =$(this).closest('#review_list');
+											var html = "<div class='review_list' id='review_list'>";
+											html+=	"<ul>";
+											html+=   "	<li>";
+											html+=   "      <span class='review_list_user'>" + data.user_id+ "</span>";
+											html+=   "		| <span class='review_list_time'><i class='fa fa-clock-o' aria-hidden='true'></i> "+ data.review_time +"</span>";
+											html+= 	"	<input type='button' value='X' onclick='deleteReview( this ) ' review_no='" + data.review_no + "'></li>";
+											html+= 	"	<li><span class='review_list_content'>"+ data.review_content + "</span></li>";
+											html+=	"</ul>";
+											html+="</div>";
+											if ($('#commentArea').find('#review_list').length==0) {
+												var hei = $('#commentArea').prop('scrollHeight');
+												$('#commentArea').append(html);
+												$("#hilo").animate({ scrollTop: hei}, 500);
+												/* $("#commentArea").css("height","auto"); */
+											}  else {
+												$('#commentArea').find('#review_list').eq(0).before(html);
+											}
+										},
+										error : function(jqXHR, textStatus, errorThrown) {
+											alert("오류 발생 \n"+textStatus + " : " + errorThrown);
+										}      
+									});
+								} 
+							</script>
 							<!-- 리뷰 쓰기 끝 -->
 							<div id="commentArea">
 								<c:forEach items="${reviewList }" var="list">
@@ -300,44 +312,12 @@
 									</div>
 								</c:forEach>
 							</div>
-
-							<%-- <!-- 리뷰 쓰기 시작-->
-							<div class="review_write_wrap">
-								<form method="post" onsubmit="return checkComment()">
-									<input type="hidden" name="review_no" value="review_no"> 
-									<input type="hidden" name="trip_id" value="trip_id"> <!-- 댓글 고침 -->
-									<ul>
-										<li class="review_write_li_user">
-											<span class="review_user_id"><i class="fa fa-user fa-4" aria-hidden="true"></i></span>
-											<span class="review_list_user"><input type="hidden" name="user_id" value=" ${user}">${user}</span>
-											<input type="hidden" name="trip_id" value=" ${trip_id}">
-										</li>
-										<li class="review_write_cotent_wrap"> 
-											<input type="text" width="100%" id="review_content" name="review_content"  onfocus="<c:if test="${user == null}">$('#comment_btn').focus();alert('로그인 하신 후 이용 가능합니다'); return false;</c:if>"
-												<c:if test="${user == null}">readonly placeholder="로그인 하신 후 이용 가능합니다." </c:if> placeholder="한 줄 리뷰를 적어 주세요~!">
-											<input type="submit" value="comment" id="comment_btn" onClick="<c:if test="${user == null}">alert('로그인 하신 후 이용 가능합니다'); return false;</c:if>">
-										</li>
-									</ul>
-								</form>
-							</div>
-							<!-- 리뷰 쓰기 끝 --> --%>
 						</div>
 					</div>
 					<!--  상세보기 컨텐츠 끝 -->
 				</div>
 			</div>
-	</c:forEach>
-
-<!-- 추가 <div class="b-plan-menu">
-		<ul class="b-map-menu__list">
-			<li class="b-map-menu__list__bars active"><a href="#"
-				class="noajax"><i class="fmr fmr-icon-2810"></i>Day1</a></li>
-			<li class="b-map-menu__list__food"><a href="#" class="noajax"><i
-					class="fmr fmr-icon-467"></i>Day2</a></li>
-			<li class="b-map-menu__list__restaurants"><a href="#" class="noajax"><i class="fmr fmr-icon-466"></i>Day3</a></li>
-			<li class="b-map-menu__list__night-life"><a href="#" class="noajax"><i class="fmr fmr-icon-1100"></i>Day4</a></li>
-			<li class="b-map-menu__list__night-life"><a href="#" class="noajax"><i class="fmr fmr-icon-1100"></i>Day5</a></li>
-		</ul> -->
+		</c:forEach>
 	</div>
 	<!-- 컨텐츠 영역 끝 -->
 
@@ -448,16 +428,6 @@
    	    }
    	});  */
 <!-- //DAUM MAP -->
-/*    	
-   	function checkComment() {
-   		if ($('#review_content').val()=='') {
-   			alert('리뷰를 입력하세요.');
-   			$('#review_content').focus();
-   			return false;
-   		}
-		return true;
-   	} */
-   	
 </script>
 
 <!-- 날씨 api 넣어주세요ㅠㅠㅠㅠㅠㅠㅠㅠㅠ -->

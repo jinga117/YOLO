@@ -1,14 +1,49 @@
+function changeUserId(obj) {
+	console.log($(obj).val());
+	$('#realId').val($(obj).val());
+}
+function changePassword(obj) {
+	console.log($(obj).val());
+	$('#realPassword').val($(obj).val());
+}
+
+function  loginProKeyUp(e) {
+	var charCode = (typeof e.which === "number") ? e.which : e.keyCode;
+	if (charCode==13) {
+		loginPro();
+		return false;
+	}
+}
 function loginPro() {
+	var user_id = $('#realId').val();
+	var password = $('#realPassword').val();
+	if (user_id=='') {
+		alert('아이디를 입력하세요.');
+		$('#user_id').focus();
+		return;
+	}
+	if (password=='') {
+		alert('패스워드를 입력하세요.');
+		$('#password').focus();
+		return;
+	}
 	$.ajax({
 		url : "loginPro",
 		type : "POST",
-		user_id: $('#user_id').val(),
-		password: $('#password').val(),
+		data: {
+			user_id: user_id,
+			password: password,
+		},
 		datatype: "json",
 		success : function(responseFromServer) {
 			var data = jQuery.parseJSON(responseFromServer);
-			alert(data.result);
-			location.reload();
+			if (data.result=='1') {
+				location.reload();
+			} else if (data.result=='2') {
+				alert('아이디가 잘 못 되었습니다.');
+			} else if (data.result=='3') {
+				alert('패스워드가 잘 못 되었습니다.');
+			}
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			alert("오류 발생 \n"+textStatus + " : " + errorThrown);
