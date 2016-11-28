@@ -90,7 +90,7 @@ public class UserController {
    }
 
    // 회원 수정
-   @RequestMapping("/user_update")
+   @RequestMapping(value = "/user_update", method = RequestMethod.GET)
    public ModelAndView update(HttpServletRequest request) {
 	  HttpSession session = request.getSession();
 	  String user_id = (String) session.getAttribute("user_id");
@@ -102,7 +102,7 @@ public class UserController {
 	  return mav;
    }
 
-   @RequestMapping(value = "/user_updatePro", method = RequestMethod.POST)
+   @RequestMapping(value = "/user_update", method = RequestMethod.POST)
    public ModelAndView updatePro(UserVO vo) {
       ModelAndView mav = userService.updatePro(vo);
       mav.setViewName("mypage/mypage_main");

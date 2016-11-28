@@ -5,7 +5,7 @@
 
 	<!-- 컨텐츠 영역 시작 -->
 	<div class="member-form-wrap">
-		<form action="user_updatePro" method="post">
+		<form method="post">
 			<div class="b-promo__form member-form m--centered">
 				<h2 class="b-form-reg-popup__title m--centered">관리자 정보 수정</h2>
 				<ul>
@@ -15,7 +15,7 @@
 					<li class="member-subject"><i class="fa fa-envelope-o" aria-hidden="true"></i> 이메일</li><li class="member-input"><input type="text" name="email"  id="email"  value="${vo.getEmail()}"></li>
 					<li class="member-subject"><i class="fa fa-dot-circle-o" aria-hidden="true"></i> 나이</li><li class="member-input"><input type="text" name="age" id="age" value="${vo.getAge()}"></li>
 					<li class="member-subject"><i class="fa fa-street-view" aria-hidden="true"></i> 성별</li><li class="member-input m--left">
-						<select id="gender_select" name="gender"  value="${vo.getGender()}"><option>Man</option><option>Woman</option></select>
+						<select id="gender_select" name="gender" ><option value="m">Man</option><option value="f">Woman</option></select>
 					</li>
 				</ul>
 				<div class="b-form__row m--centered" ><button id="btn_member" class="btn btn-success m--border-radius-right"  type="submit">수정</button></div>

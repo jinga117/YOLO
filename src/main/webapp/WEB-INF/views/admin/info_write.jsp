@@ -8,7 +8,7 @@ table {
 }
 .info_write{
 	margin: 0 auto;
-	width: 60%;
+	width: 80%;
 }
 h3{
 	margin-top: 20px;

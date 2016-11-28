@@ -27,7 +27,7 @@
 	
 	
 	<update id="userUpdate" parameterType="com.kosta.yolo.vo.UserVO">
-    	UPDATE User SET password=#{password},name=#{name}, email=#{email}, gender=#{gender}, age=#{age}, isadmin=#{isadmin}, area=#{area} WHERE user_id = #{user_id }
+    	UPDATE User SET password=#{password},name=#{name}, email=#{email}, gender=#{gender}, age=#{age} WHERE user_id = #{user_id }
     </update>
     	
     <delete id="userDelete" parameterType="com.kosta.yolo.vo.UserVO">

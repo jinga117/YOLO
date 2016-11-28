@@ -36,7 +36,7 @@ public class AdminController {
 	@RequestMapping(value="/info_write", method=RequestMethod.POST)
 	public ModelAndView writePro(HttpServletRequest request){
 		ModelAndView mav = adminService.writePro(request);
-		mav.setViewName("redirect:info_list");
+		mav.setViewName("admin/info_write");
 		
 		return mav;
 	}
