@@ -28,8 +28,6 @@ public class BookmarkController {
 	   vo.setUser_id((String) session.getAttribute("user_id"));
 	   vo.setTrip_id(tripinfovo.getTrip_id());
 	   ArrayList<BookMarkVO> list= bookmarkService.select(vo);	//size = 0일시 북마크성공 (중복되는게없으므로)
-	   System.out.println("21212121212");
-	   
 	   
 	   System.out.println("아이디:"+vo.getUser_id()+"여행지아이디"+tripinfovo.getTrip_id());
 	   
@@ -40,7 +38,6 @@ public class BookmarkController {
 	   }
 	   else{
 		   if(list.size()==0){
-			   
 		   System.out.println("컨트롤러 트립아이디:"+tripinfovo.getTrip_id());
 		   bookmarkService.bookmark_write(tripinfovo,vo);
 		   mav.setViewName("index");

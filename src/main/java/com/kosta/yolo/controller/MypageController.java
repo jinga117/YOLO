@@ -25,14 +25,18 @@ public class MypageController {
       
    return "mypage/mypage_main";
    } 
+
+   @RequestMapping("/myplan")	//내 일정 보기
+   public String myplan(){
+	   return "mypage/myplane_view";
+   }
    
    @RequestMapping("review_delete") //내가쓴 리뷰 삭제
    public String review_delete(UserReviewVO vo){
 	   mypageService.review_delete(vo);
 	return "mypage/review_delete";
-	
-	   
    }
+   
    @RequestMapping("/review_view")   //마이페이지에서 내가쓴댓글    미완료///이름앞에 띄어쓰기때문에 안먹히는현상, mypage뷰창에 뿌려줄것!~!~!~!~!~!~!~!~!~!~!~!~!
    public ModelAndView review_view(HttpServletRequest request){
       

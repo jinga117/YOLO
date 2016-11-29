@@ -22,6 +22,8 @@
 <a href="user_update">계 정 설 정</a><br><p>
 <a href="review_view">내가 쓴 댓글</a><br><p>
 <a href="bookmark_view">북마크</a><br><p>
+<a href="myplan">내 일정 보기</a><br><p>
+
 
 </body>
 </html>
