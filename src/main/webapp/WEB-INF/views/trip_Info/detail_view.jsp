@@ -192,7 +192,7 @@
 								</div>
 								<div class="detail_contents">
 									<span class="detail_contents-icon"><i class="fa fa-home" aria-hidden="true"></i></span> 
-									<span class="detail_contents_txt"><a href="http://${list.trip_site}" target="_blank">${list.trip_site}</a></span>
+									<span class="detail_contents_txt"><a href="${list.trip_site}" target="_blank">${list.trip_site}</a></span>
 								</div>
 								<input type="hidden" id="pos_x" value=" ${list.pos_x}">
 								<input type="hidden" id="pos_y" value=" ${list.pos_y}">
@@ -356,8 +356,6 @@
 	    map.setCenter(moveLatLon);
 	}
 	
-	// 지도에 교통정보를 표시하도록 지도타입을 추가합니다
-	//map.addOverlayMapTypeId(daum.maps.MapTypeId.TRAFFIC); 
 
 	// 지도를 클릭한 위치에 표출할 마커입니다
 	var marker = new daum.maps.Marker({ 
@@ -385,11 +383,12 @@
 	// 마커가 지도 위에 표시되도록 설정합니다
 	marker.setMap(map);  
 	 
-	  // 인포윈도우로 장소에 대한 설명을 표시합니다
-       var infowindow = new daum.maps.InfoWindow({
-          content: '<div style="width:150px;text-align:center;padding:10px;background:#43a4a2;color:#fff;box-shadow:2px 2px 6px rgba(0,0,0,.2);"><b>'+trip_nickname+'</b> <br /><i class="fa fa-heart-o" aria-hidden="true"></i>'+ trip_like+'</div>'     
-       });
-       infowindow.open(map, marker);
+	// 인포윈도우로 장소에 대한 설명을 표시합니다
+    var infowindow = new daum.maps.InfoWindow({
+       content: '<div style="width:150px;text-align:center;padding:10px;background:#43a4a2;color:#fff;box-shadow:2px 2px 6px rgba(0,0,0,.2);"><b>'+trip_nickname+'</b> <br /><i class="fa fa-heart-o" aria-hidden="true"></i>'+ trip_like+'</div>'     
+    });
+    
+	infowindow.open(map, marker);
   
  	// 지도 확대, 축소 컨트롤에서 확대 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
    	function zoomIn() {
@@ -401,33 +400,6 @@
    	    map.setLevel(map.getLevel() + 1);
    	}
    	
- 	/* // 주소-좌표 변환 객체를 생성합니다
-   	var geocoder = new daum.maps.services.Geocoder();
-
-   	// 주소로 좌표를 검색합니다
-   	geocoder.addr2coord('서울특별시 종로구 사직로 161', function(status, result) {
-
-   	    // 정상적으로 검색이 완료됐으면 
-   	     if (status === daum.maps.services.Status.OK) {
-
-   	        var coords = new daum.maps.LatLng(result.addr[0].lat, result.addr[0].lng);
-
-   	        // 결과값으로 받은 위치를 마커로 표시합니다
-   	        var marker = new daum.maps.Marker({
-   	            map: map,
-   	            position: coords
-   	        });
-
-   	        // 인포윈도우로 장소에 대한 설명을 표시합니다
-   	        var infowindow = new daum.maps.InfoWindow({
-   	            content: '<div style="width:150px;text-align:center;padding:6px 0;">경복궁</div>'
-   	        });
-   	        infowindow.open(map, marker);
-
-   	        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-   	        map.setCenter(coords);
-   	    }
-   	});  */
 <!-- //DAUM MAP -->
 </script>
 
