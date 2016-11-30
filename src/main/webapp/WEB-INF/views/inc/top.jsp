@@ -84,6 +84,7 @@
                         	<li><a href="userlist">회원 리스트</a></li>
                         	<li><a href="info_list">여행지 리스트</a></li>
                         	<li><a href="info_write">여행지 추가</a></li>
+                        	<li><a href="review_list">댓글 리스트</a></li>
                     	</ul>
                 	</li>
                 </c:if>

@@ -66,5 +66,20 @@ public class AdminController {
 		mav.setViewName("redirect:info_list");
 	    return mav;
 	}
-
+	
+	// 전체 리뷰 보기
+	@RequestMapping("/review_list")
+	public ModelAndView reviewAll() {
+		ModelAndView mav = adminService.reviewAll();
+		mav.setViewName("admin/review_list");
+		return mav;
+	}
+	
+	// 리뷰 삭제
+	@RequestMapping("/reviewDelete")
+	public String reviewDelete(int review_no){
+		ModelAndView mav = new ModelAndView();
+		adminService.reviewDelete(review_no);
+		return "redirect:review_list";
+	}
 }

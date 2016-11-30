@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kosta.yolo.vo.TripInfoVO;
+import com.kosta.yolo.vo.UserReviewVO;
 import com.kosta.yolo.vo.UserVO;
 
 @Repository
@@ -19,7 +20,6 @@ public class AdminDAO {
 	public ArrayList<TripInfoVO> selectAll() {
 		AdminMapper admin = sqlSession.getMapper(AdminMapper.class);
 		ArrayList<TripInfoVO> list = admin.selectAll();
-		
 		return list;
 	}
 	
@@ -33,7 +33,6 @@ public class AdminDAO {
 	public ArrayList<TripInfoVO> selectInfo(String trip_id){
 		AdminMapper admin = sqlSession.getMapper(AdminMapper.class);
 		ArrayList<TripInfoVO> list = admin.selectInfo(trip_id);
-		
 		return list;
 	}
 
@@ -60,5 +59,18 @@ public class AdminDAO {
 		AdminMapper admin = sqlSession.getMapper(AdminMapper.class);
 		admin.updateTrip(vo);
 	}
+
+	// 전체 리뷰 보기
+	public ArrayList<UserReviewVO> reviewList() {
+		AdminMapper admin = sqlSession.getMapper(AdminMapper.class);
+		ArrayList<UserReviewVO> list = admin.reviewList();
+		return list;
+	}
 	
+	// 리뷰 삭제
+	public void reviewDelete(int review_no){
+		AdminMapper admin = sqlSession.getMapper(AdminMapper.class);
+		admin.reviewDelete(review_no);
+	}
+
 }

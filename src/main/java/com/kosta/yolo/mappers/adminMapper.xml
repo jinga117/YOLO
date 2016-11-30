@@ -28,5 +28,15 @@
         	UPDATE TripInfo set category_id = #{category_id}, age_id = #{age_id}, food_id = #{food_id}, season_id = #{season_id}, person_id = #{person_id}, kpop_id = #{kpop_id}, trip_nickname = #{trip_nickname}, trip_address = #{trip_address}, trip_add1 = #{trip_add1}, trip_add2 = #{trip_add2}, trip_add3 = #{trip_add3}, trip_content = #{trip_content}, trip_time = #{trip_time}, trip_site = #{trip_site}, trip_tel = #{trip_tel}, trip_way = #{trip_way}, trip_pay = #{trip_pay}, pos_x = #{pos_x}, pos_y = #{pos_y} 
         		WHERE trip_id = #{trip_id}
    		</update>
+   		
+   		<!-- 전체 리뷰 보기(최근순) -->
+   		<select id="reviewList" resultType="com.kosta.yolo.vo.UserReviewVO">
+    		SELECT * FROM UserReview ORDER BY review_time DESC
+    	</select>
+    	
+    	<!-- 리뷰 삭제 -->
+    	<delete id="reviewDelete" parameterType="java.lang.Integer">
+			Delete from UserReview where review_no = #{review_no}
+		</delete>
     	
     </mapper>

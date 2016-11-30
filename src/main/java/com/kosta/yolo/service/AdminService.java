@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kosta.yolo.dao.AdminDAO;
 import com.kosta.yolo.vo.TripInfoVO;
-import com.kosta.yolo.vo.UserVO;
+import com.kosta.yolo.vo.UserReviewVO;
 
 @Service
 public class AdminService {
@@ -23,7 +23,6 @@ public class AdminService {
 			ModelAndView mav = new ModelAndView();
 			ArrayList<TripInfoVO> list = adminDAO.selectAll();
 			mav.addObject("list", list);
-			
 			return mav;
 		}
 		
@@ -135,5 +134,17 @@ public class AdminService {
 			adminDAO.updateTrip(vo);
 			return mav;
 		}
-
+		
+	   // 전체 리뷰 보기
+	   public ModelAndView reviewAll() {
+	      ModelAndView mav = new ModelAndView();
+	      ArrayList<UserReviewVO> list = adminDAO.reviewList();
+	      mav.addObject("list", list);
+	      return mav;
+	   }
+	   
+	   // 리뷰 삭제
+	   public void reviewDelete(int review_no){
+		   adminDAO.reviewDelete(review_no);
+	   }
 }
