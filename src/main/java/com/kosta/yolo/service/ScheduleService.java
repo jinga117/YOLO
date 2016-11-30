@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kosta.yolo.dao.ScheduleDAO;
 import com.kosta.yolo.vo.TripInfoVO;
+import com.kosta.yolo.vo.TripPlanVO;
 
 @Service
 public class ScheduleService {
@@ -40,6 +42,18 @@ public class ScheduleService {
 		return mav;
 	}
 	
+
+	public ModelAndView calendar(HttpSession session){	
+		ModelAndView mav = new ModelAndView();
+		String user_id = (String) session.getAttribute("user_id");//로그인된 아이디를 TripPlan에서 가져오려구
+		ArrayList<TripPlanVO> list = scheduleDAO.mycalendar(user_id); 
+		int cost = list.get(0).getTrip_plan_pay_1()+list.get(0).getTrip_plan_pay_2()+list.get(0).getTrip_plan_pay_3(); //Total pay
+		System.out.println(cost+"원");
+		mav.addObject("cost", cost);
+		mav.addObject("list", list);
+		return mav;
+	}
+	/*
 	//달력만들기
 	public HttpServletRequest calendar(HttpServletRequest request){
 		
@@ -77,5 +91,5 @@ public class ScheduleService {
 	    request.setAttribute("br", br);
 	    
 	    return request;
-	}
+	}*/
 }

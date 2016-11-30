@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kosta.yolo.vo.TripInfoVO;
+import com.kosta.yolo.vo.TripPlanVO;
 
 
 @Repository
@@ -20,5 +21,13 @@ public class ScheduleDAO {
 		ArrayList<TripInfoVO> list = schedule.all();
 		return list;
 	}
-	
+
+	public ArrayList<TripPlanVO> mycalendar(String user_id){
+		System.out.println("dasdgsadgdsgsdgsadg    :"+user_id);
+		ScheduleMapper schedule = sqlSession.getMapper(ScheduleMapper.class);
+		ArrayList<TripPlanVO> list = schedule.mycalendar(user_id);
+		
+		return list;
+		
+	}
 }

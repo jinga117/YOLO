@@ -35,16 +35,17 @@ public class ScheduleController {
 		   return mav;
 	   }
    }
-   
+
    @RequestMapping("/yoloplan")
-   public ModelAndView plan(HttpServletRequest request){
+   public ModelAndView plan(HttpSession session){
 	   
+	   ModelAndView mav = scheduleservice.calendar(session);
+	return mav;
+	   /*
 	   ModelAndView mav = new ModelAndView();
 	   scheduleservice.calendar(request);
 	   mav.setViewName("myplan/yoloplaner");
-	   return mav;
+	   return mav;*/
    }
-   
-   
    
 }//class end

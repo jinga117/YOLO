@@ -2,125 +2,152 @@ package com.kosta.yolo.vo;
 
 public class TripPlanVO {
 
-	//일정 짜기 
-	//사용자 ID, 여행지 이름, 여행지 가격,  내 메모
-	private String user_id; //조인할 user아이디
-	private String trip_day; //일정 짠 날
-	
-	//일정정보 5일까지
-	private String trip_id1, trip_memo1;
-	private int trip_pay1;
-	private String trip_id2, trip_memo2;
-	private int trip_pay2;
-	private String trip_id3, trip_memo3;
-	private int trip_pay3;
-	private String trip_id4, trip_memo4;
-	private int trip_pay4;
-	private String trip_id5, trip_memo5;
-	private int trip_pay5;
+	// 일정 짜기
+	// 사용자 ID, 여행지 이름, 여행지 가격, 내 메모
+	private String user_id; // user아이디
+	private String trip_start; // 일정 시작일
 
-	
+	// 일정정보 3일까지
+	private String trip_day_1, trip_id_1, trip_nickname_1, trip_plan_memo_1;
+	private int trip_plan_pay_1;
+	private String trip_day_2, trip_id_2, trip_nickname_2, trip_plan_memo_2;
+	private int trip_plan_pay_2;
+	private String trip_day_3,trip_id_3, trip_nickname_3, trip_plan_memo_3;
+	private int trip_plan_pay_3;
+
+	public String getTrip_day_1() {
+		return trip_day_1;
+	}
+
+	public void setTrip_day_1(String trip_day_1) {
+		this.trip_day_1 = trip_day_1;
+	}
+
+	public String getTrip_day_2() {
+		return trip_day_2;
+	}
+
+	public void setTrip_day_2(String trip_day_2) {
+		this.trip_day_2 = trip_day_2;
+	}
+
+	public String getTrip_day_3() {
+		return trip_day_3;
+	}
+
+	public void setTrip_day_3(String trip_day_3) {
+		this.trip_day_3 = trip_day_3;
+	}
+
 	public String getUser_id() {
 		return user_id;
 	}
+
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
-	public String getTrip_id1() {
-		return trip_id1;
+
+	public String getTrip_start() {
+		return trip_start;
 	}
-	public void setTrip_id1(String trip_id1) {
-		this.trip_id1 = trip_id1;
+
+	public void setTrip_start(String trip_start) {
+		this.trip_start = trip_start;
 	}
-	public String getTrip_memo1() {
-		return trip_memo1;
+
+	public String getTrip_id_1() {
+		return trip_id_1;
 	}
-	public void setTrip_memo1(String trip_memo1) {
-		this.trip_memo1 = trip_memo1;
+
+	public void setTrip_id_1(String trip_id_1) {
+		this.trip_id_1 = trip_id_1;
 	}
-	public int getTrip_pay1() {
-		return trip_pay1;
+
+	public String getTrip_nickname_1() {
+		return trip_nickname_1;
 	}
-	public void setTrip_pay1(int trip_pay1) {
-		this.trip_pay1 = trip_pay1;
+
+	public void setTrip_nickname_1(String trip_nickname_1) {
+		this.trip_nickname_1 = trip_nickname_1;
 	}
-	public String getTrip_id2() {
-		return trip_id2;
+
+	public String getTrip_plan_memo_1() {
+		return trip_plan_memo_1;
 	}
-	public void setTrip_id2(String trip_id2) {
-		this.trip_id2 = trip_id2;
+
+	public void setTrip_plan_memo_1(String trip_plan_memo_1) {
+		this.trip_plan_memo_1 = trip_plan_memo_1;
 	}
-	public String getTrip_memo2() {
-		return trip_memo2;
+
+	public int getTrip_plan_pay_1() {
+		return trip_plan_pay_1;
 	}
-	public void setTrip_memo2(String trip_memo2) {
-		this.trip_memo2 = trip_memo2;
+
+	public void setTrip_plan_pay_1(int trip_plan_pay_1) {
+		this.trip_plan_pay_1 = trip_plan_pay_1;
 	}
-	public int getTrip_pay2() {
-		return trip_pay2;
+
+	public String getTrip_id_2() {
+		return trip_id_2;
 	}
-	public void setTrip_pay2(int trip_pay2) {
-		this.trip_pay2 = trip_pay2;
+
+	public void setTrip_id_2(String trip_id_2) {
+		this.trip_id_2 = trip_id_2;
 	}
-	public String getTrip_id3() {
-		return trip_id3;
+
+	public String getTrip_nickname_2() {
+		return trip_nickname_2;
 	}
-	public void setTrip_id3(String trip_id3) {
-		this.trip_id3 = trip_id3;
+
+	public void setTrip_nickname_2(String trip_nickname_2) {
+		this.trip_nickname_2 = trip_nickname_2;
 	}
-	public String getTrip_memo3() {
-		return trip_memo3;
+
+	public String getTrip_plan_memo_2() {
+		return trip_plan_memo_2;
 	}
-	public void setTrip_memo3(String trip_memo3) {
-		this.trip_memo3 = trip_memo3;
+
+	public void setTrip_plan_memo_2(String trip_plan_memo_2) {
+		this.trip_plan_memo_2 = trip_plan_memo_2;
 	}
-	public int getTrip_pay3() {
-		return trip_pay3;
+
+	public int getTrip_plan_pay_2() {
+		return trip_plan_pay_2;
 	}
-	public void setTrip_pay3(int trip_pay3) {
-		this.trip_pay3 = trip_pay3;
+
+	public void setTrip_plan_pay_2(int trip_plan_pay_2) {
+		this.trip_plan_pay_2 = trip_plan_pay_2;
 	}
-	public String getTrip_id4() {
-		return trip_id4;
+
+	public String getTrip_id_3() {
+		return trip_id_3;
 	}
-	public void setTrip_id4(String trip_id4) {
-		this.trip_id4 = trip_id4;
+
+	public void setTrip_id_3(String trip_id_3) {
+		this.trip_id_3 = trip_id_3;
 	}
-	public String getTrip_memo4() {
-		return trip_memo4;
+
+	public String getTrip_nickname_3() {
+		return trip_nickname_3;
 	}
-	public void setTrip_memo4(String trip_memo4) {
-		this.trip_memo4 = trip_memo4;
+
+	public void setTrip_nickname_3(String trip_nickname_3) {
+		this.trip_nickname_3 = trip_nickname_3;
 	}
-	public int getTrip_pay4() {
-		return trip_pay4;
+
+	public String getTrip_plan_memo_3() {
+		return trip_plan_memo_3;
 	}
-	public void setTrip_pay4(int trip_pay4) {
-		this.trip_pay4 = trip_pay4;
+
+	public void setTrip_plan_memo_3(String trip_plan_memo_3) {
+		this.trip_plan_memo_3 = trip_plan_memo_3;
 	}
-	public String getTrip_id5() {
-		return trip_id5;
+
+	public int getTrip_plan_pay_3() {
+		return trip_plan_pay_3;
 	}
-	public void setTrip_id5(String trip_id5) {
-		this.trip_id5 = trip_id5;
+
+	public void setTrip_plan_pay_3(int trip_plan_pay_3) {
+		this.trip_plan_pay_3 = trip_plan_pay_3;
 	}
-	public String getTrip_memo5() {
-		return trip_memo5;
-	}
-	public void setTrip_memo5(String trip_memo5) {
-		this.trip_memo5 = trip_memo5;
-	}
-	public int getTrip_pay5() {
-		return trip_pay5;
-	}
-	public void setTrip_pay5(int trip_pay5) {
-		this.trip_pay5 = trip_pay5;
-	}
-	public String getTrip_day() {
-		return trip_day;
-	}
-	public void setTrip_day(String trip_day) {
-		this.trip_day = trip_day;
-	}
-	
 }
