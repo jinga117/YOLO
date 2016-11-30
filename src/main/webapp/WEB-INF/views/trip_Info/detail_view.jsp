@@ -157,17 +157,16 @@
 							<!-- 날씨 API 시작 -->
 							<!-- <div id="weather" style="width: 100%; height: 780px;"></div> -->
 							<ul class="weather_content">
-					 		   <li><span class="weather_txt">월</span> <span class="weather_icon"><i class="fa fa-sun-o" aria-hidden="true"></i></span> <span class="weather_txt">13℃</span></li>
-								<li><span class="weather_txt">화</span> <span class="weather_icon"><i class="fa fa-cloud" aria-hidden="true"></i></span> <span class="weather_txt">7℃</span></li>
-								<li><span class="weather_txt">수</span> <span class="weather_icon"><i class="fa fa-tint" aria-hidden="true"></i></span> <span class="weather_txt">4℃</span></li>
-								<li><span class="weather_txt">목</span> <span class="weather_icon"><i class="fa fa-cloud" aria-hidden="true"></i></span> <span class="weather_txt">4℃</span></li>
-								<li><span class="weather_txt">금</span> <span class="weather_icon"><i class="fa fa-sun-o" aria-hidden="true"></i></span> <span class="weather_txt">7℃</span></li>
-								<li><span class="weather_txt">토</span> <span class="weather_icon"><i class="fa fa-sun-o" aria-hidden="true"></i></span> <span class="weather_txt">11℃</span></li>
-								<li><span class="weather_txt">일</span> <span class="weather_icon"><i class="fa fa-sun-o" aria-hidden="true"></i></span> <span class="weather_txt">13℃</span></li>
+					 		   <li><span class="weather_txt">${today }</span> <span class="weather_icon"><img src="img/wicon/${icon1 }.png"></span> <span class="weather_txt">${day1 }℃</span></li>
+								<li><span class="weather_txt">${today2 }</span> <span class="weather_icon"><img src="img/wicon/${icon2 }.png"></span> <span class="weather_txt">${day2 }℃</span></li>
+								<li><span class="weather_txt">${today3 }</span> <span class="weather_icon"><img src="img/wicon/${icon3 }.png"></span> <span class="weather_txt">${day3 }℃</span></li>
+								<li><span class="weather_txt">${today4 }</span> <span class="weather_icon"><img src="img/wicon/${icon4 }.png"></span> <span class="weather_txt">${day4}℃</span></li>
+								<li><span class="weather_txt">${today5 }</span> <span class="weather_icon"><img src="img/wicon/${icon5 }.png"></span> <span class="weather_txt">${day5}℃</span></li>
+								<li><span class="weather_txt">${today6 }</span> <span class="weather_icon"><img src="img/wicon/${icon6 }.png"></span> <span class="weather_txt">${day6}℃</span></li>
+								<li><span class="weather_txt">${today7 }</span> <span class="weather_icon"><img src="img/wicon/${icon7 }.png"></span> <span class="weather_txt">${day7 }℃</span></li>
 							</ul>
 							<!-- 날씨 API 끝 -->
 						</div>
-
 						<!--  상세보기 컨텐츠 시작 -->
 						<div class="b-slide-menu__form__row row">
 							<div class="col-md-12">

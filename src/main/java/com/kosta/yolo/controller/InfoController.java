@@ -38,7 +38,7 @@ public class InfoController {
 
 	// 상세보기
 	@RequestMapping(value = "/detail_view", method = RequestMethod.GET)
-	public ModelAndView selectDetail(HttpServletRequest request, @RequestParam String trip_id) {
+	public ModelAndView selectDetail(HttpServletRequest request, @RequestParam String trip_id) throws Exception {
 		HttpSession session = request.getSession();
 		String user_id = (String) session.getAttribute("user_id");
 		UserVO vo = userService.userSelect(user_id);

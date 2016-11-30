@@ -131,18 +131,18 @@ function writeReview(obj) {
 $(document).ready(function () {
     size_li = $('#viewList_list li').size();
     x=8;
-    $('#viewList_list li:lt('+x+')').slideDown();
+    $('#viewList_list li:lt('+x+')').show();
     
-    $("#loadMore").click(function() {
+    $('#loadMore').click(function() {
         x= (x+4 <= size_li) ? x+4 : size_li;
-        $('#viewList_list li:lt('+x+')').slideDown();
+        $('#viewList_list li:lt('+x+')').show();
     });
     
-    $("#showLess").click(function() {
-        x=(x-4<0) ? 4 : x-4;
-        $('#viewList_list li').not(':lt('+x+')').slideUp();
+    $('#showLess').click(function() {
+        x=(x-4<0) ? 8 : x-4;
+        $('#viewList_list li').not(':lt('+x+')').hide();
     });
-    
+    //더보기 end
     $('#heart_icon*').each(function () {
     	var obj = $(this);
     	var trip_id = $(obj).attr('trip_id');

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+     
+<mapper namespace="com.kosta.yolo.dao.BookmarkMapper">
+
+	<insert id="bookmarkWrite" parameterType="com.kosta.yolo.vo.BookMarkVO">
+		insert into BookMark(user_id,trip_id) values(#{user_id} , #{trip_id})
+	</insert>
+    	
+    <select id="select_s" parameterType="com.kosta.yolo.vo.BookMarkVO" resultType="com.kosta.yolo.vo.BookMarkVO">
+    	select * from BookMark where (user_id = #{user_id}) and (trip_id =#{trip_id})
+    </select>
+    
+</mapper>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+     
+<mapper namespace="com.kosta.yolo.dao.MypageMapper">
+
+   <resultMap type="com.kosta.yolo.vo.UserReviewVO" id="ReviewMap" >
+      <result property="review_no" column="review_no"/>
+      <result property="user_id" column="user_id"/>
+      <result property="trip_id" column="trip_id"/>
+      <result property="review_content" column="review_content"/>
+      <result property="review_time" column="review_time"/>
+      
+   </resultMap>
+   <select id="reviewMypage" parameterType="java.lang.String" resultMap="ReviewMap">
+      SELECT * FROM UserReview WHERE user_id LIKE concat('%',#{user_id})  
+   </select>
+   
+   <select id ="bookmark_mypage" resultType ="com.kosta.yolo.vo.TripInfoVO">
+      select * from TripInfo t , BookMark b where t.trip_id = b.trip_id and b.user_id = #{user_id}   
+   </select>
+   
+   <delete id="bookmark_delete" parameterType="java.lang.String">
+         DELETE FROM BookMark WHERE trip_id = #{trip_id}
+   </delete>
+   
+   	<delete id="review_delete" parameterType="com.kosta.yolo.vo.UserReviewVO">
+		Delete from UserReview where review_no = #{review_no}
+	</delete>
+</mapper>
