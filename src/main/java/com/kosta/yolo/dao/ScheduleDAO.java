@@ -23,7 +23,6 @@ public class ScheduleDAO {
 	}
 
 	public ArrayList<TripPlanVO> mycalendar(String user_id){
-		System.out.println("dasdgsadgdsgsdgsadg    :"+user_id);
 		ScheduleMapper schedule = sqlSession.getMapper(ScheduleMapper.class);
 		ArrayList<TripPlanVO> list = schedule.mycalendar(user_id);
 		

@@ -43,15 +43,12 @@ public class ScheduleService {
 	}
 	
 
-	public ModelAndView calendar(HttpSession session){	
+	public ArrayList<TripPlanVO> calendar(HttpSession session){	
 		ModelAndView mav = new ModelAndView();
 		String user_id = (String) session.getAttribute("user_id");//로그인된 아이디를 TripPlan에서 가져오려구
 		ArrayList<TripPlanVO> list = scheduleDAO.mycalendar(user_id); 
-		int cost = list.get(0).getTrip_plan_pay_1()+list.get(0).getTrip_plan_pay_2()+list.get(0).getTrip_plan_pay_3(); //Total pay
-		System.out.println(cost+"원");
-		mav.addObject("cost", cost);
-		mav.addObject("list", list);
-		return mav;
+
+		return list;
 	}
 	/*
 	//달력만들기
