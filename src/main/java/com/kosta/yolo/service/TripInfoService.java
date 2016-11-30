@@ -129,7 +129,7 @@ public class TripInfoService {
 		System.out.println(dList);
 		System.out.println(wList);
 		System.out.println(tList);
-		//오늘온도 list
+		//오늘날짜 list
 		mav.addObject("today", dList.get(0));
 		mav.addObject("today2", dList.get(1));
 		mav.addObject("today3", dList.get(2));

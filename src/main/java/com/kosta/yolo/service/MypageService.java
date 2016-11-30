@@ -59,9 +59,6 @@ public class MypageService {
       mypageDAO.bookmark_delete(trip_id);
    }
    
-   
-   
-
 	
 	//리뷰 삭제하기
 	public void review_delete(UserReviewVO vo){

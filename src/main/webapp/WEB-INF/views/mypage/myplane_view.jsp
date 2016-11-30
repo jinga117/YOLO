@@ -1,4 +1,4 @@
-
+<%@page contentType="text/html; charset=utf-8" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -25,7 +25,7 @@
 			},
 			editable : true,
 			events : [ {
-				title : 'All Day Event',
+				title : '욜ㄹ로~~',
 				start : new Date(y, m, 1)
 			}, {
 				title : 'Long Event',
@@ -55,11 +55,6 @@
 				start : new Date(y, m, d + 1, 19, 0),
 				end : new Date(y, m, d + 1, 22, 30),
 				allDay : false
-			}, {
-				title : 'Click for Google',
-				start : new Date(y, m, 28),
-				end : new Date(y, m, 29),
-				url : 'http://google.com/'
 			} ]
 		});
 
@@ -67,6 +62,8 @@
 </script>
 </head>
 <body style="background-color:white;">
-	<div id='calendar' style='margin: 3em 0; font-size: 13px'></div>
+	<div id='calendar' style='margin: 3em 0;width:70%; font-size: 13px'>
+		
+		</div>
 </body>
 </html>
