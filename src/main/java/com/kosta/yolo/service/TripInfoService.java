@@ -29,119 +29,6 @@ public class TripInfoService {
 	
 	@Autowired
 	private TripInfoDAO infoDAO;
-	
-/*	
-	 public void Logic_Weather() {
-		 String[] temp = new String[3];
-		 String[] wfEn = new String[3];
-		 String[] hour1 = new String[3];
-		 
-	  try {
-	   DocumentBuilderFactory f = DocumentBuilderFactory.newInstance();
-	   DocumentBuilder parser = f.newDocumentBuilder();
-	 
-	   Document xmlDoc = null;
-	   String url = "http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=1121571000";
-	   xmlDoc = (Document) parser.parse(url);
-	 
-	   Element root = xmlDoc.getDocumentElement();
-	   // System.out.println(root.getTagName());
-	    
-	   for (int i = 0; i < temp.length; i++) {
-	    Node xmlNode1 = root.getElementsByTagName("data").item(i);
-	 
-	    Node xmlNode21 = ((Element) xmlNode1).getElementsByTagName(
-	      "temp").item(0);
-	    Node xmlNode22 = ((Element) xmlNode1).getElementsByTagName(
-	      "wfEn").item(0);
-	    Node xmlNode23 = ((Element) xmlNode1).getElementsByTagName(
-	      "hour").item(0);
-	     
-	    System.out.println(xmlNode21.getTextContent());
-	    System.out.println(xmlNode22.getTextContent());
-	    System.out.println( "기준시각 : " + xmlNode23.getTextContent() + "시");
-	    
-	    temp[i] = xmlNode21.getTextContent();
-	    wfEn[i] = xmlNode22.getTextContent();
-	    hour1[i] = "기준시각 : " + xmlNode23.getTextContent() + "시";
-	   }
-	 
-	  } catch (Exception e) {
-	   System.out.println(e.getMessage());
-	   System.out.println(e.toString());
-	  }
-	 }
-	*/
-	
-	/*private String rssFeed = "http://www.kma.go.kr/wid/queryDFS.jsp?gridx=%s&gridy=%s"; //주소
-       
-	
-
-     *  해당 좌표의 날씨 정보를 반환.
-
-    public List<Map<String, String>> getTownForecast(String x, String y) {        
-               
-        List<Map<String, String>> result = new ArrayList<Map<String, String>>();
-                
-        try {
-        
-            SAXBuilder parser = new SAXBuilder();        
-            parser.setIgnoringElementContentWhitespace(true);
-            
-            //URL url = new URL(rssFeed);
-            //InputSource is = new InputSource(url.openStream());
-            //Document doc = parser.build(is);
-            
-            String url = String.format(rssFeed, x, y);
-            Document doc = parser.build(url);
-            Element root = doc.getRootElement();
-            
-            Element channel = root.getChild("body");
-            List<Element> list = channel.getChildren("data");
-           
-            
-           
-            for (int i=0; i<list.size(); i++) {
-              
-                Element el = (Element)list.get(i);
-                
-                Map<String, String> data = new LinkedHashMap<String, String>();
-                
-                data.put("seq", el.getAttributeValue("seq"));   //48시간중 몇번째 인지 가르킴
-                data.put("hour",el.getChildTextTrim("hour") );     //동네예보 3시간 단위 
-                data.put("day",el.getChildTextTrim("day") );     //1번째날 (0: 오늘/1: 내일/2: 모레)
-                data.put("temp",el.getChildTextTrim("temp") );    //현재 시간온도
-                data.put("tmx",el.getChildTextTrim("tmx") );    //최고 온도 
-                data.put("tmn",el.getChildTextTrim("tmn") );    //최저 온도
-                data.put("sky",el.getChildTextTrim("sky") );    //하늘 상태코드 (1: 맑음, 2: 구름조금, 3:구름많음, 4:흐림)
-                data.put("pty",el.getChildTextTrim("pty") );    //강수 상태코드 (0: 없음, 1: 비, 2: 비/눈, 3: 눈/비, 4: 눈)
-                data.put("wfkor",el.getChildTextTrim("wfKor") ); //날씨 한국어
-                data.put("wfEn",el.getChildTextTrim("wfEn") );      //날씨 영어
-                data.put("pop",el.getChildTextTrim("pop") );     //강수 확률%
-                data.put("r12",el.getChildTextTrim("r12") );     //12시간 예상 강수량
-                data.put("s12",el.getChildTextTrim("s12") );     //12시간 예상 적설량
-                data.put("ws",el.getChildTextTrim("ws") );         //풍속(m/s)
-                data.put("wd",el.getChildTextTrim("wd") );         //풍향 (0~7:북, 북동, 동, 남동, 남, 남서, 서, 북서)
-                data.put("wdKor",el.getChildTextTrim("wdKor") ); //풍향 한국어
-                data.put("wdEn",el.getChildTextTrim("wdEn") );     //풍향 영어
-                data.put("reh",el.getChildTextTrim("reh") );     //습도 %
-                data.put("r06",el.getChildTextTrim("r06") );     //6시간 예상 강수량
-                data.put("s06",el.getChildTextTrim("s06") );     //6시간 예상 적설량
-                
-                System.out.println(data);
-                result.add(data);
-            }
-
-        } catch (JDOMException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        
-        return result;
-    }    
-*/
-	
 
 	// 상세보기
 	public ModelAndView detail_view(HttpServletRequest request, String trip_id) throws Exception {
@@ -158,8 +45,6 @@ public class TripInfoService {
 			mav.addObject("trip_id", trip_id);
 		}
 		
-	   //    getTownForecast("59","125");     
-		//Logic_Weather();
 		int count = infoDAO.reviewCount(trip_id);
 		ArrayList<TripInfoVO> detail = infoDAO.selectDetail(trip_id);
 		ArrayList<TripInfoVO> review = infoDAO.inforeview(trip_id);
