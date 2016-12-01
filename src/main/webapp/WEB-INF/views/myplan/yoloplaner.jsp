@@ -11,64 +11,69 @@
 	<table class="weekdays">
 		<tr class="choose">
 			<th class="choose_year">
-		    	<a href="yoloplan?year=${year-1}&month=${month}"> « Prev Year </a>
+		    	<a href="yoloplaner?year=${year-1}&month=${month}"> « Prev Year </a>
 			</th>
 			<th class="choose_month">
-				<a href="yoloplan?year=${year}&month=${month-1}">« Prev Month</a>
+				<a href="yoloplaner?year=${year}&month=${month-1}">« Prev Month</a>
 			</th>
-			<th colspan="3" class="current_year">
+			<th colspan="3" class="current_year"><a href="yoloplaner?year=${currentYear}&month=${currentMonth}">
 				 <span class="calendar_icon"><i class="fa fa-calendar" aria-hidden="true"></i></span> <span class="year_txt">${year}년</span>
-				<span class="month_txt"> ${month+1}월 </span>
+				<span class="month_txt"> ${month}월 </span></a>
 			</th>
 			<th class="choose_month">
-				<a href="yoloplan?year=${year}&month=${month+1}"> Next Month »</a>
+				<a href="yoloplaner?year=${year}&month=${month+1}"> Next Month »</a>
 			</th>
 			<th  class="choose_year">
-				<a href="yoloplan?year=${year+1}&month=${month}"> Next Year »</a>
+				<a href="yoloplaner?year=${year+1}&month=${month}"> Next Year »</a>
 			</th>
 		</tr>            
          <!-- 달력 부분 -->
-         <tr class="weekday">
-            <th><span class="sunday">일</span></th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th><span class="saturday">토</span></th>
-         </tr>
-          <c:set var="br" value="0" />
-
-         <c:if test="${startDay <=7 }">
-            <c:forEach var="i" begin="1" end="${startDay-1}">
-               <td class="day" >&nbsp;</td>
-               <c:set var="br" value="${br+1}" />
-            </c:forEach>
-         </c:if>
-	         <c:forEach var="a" begin="1" end="${end}">
-	            <c:if test="${(br%7) == 0}">
-	               <tr class="week" >
-	            </c:if>
-	               <td class="day" >
-	               <c:if test="${br==6 || br==13 || br==20 || br==27 || br==34}">
-	                  <b><font color="#004d66" >${a}</font></b>
-	               </c:if> 
-	               <c:if test="${br==0 || br==7 || br==14 || br==21 || br==28 || br==35}">
-	                  <b><font style="color: #cc3300">${a}</font></b>
-	               </c:if> 
-	               <c:if test="${br!=0 && br!=7 && br!=14 && br!=21 && br!=28 && br!=35 && br!=6 && br!=13 && br!=20 && br!=27 && br!=34}">
-	                  <b><font style="color: black">${a}</font></b>
+	     <tr class="weekday">
+	        <th><span class="sunday">일</span></th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th><span class="saturday">토</span></th>
+	     </tr>
+       <tbody>
+         <tr>
+         	<!-- 시작 공백부분 -->
+      	   <c:set var="i" value="0"></c:set>
+			<c:forEach begin="1" end="${startDay-1}" var="temp">
+				<td class="day">&nbsp;</td>
+				<c:set var="i" value="${temp}"></c:set>
+			</c:forEach>
+			<!-- 일자찍기 -->
+			<c:forEach begin="1" end="${end}" var="temp2" varStatus="idx">
+				<td class="day">
+					<c:if test="${i%6 != 0 && i%7 != 0 }">
+						<b>${temp2}</b><br><b>${trip[idx.index] }</b><b>${trip2[idx.index] }</b><b>${trip3[idx.index] }</b>
+					</c:if>
+	               <c:if test="${i%6==0 && i%7 != 0}">
+	                  <b><font class="saturday">${temp2}  </font></b><br><b>${trip[idx.index] }</b><b>${trip2[idx.index] }</b><b>${trip3[idx.index] }</b>
 	               </c:if>
-	                  <c:set var="br" value="${br+1}" />
-	               </td>
-	               
-	         </c:forEach>
-	         <c:set var="brend" value="${br}" />
-            <c:forEach var="i" begin="0" end="7">
-               <c:if test="${(brend%7) != 0 }">
-                  <c:set var="brend" value="${brend+1}" />
-               </c:if>
-            </c:forEach>
-            <c:forEach var="i" begin="${br}" end="${brend-1}">
-               <td class="day" >&nbsp;</td>
-            </c:forEach>
-	         
+	                <c:if test="${i%6==0 && i%7==0}">
+	                  <b><font class="sunday">${temp2}</font></b><br><b>${trip[idx.index] }</b><b>${trip2[idx.index] }</b><b>${trip3[idx.index] }</b>
+	               </c:if>  
+				</td>
+				<c:set var="i" value="${i+1}"/>
+				
+				<c:choose>
+					<c:when test="${i==7}">
+						<c:if test="${temp2<= end}">
+						<tr>
+						</c:if>
+						<c:set var="i" value="0"></c:set>
+					</c:when>
+				</c:choose>
+			</c:forEach>  
+			<!-- 마지막공백부분 -->
+			<c:forEach begin="0" end="7">
+				<c:if test="${(i%7) != 0 }">
+				 	<c:set var="i" value="${i+1}" />
+				 	<td class="day" >&nbsp;</td>
+				 </c:if>
+			</c:forEach>
+		</tr>
+		</tbody>
       </table>
-      </div>
+   </div>
    </div>
    <!-- 컨텐츠 영역 끝 -->
 

@@ -38,26 +38,29 @@ public class ScheduleController {
 		}
 	}
 
-	@RequestMapping("/yoloplan")
-	public ModelAndView plan(HttpSession session) {
-		ModelAndView mav = new ModelAndView();
-		ArrayList<TripPlanVO> list = scheduleservice.calendar(session);
-		if (list.size() == 0) {
-			mav.setViewName("myplan/planfail");
-			return mav;
-		} else {
-			int cost =Integer.parseInt(list.get(0).getTrip_plan_pay_1()) + Integer.parseInt(list.get(0).getTrip_plan_pay_2())
-					+ Integer.parseInt(list.get(0).getTrip_plan_pay_3()); // Total pay
-			System.out.println(cost+" 원");
-			mav.addObject("cost", cost);
-			mav.addObject("list", list);
-			//mav.setViewName("");
-			return mav;
-		}
-		/*
-		 * ModelAndView mav = new ModelAndView();
-		 * scheduleservice.calendar(request);
-		 * mav.setViewName("myplan/yoloplaner"); return mav;
-		 */
+	 @RequestMapping("/yoloplan")
+	   public ModelAndView plan(HttpSession session) {
+	      ModelAndView mav = scheduleservice.calendar(session);
+	      if (session.getAttribute("user_id")==null) {
+	         mav.setViewName("myplan/planfail");
+	         System.out.println(11);
+	         return mav;
+	      } else {         
+	         System.out.println(1000000);
+	         
+	         mav.setViewName("myplan/yoloplaner");
+	         //mav.setViewName("");
+	      }
+	         return mav;
+	      }
+	
+	@RequestMapping("/yoloplaner")
+	public ModelAndView calend(HttpServletRequest request) throws Exception {
+
+		 ModelAndView mav = new ModelAndView();
+		 scheduleservice.calen(request);
+		 mav.setViewName("myplan/yoloplaner"); 
+		 return mav;
+
 	}
 }// class end

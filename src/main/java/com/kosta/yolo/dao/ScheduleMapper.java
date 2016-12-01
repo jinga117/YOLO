@@ -11,5 +11,5 @@ public interface ScheduleMapper  extends Serializable  {
 	
 	ArrayList<TripInfoVO> all();
 	public ArrayList<TripPlanVO> mycalendar(String user_id);	//YoloPlan
-	
+	ArrayList<TripPlanVO> cal(TripPlanVO vo);
 }
