@@ -105,6 +105,10 @@ public class ScheduleService {
 		HashMap<Integer, String> trip = new HashMap<>();
 		HashMap<Integer, String> trip2 = new HashMap<>();
 		HashMap<Integer, String> trip3 = new HashMap<>();
+		HashMap<Integer, String> pay = new HashMap<>();
+		HashMap<Integer, String> pay2 = new HashMap<>();
+		HashMap<Integer, String> pay3 = new HashMap<>();
+		HashMap<Integer, String>hap = new HashMap<>();
 		String planstart = "";
 		int day;
 
@@ -125,6 +129,9 @@ public class ScheduleService {
 			System.out.println("day_"+day_);
 			day = Integer.parseInt(day_);
 			trip.put(day, planList.get(i).getTrip_nickname_1());
+			if(!planList.get(i).getTrip_plan_pay_1().equals("0")){
+				pay.put(day, planList.get(i).getTrip_plan_pay_1());
+			}
 		}
 		
 
@@ -143,7 +150,9 @@ public class ScheduleService {
 			System.out.println("1 : "+str);
 			int day1 = Integer.parseInt(str.substring(6));
 			trip2.put(day1, planList.get(i).getTrip_nickname_2());
-			
+			if(!planList.get(i).getTrip_plan_pay_2().equals("0")){
+				pay2.put(day1, planList.get(i).getTrip_plan_pay_2());
+			}
 			//3일날
 			cal.add(Calendar.DATE, 1);
 			str = sdf.format(cal.getTime());
@@ -153,6 +162,15 @@ public class ScheduleService {
 			vo.setTrip_start(year2+"-"+month2);
 			int day2 = Integer.parseInt(str.substring(6));
 			trip3.put(day2, planList.get(i).getTrip_nickname_3());
+			if(!planList.get(i).getTrip_plan_pay_3().equals("0")){
+				pay3.put(day2, planList.get(i).getTrip_plan_pay_3());
+			}
+			int p = Integer.parseInt(planList.get(i).getTrip_plan_pay_1());
+			int p2 = Integer.parseInt(planList.get(i).getTrip_plan_pay_2());
+			int p3 = Integer.parseInt(planList.get(i).getTrip_plan_pay_3());
+			
+			String sum =String.valueOf( p+p2+p3);
+			hap.put(day2, sum);
 		}
 
 	    request.setAttribute("year", new Integer(year));
@@ -168,6 +186,10 @@ public class ScheduleService {
 	    request.setAttribute("trip", trip);
 	    request.setAttribute("trip2", trip2);
 	    request.setAttribute("trip3", trip3);
+	    request.setAttribute("pay", pay);
+	    request.setAttribute("pay2", pay2);
+	    request.setAttribute("pay3", pay3);
+	    request.setAttribute("hap", hap);
 	    
 	    return request;
 	}
