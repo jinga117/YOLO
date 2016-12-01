@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>북마크 실패</title>
+<title>일정보기 실패</title>
 </head>
 <body>
 	<script type="text/javascript">

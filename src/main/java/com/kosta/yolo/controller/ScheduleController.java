@@ -46,9 +46,8 @@ public class ScheduleController {
 			mav.setViewName("myplan/planfail");
 			return mav;
 		} else {
-
-			int cost = list.get(0).getTrip_plan_pay_1() + list.get(0).getTrip_plan_pay_2()
-					+ list.get(0).getTrip_plan_pay_3(); // Total pay
+			int cost =Integer.parseInt(list.get(0).getTrip_plan_pay_1()) + Integer.parseInt(list.get(0).getTrip_plan_pay_2())
+					+ Integer.parseInt(list.get(0).getTrip_plan_pay_3()); // Total pay
 			System.out.println(cost+" 원");
 			mav.addObject("cost", cost);
 			mav.addObject("list", list);
@@ -61,5 +60,4 @@ public class ScheduleController {
 		 * mav.setViewName("myplan/yoloplaner"); return mav;
 		 */
 	}
-
 }// class end
