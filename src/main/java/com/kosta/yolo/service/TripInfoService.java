@@ -2,7 +2,6 @@ package com.kosta.yolo.service;
 
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -22,6 +21,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kosta.yolo.dao.TripInfoDAO;
+import com.kosta.yolo.vo.RecommandVO;
 import com.kosta.yolo.vo.TripInfoVO;
 import com.kosta.yolo.vo.UserReviewVO;
 
@@ -212,6 +212,21 @@ public class TripInfoService {
 		mav.addObject("personList", personList);
 		return mav;
 	}
+	
+	// list_recommand전체 리스트
+	  public ModelAndView list_recommand(String re_num) {
+	     ModelAndView mav = new ModelAndView();
+	     ArrayList<RecommandVO> recommList = infoDAO.RecommAll(re_num);
+	     mav.addObject("recommList", recommList);
+	     return mav;
+	  }
+	  // 추천 일정 상세페이지 전체 리스트
+	  public ModelAndView detail_view_recommand(String re_onum) {
+	     ModelAndView mav = new ModelAndView();
+	     ArrayList<RecommandVO> recommList = infoDAO.RecommOnum(re_onum);
+	     mav.addObject("recommList", recommList);
+	     return mav;
+	  }
 	
 	//list_restaurant전체 리스트
 	public ModelAndView list_restaurant(){

@@ -3,6 +3,7 @@ package com.kosta.yolo.dao;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import com.kosta.yolo.vo.RecommandVO;
 import com.kosta.yolo.vo.TripInfoVO;
 import com.kosta.yolo.vo.UserReviewVO;
 
@@ -29,6 +30,12 @@ public interface TripInfoMapper  extends Serializable  {
 	//좋아요
 	int likeCount(String trip_id);
 	int selectLikeCount(String trip_id);
+	
+	//추천일정 전체 리스트 뿌리기
+	ArrayList<RecommandVO> RecommAll(String re_num);
+	
+	//추천일정 상세보기 리스트 뿌리기
+	ArrayList<RecommandVO> RecommOnum(String re_onum);
 	
 	//전체 리스트 뿌리기
 	ArrayList<TripInfoVO> InfoAll();

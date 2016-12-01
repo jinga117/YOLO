@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.kosta.yolo.vo.RecommandVO;
 import com.kosta.yolo.vo.TripInfoVO;
 import com.kosta.yolo.vo.UserReviewVO;
 
@@ -62,6 +63,20 @@ public class TripInfoDAO {
 		info.likeCount(trip_id);
 		return info.selectLikeCount(trip_id);
 	}
+	
+	// 추천일정 전체 리스트
+	   public ArrayList<RecommandVO> RecommAll(String re_num) {
+	      TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+	      ArrayList<RecommandVO> recommList = info.RecommAll(re_num);
+	      return recommList;
+	   }
+
+	   // 추천일정 상세보기 전체 리스트
+	   public ArrayList<RecommandVO> RecommOnum(String re_onum) {
+	      TripInfoMapper info = sqlSession.getMapper(TripInfoMapper.class);
+	      ArrayList<RecommandVO> recommList = info.RecommOnum(re_onum);
+	      return recommList;
+	   }
 	
 	//전체 리스트 뿌리기
 	public ArrayList<TripInfoVO> InfoAll() {
