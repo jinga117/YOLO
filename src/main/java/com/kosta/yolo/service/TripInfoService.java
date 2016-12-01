@@ -2,6 +2,7 @@ package com.kosta.yolo.service;
 
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -33,6 +34,7 @@ public class TripInfoService {
 	// 상세보기
 	public ModelAndView detail_view(HttpServletRequest request, String trip_id) throws Exception {
 		ModelAndView mav = new ModelAndView();
+		
 
 		//로그인 되었을 때 세션에 저장된 user_id 가져오기
 		HttpSession session = request.getSession(false);
@@ -44,10 +46,22 @@ public class TripInfoService {
 			mav.addObject("user", user);
 			mav.addObject("trip_id", trip_id);
 		}
-		
+		//댓글수
 		int count = infoDAO.reviewCount(trip_id);
+		
+		//상세보기리스트
 		ArrayList<TripInfoVO> detail = infoDAO.selectDetail(trip_id);
+		//리뷰리스트
 		ArrayList<TripInfoVO> review = infoDAO.inforeview(trip_id);
+		
+		
+/*		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd E요일 hh:mm");
+		UserReviewVO vo = new UserReviewVO();
+		Timestamp ts = vo.getReview_time();
+		String time = sdf.format(ts);
+		System.out.println(time);
+		mav.addObject("time", time);
+		*/
 		mav.addObject("detailList", detail);
 		mav.addObject("count", count);
 		mav.addObject("reviewList", review);
@@ -56,8 +70,8 @@ public class TripInfoService {
 		Date date = new Date();
 		//캘린더객체이용
 		Calendar cal = Calendar.getInstance();
-		SimpleDateFormat sdf = new SimpleDateFormat("MM / dd");
-		String currentDate = sdf.format(date);
+		SimpleDateFormat sdf2 = new SimpleDateFormat("MM / dd");
+		String currentDate = sdf2.format(date);
 		List dList = new ArrayList();	
 		//현재 날짜 담기
 		dList.add(currentDate);
@@ -65,7 +79,7 @@ public class TripInfoService {
 		for (int i = 0; i < 6; i++ ) {
 			for (int j=1;j<2;j++) {
 				cal.add(Calendar.DATE, j);
-				String today = sdf.format(cal.getTime());
+				String today = sdf2.format(cal.getTime());
 				
 				dList.add(today);
 			}
@@ -119,7 +133,8 @@ public class TripInfoService {
 			//뽑은 day 저장
 			String day = (tObject.get("day")).toString();
 			//켈빈->썹씨 변형과정
-			Double dayc = Double.parseDouble(day)-273.15;
+			Double dayc = Double.parseDouble(day)-279.15;
+			
 			//int타입으로 변형 (썹씨)
 			int dayC = Integer.parseInt(String.valueOf(Math.round(dayc)));
 			
@@ -164,11 +179,12 @@ public class TripInfoService {
 		vo.setUser_id(request.getParameter("user_id"));
 		vo.setTrip_id(request.getParameter("trip_id"));
 		vo.setReview_content(request.getParameter("review_content"));
-		
+
 		infoDAO.writeReview(vo);		// 리뷰 쓰기
 		infoDAO.reviewCount(vo.getTrip_id());		// 댓글수
 		
 		ArrayList<UserReviewVO> review = infoDAO.recentReview(vo.getTrip_id());
+		
 		return review;
 	}
 	

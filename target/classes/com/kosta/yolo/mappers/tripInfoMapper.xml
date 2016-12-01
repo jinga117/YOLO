@@ -146,7 +146,7 @@
 
     	<!-- 리뷰 보기 -->
     	<select id="recentReview" parameterType="String"  resultType="com.kosta.yolo.vo.UserReviewVO">
-    		SELECT u.review_no, u.user_id, u.trip_id, u.review_content, u.review_time as review_time
+    		SELECT u.review_no, u.user_id, u.trip_id, u.review_content,  u.review_time as review_time
     		 FROM UserReview u 
     		WHERE u.trip_id = #{trip_id} 
     		ORDER BY u.review_no DESC 
