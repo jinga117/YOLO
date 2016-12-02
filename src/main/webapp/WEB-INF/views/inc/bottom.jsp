@@ -33,7 +33,7 @@
 						<li><a href="list_attraction">Attraction</a></li>
 						<li><a href="list_restaurant">Restaurants</a></li>
 						<li><a href="list_shopping?category_id=c02">Shopping</a></li>
-						<li><a href="trip_schedule">YOLO Plan</a></li>
+						<li><a href="yoloplaner">YOLO Plan</a></li>
 					</ul>
 				</div>
 			</div>
@@ -102,12 +102,6 @@
 				$("#trip_plan_delete").remove();
 			});
 			
-			// Day 선택하기
-			$('.plan_day_circle_link*').click(function() {
-				$('.plan_popup_wrap_1').show();
-				/* $('.plan_popup_wrap').show(); */
-			});
-			
 		 	$('.html_popup').popup({
 		      	content: str,
 				type: 'html'
@@ -119,13 +113,14 @@
 			var trip_nickname = $('#plan_trip_nickname').val();
 			var trip_day = $(obj).attr('day');
 	
-			// 하루에 한개만 선택
+			// 일정짜기에서 Day 당 한 장소만 선택하게 하기
 			var countDay = $('#day'+trip_day).find('li').length;
 			if (countDay >= 1) {
 				alert ("하루에 한 장소만 선택 가능합니다.");
 				return false;
 			};
-	
+			
+			//일정짜기에서 같은 장소 중복 선택 못 하게 하기
 			var existsFlag = false;
 			$('.b-plan-menu-day-txt*').each(function () {
 				var trip_id_this = $(this).attr('trip_id');
@@ -205,15 +200,16 @@
 				}      
 			});
 		}
-
+		
+		// Day 선택하면 선택한 Day div 가 보이게 하기
 		function showDiv(obj) {
 			var trip_day = $(obj).attr('trip_day');
 			var parent = $(obj).closest('div').find('#plan_popup_wrap_'+trip_day);
 			$(parent).attr('visibility', '');
 			$(parent).attr('z-index', '9999999');
-			$(parent).attr('top', 50);
+			$(parent).attr('top', 80);
 			$(parent).show();
-			$('#plan_start_wrap').hide();
+			$('#plan_start_wrap').hide(); // Day 선택하면 출발일 감추기
 		}
 	</script>
 	<input type="hidden" id="plan_trip_id">

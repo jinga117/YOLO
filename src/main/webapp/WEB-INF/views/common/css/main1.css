@@ -4353,6 +4353,7 @@ html .btn--buy-ticket:hover {
 	padding:40px;
 	text-align:center;
 	width:auto;
+	margin-bottom:10px;
 	border-radius:10px;
 	border:3px dashed #ddd;
 }
@@ -4370,8 +4371,9 @@ html .btn--buy-ticket:hover {
 	font:12px "Malgun Gothic";
 }
 
-.plan_popup_wrap_1 {
-	z-index:10;
+.plan_popup_wrap {
+	display:none;
+	margin-top:20px;	
 }
 /* .plan_popup_wrap_1, .plan_popup_wrap_2, .plan_popup_wrap_3 {
 	position:absolute;
