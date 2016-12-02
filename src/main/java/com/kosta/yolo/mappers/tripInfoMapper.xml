@@ -29,15 +29,6 @@
     		SELECT * FROM TripInfo WHERE food_id NOT IN ("") 
     	</select> 
     	
-    	<!-- 추천일정 전체 리스트 -->
-       <select id="RecommAll"  resultType="com.kosta.yolo.vo.TripInfoVO">
-          SELECT * FROM TripInfo t, Recommand r WHERE t.trip_id = r.trip_id AND re_num LIKE concat("%",#{re_num},"%")
-       </select>
-       
-       <!-- 추천일정 상세보기 리스트 -->
-       <select id="RecommOnum"  resultType="com.kosta.yolo.vo.TripInfoVO" >
-          SELECT * FROM TripInfo t, Recommand r WHERE t.trip_id = r. trip_id AND re_onum = #{re_onum}
-       </select>
     	
 <!--*****************************************************************************************************************************************-->
     	

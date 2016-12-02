@@ -31,12 +31,6 @@ public interface TripInfoMapper  extends Serializable  {
 	int likeCount(String trip_id);
 	int selectLikeCount(String trip_id);
 	
-	//추천일정 전체 리스트 뿌리기
-	ArrayList<RecommandVO> RecommAll(String re_num);
-	
-	//추천일정 상세보기 리스트 뿌리기
-	ArrayList<RecommandVO> RecommOnum(String re_onum);
-	
 	//전체 리스트 뿌리기
 	ArrayList<TripInfoVO> InfoAll();
 	

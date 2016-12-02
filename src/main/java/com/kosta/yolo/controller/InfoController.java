@@ -195,30 +195,5 @@ public class InfoController {
 		return mav;
 	}
 
-	// 추천일정 상세보기
-   @RequestMapping(value = "/detail_view_recommand", method = RequestMethod.GET)
-   public ModelAndView RecommOnum(HttpServletRequest request,@RequestParam String trip_id, @RequestParam String re_onum) throws Exception {
-      HttpSession session = request.getSession();
-      String user_id = (String) session.getAttribute("user_id");
-      UserVO vo = userService.userSelect(user_id);
-      ModelAndView mav = infoService.detail_view_recommand(re_onum);
-      infoService.view_Count(trip_id); // 조회수
-
-      // admin 널 값일 때 에러페이지가 뜨는데 vo 객체에 if문으로 유무 확인 후 isadmin 처리
-      if (vo != null) {
-         mav.addObject("isadmin", vo.getIsadmin());
-      }
-
-      mav.setViewName("trip_Info/detail_view_recommand");
-      return mav;
-   }
-   
-   // 추천 전체 리스트
-   @RequestMapping("/list_recommand")
-   public ModelAndView list_recommand(@RequestParam String re_num) {
-      ModelAndView mav = infoService.list_recommand(re_num);
-      mav.setViewName("trip_Info/list_recommand");
-      return mav;
-   }
 }
 
