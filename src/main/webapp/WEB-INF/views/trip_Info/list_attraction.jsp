@@ -111,7 +111,7 @@
 			<!--  Load More 시작 -->
 			<div class="row m--centered">
 				<div class="col-md-4 col-md-offset-4">
-					<a class="btn" id="loadMore">더보기</a>&nbsp; <a class="btn" id="showLess">접어 보기</a>
+					<a class="btn" id="loadMore">더보기</a>&nbsp; <a class="btn" id="showLess"> &nbsp; 접기 &nbsp; </a>
 				</div>
 			</div>
 			<!--  Load More 끝 -->

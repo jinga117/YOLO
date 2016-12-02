@@ -37,7 +37,18 @@
 								<h5 class="b-pop-place__cat">${list.trip_add1} ${list.trip_add2}</h5>
 								<!-- 일정추가 시작 -->
 								<div class="list_add_icon_wrap">
-									<div class="list_add_icon" data-toggle="tooltip" data-placement="top" title="일정추가"><i class="fa fa-calendar" aria-hidden="true"></i></div>
+									<div class="list_add_icon" data-toggle="tooltip" data-placement="top" title="일정추가" onClick="setTripId('${list.trip_id}', '${list.trip_nickname}')">
+										<c:if test="${user_id == null }">
+											<a href="#" onclick="javascript:alert('로그인 후 이용 가능합니다.');return false;" >
+												<i class="fa fa-calendar" aria-hidden="true"></i>
+											</a>
+										</c:if>
+										<c:if test="${user_id != null }">
+											<a href="#" class="html_popup" >
+												<i class="fa fa-calendar" aria-hidden="true"></i>
+											</a>
+										</c:if>
+									</div>
 								</div>
 								<!-- 일정추가 끝 -->
 								<div class="b-pop-place-comment m--centered">
@@ -78,10 +89,17 @@
 									<h5 class="b-pop-place__cat">${list.trip_add1} ${list.trip_add2}</h5>
 									<!-- 일정추가 시작 -->
 									<div class="list_add_icon_wrap">
-										<div class="add_plan_icon" data-toggle="tooltip" data-placement="top" title="일정추가">
-											<a href="#" class="html_popup">
-												<i class="fa fa-calendar" aria-hidden="true"></i>
-											</a>
+										<div class="add_plan_icon" data-toggle="tooltip" data-placement="top" title="일정추가" onClick="setTripId('${list.trip_id}', '${list.trip_nickname}')">
+											<c:if test="${user_id == null }">
+												<a href="#" onclick="javascript:alert('로그인 후 이용 가능합니다.');return false;" >
+													<i class="fa fa-calendar" aria-hidden="true"></i>
+												</a>
+											</c:if>
+											<c:if test="${user_id != null }">
+												<a href="#" class="html_popup">
+													<i class="fa fa-calendar" aria-hidden="true"></i>
+												</a>
+											</c:if>
 										</div>
 									</div>
 									<!-- 일정추가 끝 -->
@@ -100,7 +118,7 @@
 			<!--  Load More 시작 -->
 			<div class="row m--centered">
 				<div class="col-md-4 col-md-offset-4">
-					<a class="btn" id="loadMore">Load more</a>&nbsp; <a class="btn" id="showLess">Show less</a>
+					<a class="btn" id="loadMore">더보기</a>&nbsp; <a class="btn" id="showLess">&nbsp; 접기 &nbsp;</a>
 				</div>
 			</div>
 			<!--  Load More 끝 -->
