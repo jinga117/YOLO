@@ -62,7 +62,7 @@
                     </ul>
                 </li>
                 
-                <li class="menu-item-has-children"> <a href="list_restaurant"><i class="fa fa-cutlery" aria-hidden="true"></i>Restaurant</a>
+                <li class="menu-item-has-children"><a href="list_restaurant"><i class="fa fa-cutlery" aria-hidden="true"></i>Restaurant</a>
                     <ul>
                         <li><a href="list_restaurant_search?food_id=f01">restaurant</a></li>
                         <li><a href="list_restaurant_search?food_id=f02">Bakery & Cafe</a></li>
