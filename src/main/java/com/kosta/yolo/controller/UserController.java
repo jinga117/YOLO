@@ -73,8 +73,8 @@ public class UserController {
    @RequestMapping("/logout")
    public String logout(HttpServletRequest request){
       
-      HttpSession session = request.getSession();
-      session.invalidate();
+      HttpSession session = request.getSession(); 
+      session.invalidate(); // 로그아웃시 현재 가지고 있는 id값을 지우기 위해 사용
       
       return "login/loginOut";
    }
@@ -83,7 +83,7 @@ public class UserController {
    @RequestMapping("/userlist")
    public ModelAndView list(){
       System.out.println("여긴 컨트롤러!!! ");
-      ModelAndView mav = userService.list();
+      ModelAndView mav = userService.list(); // 현재 가입되어 있는 유저들의 정보를 가져오기 위함 (관리자)
       mav.setViewName("user/userlist");
       
       return mav;
@@ -93,10 +93,10 @@ public class UserController {
    @RequestMapping(value = "/user_update", method = RequestMethod.GET)
    public ModelAndView update(HttpServletRequest request) {
 	  HttpSession session = request.getSession();
-	  String user_id = (String) session.getAttribute("user_id");
+	  String user_id = (String) session.getAttribute("user_id"); //현재 로그인 되어있는 id를 가지고오기 위해 세션을 사용
 	  ModelAndView mav = new ModelAndView();
-	  UserVO vo = userService.userSelect(user_id);
-	  mav.addObject("vo",vo);
+	  UserVO vo = userService.userSelect(user_id); //id의 정보를 가져옴
+	  mav.addObject("vo",vo); // textbox에 id의 정보가 자동 주입하기위해 셋 시켜줌
 	  mav.setViewName("user/user_update");
 	      
 	  return mav;
@@ -104,7 +104,7 @@ public class UserController {
 
    @RequestMapping(value = "/user_update", method = RequestMethod.POST)
    public ModelAndView updatePro(UserVO vo) {
-      ModelAndView mav = userService.updatePro(vo);
+      ModelAndView mav = userService.updatePro(vo); 
       mav.setViewName("mypage/mypage_main");
       
       return mav;
@@ -114,10 +114,10 @@ public class UserController {
    @RequestMapping("/user_delete")
    public ModelAndView delete(HttpServletRequest request) {
       ModelAndView mav = new ModelAndView();
-      HttpSession session = request.getSession();
-      String user_id = (String) session.getAttribute("user_id");
-      UserVO vo = userService.userSelect(user_id);
-      mav.addObject("vo",vo);
+      HttpSession session = request.getSession(); 
+      String user_id = (String) session.getAttribute("user_id"); //현재 로그인 되어있는 id를 가지고오기 위해 세션을 사용
+      UserVO vo = userService.userSelect(user_id); //id의 정보를 가져옴
+      mav.addObject("vo",vo); // textbox 에 아이디가 자동 주입하기위해 셋 시켜줌
       mav.setViewName("user/user_delete");
       
       return mav;
@@ -127,9 +127,9 @@ public class UserController {
    @RequestMapping(value = "/user_deletePro", method = RequestMethod.POST)
    public ModelAndView DeletePro(HttpServletRequest request, UserVO vo) {
       ModelAndView mav = new ModelAndView();
-      HttpSession session = request.getSession();
+      HttpSession session = request.getSession(); 
       int check = 0;
-      check =  userService.deletePro(vo);
+      check =  userService.deletePro(vo); // 체크 값으로 비밀번호 true/false 를 분류해주기 위해서 return을 int로 받아줌
       if(check == 0)
       {
     	 check=0;
@@ -137,7 +137,8 @@ public class UserController {
     	 mav.setViewName("user/user_delete");
     	 return mav;
       }else
-    	  session.invalidate();
+    	  session.invalidate(); // invalidate 를 한 이유는 탈퇴후 로그인이 되어있어서 
+      							// 세션을 지우고 초기 페이지로 전환하기 위해 invalidate를 씀
     	  mav.setViewName("index"); 
       return mav;
    }
@@ -154,14 +155,15 @@ public class UserController {
    @RequestMapping("/confirm_Id")
    public ModelAndView confirm_Id(UserVO vo){
 	   ModelAndView mav = new ModelAndView();
-	   int check = userService.confirmCheck(vo);
+	   int check = userService.confirmCheck(vo); // 중복아이디가 없게하기 위해 
+	   											// 리턴 값을 int로 받아 처리
 	   System.out.println(check);
-	   if (check == 1) {
+	   if (check == 1) { // 이미 사용중인 아이디
 		   mav.addObject("check",check);
 		   mav.addObject("user_id",vo.getUser_id());
 		   mav.setViewName("login/confirm_Id");
 	       return mav;
-	   }else if(check == 0){
+	   }else if(check == 0){ // 사용 가능한 아이디
 		   mav.addObject("check",check);
 		   mav.addObject("user_id",vo.getUser_id());
 		   mav.setViewName("login/confirm_Id");
@@ -176,29 +178,29 @@ public class UserController {
    @RequestMapping("/findid") 
    public String find_id(Model model) {
      
-      return "user/findid"; 
+      return "user/findid"; // 뷰페이지
    } 
    
    // 비밀번호 찾기
    @RequestMapping("/findpwd") 
    public String find_pwd(Model model) {
      
-      return "user/findpwd"; 
+      return "user/findpwd"; // 뷰페이지
    }
    
    // 아이디 중복확인
    @RequestMapping("/find_idCheck")
    public ModelAndView find_idPro(UserVO vo){
 	   ModelAndView mav = new ModelAndView();
-	  vo = userService.userIdFindCheck(vo);
-	   if(vo!=null){
+	  vo = userService.userIdFindCheck(vo); // 찾는 id가 db 상에 있는지 확인
+	   if(vo!=null){ // db상에 id가 있을때의 처리
 		   int num =1;
-		   mav.addObject("num",num);
+		   mav.addObject("num",num); 
 		   mav.addObject("user_id",vo.getUser_id());
-		   mav.setViewName("user/find_idPro");
+		   mav.setViewName("user/find_idPro"); 
 		   return mav;
 	   }
-	   else{
+	   else{// db 상에 찾는 ID가 없을때의 처리
 		   int num=0;
 		   mav.addObject("num", num);
 		   mav.setViewName("user/find_idPro");
@@ -210,15 +212,15 @@ public class UserController {
    @RequestMapping("/find_pwdCheck")
    public ModelAndView find_pwdPro(UserVO vo){
 	   ModelAndView mav = new ModelAndView();
-	  vo = userService.userPwdFindCheck(vo);
-	   if(vo!=null){
+	  vo = userService.userPwdFindCheck(vo);// 찾는 password가 db 상에 있는지 확인
+	   if(vo!=null){//db상에 password가 있을때의 처리
 		   int num =1;
 		   mav.addObject("num",num);
 		   mav.addObject("password",vo.getPassword());
 		   mav.setViewName("user/find_pwdPro");
 		   return mav;
 	   }
-	   else{
+	   else{//db상에 password가 있을때의 처리
 		   int num=0;
 		   mav.addObject("num", num);
 		   mav.setViewName("user/find_pwdPro");
