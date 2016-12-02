@@ -162,15 +162,20 @@ public class ScheduleService {
 			vo.setTrip_start(year2+"-"+month2);
 			int day2 = Integer.parseInt(str.substring(6));
 			trip3.put(day2, planList.get(i).getTrip_nickname_3());
+			
 			if(!planList.get(i).getTrip_plan_pay_3().equals("0")){
 				pay3.put(day2, planList.get(i).getTrip_plan_pay_3());
 			}
+			
 			int p = Integer.parseInt(planList.get(i).getTrip_plan_pay_1());
 			int p2 = Integer.parseInt(planList.get(i).getTrip_plan_pay_2());
 			int p3 = Integer.parseInt(planList.get(i).getTrip_plan_pay_3());
 			
-			String sum =String.valueOf( p+p2+p3);
-			hap.put(day2, sum);
+			String sum = "총합 : " ;
+			sum += String.valueOf( p+p2+p3);
+			if(!sum.equals("0")){
+				hap.put(day2, sum);
+			}
 		}
 
 	    request.setAttribute("year", new Integer(year));

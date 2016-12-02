@@ -51,7 +51,7 @@
 	               <c:if test="${i%6==0 && i%7 != 0}">
 	                  <b><font class="saturday">${temp2}  </font></b><br>
 	                  <b>${trip[idx.index] }</b><b>${trip2[idx.index] }</b><b>${trip3[idx.index] }</b><br>
-						<b>${pay[idx.index] }</b><b>${pay2[idx.index] }</b><b>${pay3[idx.index] }</b>
+						<b>${pay[idx.index] }</b><b>${pay2[idx.index] }</b><b>${pay3[idx.index] }</b> 
 						<br><b>${hap[idx.index] }</b>
 	               </c:if>
 	                <c:if test="${i%6==0 && i%7==0}">
