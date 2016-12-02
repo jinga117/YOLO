@@ -73,8 +73,10 @@
                 	<a href="list_shopping?category_id=c03"><i class="fa fa-gift" aria-hidden="true"></i>Shopping</a>
                 </li>
                 
-                <li>
-                	<a href="yoloplan"><i class="fa fa-calendar" aria-hidden="true"></i>Yolo Plan</a>
+                <li class="menu-item-has-children"><a href="yoloplan"><i class="fa fa-calendar" aria-hidden="true"></i>Yolo Plan</a>
+                	<ul>
+                		<li><a href="list_recommand?re_num=re">추천 일정</a></li>
+                	</ul>
                 </li>
                 
                 <!-- 관리자 일 때 -->

@@ -22,16 +22,16 @@ public class TripPlanDAO {
 	}
 		
 	// 추천일정 전체 리스트
-	   public ArrayList<RecommandVO> RecommAll(String re_num) {
-	      TripPlanMapper plan = sqlSession.getMapper(TripPlanMapper.class);
-	      ArrayList<RecommandVO> recommList = plan.RecommAll(re_num);
-	      return recommList;
-	   }
+	public ArrayList<RecommandVO> RecommAll(String re_num) {
+	   TripPlanMapper plan = sqlSession.getMapper(TripPlanMapper.class);
+	   ArrayList<RecommandVO> recommList = plan.RecommAll(re_num);
+	   return recommList;
+	}
 
-	   // 추천일정 상세보기 전체 리스트
-	   public ArrayList<RecommandVO> RecommOnum(String re_onum) {
-		   TripPlanMapper plan = sqlSession.getMapper(TripPlanMapper.class);
-	      ArrayList<RecommandVO> recommList = plan.RecommOnum(re_onum);
-	      return recommList;
-	   }
+	// 추천일정 상세보기 리스트
+	public ArrayList<RecommandVO> RecommOnum(String re_onum) {
+	   TripPlanMapper plan = sqlSession.getMapper(TripPlanMapper.class);
+	   ArrayList<RecommandVO> recommList = plan.RecommOnum(re_onum);
+	   return recommList;
+	}
 }
