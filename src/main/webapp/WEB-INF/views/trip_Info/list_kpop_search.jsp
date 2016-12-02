@@ -8,7 +8,7 @@
 	<!-- 컨텐츠 영역 시작 -->
     <div class="b-main-container" id="content">
 		<div class="b-pop-places container">
-			<h2 class="b-cont-title" >KPOP Top5</h2>
+			<h2 class="b-cont-title" >한류 Top5</h2>
             <div id="hidediv">
             <div class="b-slider owl-carousel owl-carousel-1">            
             <!--  리스트 시작 -->

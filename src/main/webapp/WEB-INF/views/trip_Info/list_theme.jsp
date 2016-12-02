@@ -10,6 +10,8 @@
 <div class="b-main-container" id="content">
 	<div class="b-pop-places container">
 		<h2 class="b-cont-title">테마별 HOT5</h2>
+		
+		<!-- 계절 테마 -->
 		<ul class="b-cont-sub-menu b-cont-sub-menu-04">
 			<li><a href="list_theme_search?season_id=s01">봄</a></li>
 			<li><a href="list_theme_search?season_id=s02">여름</a></li>
@@ -61,6 +63,56 @@
 				</c:forEach>
 				<!--  리스트 끝-->
 			</div>
+			
+			<!-- 한류 테마 -->
+			<ul class="b-cont-sub-menu b-cont-sub-menu-04">
+               <li><a href="list_kpop_search?kpop_id=k01" >한류</a></li>
+            </ul>
+            
+            <div class="b-slider owl-carousel owl-carousel-1">
+				<!--  리스트 시작 -->
+				<c:forEach items="${kpopTop }" var="list">
+					<div class="b-pop-places__item">
+						<div class="b-pop-place">
+							<div class="b-pop-place__img">
+								<a href="detail_view?trip_id=${list.trip_id}"> <img width="370" height="245" class="b-pop-place__img__img" src="img/photo/${list.trip_id}.jpg" alt="${list.trip_nickname}"></a>
+								<button onClick="likeIt(this)" value="${list.trip_id}" class="b-icon-like" data-toggle="tooltip" data-placement="left" title="좋아요">
+									<i class="fa fa-heart" aria-hidden="true"></i>
+								</button>
+							</div>
+
+							<div class="b-pop-place__desc clearfix">
+								<a href="detail_view?trip_id=${list.trip_id}" class="b-pop-place__name">${list.trip_nickname}</a>
+								<h5 class="b-pop-place__cat">${list.trip_add1} ${list.trip_add2}</h5>
+								<!-- 일정추가 시작 -->
+								<div class="list_add_icon_wrap">
+									<div class="list_add_icon" data-toggle="tooltip" data-placement="top" title="일정추가" onClick="setTripId('${list.trip_id}', '${list.trip_nickname}')">
+										<c:if test="${user_id == null }">
+											<a href="#" onclick="javascript:alert('로그인 후 이용 가능합니다.');return false;" >
+												<i class="fa fa-calendar" aria-hidden="true"></i>
+											</a>
+										</c:if>
+										<c:if test="${user_id != null }">
+											<a href="#" class="html_popup" >
+												<i class="fa fa-calendar" aria-hidden="true"></i>
+											</a>
+										</c:if>
+									</div>
+								</div>
+								<!-- 일정추가 끝 -->
+								<div class="b-pop-place-comment m--centered">
+									<span class="b-pop-place__view"><img src="img/heart_icon.png" class="list_icon" id="heart_icon" trip_id="${list.trip_id}"></span>
+									<span id="likeCount"> ${list.trip_like}</span>
+									<span class="b-pop-place__view"><img src="img/view_icon.png" class="list_icon"></span> ${list.trip_view}
+									<span class="b-pop-place__view"><a href="detail_view?trip_id=${list.trip_id}#commentArea"><img src="img/review_icon.png" class="list_icon"></span> ${list.trip_review}</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</c:forEach>
+				<!--  리스트 끝-->
+			</div>
+			
 			<!-- *********************************************************전체보기************************************************************************ -->
 			<div class="row m--centered">
 				<div class="col-md-4 col-md-offset-4">
