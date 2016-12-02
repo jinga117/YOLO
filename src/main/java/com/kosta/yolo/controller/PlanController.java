@@ -42,11 +42,13 @@ public class PlanController {
 
 	// 추천일정 상세보기
    @RequestMapping(value = "/detail_view_recommand", method = RequestMethod.GET)
-   public ModelAndView RecommOnum(@RequestParam String trip_id, @RequestParam String re_onum) throws Exception {
-      ModelAndView mav = planService.detail_view_recommand(re_onum);
+   public ModelAndView RecommOnum(@RequestParam String re_onum) throws Exception {
+      ModelAndView mav = planService.detail_view_recommand(re_onum); // get방식으로 re_onum값을 가져옴
       mav.setViewName("myplan/detail_view_recommand");
       return mav;
    }
+   // re_num 과 re_onum의 차이는 re_num은 전체리스트에 메인 값을 뿌려주기 위함
+   // re_onum 은 전체리스트에서 메인값 클릭시 상세보기에서 대표와 일치하는 값을 가져오기 위함
    
    // 추천 전체 리스트
    @RequestMapping("/list_recommand")

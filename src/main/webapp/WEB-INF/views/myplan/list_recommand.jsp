@@ -12,13 +12,12 @@
       <div id="hidediv">
          <div class="b-slider owl-carousel owl-carousel-1">
             <!--  리스트 시작 -->
-            <c:set var="cnt" value="1"></c:set>
             <c:forEach items="${recommList }" var="list" varStatus="sta">         
                <div class="b-pop-places__item">
                   <div class="b-pop-place">
                      <div class="b-pop-place__img">
                      
-                        <a href="detail_view_recommand?trip_id=${list.trip_id}&re_onum=re${sta.count}"><img
+                        <a href="detail_view_recommand?re_onum=re${sta.count}"><img
                            width="370" height="245" class="b-pop-place__img__img"
                            src="img/photo/${list.trip_id}.jpg" alt="${list.trip_nickname}"></a>
                         <a href="#" class="b-icon-medal"></a>

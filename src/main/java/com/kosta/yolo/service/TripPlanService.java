@@ -35,7 +35,7 @@ public class TripPlanService {
 	  // 추천 일정 상세페이지 전체 리스트
 	  public ModelAndView detail_view_recommand(String re_onum) {
 	     ModelAndView mav = new ModelAndView();
-	     ArrayList<RecommandVO> recommList = planDAO.RecommOnum(re_onum);
+	     ArrayList<RecommandVO> recommList = planDAO.RecommOnum(re_onum); 
 	     mav.addObject("recommList", recommList);
 	     return mav;
 	  }
