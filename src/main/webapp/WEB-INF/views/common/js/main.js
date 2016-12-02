@@ -100,33 +100,6 @@ function likeIt(obj) {
 	});
 }  
 
-/*//리뷰 쓰기
-function writeReview(obj) {
-	//var user = $("#user_id").attr("value");
-	var user = $("#user_id").val();
-	var trip_id =$(obj).attr("value");
-	if (user=='') {
-		alert('로그인 후 이용해 주세요');
-		return;
-	}
-	if ((user !==null) && ($('#review_content').val()=='')) {
-		alert('리뷰를 입력하세요.');
-		$('#review_content').focus();
-		return false;
-	} 
-	$.ajax({
-		url : "writeReview?trip_id="+trip_id,
-		type : "get",
-		datatype: "json",
-		success : function(responseFromServer) {
-			var data = jQuery.parseJSON(responseFromServer);
-		},
-		error : function(jqXHR, textStatus, errorThrown) {
-			alert("오류 발생 \n"+textStatus + " : " + errorThrown);
-		}      
-	});
-} */
-
 // 더보기
 $(document).ready(function () {
     size_li = $('#viewList_list li').size();
@@ -142,7 +115,10 @@ $(document).ready(function () {
         x=(x-4<0) ? 8 : x-4;
         $('#viewList_list li').not(':lt('+x+')').hide();
     });
+    
     //더보기 end
+    
+    // 좋아요 클릭하면 풀하트 이미지로 체인지
     $('#heart_icon*').each(function () {
     	var obj = $(this);
     	var trip_id = $(obj).attr('trip_id');
@@ -150,6 +126,14 @@ $(document).ready(function () {
     		$(obj).attr("src","img/heart_full_icon.png");
     	}
     });
+    
+    // List 페이지 Top 5 메달
+    $('.b-pop-places__item:eq(0)').find('.b-icon-medal').addClass('medal_top_1');
+    $('.b-pop-places__item:eq(1)').find('.b-icon-medal').addClass('medal_top_2');
+    $('.b-pop-places__item:eq(2)').find('.b-icon-medal').addClass('medal_top_3');
+    $('.b-pop-places__item:eq(3)').find('.b-icon-medal').addClass('medal_top_4');
+    $('.b-pop-places__item:eq(4)').find('.b-icon-medal').addClass('medal_top_5');
+    
 });
 
 function loadScript(src, callback) {

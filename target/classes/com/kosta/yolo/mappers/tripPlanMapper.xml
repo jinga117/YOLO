@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
      "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    
-    <mapper namespace="com.kosta.yolo.dao.TripPlanMapper">
-  	  	<insert id="tripPlan" parameterType="com.kosta.yolo.vo.TripPlanVO">
-  	  		INSERT INTO TripPlan (TRIP_ID, TRIP_NICKNAME, TRIP_DAY) VALUES(#{trip_id}, #{trip_nickname}, #{trip_day})
-  	  	</insert>
-    </mapper>
+
+<mapper namespace="com.kosta.yolo.dao.TripPlanMapper">
+	<insert id="tripPlan" parameterType="com.kosta.yolo.vo.TripPlanVO">
+		INSERT INTO TripPlan VALUES(#{plan_no}, #{user_id}, #{trip_start}, 
+		#{trip_id_1}, #{trip_nickname_1}, #{trip_plan_pay_1}, #{trip_plan_memo_1},
+		#{trip_id_2}, #{trip_nickname_2}, #{trip_plan_pay_2}, #{trip_plan_memo_2}, 
+		#{trip_id_3}, #{trip_nickname_3}, #{trip_plan_pay_3}, #{trip_plan_memo_3})
+	</insert>
+</mapper>
