@@ -298,11 +298,11 @@ th {
 }
 html .btn {
     display: inline-block;
-    padding: 0 20px;
+    padding: 0 15px;
     border: none;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
-    line-height: 60px;
+    line-height: 50px;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
@@ -311,17 +311,18 @@ html .btn {
     color: #fff;
     cursor: pointer;
     background: #de443a;
-    height: 60px;
+    height: 50px;
     border-radius: 0;
     letter-spacing: 1.3px;
     position: relative;
     box-sizing: border-box;
-    -webkit-transition: all 0.3s ease;
+    border-radius:4px;
+/*     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;
     transition: all 0.3s ease;
-}
+ */}
 html .btn:HOVER {
     text-decoration: none;
     background: #f37b78;
@@ -1380,17 +1381,18 @@ only screen and (min-resolution: 1.5dppx) {
 }
 
 .list_add_icon {
+	position:absolute;
 	display:inline-block;
-	width:60px;
-	height:60px;
-	border-radius:60px;
-	font-size:28px;
-	padding:10px;
+	width:50px;
+	height:50px;
+	border-radius:50px;
+	font-size:24px;
+	padding:8px;
 	box-shadow:2px 2px 6px #ddd;
 	background:#FF5733;
 	color:#fff;
 	text-align:center;
-	margin-right:10px;
+	right:10px;
 	z-index:5;
 }
 
@@ -1418,7 +1420,6 @@ only screen and (min-resolution: 1.5dppx) {
 	background:#43a4a2;
 	color:#fff;
 	text-align:center;
-	margin-right:10px;
 	z-index:5;
 }
 
@@ -1657,9 +1658,14 @@ only screen and (min-resolution: 1.5dppx) {
 }
 
 .b-pop-place__name_txt {
-	letter-spacing:-2px;
+	display:inline-block;
+	width:88%;
+	letter-spacing:-1px;
 	font-size:15px;
 	font-weight:bold;
+	text-overflow: ellipsis; 
+	white-space: nowrap; 
+	overflow: hidden;
 }
 
 .b-search {
@@ -1794,9 +1800,10 @@ html .b-promo__search {
 /* ---------------------------------------------------- Home page style ---------------------------------------------------- */
 
 .b-cont-title {
-    font: bold 30px Philosopher; 
+    font:400 24px Philosopher, Malgun Gothic; 
     text-transform: capitalize;
     margin: 0 0 20px;
+    color:#43a4a2;
 }
 .b-cont-title:after {
     content: '';
@@ -1828,26 +1835,28 @@ html .b-promo__search {
 
 /* 서브 메뉴 리스트 */
 .b-cont-sub-menu {
-	width:100%;
+	width:95%;
 	margin:10px 0;
 	padding:0;
+	padding-right:10px;
 	color:#666;
 	font:16px "Malgun Gothic";
 }
 
 .b-cont-sub-menu  li {
 	display:inline-block;
-	width:49%;
+	width:48.5%;
 	height:50px;
 	line-height:50px;
-	margin-left:5px;
+	margin-right:10px;
+	margin-left:2px;
 	text-align:center;
 	background:#f1f1f1;
 	border:1px dashed #ddd;
 }
 
 .b-cont-sub-menu-04 li {
-	width:24%;
+	width:23.5%;
 }
 
 .b-cont-sub-menu li a {
@@ -2003,7 +2012,7 @@ html .b-promo__search {
 }
 .b-pop-places,
 .b-events {
-    padding: 100px 15px;
+    padding: 50px 10px;
 }
 .b-pop-place {
     width: 100%;
@@ -2081,7 +2090,7 @@ html .b-promo__search {
 .b-pop-place__desc {
     background-color: #fff;
     padding: 20px;
-    font:13px "Malgun Gothic";
+    font:12px "Malgun Gothic";
 }
 .b-pop-place__rating {
     float: left;
@@ -2141,7 +2150,7 @@ html .b-promo__search {
 
 .b-pop-place__name {
     margin: 5px 0;
-    font: 400 18px Roboto-Regular;
+    font: 400 16px "Malgun Gothic";
     color: #333;
     display: block;
 }
@@ -4217,7 +4226,7 @@ html .btn--buy-ticket:hover {
 /* Yolo Plan */
 #b-plan-menu-wrap {
     position: fixed;
-    right:0;;
+    right:20px;;
     top:20%;
     width:100px;
     height:auto;
@@ -4616,19 +4625,27 @@ html .btn--buy-ticket:hover {
 /*************View all LIst *************************/
 #viewList {
 	position:relative;
-	width:100%;
+	width:95%;
 	height:100%;
+	margin:0;
+	padding:0;
 }
 
 .viewList_list {
 	position:relative;
 	width:100%;
 	height:100%;
+	margin:0;
+	padding:0;
 }
 .viewList_list li{
 	float:left;
 	width:25%;
-	padding:10px;
+	padding-right:20px;
+}
+
+.viewList_list li:last-child{
+	padding:0;
 }
 
 .viewList_item {
@@ -4900,9 +4917,6 @@ html .btn--buy-ticket:hover {
 /* ---------------------------------------------------- Footer style ---------------------------------------------------- */
 
 .b-footer {
-    /*background: url(../img/footer.png) center top no-repeat;*/
-    padding-top: 128px;
-    margin-top: -132px;
     position: relative;
     display: block;
 }
@@ -19894,11 +19908,13 @@ input[type=submit].styler[disabled] {
     -o-transition: height .5s ease-in-out;
     transition: height .5s ease-in-out
 }
+
+/* List wrap */
 .owl-carousel {
     display: none;
-    width: 100%;
+    width: 93%;
     position: relative;
-    z-index: 1
+    z-index: 1;
 }
 .owl-carousel .owl-stage {
     position: relative;
@@ -20049,7 +20065,7 @@ input[type=submit].styler[disabled] {
     height: 30px;
     position: absolute;
     top: 107px;
-    left: -60px;
+    left: -50px;
     background: url(../img/slider-nav.png) left top no-repeat;
     text-indent: -9999px;
     overflow: hidden
@@ -20062,7 +20078,7 @@ input[type=submit].styler[disabled] {
     height: 30px;
     position: absolute;
     top: 107px;
-    right: -60px;
+    right: -40px;
     background: url(../img/slider-nav.png) right top no-repeat;
     text-indent: -9999px;
     overflow: hidden
@@ -20106,7 +20122,7 @@ input[type=submit].styler[disabled] {
     .b-slider .owl-prev {
         position: static;
         display: inline-block;
-        margin: 0 15px;
+        margin: 0 10px;
     }
 }
 .popup_back {

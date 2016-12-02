@@ -71,10 +71,10 @@
 				
 				str+='<div id="plan_popup_wrap_' + i + '" class="plan_popup_wrap" style="display:none">';
 				str+='		<div id="b_plan_memo_wrap">'
-				/* str+='		<div memo="' + i + '">Day' + i + ' 비용 <input type="number" min="1" max="999999999" class="trip_plan_pay" id="modal_trip_plan_pay_' + i +'" name="modal_trip_plan_pay_' + i +'" value="'+pay+'" trip_day="' + i + '" onChange="setValuePay(this)"/> 원';
-				str+='			<div memo="' + i + '"><span class="memo_title">Memo</span> <textarea rows="2" class="trip_plan_memo" placeholder="여행 메모를 입력해주세요" id="modal_trip_plan_memo_' + i +'" name="modal_trip_plan_memo_' + i +'" trip_day="' + i + '" onChange="setValueMemo(this)">'+content+'</textarea>'; */
-				str+='			<div memo="' + i + '">Day' + i + ' 비용 <input type="number" min="1" max="999999999" class="trip_plan_pay" id="modal_trip_plan_pay_' + i +'" name="modal_trip_plan_pay_' + i +'" trip_day="' + i + '" onChange="setValuePay(this)"/> 원</div>';
-				str+='			<div memo="' + i + '"><span class="memo_title">Memo</span> <textarea rows="2" class="trip_plan_memo" placeholder="여행 메모를 적어 주세요" id="modal_trip_plan_memo_' + i +'" name="modal_trip_plan_memo_' + i +'" trip_day="' + i + '" onChange="setValueMemo(this)"></textarea></div>';
+				str+='		<div memo="' + i + '">Day' + i + ' 비용 <input type="number" min="1" max="999999999" class="trip_plan_pay" id="modal_trip_plan_pay_' + i +'" name="modal_trip_plan_pay_' + i +'" value="'+pay+'" trip_day="' + i + '" onChange="setValuePay(this)"/> 원</div>';
+				str+='			<div memo="' + i + '"><span class="memo_title">Memo</span> <textarea rows="2" class="trip_plan_memo" placeholder="여행 메모를 입력해주세요" id="modal_trip_plan_memo_' + i +'" name="modal_trip_plan_memo_' + i +'" trip_day="' + i + '" onChange="setValueMemo(this)">'+content+'</textarea></div>';
+				/* str+='			<div memo="' + i + '">Day' + i + ' 비용 <input type="number" min="1" max="999999999" class="trip_plan_pay" id="modal_trip_plan_pay_' + i +'" name="modal_trip_plan_pay_' + i +'" trip_day="' + i + '" onChange="setValuePay(this)"/> 원</div>';
+				str+='			<div memo="' + i + '"><span class="memo_title">Memo</span> <textarea rows="2" class="trip_plan_memo" placeholder="여행 메모를 적어 주세요" id="modal_trip_plan_memo_' + i +'" name="modal_trip_plan_memo_' + i +'" trip_day="' + i + '" onChange="setValueMemo(this)"></textarea></div>'; */
 				str+='		</div>'
 			 	str+='		<div class="b-sm-post_popup_day" day="' + i + '" onClick="appendDay(this)">Day' + i + ' 선택 </div>';
 				str+='</div>'
@@ -136,6 +136,7 @@
 			// 오른쪽 일정 메뉴에 선택한 여행지 추가하기
 			var tooltip = '비용: ' + $('#trip_plan_pay_'+trip_day).val();
 			tooltip+='내용:' + $('#trip_plan_memo_'+trip_day).val();
+			
 			$('#day'+trip_day).append('<li class="b-plan-menu-day-txt" trip_id="' + trip_id + '" title="' + tooltip + '">' + trip_nickname + '</li> <button id="trip_plan_delete" trip_id="' + trip_id + '" trip_day="' + trip_day + '">X</button>');
 			$('#trip_id_'+trip_day).val(trip_id);
 			$('#trip_nickname_'+trip_day).val(trip_nickname);

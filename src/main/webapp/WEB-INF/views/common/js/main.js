@@ -108,12 +108,12 @@ $(document).ready(function () {
     
     $('#loadMore').click(function() {
         x= (x+4 <= size_li) ? x+4 : size_li;
-        $('#viewList_list li:lt('+x+')').show();
+        $('#viewList_list li:lt('+x+')').slideDown();
     });
     
     $('#showLess').click(function() {
         x=(x-4<0) ? 8 : x-4;
-        $('#viewList_list li').not(':lt('+x+')').hide();
+        $('#viewList_list li').not(':lt('+x+')').slideUp();
     });
     
     //더보기 end
@@ -127,7 +127,7 @@ $(document).ready(function () {
     	}
     });
     
-    // List 페이지 Top 5 메달
+    // List 페이지 Top 5 메달 이미지 변경
     $('.b-pop-places__item:eq(0)').find('.b-icon-medal').addClass('medal_top_1');
     $('.b-pop-places__item:eq(1)').find('.b-icon-medal').addClass('medal_top_2');
     $('.b-pop-places__item:eq(2)').find('.b-icon-medal').addClass('medal_top_3');
