@@ -14,6 +14,8 @@ public class TripInfoVO {
 	private int trip_like, trip_view, trip_review; //좋아요, 조회수, 댓글수
 	private double pos_x, pos_y; //위도, 경도
 	
+	private String re_id;	// 추천 일정 조인 시 필요(Recommand 테이블의 key 값)
+	
 	public String getTrip_id() {
 		return trip_id;
 	}
@@ -157,6 +159,12 @@ public class TripInfoVO {
 	}
 	public void setPos_y(double pos_y) {
 		this.pos_y = pos_y;
+	}
+	public String getRe_id() {
+		return re_id;
+	}
+	public void setRe_id(String re_id) {
+		this.re_id = re_id;
 	}
 	
 }	
