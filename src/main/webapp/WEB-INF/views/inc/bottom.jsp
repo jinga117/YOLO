@@ -23,14 +23,14 @@
 					<ul>
 						<li><a href="#">YOLO</a></li>
 						<li><a href="#">Contact us</a></li>
-						<li><a href="https://www.instagram.com/yolo/">Hot to use</a></li>
+						<li><a href="#">Hot to use</a></li>
 					</ul>
 				</div>
 
 				<div class="b-footer__nav__col col-md-3 col-sm-5 col-xs-8">
 					<div class="b-footer__nav__col__title">Categories</div>
 					<ul>
-						<li><a href="list_attraction">Attraction</a></li>
+						<li><a href="list_attraction?category_id=c01">Travel</a></li>
 						<li><a href="list_restaurant">Restaurants</a></li>
 						<li><a href="list_shopping?category_id=c02">Shopping</a></li>
 						<li><a href="yoloplaner">YOLO Plan</a></li>
