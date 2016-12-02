@@ -137,8 +137,17 @@
 						<span class="add_bookmark_icon p-t-15" data-toggle="tooltip" data-placement="left" title="북마크 추가">
 							<a href="bookmark_log?trip_id=${list.trip_id }"><i class="fa fa-bookmark-o" aria-hidden="true"></i></a>
 						</span>
-						<span class="add_plan_icon p-t-15" data-toggle="tooltip" data-placement="left" title="일정추가">
-							<a href="#"><i class="fa fa-calendar" aria-hidden="true"></i></a>
+						<span class="add_plan_icon p-t-15" data-toggle="tooltip" data-placement="left" title="일정추가" onClick="setTripId('${list.trip_id}', '${list.trip_nickname}')">
+							<c:if test="${user_id == null }">
+								<a href="#" onclick="javascript:alert('로그인 후 이용 가능합니다.');return false;" >
+									<i class="fa fa-calendar" aria-hidden="true"></i>
+								</a>
+							</c:if>
+							<c:if test="${user_id != null }">
+								<a href="#" class="html_popup">
+									<i class="fa fa-calendar" aria-hidden="true"></i>
+								</a>
+							</c:if>
 						</span>
 					</div>
 					<!--  북마크 추가 끝 -->
@@ -156,7 +165,7 @@
 						<div class="b-slide-menu__form__row__item">
 							<!-- 날씨 API 시작 -->
 							<ul class="weather_content">
-					 		   <li><span class="weather_txt">${today }</span> <span class="weather_icon"><img src="img/wicon/${icon1 }.png"></span> <span class="weather_txt">${day1 }℃</span></li>
+					 		   	<li><span class="weather_txt">${today }</span> <span class="weather_icon"><img src="img/wicon/${icon1 }.png"></span> <span class="weather_txt">${day1 }℃</span></li>
 								<li><span class="weather_txt">${today2 }</span> <span class="weather_icon"><img src="img/wicon/${icon2 }.png"></span> <span class="weather_txt">${day2 }℃</span></li>
 								<li><span class="weather_txt">${today3 }</span> <span class="weather_icon"><img src="img/wicon/${icon3 }.png"></span> <span class="weather_txt">${day3 }℃</span></li>
 								<li><span class="weather_txt">${today4 }</span> <span class="weather_icon"><img src="img/wicon/${icon4 }.png"></span> <span class="weather_txt">${day4}℃</span></li>
