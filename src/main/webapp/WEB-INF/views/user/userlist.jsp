@@ -126,7 +126,7 @@ $(document).ready(function() {
 								<td>${list.email}</td>
 								<td>${list.gender}</td>
 								<td>${list.age}</td>
-								<td><a href="/yolo/user_delete?user_id=${list.user_id}"><img src="img/delete.png""><br>삭제</a></td>
+								<td><a href="/yolo/admindelete?user_id=${list.user_id}"><img src="img/delete.png""><br>삭제</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>

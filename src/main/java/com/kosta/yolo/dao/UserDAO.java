@@ -47,9 +47,14 @@ public class UserDAO {
 		return vo;
 	}
 	
-	public void userDelete(UserVO vo){
+	public int userDelete(UserVO vo){
 		UserMapper user = sqlSession.getMapper(UserMapper.class);
-		user.userDelete(vo);
+		return user.userDelete(vo);
+	}
+	
+	public void adminUserDelete(String user_id){
+		UserMapper user = sqlSession.getMapper(UserMapper.class);
+		user.adminUserDelete(user_id);
 	}
 	
 	public UserVO userIdFind(UserVO vo){

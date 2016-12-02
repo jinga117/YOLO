@@ -15,7 +15,14 @@ public class TripInfoVO {
 	private double pos_x, pos_y; //위도, 경도
 	
 	private String re_id;	// 추천 일정 조인 시 필요(Recommand 테이블의 key 값)
+	private String re_content; // 추천 일정 메인 제목
 	
+	public String getRe_content() {
+		return re_content;
+	}
+	public void setRe_content(String re_content) {
+		this.re_content = re_content;
+	}
 	public String getTrip_id() {
 		return trip_id;
 	}

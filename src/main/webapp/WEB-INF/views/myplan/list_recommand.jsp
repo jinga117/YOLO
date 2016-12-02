@@ -11,11 +11,11 @@
       <h2 class="b-cont-title">YOLO의 추천 코스</h2>
       
             <!--  리스트 시작 -->
-            <c:set var="cnt" value="1"></c:set>
             <c:forEach items="${recommList }" var="list" varStatus="sta">         
             <div>
                <a href="detail_view_recommand?trip_id=${list.trip_id}&re_onum=re${sta.count}">
-                       <img width="300px" height="260px" src="img/photo/${list.trip_id}.jpg"></a>
+                       <img width="300px" height="260px" src="img/photo/${list.trip_id}.jpg"></a>       
+                       <h4>${list.re_content}</h4>                      
                     <font size="4"><br>${list.trip_nickname}<br>${list.trip_add1} ${list.trip_add2}</font>
             </div>
             <hr>

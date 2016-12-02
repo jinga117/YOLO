@@ -34,6 +34,10 @@
     	DELETE FROM User WHERE user_id=#{user_id} AND password=#{password}
     </delete>
     
+    <delete id="adminUserDelete" parameterType="com.kosta.yolo.vo.UserVO">
+    	DELETE FROM User WHERE user_id=#{user_id}
+    </delete>
+    
     <select id="userSelect" resultType="com.kosta.yolo.vo.UserVO">
     		SELECT * FROM User WHERE user_id = #{user_id}
     </select>

@@ -112,8 +112,10 @@ public class UserController {
 
    // 회원 삭제
    @RequestMapping("/user_delete")
-   public ModelAndView delete(@RequestParam String user_id) {
+   public ModelAndView delete(HttpServletRequest request) {
       ModelAndView mav = new ModelAndView();
+      HttpSession session = request.getSession();
+      String user_id = (String) session.getAttribute("user_id");
       UserVO vo = userService.userSelect(user_id);
       mav.addObject("vo",vo);
       mav.setViewName("user/user_delete");
@@ -121,19 +123,32 @@ public class UserController {
       return mav;
    }
 
-   //회원삭제 (수정해야되는부분)
+   //회원삭제 
    @RequestMapping(value = "/user_deletePro", method = RequestMethod.POST)
-   public ModelAndView DeletePro(UserVO vo) {
+   public ModelAndView DeletePro(HttpServletRequest request, UserVO vo) {
       ModelAndView mav = new ModelAndView();
-      String user_id = vo.getUser_id();
-      String pwd = vo.getPassword();
-      
-      userService.userSelect(user_id);
-      userService.deletePro(vo);
-      
-      mav.setViewName("redirect:userlist");
-      
+      HttpSession session = request.getSession();
+      int check = 0;
+      check =  userService.deletePro(vo);
+      if(check == 0)
+      {
+    	 check=0;
+    	 mav.addObject("check",check);
+    	 mav.setViewName("user/user_delete");
+    	 return mav;
+      }else
+    	  session.invalidate();
+    	  mav.setViewName("index"); 
       return mav;
+   }
+   // 관리자 회원삭제
+   @RequestMapping("/admindelete")
+   public ModelAndView adminDelete(@RequestParam String user_id) {
+	  ModelAndView mav = new ModelAndView();
+ 	  userService.adminUserDelete(user_id); // 관리자는 user_id 값을 가져와 삭제가능
+ 	  mav.setViewName("redirect:userlist"); // 삭제후 url userlist 로 보내줌
+ 	  return mav;
+   
    }
    
    @RequestMapping("/confirm_Id")

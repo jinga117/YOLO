@@ -1,7 +1,15 @@
 package com.kosta.yolo.vo;
 
 public class RecommandVO {
-   private String trip_id, re_id, re_num, re_onum;
+   private String trip_id, re_id, re_num, re_onum, re_content;
+
+	public String getRe_content() {
+	return re_content;
+}
+
+public void setRe_content(String re_content) {
+	this.re_content = re_content;
+}
 
 	public String getTrip_id() {
 		return trip_id;

@@ -101,9 +101,11 @@ public class UserService {
 		return vo = userDAO.userIdFind(vo);
 	}
 
-	public ModelAndView deletePro(UserVO vo) {
-		ModelAndView mav = new ModelAndView();
-		userDAO.userDelete(vo);
-		return mav;
+	public int deletePro(UserVO vo) {
+		return userDAO.userDelete(vo);
+	}
+	
+	public void adminUserDelete(String user_id) {	
+		userDAO.adminUserDelete(user_id);
 	}
 }
