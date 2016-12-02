@@ -303,7 +303,7 @@
 									<div class="review_list" id="review_list">
 										<ul>
 											<li>
-												<span class="review_list_user">${list.user_id }</span> | <span class="review_list_time"><i class="fa fa-clock-o" aria-hidden="true"></i><fmt:formatDate value="${list.review_time }"  pattern="yyyy-MM-dd E요일 hh:mm" /></span>
+												<span class="review_list_user">${list.user_id }</span> | <span class="review_list_time"><i class="fa fa-clock-o" aria-hidden="true"></i> <fmt:formatDate value="${list.review_time }"  pattern="yyyy-MM-dd E요일 hh:mm" /></span>
 												<c:if test="${fn:trim(list.user_id) == fn:trim(user)}">
 	                                    			<input type='button' value='X' onclick="deleteReview( this )" review_no= "${ list.review_no }">
 	                                 			</c:if>
