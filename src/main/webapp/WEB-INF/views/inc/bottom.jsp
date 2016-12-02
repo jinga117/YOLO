@@ -51,12 +51,12 @@
 			var str = '<div class="b-sm-post__popup">';
 			str+='<div class="plan_popup_title">Yolo Plan</div>';
 			str+='<div class="plan_popup_txt">출발일을 선택하시고 원하시는 Day를 선택해 주세요</div>';
-			str+='<div> <i class="fa fa-check" aria-hidden="true"></i> 출발일&nbsp;&nbsp;  <input type="date" id="trip_start" name="trip_start" onChange="setValueDate(this)"/></div>';
+			str+='<div id="plan_start_wrap"> <i class="fa fa-check" aria-hidden="true"></i> 출발일&nbsp;&nbsp;  <input type="date" id="trip_start" name="trip_start" onChange="setValueDate(this)"/></div>';
 			str+='<div class="plan_popup_container">';
 	 		str+='<ul>';
-			str+='		<li class="plan_day_circle"><a class="plan_day_circle_link" href="#" onclick="">Day1</a></li>';
-			str+='		<li class="plan_day_circle"><a class="plan_day_circle_link" href="#">Day2</a></li>';
-			str+='		<li class="plan_day_circle"><a class="plan_day_circle_link" href="#">Day3</a></li>';
+			str+='		<li class="plan_day_circle"><a class="plan_day_circle_link" href="#" onClick="showDiv(this)" trip_day="1">Day1</a></li>';
+			str+='		<li class="plan_day_circle"><a class="plan_day_circle_link" href="#" onClick="showDiv(this)" trip_day="2">Day2</a></li>';
+			str+='		<li class="plan_day_circle"><a class="plan_day_circle_link" href="#" onClick="showDiv(this)" trip_day="3">Day3</a></li>';
 			str+='</ul>'; 
 			
 			for (var i=1;i<=3;i++) 
@@ -69,7 +69,7 @@
 		 		var content = title.substring(index2+3, index3);
 		 //		alert(index+'/'+index2+'/'+pay+'/'+content);
 				
-				str+='<div id="plan_popup_wrap" class="plan_popup_wrap_' + i + '" >';
+				str+='<div id="plan_popup_wrap_' + i + '" class="plan_popup_wrap" style="display:none">';
 				str+='		<div id="b_plan_memo_wrap">'
 				/* str+='		<div memo="' + i + '">Day' + i + ' 비용 <input type="number" min="1" max="999999999" class="trip_plan_pay" id="modal_trip_plan_pay_' + i +'" name="modal_trip_plan_pay_' + i +'" value="'+pay+'" trip_day="' + i + '" onChange="setValuePay(this)"/> 원';
 				str+='			<div memo="' + i + '"><span class="memo_title">Memo</span> <textarea rows="2" class="trip_plan_memo" placeholder="여행 메모를 입력해주세요" id="modal_trip_plan_memo_' + i +'" name="modal_trip_plan_memo_' + i +'" trip_day="' + i + '" onChange="setValueMemo(this)">'+content+'</textarea>'; */
@@ -103,9 +103,9 @@
 			});
 			
 			// Day 선택하기
-			$('.plan_day_circle_link').click(function() {
-				/* $('#plan_popup_wrap').css('visibility','visible'); */
-				$('.plan_popup_wrap').show();
+			$('.plan_day_circle_link*').click(function() {
+				$('.plan_popup_wrap_1').show();
+				/* $('.plan_popup_wrap').show(); */
 			});
 			
 		 	$('.html_popup').popup({
@@ -205,6 +205,16 @@
 				}      
 			});
 		}
+
+		function showDiv(obj) {
+			var trip_day = $(obj).attr('trip_day');
+			var parent = $(obj).closest('div').find('#plan_popup_wrap_'+trip_day);
+			$(parent).attr('visibility', '');
+			$(parent).attr('z-index', '9999999');
+			$(parent).attr('top', 50);
+			$(parent).show();
+			$('#plan_start_wrap').hide();
+		}
 	</script>
 	<input type="hidden" id="plan_trip_id">
 	<input type="hidden" id="plan_trip_nickname">
@@ -226,19 +236,19 @@
 			
 	 	<form action="tripPlan" method="post" id="formTripPlan">
 			<input type="hidden" name="user_id" value="${user_id}">
-			<input type='hidden' name='trip_start' id='trip_start' value="">
-			<input type="hidden" name="trip_id_1" id="trip_id_1" value="">
-			<input type="hidden" name="trip_id_2" id="trip_id_2" value="">
-			<input type="hidden" name="trip_id_3" id="trip_id_3" value="">
-			<input type="hidden" name="trip_nickname_1"  id="trip_nickname_1" value="">
-			<input type="hidden" name="trip_nickname_2"  id="trip_nickname_2" value="">
-			<input type="hidden" name="trip_nickname_3"  id="trip_nickname_3" value="">
+			<input type='hidden' name='trip_start' id='trip_start' >
+			<input type="hidden" name="trip_id_1" id="trip_id_1" >
+			<input type="hidden" name="trip_id_2" id="trip_id_2" >
+			<input type="hidden" name="trip_id_3" id="trip_id_3" >
+			<input type="hidden" name="trip_nickname_1"  id="trip_nickname_1" >
+			<input type="hidden" name="trip_nickname_2"  id="trip_nickname_2" >
+			<input type="hidden" name="trip_nickname_3"  id="trip_nickname_3" >
 			<input type="hidden" name="trip_plan_pay_1" id="trip_plan_pay_1"  value="0">
 			<input type="hidden" name="trip_plan_pay_2"  id="trip_plan_pay_2" value="0">
 			<input type="hidden" name="trip_plan_pay_3"  id="trip_plan_pay_3" value="0">
-			<input type="hidden" name="trip_plan_memo_1"  id="trip_plan_memo_1"  value="">
-			<input type="hidden" name="trip_plan_memo_2"  id="trip_plan_memo_2"  value="">
-			<input type="hidden" name="trip_plan_memo_3"  id="trip_plan_memo_3"  value="">
+			<input type="hidden" name="trip_plan_memo_1"  id="trip_plan_memo_1"  >
+			<input type="hidden" name="trip_plan_memo_2"  id="trip_plan_memo_2"  >
+			<input type="hidden" name="trip_plan_memo_3"  id="trip_plan_memo_3"  >
 		</form>
 	</div>
 	<!--  일정 리스트 끝 -->

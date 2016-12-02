@@ -2123,6 +2123,10 @@ html .b-promo__search {
 	font-weight:normal;
 }
 
+.b-pop-place__view a {
+	pointer:cursor;
+}
+
 .list_icon {
 	width:22px;
 }
@@ -4353,8 +4357,7 @@ html .btn--buy-ticket:hover {
 	border:3px dashed #ddd;
 }
 
-#plan_popup_wrap {
-	/* visibility:hidden; */
+.plan_popup_wrap {
 	position:absolute;
 	display:block;
 	width:100%;
@@ -4758,6 +4761,7 @@ html .btn--buy-ticket:hover {
     width: 62px;
     height: 62px;
     background: url('../img/sprite-1.png') left top no-repeat;
+    z-index:99999;
 }
 
 .medal_top_1 {
