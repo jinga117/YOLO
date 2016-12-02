@@ -19,7 +19,8 @@
 </script>
 </c:if> --%>
 
-<a href="user_update">계 정 설 정</a><br><p>
+<a href="user_update">회 원 수 정</a><br><p>
+<a href="user_delete">회 원 탈 퇴</a><br><p>
 <a href="review_view">내가 쓴 댓글</a><br><p>
 <a href="bookmark_view">북마크</a><br><p>
 
