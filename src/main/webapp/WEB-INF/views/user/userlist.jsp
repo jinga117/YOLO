@@ -2,54 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<!--  헤더 영역 시작 -->
-<jsp:include page="../inc/top.jsp" />
-<!--  헤더 영역 끝 -->
-<style>
-.list_wrap {
-	width: 70%;
-	margin: 0 auto;
-	margin-bottom: 8%;
-}
-
-#userList_t {
-	margin: 0 auto;
-	font-size: 15px;
-	width: 100%;
-	text-align: center;
-}
-
-#userList_t th {
-	height: 40px;
-	border: 1px solid black;
-	background-color: #99ccff;
-	text-align: center;
-}
-
-#userList_t  td {
-	height: 30px;
-}
-
-#userList_t tr, td {
-	border: 1px solid black;
-	font-style: 맑은고딕;
-}
-
-h4 {
-	text-align: right;
-	margin: 0 15px 15px 0;
-}
-
-.clickable {
-	cursor: pointer;
-}
-
-.hover {
-	text-decoration: underline;
-}
-</style>
-
- <script type="text/javascript">
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
 $(document).ready(function() {
 
 	   $('#userList_t').each(function() {
@@ -100,8 +56,81 @@ $(document).ready(function() {
 	   });
 	 });
 </script>
+<style>
+.list_wrap {
+	width: 70%;
+	margin: 0 auto;
+	margin-bottom: 8%;
+}
 
+#userList_t {
+	margin: 0 auto;
+	font-size: 15px;
+	width: 100%;
+	text-align: center;
+}
 
+#userList_t th {
+	height: 40px;
+	border: 1px solid black;
+	background-color: #99ccff;
+	text-align: center;
+}
+
+#userList_t  td {
+	height: 30px;
+}
+
+#userList_t tr, td {
+	border: 1px solid grey;
+	border-collapse: collapse;
+	font-style: 맑은고딕;
+}
+
+h4 {
+	text-align: right;
+	margin: 0 15px 15px 0;
+}
+
+.clickable {
+	cursor: pointer;
+}
+
+.hover {
+	text-decoration: underline;
+}
+
+.ad-head {
+	background-color: #5be0dd;
+
+}
+
+/* nav tag */
+.ad-nav  {
+}
+
+.ad-nav ul li {
+	display: inline; /*  세로나열을 가로나열로 변경 */
+	padding: 0 10px; /* 각 메뉴 간격 */
+}
+</style>
+</head>
+   <!--.b-header__ctrl-->
+<header>
+<div class="ad-head">
+	<nav class="ad-nav">
+		<ul>
+			<li><a href="/yolo" class="logo"> <img src="img/logo.png"alt="YOLO" title="YOLO"></a></li>
+			<li><a href="list_age">연령별</a></li>
+			<li><a href="list_theme">테마별</a></li>
+			<li><a href="list_person">동행별</a></li>
+		</ul>
+	</nav>
+	<!--//b-nav-->
+</div>
+<!-- //b-header -->
+</header>
+<body>
 <!-- 컨텐츠 영역 시작 -->
 	<div class="b-main-container" id="content">
 		<div class="list_wrap">
@@ -135,8 +164,5 @@ $(document).ready(function() {
 	</div>
 <!-- 컨텐츠 영역 끝 -->
 
-<!-- 푸터영역 시작 -->
-<div class="footer">
-	<jsp:include page="../inc/bottom.jsp" />
-</div>
-<!-- 푸터영역 끝 -->
+</body>
+</html>
