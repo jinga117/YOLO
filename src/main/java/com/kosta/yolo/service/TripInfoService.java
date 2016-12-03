@@ -53,25 +53,25 @@ public class TripInfoService {
 		ArrayList<TripInfoVO> detail = infoDAO.selectDetail(trip_id);
 		//리뷰리스트
 		ArrayList<TripInfoVO> review = infoDAO.inforeview(trip_id);
-		
-		
-/*		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd E요일 hh:mm");
-		UserReviewVO vo = new UserReviewVO();
-		Timestamp ts = vo.getReview_time();
-		String time = sdf.format(ts);
-		System.out.println(time);
-		mav.addObject("time", time);
-		*/
+
 		mav.addObject("detailList", detail);
 		mav.addObject("count", count);
 		mav.addObject("reviewList", review);
 		
-		//원하는 포맷으로 오늘날짜 가져오기 
+		
+		
+		
+		//-----------------------------------------------날씨 부분-------------------------------------------------
+		// 오늘날짜 가져오기 
 		Date date = new Date();
 		//캘린더객체이용
 		Calendar cal = Calendar.getInstance();
+		//원하는 날짜타입 지정
 		SimpleDateFormat sdf2 = new SimpleDateFormat("MM / dd");
+		//원하는 포맷으로 오늘날짜 담기
 		String currentDate = sdf2.format(date);
+		
+		//날짜를 담을 list타입의 변수 생성
 		List dList = new ArrayList();	
 		//현재 날짜 담기
 		dList.add(currentDate);
@@ -85,7 +85,7 @@ public class TripInfoService {
 			}
 		}
 	
-		//날씨 데이터
+		//날씨 api
 		String x=Double.toString(detail.get(0).getPos_x()); //위도
 		String y=Double.toString(detail.get(0).getPos_y()); //경도
 		

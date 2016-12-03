@@ -33,7 +33,7 @@
 						<li><a href="list_attraction?category_id=c01">Travel</a></li>
 						<li><a href="list_restaurant">Restaurants</a></li>
 						<li><a href="list_shopping?category_id=c02">Shopping</a></li>
-						<li><a href="yoloplaner">YOLO Plan</a></li>
+						<li><a href="yoloplanner">YOLO Plan</a></li>
 					</ul>
 				</div>
 			</div>

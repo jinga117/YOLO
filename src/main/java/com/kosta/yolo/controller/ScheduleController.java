@@ -1,7 +1,5 @@
 package com.kosta.yolo.controller;
 
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -11,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kosta.yolo.service.ScheduleService;
-import com.kosta.yolo.vo.TripPlanVO;
 
 @Controller
 public class ScheduleController {
@@ -46,18 +43,17 @@ public class ScheduleController {
 	         System.out.println(11);
 	         return mav;
 	      } else {         
-	         mav.setViewName("myplan/yoloplaner");
-	         //mav.setViewName("");
+	         mav.setViewName("myplan/yoloplanner");
 	      }
 	         return mav;
 	      }
 	
-	@RequestMapping("/yoloplaner") 
+	@RequestMapping("/yoloplanner") 
 	public ModelAndView calend(HttpServletRequest request) throws Exception {
 
 		 ModelAndView mav = new ModelAndView();
 		 scheduleservice.calen(request);
-		 mav.setViewName("myplan/yoloplaner"); 
+		 mav.setViewName("myplan/yoloplanner"); 
 		 return mav;
  	}
 }// class end

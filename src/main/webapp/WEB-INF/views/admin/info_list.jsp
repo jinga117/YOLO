@@ -1,31 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-	<!--  헤더 영역 시작 -->
-	<jsp:include page="../inc/top.jsp" />
-	<!--  헤더 영역 끝 -->
+
 	<style type="text/css">
 	.info_t{
-		 width: 90%;;
-	}
-	tr, td{
+		margin: 0 auto;
 		 border: 1px solid grey;
-		 padding: 10px;
-		 white-space: nowrap;
-		overflow: hidden;
-	    text-overflow: ellipsis;
+	}
+	.info_t tr, td{
+		 border: 1px solid grey;
+		 text-align: center;
 	}
 	h3{
-	margin-top: 20px;
-	text-align: center; 
+		margin-top: 20px;
+		text-align: center; 
 	}
 	h5{
-	text-align: left;
-	margin: -30px 30px 15px 30px ;
+		text-align: left;
+		margin: -30px 30px 15px 30px ;
 	}
 	.info_list{
+		margin: 0 auto;
 		width: 90%
 	}
 </style>
+
 	<!-- 컨텐츠 영역 시작 -->
 <div class="info_list">
 	<h3>여행지 리스트</h3> 
@@ -35,39 +33,14 @@
 				<tr>	
 					<td>${list.trip_id}</td>
 					<td>${list.category_id}</td>
-					<td>${list.age_id}</td>
-					<td>${list.food_id}</td>
-					<td>${list.person_id}</td>
-					<td>${list.season_id}</td>
-					<td>${list.kpop_id}</td>
 					<td>${list.trip_nickname}</td>
 					<td>${list.trip_address}</td>
-					<td>${list.trip_add1}</td>
-					<td>${list.trip_add2}</td>
-					<td>${list.trip_add3}</td>
-					<td>${list.trip_image}</td>
-					<td class="td_cont">${list.trip_content}</td>
-					<td>${list.trip_time}</td>
-					<td>${list.trip_site}</td>
-					<td>${list.trip_tel}</td>
-					<td>${list.trip_way}</td>
-					<td>${list.trip_pay}</td>
-					<td>${list.trip_like}</td>
-					<td>${list.trip_view}</td>
-					<td>${list.trip_review}</td>
 					<td>${list.pos_x}</td>
 					<td>${list.pos_y}</td>				
-					<td><input type="button" value="수정" onclick="location.href='update?trip_id=${list.trip_id}'"></td>
-					<td><input type="button" value="삭제" onclick="location.href='delete?trip_id=${list.trip_id}'"></td>
+					<td><a href="update?trip_id=${list.trip_id}"><img src="img/update.png"></a></td>
+					<td><a href="delete?trip_id=${list.trip_id}"><img src="img/delete.png"></a></td>
 				</tr>
 			</c:forEach>
 		</table>
 </div>
 	<!-- 컨텐츠 영역 끝 -->
-	
-	<!-- 푸터영역 시작 -->
-	<div class="footer">
-		<jsp:include page="../inc/bottom.jsp" />
-	</div>
-	<!-- 푸터영역 끝 -->
-	
