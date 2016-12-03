@@ -195,5 +195,12 @@ public class InfoController {
 		return mav;
 	}
 
+
+	//이용안내
+	@RequestMapping("/Contact_view")
+	public String Contact_view(){
+		return "Contact_view/contact";
+		
+	}
 }
 
