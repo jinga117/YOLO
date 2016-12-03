@@ -73,9 +73,9 @@
                 	<a href="list_shopping?category_id=c03"><i class="fa fa-gift" aria-hidden="true"></i>Shopping</a>
                 </li>
                 
-                <li class="menu-item-has-children"><a href="yoloplaner"><i class="fa fa-calendar" aria-hidden="true"></i>Yolo Plan</a>
+                <li class="menu-item-has-children"><a href="yoloplanner"><i class="fa fa-calendar" aria-hidden="true"></i>Yolo Plan</a>
                 	<ul>
-                		<li><a href="yoloplaner">Yolo Planer</a></li>
+                		<li><a href="yoloplanner">Yolo Planer</a></li>
                 		<li><a href="list_recommand?re_num=re">추천 일정</a></li>
                 	</ul>
                 </li>

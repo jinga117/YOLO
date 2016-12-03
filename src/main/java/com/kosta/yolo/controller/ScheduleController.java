@@ -34,26 +34,18 @@ public class ScheduleController {
 			return mav;
 		}
 	}
-
-	 @RequestMapping("/yoloplan")
-	   public ModelAndView plan(HttpSession session) {
-	      ModelAndView mav = scheduleservice.calendar(session);
-	      if (session.getAttribute("user_id")==null) {
-	         mav.setViewName("myplan/planfail");
-	         System.out.println(11);
-	         return mav;
-	      } else {         
-	         mav.setViewName("myplan/yoloplanner");
-	      }
-	         return mav;
-	      }
 	
 	@RequestMapping("/yoloplanner") 
-	public ModelAndView calend(HttpServletRequest request) throws Exception {
-
+	public ModelAndView calen(HttpServletRequest request, HttpSession session) throws Exception {
 		 ModelAndView mav = new ModelAndView();
-		 scheduleservice.calen(request);
-		 mav.setViewName("myplan/yoloplanner"); 
+		 scheduleservice.calendar(request, session);
+		 if (session.getAttribute("user_id")==null) {
+		     mav.setViewName("myplan/planfail");
+		     System.out.println(11);
+		     return mav;
+		  } else {         
+		   mav.setViewName("myplan/yoloplanner");
+		  }
 		 return mav;
  	}
 }// class end

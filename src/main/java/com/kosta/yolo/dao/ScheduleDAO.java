@@ -22,11 +22,6 @@ public class ScheduleDAO {
 		return list;
 	}
 
-	public ArrayList<TripPlanVO> mycalendar(String user_id){
-		ScheduleMapper schedule = sqlSession.getMapper(ScheduleMapper.class);
-		ArrayList<TripPlanVO> list = schedule.mycalendar(user_id);
-		return list;
-	}
 	public ArrayList<TripPlanVO> cal(TripPlanVO vo){
 		ScheduleMapper schedule = sqlSession.getMapper(ScheduleMapper.class);
 		ArrayList<TripPlanVO> pList = schedule.cal(vo);
