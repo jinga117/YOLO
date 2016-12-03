@@ -16,17 +16,19 @@ public class ScheduleController {
 	@Autowired
 	private ScheduleService scheduleservice;
 	
+	//마이플랜
 	@RequestMapping("/yoloplanner") 
 	public ModelAndView calen(HttpServletRequest request, HttpSession session) throws Exception {
 		 ModelAndView mav = new ModelAndView();
+		 
+		 //로그인 권한주기
 		 scheduleservice.calendar(request, session);
 		 if (session.getAttribute("user_id")==null) {
 		     mav.setViewName("myplan/planfail");
-		     System.out.println(11);
-		     return mav;
 		  } else {         
 		   mav.setViewName("myplan/yoloplanner");
 		  }
 		 return mav;
  	}
+	
 }// class end

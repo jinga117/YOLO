@@ -15,10 +15,11 @@ public class ScheduleDAO {
 
 	@Autowired
 	private SqlSession sqlSession;
-	
+	//마이플랜
 	public ArrayList<TripPlanVO> cal(TripPlanVO vo){
 		ScheduleMapper schedule = sqlSession.getMapper(ScheduleMapper.class);
 		ArrayList<TripPlanVO> pList = schedule.cal(vo);
 		return pList;
 	}
+	
 }
