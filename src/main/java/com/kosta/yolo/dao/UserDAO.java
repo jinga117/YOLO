@@ -35,15 +35,17 @@ public class UserDAO {
 		ArrayList<UserVO> list = user.selectAll();
 		return list;
 		}
-		
+		//회원정보수정
 	public void userUpdate(UserVO vo){
 		UserMapper user = sqlSession.getMapper(UserMapper.class);
 		user.userUpdate(vo);
+		//UPDATE User SET password=#{password},name=#{name}, email=#{email}, gender=#{gender}, age=#{age} WHERE user_id = #{user_id }
+
 	}
 	
 	public UserVO userSelect(String user_id){
 		UserMapper user = sqlSession.getMapper(UserMapper.class);
-		UserVO vo = user.userSelect(user_id);
+		UserVO vo = user.userSelect(user_id);//아이디가 존재하는지 확인.
 		return vo;
 	}
 	

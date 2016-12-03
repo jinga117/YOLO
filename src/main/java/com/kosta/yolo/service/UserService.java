@@ -25,13 +25,13 @@ public class UserService {
 	
 	public int confirmCheck(UserVO vo){
 		int check = 1;
-		String user_id = vo.getUser_id();
-		vo = userDAO.userSelect(user_id);
+		String user_id = vo.getUser_id();//user_id안에 입력받은 아이디를 넣는다.
+		vo = userDAO.userSelect(user_id);//입력받은 user_id를 DAO에 매개변수로보내줌.
 		
-		if(vo != null){
+		if(vo != null){// 아이디가존재함.
 			check = 1;
 		}else {
-			check = 0;	
+			check = 0;	// 아이디가 존재하지않음.
 		}
 		return check;
 	}

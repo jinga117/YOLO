@@ -15,15 +15,12 @@ public class BookmarkService {
 	@Autowired
 	private BookmarkDAO bookmarkDAO;
 
-	public void bookmark_write(TripInfoVO tripinfovo,BookMarkVO bookmarkvo) {/////////////////
-		
+	public void bookmark_write(TripInfoVO tripinfovo,BookMarkVO bookmarkvo) {//북마크추가
 		bookmarkDAO.bookmarkWrite(bookmarkvo);
 	}
 
 	public ArrayList<BookMarkVO> select(BookMarkVO bookmarkvo){	////북마크중복안되게
-		System.out.println("333333");
 		ArrayList<BookMarkVO> list = bookmarkDAO.select_s(bookmarkvo);
-		System.out.println("555555");
 		return list;
 	}
 }

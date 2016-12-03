@@ -26,16 +26,17 @@ public class UserController {
    public String write_view(Model model) {
       return "user/user_write"; // /WEB-INF/views/write_view.jsp
    } 
-
+   
+   //회원 수정하기위해 기존값을 가져옴(select)
    @RequestMapping(value="/userwrite", method=RequestMethod.POST)
-   public ModelAndView write(UserVO uservo) {	// , Model model
+   public ModelAndView write(UserVO uservo) {	//vo 에 저장된 회원가입시 입력된값들
 	   ModelAndView mav = new ModelAndView();
-	   int num = userService.confirmCheck(uservo);
-	   if(num == 1){
+	   int num = userService.confirmCheck(uservo);//서비스 이동~
+	   if(num == 1){//아이디가 존재하는경우.
 		   mav.addObject("num",num);
 		   mav.setViewName("user/FindFail");
 		   return mav;
-	   }else{
+	   }else{//아이디가 존재하지않으므로 , 회원가입가능. 입력된값들 가지고 서비스이동.
 		   userService.insert(uservo);
 		   mav.setViewName("user/FindFail");
 		   return mav;
@@ -70,19 +71,18 @@ public class UserController {
    }
 
    // 로그아웃
-   @RequestMapping("/logout")
+   @RequestMapping("/logout")// Top에서 로그아웃클릭시 // Top에서 로그아웃클릭시 
    public String logout(HttpServletRequest request){
       
       HttpSession session = request.getSession(); 
-      session.invalidate(); // 로그아웃시 현재 가지고 있는 id값을 지우기 위해 사용
+      session.invalidate(); //세션값을 초기화시켜서 user_id값이 null로 변경됨.
       
-      return "login/loginOut";
+      return "login/loginOut";//(로그아웃alert)
    }
    
    // 회원 리스트
    @RequestMapping("/userlist")
    public ModelAndView list(){
-      System.out.println("여긴 컨트롤러!!! ");
       ModelAndView mav = userService.list(); // 현재 가입되어 있는 유저들의 정보를 가져오기 위함 (관리자)
       mav.setViewName("user/userlist");
       
@@ -92,19 +92,20 @@ public class UserController {
    // 회원 수정
    @RequestMapping(value = "/user_update", method = RequestMethod.GET)
    public ModelAndView update(HttpServletRequest request) {
-	  HttpSession session = request.getSession();
+	  HttpSession session = request.getSession();//현재 로그인 되어있는 id를 가지고오기 위해 세션을 사용
+
 	  String user_id = (String) session.getAttribute("user_id"); //현재 로그인 되어있는 id를 가지고오기 위해 세션을 사용
 	  ModelAndView mav = new ModelAndView();
 	  UserVO vo = userService.userSelect(user_id); //id의 정보를 가져옴
-	  mav.addObject("vo",vo); // textbox에 id의 정보가 자동 주입하기위해 셋 시켜줌
+	  mav.addObject("vo",vo); 
 	  mav.setViewName("user/user_update");
 	      
 	  return mav;
    }
 
    @RequestMapping(value = "/user_update", method = RequestMethod.POST)
-   public ModelAndView updatePro(UserVO vo) {
-      ModelAndView mav = userService.updatePro(vo); 
+   public ModelAndView updatePro(UserVO vo) {//입력한정보값이 vo로저장된걸 호출시킴
+      ModelAndView mav = userService.updatePro(vo);//입력한값들 매개변수로보내줌. 
       mav.setViewName("mypage/mypage_main");
       
       return mav;

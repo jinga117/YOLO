@@ -20,32 +20,29 @@ public class BookmarkController {
    @Autowired
    private BookmarkService bookmarkService;
 
-   @RequestMapping("/bookmark_log") // 북마크
+   @RequestMapping("/bookmark_log") // 북마크 추가클릭시.
    public ModelAndView write_view(HttpServletRequest request,TripInfoVO tripinfovo) {
-	   HttpSession session = request.getSession();
-	   ModelAndView mav = new ModelAndView();
+	   HttpSession session = request.getSession();// 로그인값 가져오기위해.
+	   ModelAndView mav = new ModelAndView();// 화면에 보내기위해
 	   BookMarkVO vo = new BookMarkVO();
-	   vo.setUser_id((String) session.getAttribute("user_id"));
+	   vo.setUser_id((String) session.getAttribute("user_id"));// vo안에 세션값저장.
 	   vo.setTrip_id(tripinfovo.getTrip_id());
 	   ArrayList<BookMarkVO> list= bookmarkService.select(vo);	//size = 0일시 북마크성공 (중복되는게없으므로)
-	   
-	   System.out.println("아이디:"+vo.getUser_id()+"여행지아이디"+tripinfovo.getTrip_id());
-	   
+	   	   
 	   if(session.getAttribute("user_id")==null){//비 로그인시
 		   int result =0;
-		   mav.addObject("result",result);
-		   mav.setViewName("bookmark/bookmark_alert");
+		   mav.addObject("result",result);// 로그인후사용가능하다는 alert창
+		   mav.setViewName("bookmark/bookmark_alert");// 로그인후사용가능하다는 alert창
 	   }
-	   else{
-		   if(list.size()==0){
-		   System.out.println("컨트롤러 트립아이디:"+tripinfovo.getTrip_id());
+	   else{	//로그인시
+		   if(list.size()==0){ // 북마크된게 없을시(중복안되므로) 북마크성공.
 		   bookmarkService.bookmark_write(tripinfovo,vo);
 		   mav.setViewName("index");
 		   }
-		   else{
+		   else{// 로그인은 되있으나, 북마크를 햇었다면 (중복됨)
 			   int result =1;
-			   mav.addObject("result",result);
-			   mav.setViewName("bookmark/bookmark_alert");
+			   mav.addObject("result",result);// 로그인후사용가능하다는 alert창
+			   mav.setViewName("bookmark/bookmark_alert");// 북마크했다는 alert창.
 		   }
 	   }
 	   
