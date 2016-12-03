@@ -59,8 +59,6 @@ public class TripInfoService {
 		mav.addObject("reviewList", review);
 		
 		
-		
-		
 		//-----------------------------------------------날씨 부분-------------------------------------------------
 		// 오늘날짜 가져오기 
 		Date date = new Date();

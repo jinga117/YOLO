@@ -16,12 +16,6 @@ public class ScheduleDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public ArrayList<TripInfoVO> all(){
-		ScheduleMapper schedule = sqlSession.getMapper(ScheduleMapper.class);
-		ArrayList<TripInfoVO> list = schedule.all();
-		return list;
-	}
-
 	public ArrayList<TripPlanVO> cal(TripPlanVO vo){
 		ScheduleMapper schedule = sqlSession.getMapper(ScheduleMapper.class);
 		ArrayList<TripPlanVO> pList = schedule.cal(vo);

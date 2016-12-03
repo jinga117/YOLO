@@ -3,12 +3,6 @@
      "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
      
 <mapper namespace="com.kosta.yolo.dao.ScheduleMapper">
-  		<select id="all"  resultType="com.kosta.yolo.vo.TripInfoVO">
-    		SELECT * FROM TripInfo <!-- ORDER BY trip_like DESC -->
-    	</select>
-		<select id="mycalendar" resultType="com.kosta.yolo.vo.TripPlanVO" parameterType="java.lang.String">
-			select * from TripPlan where user_id = #{user_id}
-		</select>
 		<select id="cal" resultType="com.kosta.yolo.vo.TripPlanVO">
 			SELECT * FROM TripPlan WHERE user_id = #{user_id} and trip_start like concat('%',#{trip_start},'%')
 		</select>

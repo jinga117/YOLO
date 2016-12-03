@@ -9,7 +9,7 @@ import com.kosta.yolo.vo.UserVO;
 
 public interface ScheduleMapper  extends Serializable  {
 	
-	ArrayList<TripInfoVO> all();
 	//yoloPlan
 	ArrayList<TripPlanVO> cal(TripPlanVO vo);
+	
 }

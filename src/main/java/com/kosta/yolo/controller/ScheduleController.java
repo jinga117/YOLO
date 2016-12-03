@@ -15,25 +15,6 @@ public class ScheduleController {
 
 	@Autowired
 	private ScheduleService scheduleservice;
-
-	@RequestMapping("/trip_schedule") //비로그인때 yoloplan 클릭  /     로그인중에 yoloplan클릭. 약간수정해야될듯.(바텀yoloplan클릭시!)
-
-	public ModelAndView schedule_lo(HttpServletRequest request) {
-
-		HttpSession session = request.getSession();
-		String user_id = (String) session.getAttribute("user_id");//String user_id 안에 세션값저장.
-		int result = scheduleservice.s_login(user_id);//로그인시 리턴1  / 비로그인시 리턴0
-
-		if (result == 1) {//로그인 되있을시.
-			ModelAndView mav = scheduleservice.allList();
-			mav.setViewName("schedule/schedule_login");
-			return mav;
-		} else {// 비로그인시.
-			ModelAndView mav = new ModelAndView();
-			mav.setViewName("schedule/schedule_notlogin");
-			return mav;
-		}
-	}
 	
 	@RequestMapping("/yoloplanner") 
 	public ModelAndView calen(HttpServletRequest request, HttpSession session) throws Exception {
