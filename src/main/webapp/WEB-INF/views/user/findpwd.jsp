@@ -4,14 +4,55 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>비밀번호 찾기</title>
-</head>
-<body>
-	<form action="find_pwdPro" name="findPWD">
-	아이디 : <input type="text" name="user_id" >
-	이메일 : <input type="email" name="email"> 
-	<input type="button" onclick="openConfirmid(this.form)" value="확인"/>
-	</form>
+<title>비밀번호 찾기</title><style>
+	.find_wrap {
+		display:block;
+		width:100%;
+		height:100%;
+		margin-top:40px;
+		color:#fff;
+		text-align:center;
+	}
+	
+	.find_wrap .input_name, .input_email {
+		padding:5px;
+		width:220px;
+		height:30px;
+		margin-left:5px;
+		background:#fff;
+		border:1px solid #ddd;
+	}
+	
+	.find_wrap .input_name {
+		width:150px;
+	}
+	
+	.btn_find {
+		display:inline-block;
+		text-align:center;
+		padding:10px 20px;
+		margin:10px 5px 0 0;
+		background:#eee;
+		border:1px solid #ddd;
+	}
+	
+	.btn_wrap {
+		margin:0 10px 0;
+		padding:10px;
+		text-align:center;
+	}
+</style>
+<body bgcolor="#5be0dd">
+	<div class="find_wrap">
+		<form action="find_pwdPro" name="findPWD">
+		아이디 <input type="text" name="user_id" class="input_name" >
+		이메일 <input type="email" name="email" class="input_email" >
+		<div class="btn_wrap">
+			<input type="button" onclick="openConfirmid(this.form)" value="확인"  class="btn_find"/>
+			<input type="button"  onclick="javascript:window.close()"  class="btn_find" value="취소" />
+		</div>
+		</form>
+	</div>
 </body>
 
 <script type="text/javascript">

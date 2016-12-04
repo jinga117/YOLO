@@ -98,6 +98,14 @@
     <!-- //b-header -->
     
     <!-- login-->
+    <script type="text/javascript">
+    	function openFindId() {
+    		window.open("findid", "_blank", "toolbar=no,scrollbars=no,resizable=no,top=200,left=400,width=600,height=200");
+    	}
+    	function openFindpwd() {
+    		window.open("findpwd", "_blank", "toolbar=no,scrollbars=no,resizable=no,top=200,left=400,width=600,height=200");
+    	}
+    </script>
 	<input type="hidden" id="realId">
 	<input type="hidden" id="realPassword">
 	<div class="hidden b-jquery-popup">
@@ -110,10 +118,13 @@
 	            <div class="b-form__row">
 	                 <input type="password"  id="password" name="password" placeholder="Your Password" class="login_password"  required="required" value="" onChange="changePassword(this)" onKeyup="loginProKeyUp(event)">
 	            </div>
-	            <h6><a href="findid">아이디찾기</a>/<a href="findpwd">비밀번호찾기</a></h6>
 	            <div class="b-form__row m--centered">
 	                 <button class="btn btn-success m--border-radius-right" id="loginbtn" onClick="loginPro();">로그인</button>
 	            </div>
+				<h6 class="m--centered">
+					<button class="btn_find" onclick="openFindId()">아이디찾기</button>
+					<button class="btn_find" onclick="openFindpwd()">비밀번호찾기</button>
+				</h6>
 	        </div>
      </div>
    <!--// login-->

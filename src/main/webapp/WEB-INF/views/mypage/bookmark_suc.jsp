@@ -1,73 +1,52 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
-<title>북마크 성공</title>
-</head>
-<body>
-<%-- 
-        <c:forEach items="${bookmarklist }" var="list">
-        ${list.trip_id}<p>
-        ${list.category_id}<p>
-        ${list.age_id}<p>
-        ${list.food_id}<p>
-        ${list.season_id}<p>
-        ${ list.person_id}<p>
-        ${ list.kpop_id}<p>
-        ${ list.trip_nickname}<p>
-        ${ list.trip_address}<p>
-        ${ list.trip_image}<p>
-        ${ list.trip_content}<p>
-        ${ list.trip_time}<p>
-        ${ list.trip_site}<p>
-        ${ list.trip_tel}<p>
-        ${ list.trip_way}<p>
-        ${ list.trip_pay}<p>
-        ${ list.trip_add1}<p>
-        ${ list.trip_add2}<p>
-        ${ list.trip_add3}<p>
-        ${ list.trip_like}<p>
-        ${ list.trip_view}<p>
-        ${ list.trip_video}<p>
-        ${ list.pos_x}<p>
-        ${ list.pos_y}<p>
-       </c:forEach> --%>
-       
-   <c:forEach items="${bookmarklist }" var="list">
-      <li>
-         <div class="viewList_item">
-            <div class="b-pop-place">
-               <div class="b-pop-place__img">
-                  <a href="detail_view?trip_id=${list.trip_id}">
-                     <img width="370" height="245" class="b-pop-place__img__img"  src="img/photo/${list.trip_id}.jpg" alt="${list.trip_nickname}"></a>
-                         <a href="#" class="b-icon-medal"></a>
-                         <a href="#" onClick="likeIt(this)" value="${list.trip_id}" class="b-icon-like" data-toggle="tooltip" data-placement="left" title="좋아요"><i class="fa fa-heart" aria-hidden="true"></i></a>
-               </div>
-                      
-               <div class="b-pop-place__desc clearfix">
-                         <div class="b-pop-place__rating">
-                            <span class="b-pop-place__like"><i class="fa fa-heart" aria-hidden="true"></i></span>
-                            <span id="likeCount">${list.trip_like}</span>
-                         </div>
-                         <a href="detail_view?trip_id=${list.trip_id}" class="b-pop-place__name">${list.trip_nickname}</a>
-                         <h5 class="b-pop-place__cat">${list.trip_address}</h5>
-                         <a href ="bookmark_delete?trip_id=${list.trip_id }">X</a>
-                     <div class="b-pop-place-comment">
-                  <a href="http://${list.trip_site}" target="_blank"  class="b-pop-place-homepage">
-                     <i class="fa fa-home" aria-hidden="true"></i></a>
-                       <a href="http://${list.trip_site}" target="_blank" >${list.trip_site}</a>
-               </div>
-                         
-               <div class="b-pop-place-comment">
-                  <a href="#"  class="b-pop-place-homepage"><i class="fa fa-clock-o" aria-hidden="true"></i></a>
-                            ${list.trip_time}
-                    </div>
-            </div>
-         </div>
-      </div>
-      </li>
-   </c:forEach>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!--  헤더 영역 시작 -->
+<jsp:include page="../inc/top.jsp" />
+<!--  헤더 영역 끝 -->
 
+<!-- 컨텐츠 영역 시작 -->
+	<div class="mypage_container">
+		<!-- My page 왼쪽 메뉴 시작 -->
+		<jsp:include page="../inc/left_menu.jsp" />
+		<!-- My page 왼쪽 메뉴 끝 -->
+	
+		<div class="mypage_content_wrap">
+			<h2 class="mypage_list_title">북마크</h2>
+			<c:forEach items="${bookmarklist }" var="list">
+				<div class="bookmark_container">
+					<ul class="viewList_list">
+						<li class="bookmark_list">
+							<div class="viewList_item">
+								<div class="b-pop-place">
+									<div class="b-pop-place__img">
+										<a href="detail_view?trip_id=${list.trip_id}"> <img width="370" height="245" class="b-pop-place__img__img" src="img/photo/${list.trip_id}.jpg"></a>
+									</div>
+	
+									<div class="b-pop-place__desc clearfix">
+										<a href="detail_view?trip_id=${list.trip_id}" class="b-pop-place__name"> 
+											<span class="b-pop-place__name_txt">${list.trip_nickname}</span>
+										</a>
+										<span class="bookmark_del_wrap"><a href ="bookmark_delete?trip_id=${list.trip_id }" class="btn_delete" data-toggle="tooltip" data-placement="left" title="북마크 삭제">X</a></span>
+										
+										<h5 class="b-pop-place__cat">${list.trip_add1}
+											${list.trip_add2}</h5>
+										<div class="b-pop-place-comment m--centered">
+											<span class="b-pop-place__view"><img src="img/heart_icon.png" class="list_icon" id="heart_icon"></span>
+											<span id="likeCount">${list.trip_like}</span>
+											<span class="b-pop-place__view"><img src="img/view_icon.png" class="list_icon"> ${list.trip_view}</span> 
+											<span class="b-pop-place__view">
+												<a href="detail_view?trip_id=${list.trip_id}#commentArea"><img src="img/review_icon.png" class="list_icon"> ${list.trip_review}</a>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</c:forEach>
+		</div>
+	</div>
 </body>
 </html>

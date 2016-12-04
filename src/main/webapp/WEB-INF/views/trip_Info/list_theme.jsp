@@ -27,6 +27,7 @@
 						<div class="b-pop-place">
 							<div class="b-pop-place__img">
 								<a href="detail_view?trip_id=${list.trip_id}"> <img width="370" height="245" class="b-pop-place__img__img" src="img/photo/${list.trip_id}.jpg" alt="${list.trip_nickname}"></a>
+								<a href="#" class="b-icon-medal"></a>
 								<button onClick="likeIt(this)" value="${list.trip_id}" class="b-icon-like" data-toggle="tooltip" data-placement="left" title="좋아요">
 									<i class="fa fa-heart" aria-hidden="true"></i>
 								</button>
@@ -76,6 +77,7 @@
 						<div class="b-pop-place">
 							<div class="b-pop-place__img">
 								<a href="detail_view?trip_id=${list.trip_id}"> <img width="370" height="245" class="b-pop-place__img__img" src="img/photo/${list.trip_id}.jpg" alt="${list.trip_nickname}"></a>
+								<a href="#" class="b-icon-medal"></a>
 								<button onClick="likeIt(this)" value="${list.trip_id}" class="b-icon-like" data-toggle="tooltip" data-placement="left" title="좋아요">
 									<i class="fa fa-heart" aria-hidden="true"></i>
 								</button>

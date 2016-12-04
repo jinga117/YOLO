@@ -11,11 +11,10 @@
 	<div class="b-pop-places container">
 		<h2 class="b-cont-title">검색결과</h2>
 		<h5>총 <font color="#f00" size="4">${count }</font>건이 검색 되었습니다.</h5>
-
-		<ul class="viewList_list"  id="viewList_list">
-			<!--  View all List 시작 -->
-			<c:forEach items="${list }" var="list">
-				<li>
+			<ul class="viewList_list"  id="viewList_list">
+				<!--  View all List 시작 -->
+				<c:forEach items="${list }" var="list">
+					<li>
 						<div class="viewList_item">
 							<div class="b-pop-place">
 								<div class="b-pop-place__img">

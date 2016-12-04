@@ -539,6 +539,126 @@ label {
 	background:#de443a;
 }
 
+.btn_find {
+	display:inline-block;
+	text-align:center;
+	padding:15px;
+	margin:10px 5px 0 0;
+	background:#eee;
+	border:1px solid #ddd;
+}
+
+/* My Page */
+.mypage_container {
+	position:relative;
+	display:block;
+	width:100%;
+}
+
+.mypage_left_wrap {
+	position:relative;
+	width:220px;
+	height:auto;
+	padding:0;
+	margin:50px 0 100px 50px;
+	background:#fff;
+	border:1px solid #ddd;
+	border-radius:10px;
+}
+
+.mypage_left_wrap ul {
+	margin:0;
+	padding:0;
+}
+
+.mypage_left_wrap ul li {
+	margin:0;
+	padding:20px;
+	border-bottom:1px solid #ddd;
+}
+
+.mypage_left_wrap ul li:last-child {
+	border:none;
+}
+
+.mypage_title {
+	background:#43a4a2;
+	height:60px;
+	line-height:40px;
+	color:#fff;
+	text-align:center;
+	font:20px Philosopher;
+	border-radius:10px 10px 0 0;
+}
+
+.mypage_content_wrap {
+	position:absolute;
+	display:block;
+	top:0px;
+	left:300px;
+	width:70%;
+	height:auto;
+}
+
+.mypage-member-form-wrap {
+	position:relative;
+	width:60%;
+	background:#fff;
+	margin:20px auto;
+	padding:0;
+	border:1px solid #eee;
+	font:13px "Malgun Gothic";
+	color:#666;
+	z-index:9;
+}
+
+.login_password {
+	width:100%;
+	border:1px solid #e2e2e2;
+}
+
+.btn_delete {
+	padding:5px 10px;
+	color:#fff;	
+	background: #de443a;
+	margin-left:10px;
+	border-radius:4px;
+}
+
+.bookmark_container {
+	width:100%;
+	margin-left:70px;
+}
+.bookmark_list {
+	margin:0 20px;
+	width:33%;
+}
+
+.bookmark_del_wrap {
+	position:absolute;
+	display:inline-block;
+	top:30px;
+	right:10px;
+}
+
+.mypage_review_list {
+	width:80%;
+	margin:0 auto;
+}
+
+.mypage_list_title {
+	text-align:center;
+	color:#43a4a2;
+	font:bold 20px "Malgun Gothic";
+	margin-bottom:20px;
+}
+
+.mypage_img {
+	display:block;
+	width:450px;
+	margin:30px auto;	
+}
+
 .b-promo__form__col1 input[name="location"] {
     border-left: none;
 }
@@ -648,7 +768,7 @@ html .m--border-radius-right {
 }
 .b-main-container {
     background-color: transparent;
-    width: 95%;
+    width: 100%;
     overflow-x: hidden;
 }
 .b-main-container .b-placeholder {
@@ -1370,7 +1490,7 @@ only screen and (min-resolution: 1.5dppx) {
 /* 일정추가 */
 .list_add_icon_wrap {
 	position:absolute;
-	top:260px;
+	top:15px;
 	right:15px;
 	padding:0;
 	margin:0;
@@ -2110,8 +2230,9 @@ html .b-promo__search {
     margin-right: 10px;
 }
 .b-pop-place__desc {
+	position:relative;
     background-color: #fff;
-    padding: 20px;
+    padding: 20px 20px 12px 20px;
     font:12px "Malgun Gothic";
 }
 .b-pop-place__rating {
@@ -2150,7 +2271,7 @@ html .b-promo__search {
 .b-pop-place__view {
 	display:inline-block;
 	color:#666;
-	padding:10px 10px 0 10px;
+	padding:10px 10px 0 5px;
 	font-weight:normal;
 }
 
@@ -2182,7 +2303,7 @@ html .b-promo__search {
 	height:40px;
     margin-top: 20px;
     color: #333;
-	padding-top:10px;
+	padding-top:5px;
 	display:inline-block;
 	border-top:1px dashed #ddd;
 	font-size:12px;
@@ -3292,7 +3413,7 @@ html .b-gadget__subscribe__field {
     
     : 72px;
 }
-/* ---------------------------------------------------- Single event page style ---------------------------------------------------- */
+/* /* ---------------------------------------------------- Single event page style ---------------------------------------------------- */
 
 .b-pic--event {
     background-image: none;
@@ -3319,13 +3440,13 @@ html .b-gadget__subscribe__field {
     bottom: 7%;
     animation: fadein 2s;
     -moz-animation: fadein 2s;
-    /* Firefox */
+    Firefox
     
     -webkit-animation: fadein 2s;
-    /* Safari and Chrome */
+    Safari and Chrome
     
     -o-animation: fadein 2s;
-    /* Opera */
+    Opera
 }
 .b-pic__links {
     position: absolute;
@@ -3760,11 +3881,11 @@ html .btn--buy-ticket:hover {
     border: 5px solid #de443a;
     display: block;
     margin-top: 10px;
-}
+} */
 .b-form-reg-popup {
     background: #fff;
     padding: 10px 30px 0;
-    width: 500px;
+    width:500px;
 	z-index:99999999;
 }
 .b-form-reg-popup input{
@@ -4222,7 +4343,6 @@ html .btn--buy-ticket:hover {
 .logged-in .b-map-menu,
 .logged-in .b-slide-menu {
     top: 112px;
-    border:1px solid #f00;
     z-index:999;
 }
 
@@ -20157,6 +20277,7 @@ input[type=submit].styler[disabled] {
 }
 .popup_cont {
     position: fixed;
+    width:530px;
     z-index: 102;
 }
 .popup_close {
