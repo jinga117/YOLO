@@ -17,7 +17,12 @@ public class TripPlanDAO {
 	
 	public TripPlanVO tripPlan(TripPlanVO vo) {
 		TripPlanMapper plan = sqlSession.getMapper(TripPlanMapper.class);
-		plan.tripPlan(vo);
+		TripPlanVO tripPlanVo = plan.tripPlanView(vo.getUser_id());
+		if (tripPlanVo==null) {
+			plan.insertTripPlan(vo);
+		} else {
+			plan.updateTripPlan(vo);
+		}
 		return vo;
 	}
 		
@@ -33,5 +38,11 @@ public class TripPlanDAO {
 	   TripPlanMapper plan = sqlSession.getMapper(TripPlanMapper.class);
 	   ArrayList<RecommandVO> recommList = plan.RecommOnum(re_onum);
 	   return recommList;
+	}
+
+	public TripPlanVO tripPlanView(TripPlanVO vo) {
+		TripPlanMapper plan = sqlSession.getMapper(TripPlanMapper.class);
+		TripPlanVO tripPlanVo = plan.tripPlanView(vo.getUser_id());
+		return tripPlanVo;
 	}
 }

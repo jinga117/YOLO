@@ -26,17 +26,47 @@ public class PlanController {
 	// 일정짜기
 	@RequestMapping(value = "/tripPlan", method = RequestMethod.POST)
 	public ModelAndView writeTripPlan(HttpServletRequest request, HttpServletResponse response,  TripPlanVO vo) throws IOException {
-	   planService.tripPlan(vo);
-	   PrintWriter out = response.getWriter();
-       JSONObject obj = new JSONObject();
-       obj.put("result", "ok");
-       out.print(obj);
-       out.flush();
-       out.close();          
+		if (vo.getTrip_plan_pay_1()==null || vo.getTrip_plan_pay_1().equals("")) vo.setTrip_plan_pay_1("0"); // 비용이 null 일때 0으로 셋팅함
+		if (vo.getTrip_plan_pay_2()==null || vo.getTrip_plan_pay_2().equals("")) vo.setTrip_plan_pay_2("0");
+		if (vo.getTrip_plan_pay_3()==null || vo.getTrip_plan_pay_3().equals("")) vo.setTrip_plan_pay_3("0");
+		planService.tripPlan(vo);
+		   PrintWriter out = response.getWriter();
+		   JSONObject obj = new JSONObject();
+		   obj.put("result", "ok");
+		   out.print(obj);
+		   out.flush();
+		   out.close();          
+
+      return null;
+  }
+	
+	// 일정뿌리기
+	@RequestMapping(value = "/getTripPlan", method = RequestMethod.POST,  produces = "application/text; charset=utf8")
+	public ModelAndView getTripPlan(HttpServletRequest request, HttpServletResponse response,  TripPlanVO vo) throws IOException {
+		TripPlanVO resultVo = planService.tripPlanView(vo);
+		if (resultVo == null) return null; 	// 로그인 안했을때 null값을 리턴함
+		
+		   String json = "{\"trip_start\":\"" + resultVo.getTrip_start() + "\","
+					+ "\"trip_title\":\"" + resultVo.getTrip_title() + "\","
+					+ "\"trip_id_1\":\"" + resultVo.getTrip_id_1() + "\","
+					+ "\"trip_nickname_1\":\"" + resultVo.getTrip_nickname_1() + "\","
+					+ "\"trip_plan_pay_1\":\"" + resultVo.getTrip_plan_pay_1() + "\","
+					+ "\"trip_plan_memo_1\":\"" + resultVo.getTrip_plan_memo_1() + "\","
+					+ "\"trip_id_2\":\"" + resultVo.getTrip_id_2() + "\","
+					+ "\"trip_nickname_2\":\"" + resultVo.getTrip_nickname_2() + "\","
+					+ "\"trip_plan_pay_2\":\"" + resultVo.getTrip_plan_pay_2() + "\","
+					+ "\"trip_plan_memo_2\":\"" + resultVo.getTrip_plan_memo_2() + "\","
+					+ "\"trip_id_3\":\"" + resultVo.getTrip_id_3() + "\","
+					+ "\"trip_nickname_3\":\"" + resultVo.getTrip_nickname_3() + "\","
+					+ "\"trip_plan_pay_3\":\"" + resultVo.getTrip_plan_pay_3() + "\","
+					+ "\"trip_plan_memo_3\":\"" + resultVo.getTrip_plan_memo_3() + "\""
+					+ "}";
+			response.setContentType("text/html;charset=UTF-8");
+			response.getWriter().print(json);
 
        return null;
    }
-   
+	
    // 추천일정 전체보기 리스트
    @RequestMapping("/list_recommand")
    public ModelAndView list_recommand(@RequestParam String re_num) {

@@ -3,20 +3,49 @@
      "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.kosta.yolo.dao.TripPlanMapper">
-	<insert id="tripPlan" parameterType="com.kosta.yolo.vo.TripPlanVO">
-		INSERT INTO TripPlan VALUES(#{plan_no}, #{user_id}, #{trip_start}, 
+	<!-- 일정저장 -->
+	<insert id="insertTripPlan" parameterType="com.kosta.yolo.vo.TripPlanVO">
+		INSERT INTO TripPlan VALUES(#{plan_no}, #{user_id}, #{trip_start}, #{trip_title},
 		#{trip_id_1}, #{trip_nickname_1}, #{trip_plan_pay_1}, #{trip_plan_memo_1},
-		#{trip_id_2}, #{trip_nickname_2}, #{trip_plan_pay_2}, #{trip_plan_memo_2}, 
+		#{trip_id_2}, #{trip_nickname_2}, #{trip_plan_pay_2}, #{trip_plan_memo_2},
 		#{trip_id_3}, #{trip_nickname_3}, #{trip_plan_pay_3}, #{trip_plan_memo_3})
 	</insert>
-	
+
+	<update id="updateTripPlan" parameterType="String">
+		UPDATE TripPlan set TRIP_START = #{trip_start},
+		TRIP_TITLE = #{trip_title},
+		TRIP_ID_1 = #{trip_id_1}, 
+		TRIP_NICKNAME_1 = #{trip_nickname_1},
+		TRIP_PLAN_PAY_1 = #{trip_plan_pay_1}, 
+		TRIP_PLAN_MEMO_1 =#{trip_plan_memo_1},
+		TRIP_ID_2 = #{trip_id_2}, 
+		TRIP_NICKNAME_2 = #{trip_nickname_2},
+		TRIP_PLAN_PAY_2 = #{trip_plan_pay_2}, 
+		TRIP_PLAN_MEMO_2 =#{trip_plan_memo_2},
+		TRIP_ID_3 = #{trip_id_3}, 
+		TRIP_NICKNAME_3 = #{trip_nickname_3},
+		TRIP_PLAN_PAY_3 = #{trip_plan_pay_3}, 
+		TRIP_PLAN_MEMO_3 =#{trip_plan_memo_3}
+		WHERE USER_ID = #{user_id}
+	</update>
+
+	<!-- 일정 보기 -->
+	<select id="tripPlanView" parameterType="String" resultType="com.kosta.yolo.vo.TripPlanVO">
+		SELECT * FROM TripPlan
+		WHERE user_id = #{user_id}
+		ORDER BY plan_no DESC
+		limit 1
+	</select>
+
 	<!-- 추천일정 전체 리스트 -->
-    <select id="RecommAll"  resultType="com.kosta.yolo.vo.TripInfoVO">
-       SELECT * FROM TripInfo t, Recommand r WHERE t.trip_id = r.trip_id AND re_num LIKE concat("%",#{re_num},"%")
-    </select>
-    
-    <!-- 추천일정 상세보기 리스트 -->
-    <select id="RecommOnum"  resultType="com.kosta.yolo.vo.TripInfoVO" >
-       SELECT * FROM TripInfo t, Recommand r WHERE t.trip_id = r. trip_id AND re_onum = #{re_onum}
-    </select>
+	<select id="RecommAll" resultType="com.kosta.yolo.vo.TripInfoVO">
+		SELECT * FROM TripInfo t, Recommand r WHERE t.trip_id = r.trip_id AND re_num
+		LIKE concat("%",#{re_num},"%")
+	</select>
+
+	<!-- 추천일정 상세보기 리스트 -->
+	<select id="RecommOnum" resultType="com.kosta.yolo.vo.TripInfoVO">
+		SELECT * FROM TripInfo t, Recommand r WHERE t.trip_id = r. trip_id AND
+		re_onum = #{re_onum}
+	</select>
 </mapper>

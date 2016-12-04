@@ -38,5 +38,10 @@ public class TripPlanService {
         mav.addObject("recommList", recommList);
         return mav;
      }
+
+	public TripPlanVO tripPlanView(TripPlanVO vo) {
+	      ModelAndView mav = new ModelAndView();
+	      return planDAO.tripPlanView(vo);
+	}
    
 }

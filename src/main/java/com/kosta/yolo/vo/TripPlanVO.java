@@ -6,8 +6,9 @@ public class TripPlanVO {
    //사용자 ID, 여행지 이름, 여행지 가격,  내 메모
    private String user_id; // user아이디
    private String trip_start; //일정 시작일
+   private String trip_title; //일정 제목
    
-   //일정정보 3일까지
+//일정정보 3일까지
    private int plan_no;
    private String trip_id_1, trip_nickname_1, trip_plan_memo_1, trip_plan_pay_1;
    private String trip_id_2, trip_nickname_2, trip_plan_memo_2, trip_plan_pay_2;
@@ -103,5 +104,11 @@ public class TripPlanVO {
    public void setTrip_plan_pay_3(String trip_plan_pay_3) {
       this.trip_plan_pay_3 = trip_plan_pay_3;
    }
+   public String getTrip_title() {
+		return trip_title;
+	}
+	public void setTrip_title(String trip_title) {
+		this.trip_title = trip_title;
+	}
 }
    
