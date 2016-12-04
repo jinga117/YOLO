@@ -22,8 +22,8 @@
 					<div class="b-footer__nav__col__title">About us</div>
 					<ul>
 						<li><a href="#">YOLO</a></li>
-						<li><a href="Contact_view">Contact us</a></li>
-						<li><a href="#">Hot to use</a></li>
+						<li><a href="#">Contact us</a></li>
+						<li><a href="Contact_view">Hot to use</a></li>
 					</ul>
 				</div>
 
