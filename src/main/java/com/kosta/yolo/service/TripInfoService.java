@@ -87,9 +87,6 @@ public class TripInfoService {
 		String x=Double.toString(detail.get(0).getPos_x()); //위도
 		String y=Double.toString(detail.get(0).getPos_y()); //경도
 		
-		System.out.println("위도 : "+detail.get(0).getPos_x());
-		System.out.println("경도 : "+detail.get(0).getPos_y());
-
 		//위치에따른 정보가있는 json주소값
 		URL url = new URL("http://api.openweathermap.org/data/2.5/forecast/daily?&APPID=7a9e4cfcb74be8bf1f5a726a03e4d451&lat="+x+"&lon="+y+"&mode=json&cnt=7");
 		System.out.println(url);
@@ -319,7 +316,8 @@ public class TripInfoService {
 		mav.addObject("foodTop", ftop);
 		return mav;
 	}
-
+	
+	//리뷰삭제!!
 	public void deleteReview(HttpServletRequest request) {
 		infoDAO.deleteReview(request.getParameter("review_no"));
 	}

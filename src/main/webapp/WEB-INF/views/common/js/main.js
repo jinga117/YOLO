@@ -114,6 +114,9 @@ $(document).ready(function () {
     $('#showLess').click(function() {
         x=(x-4<0) ? 8 : x-4;
         $('#viewList_list li').not(':lt('+x+')').slideUp();
+        if(x==4){
+        	false;
+        }
     });
     
     //더보기 end

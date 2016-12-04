@@ -6,4 +6,22 @@
 		<select id="cal" resultType="com.kosta.yolo.vo.TripPlanVO">
 			SELECT * FROM TripPlan WHERE user_id = #{user_id} and trip_start like concat('%',#{trip_start},'%')
 		</select>
+		
+		<select id="planInfo" resultType="com.kosta.yolo.vo.TripPlanVO">
+			SELECT * FROM TripPlan WHERE plan_no = #{plan_no}
+		</select>
+		
+		<update id="planUp"  parameterType="com.kosta.yolo.vo.TripPlanVO">
+			UPDATE TripPlan SET 
+			trip_start = #{trip_start},  trip_title=#{trip_title},
+			trip_plan_memo_1=#{trip_plan_memo_1},  trip_plan_pay_1=#{trip_plan_pay_1}, 
+			trip_plan_memo_2=#{trip_plan_memo_2},  trip_plan_pay_2=#{trip_plan_pay_2}, 
+			trip_plan_memo_3=#{trip_plan_memo_3},  trip_plan_pay_3=#{trip_plan_pay_3}
+			 WHERE plan_no = #{plan_no}
+		</update>
+		
+		<delete id="planDe"  parameterType="com.kosta.yolo.vo.TripPlanVO">
+			DELETE FROM TripPlan WHERE plan_no = ${plan_no}
+		</delete>
+		
 </mapper>

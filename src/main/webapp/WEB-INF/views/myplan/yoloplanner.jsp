@@ -5,26 +5,45 @@
 <jsp:include page="../inc/top.jsp" />
 <!--  헤더 영역 끝 -->
 
+<style>
+#titleForm{
+	background-color: #ffc314; 
+	border-radius: 5px;
+	line-height: 150%;
+	text-align: center;
+	font-weight: 600;
+}
+#titleForm:hover{
+	background-color: #ffa500; 
+}
+#titleForm a{
+	color: white;
+}
+.day{
+	height: 100px;
+}
+
+</style>
 <!-- 컨텐츠 영역 시작 -->
 <div class="b-main-container" id="content">
    <div class="calendar">
 	<table class="weekdays">
 		<tr class="choose">
 			<th class="choose_year">
-		    	<a href="yoloplaner?year=${year-1}&month=${month}"> « Prev Year </a>
+		    	<a href="yoloplanner?year=${year-1}&month=${month}"> « Prev Year </a>
 			</th>
 			<th class="choose_month">
-				<a href="yoloplaner?year=${year}&month=${month-1}">« Prev Month</a>
+				<a href="yoloplanner?year=${year}&month=${month-1}">« Prev Month</a>
 			</th>
-			<th colspan="3" class="current_year"><a href="yoloplaner?year=${currentYear}&month=${currentMonth}">
+			<th colspan="3" class="current_year"><a href="yoloplanner?year=${currentYear}&month=${currentMonth}">
 				 <span class="calendar_icon"><i class="fa fa-calendar" aria-hidden="true"></i></span> <span class="year_txt">${year}년</span>
 				<span class="month_txt"> ${month}월 </span></a>
 			</th>
 			<th class="choose_month">
-				<a href="yoloplaner?year=${year}&month=${month+1}"> Next Month »</a>
+				<a href="yoloplanner?year=${year}&month=${month+1}"> Next Month »</a>
 			</th>
 			<th  class="choose_year">
-				<a href="yoloplaner?year=${year+1}&month=${month}"> Next Year »</a>
+				<a href="yoloplanner?year=${year+1}&month=${month}"> Next Year »</a>
 			</th>
 		</tr>            
          <!-- 달력 부분 -->
@@ -43,22 +62,22 @@
 			<c:forEach begin="1" end="${end}" var="temp2" varStatus="idx">
 				<td class="day">
 					<c:if test="${i%6 != 0 && i%7 != 0 }">
-						<b>${temp2}</b><br>
-						<b>${trip[idx.index] }</b><b>${trip2[idx.index] }</b><b>${trip3[idx.index] }</b><br>
-						<b>${pay[idx.index] }</b><b>${pay2[idx.index] }</b><b>${pay3[idx.index] }</b>
-						<br><b>${hap[idx.index] }</b>
+						<b>${temp2}</b>
+						<c:if test="${temp2 == day}"><p id="titleForm"><a href="myplanDeteil?plan_no=${plan_no }" >${tripInfo }</a></p></c:if>
+						<c:if test="${temp2 == tDay}"><p id="titleForm"><a href="myplanDeteil?plan_no=${plan_no }">${tripInfo2 }</a></p></c:if>
+						<c:if test="${temp2 == eDay}"><p id="titleForm"><a href="myplanDeteil?plan_no=${plan_no }">${tripInfo3 }</a></p></c:if>
 					</c:if>
 	               <c:if test="${i%6==0 && i%7 != 0}">
 	                  <b><font class="saturday">${temp2}  </font></b><br>
-	                  <b>${trip[idx.index] }</b><b>${trip2[idx.index] }</b><b>${trip3[idx.index] }</b><br>
-						<b>${pay[idx.index] }</b><b>${pay2[idx.index] }</b><b>${pay3[idx.index] }</b> 
-						<br><b>${hap[idx.index] }</b>
+						<c:if test="${temp2 == day}"><p id="titleForm"><a href="myplanDeteil?plan_no=${plan_no }">${tripInfo }</a></p></c:if>
+						<c:if test="${temp2 == tDay}"><p id="titleForm"><a href="myplanDeteil?plan_no=${plan_no }">${tripInfo2 }</a></p></c:if>
+						<c:if test="${temp2 == eDay}"><p id="titleForm"><a href="myplanDeteil?plan_no=${plan_no }">${tripInfo3 }</a></p></c:if>
 	               </c:if>
 	                <c:if test="${i%6==0 && i%7==0}">
 	                  <b><font class="sunday">${temp2}</font></b><br>
-	                  <b>${trip[idx.index] }</b><b>${trip2[idx.index] }</b><b>${trip3[idx.index] }</b><br>
-						<b>${pay[idx.index] }</b><b>${pay2[idx.index] }</b><b>${pay3[idx.index] }</b>
-						<br><b>${hap[idx.index] }</b>
+						<c:if test="${temp2 == day}"><p id="titleForm"><a href="myplanDeteil?plan_no=${plan_no }">${tripInfo }</a></p></c:if>
+						<c:if test="${temp2 == tDay}"><p id="titleForm"><a href="myplanDeteil?plan_no=${plan_no }">${tripInfo2 }</a></p></c:if>
+						<c:if test="${temp2 == eDay}"><p id="titleForm"><a href="myplanDeteil?plan_no=${plan_no }">${tripInfo3 }</a></p></c:if>
 	               </c:if>  
 				</td>
 				<c:set var="i" value="${i+1}"/>
