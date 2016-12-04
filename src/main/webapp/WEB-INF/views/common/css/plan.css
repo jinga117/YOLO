@@ -24,7 +24,7 @@
 	padding-top: 5px;
 	margin-bottom: 5px;
 	width: 100%;
-	height: 40px;
+	height: 50px;
 	font: bold 18px "Malgun Gothic";
 	background: #457c7b;
 	border-radius: 5px;
@@ -104,28 +104,37 @@
 
 
 /* ¼öÁ¤ÆûºÎºÐ */
+.cal_title .input_title, .days .input_start, .t_info .input_memo{
+	 height: auto;
+	 line-height: normal;
+	background-color:transparent;
+	border: infobackground;
+	}
+
+
 .cal_title .input_title{
-	width: 25%;
-    margin: -20px 0 ;
+	width: 40%;
+    margin: -5px 0 ;
     box-sizing: border-box;
 	text-align: center;
 	border-radius: 4px;
+	color: #eee;
      font: bold 18px "Malgun Gothic";
 }
-.cal_title .input_title:focus {
-    border: 3px solid #004040;
-}
+
 .days .input_start{
-	width: 15%;
+	width: 29%;
     right: 0;
+    text-align: right;
+    top: -6px;
     position: absolute;
     box-sizing: border-box;
 	border-radius: 4px;
-     font: bold 16px "Malgun Gothic";
+    font: bold 16px "Malgun Gothic";
 }
 .t_info .input_memo{
 	width: 100%;
-	height: 3em;
+	margin: -20px 0 -20px 0;
 	box-sizing: border-box;
 	border-radius: 4px;
     color: bold black;
@@ -134,4 +143,15 @@
 .sub_update{
 	width: 100%;
 	clear: both;
+	text-align: center;
+}
+.sub_update button {
+	width: 100px;
+	height: 50px;
+	border-radius: 4px; 
+	margin: 5px;
+	background-color: #2e5251;
+	color: #eee;
+	 font: bold 16px "Malgun Gothic";
+	text-align: center;
 }

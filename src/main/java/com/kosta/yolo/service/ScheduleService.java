@@ -3,6 +3,7 @@ package com.kosta.yolo.service;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -149,7 +150,7 @@ public class ScheduleService {
 	
 	
 	//상세보기!! 
-	public ModelAndView planInfo(String plan_no) throws Exception{
+	public ModelAndView planInfo(HttpServletRequest request, HttpServletResponse response, String plan_no) throws Exception{
 		ModelAndView mav = new ModelAndView();
 		TripPlanVO listVO = scheduleDAO.planInfo(plan_no);
 
@@ -182,29 +183,6 @@ public class ScheduleService {
 		if(listVO.getTrip_id_3().length()>0){
 			mav.addObject("eDay", eDay);
 		}
-		 return mav;
-	}
-	
-	public void download(HttpServletRequest request, HttpServletResponse response, String plan_no) throws Exception {
-		
-		TripPlanVO listVO = scheduleDAO.planInfo(plan_no);
-		//--------------------------일정뿌리기------------------------
-		Calendar cal = Calendar.getInstance();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		String today = listVO.getTrip_start();
-		Date date = sdf.parse(today);
-		cal.setTime(date);
-		//2일차 날짜 구하기
-		cal.add(Calendar.DATE, 1);
-		String tDay = sdf.format(cal.getTime());
-		//3일차 날짜 구하기
-		cal.add(Calendar.DATE, 1);
-		String eDay = sdf.format(cal.getTime());
-		
-		int pay = Integer.parseInt(listVO.getTrip_plan_pay_1());
-		int pay2 = Integer.parseInt(listVO.getTrip_plan_pay_2());
-		int pay3 = Integer.parseInt(listVO.getTrip_plan_pay_3());
-		int hap = pay+pay2+pay3;
 		
 		   try {
 
@@ -229,10 +207,34 @@ public class ScheduleService {
 						+hap+"</div></div></div>";
 
 				//파일을 만들어 주세요.
-				String saveName = request.getParameter("saveName") ;
+				String saveName = "myplan.pdf";
+				String filepath = "C:/yolo/YOLO/src/main/webapp/WEB-INF/views/downloads/"+saveName;
 				
-			   OutputStream file = new FileOutputStream(new File("C:/yolo/YOLO/src/main/webapp/WEB-INF/views/downloads/"+saveName)); // 바로 다운로드.
+			   OutputStream file = new FileOutputStream(new File(filepath)); // 바로 다운로드.
 
+			   boolean nRead = false;
+			   int nCnt = 0; //while 에서 무한 반복에 빠지지 않기 위해서 사용
+			   File temp1 = null;
+			   File temp2 = null;
+			   long temp1size = 0;
+			   long temp2size = 0;
+			   while( !nRead && (nCnt < 1000) )
+			   {
+			    try
+			    {
+			     temp1 = new File(filepath);
+			      temp1size = temp1.length();
+			     Thread.sleep(300);
+			     temp2 = new File(filepath);
+			     temp2size = temp2.length();
+			     if(temp1size==temp2size ) {nRead = true; }
+			    } catch(Exception e) {
+			    	e.printStackTrace();
+			    } finally {
+			      nCnt++;
+			    }
+			   }
+			   
 			    // Document 생성
 			    Document document = new Document(PageSize.A4, 50, 50, 50, 50);
 			    // PdfWriter 생성
@@ -282,16 +284,13 @@ public class ScheduleService {
 			    is.close();
 			    document.close();
 	            file.close();
-
-	            
-	
-	            
-	            
 	        } catch (Exception e) {
-
 	            e.printStackTrace();
 	        }
+		
+		 return mav;
 	}
+	
 	
 	//업데이트
 	public void planUpdate(TripPlanVO vo){

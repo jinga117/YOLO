@@ -10,7 +10,7 @@
 </script>
 <!-- 컨텐츠 영역 시작 -->
 <div class="b-main-container" id="content">
-	<div class="cal_a"><a href="yoloplanner" >Go To Planner</a><a href="download?plan_no=${vo.plan_no }&saveName=myplan.pdf" download="myPlan">DownLoad</a></div>
+	<div class="cal_a"><a href="yoloplanner" >Go To Planner</a><a href="/YOLO/WEB-INF/views/downloads/myplan.pdf" download>DownLoad</a></div>
 	<div class="Info_calendar" id="inputTextToSave">
 		<div class="trip_Info">
 				<div class="cal_title" >${vo.trip_title }

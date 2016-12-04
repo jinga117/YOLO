@@ -35,16 +35,16 @@ public class ScheduleController {
  	}
 	//마이플랜 상세보기
 	@RequestMapping("/myplanDeteil") 
-	public ModelAndView planDetail(@RequestParam String plan_no) throws Exception{
-		 ModelAndView mav = scheduleservice.planInfo(plan_no);
+	public ModelAndView planDetail(HttpServletRequest request, HttpServletResponse response, @RequestParam String plan_no) throws Exception{
+		 ModelAndView mav = scheduleservice.planInfo(request,response, plan_no);
 		 mav.setViewName("myplan/myplanDeteil");
 		 return mav;
  	}
 	
 	//수정폼
 	@RequestMapping(value="/planUpdate", method=RequestMethod.GET)
-	public ModelAndView planUpdate(@RequestParam String plan_no) throws Exception{
-		ModelAndView mav = scheduleservice.planInfo(plan_no);
+	public ModelAndView planUpdate(HttpServletRequest request, HttpServletResponse response, @RequestParam String plan_no) throws Exception{
+		ModelAndView mav = scheduleservice.planInfo(request,response, plan_no);
 		mav.setViewName("myplan/myplanUpdate");
 		return mav;
 	}
@@ -62,9 +62,5 @@ public class ScheduleController {
 		scheduleservice.planDelete(vo);
 		return "redirect:yoloplanner";
 	}
-@RequestMapping("/download")
-	public String download(HttpServletRequest request, HttpServletResponse response, String plan_no) throws Exception{
-		scheduleservice.download(request, response, plan_no);
-		return "redirect:myplanDeteil?plan_no="+plan_no;
-	}
+
 }// class end

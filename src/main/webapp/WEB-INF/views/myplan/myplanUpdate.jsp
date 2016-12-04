@@ -35,7 +35,7 @@
 				<div class="t_memo"><input type="text" class="input_memo" name="trip_plan_memo_3" value="${vo.trip_plan_memo_3}"></div>
 				<div class="t_pay"><input type="text" class="input_memo" name="trip_plan_pay_3" value="${vo.trip_plan_pay_3}"></div>
 			</div>
-			<div class="sub_update"><input type="submit" value="수정"></div>
+			<div class="sub_update"><button type="submit" value="수정">수 정</button></div>
 		</div>
 	</div>
 	</form>
