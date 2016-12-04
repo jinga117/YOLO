@@ -70,7 +70,7 @@
                 </li>
                 
                 <li>
-                	<a href="list_shopping?category_id=c03"><i class="fa fa-gift" aria-hidden="true"></i>Shopping</a>
+                	<a href="list_shopping?category_id=c02"><i class="fa fa-gift" aria-hidden="true"></i>Shopping</a>
                 </li>
                 
                 <li class="menu-item-has-children"><a href="yoloplanner"><i class="fa fa-calendar" aria-hidden="true"></i>Yolo Plan</a>
