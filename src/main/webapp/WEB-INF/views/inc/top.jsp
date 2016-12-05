@@ -77,7 +77,7 @@
                 	<ul>
                 		<li><a href="yoloplanner">Yolo Planner</a></li>
                 		<li><a href="list_recommand?re_num=re">추천 일정</a></li>
-                		<li><a href="#">여행 일정</a></li>
+                		<li><a href="my_schedule">여행 일정</a></li>
                 	</ul>
                 </li>
                 
