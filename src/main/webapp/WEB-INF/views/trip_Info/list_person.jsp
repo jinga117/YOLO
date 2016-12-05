@@ -52,11 +52,10 @@
 									</div>
 								</div>
 								<!-- 일정추가 끝 -->
-
 								<div class="b-pop-place-comment m--centered">
-									<span class="b-pop-place__view"><img src="img/heart_icon.png" class="list_icon" id="heart_icon" trip_id="${list.trip_id}"></span><span id="likeCount">${list.trip_like}</span>
-									<span class="b-pop-place__view"><img src="img/view_icon.png" class="list_icon"></span> ${list.trip_view} 
-									<span class="b-pop-place__view"><a href="detail_view?trip_id=${list.trip_id}#commentArea"><img src="img/review_icon.png" class="list_icon"></span> ${list.trip_review}</a>
+									<span class="b-pop-place__view" data-toggle="tooltip" data-placement="top" title="좋아요"><img src="img/heart_icon.png" class="list_icon" id="heart_icon"  trip_id="${list.trip_id}"></span><span id="likeCount">${list.trip_like}</span>
+									<span class="b-pop-place__view" data-toggle="tooltip" data-placement="top" title="조회수"><img src="img/view_icon.png" class="list_icon"></span>${list.trip_view} 
+									<a href="detail_view?trip_id=${list.trip_id}#commentArea"><span class="b-pop-place__view" data-toggle="tooltip" data-placement="top" title="댓글"><img src="img/review_icon.png" class="list_icon"></span>${list.trip_review}</a>
 								</div>
 							</div>
 						</div>
@@ -105,11 +104,10 @@
 										</div>
 									</div>
 									<!-- 일정추가 끝 -->
-
 									<div class="b-pop-place-comment m--centered">
-										<span class="b-pop-place__view"><img src="img/heart_icon.png" class="list_icon" id="heart_icon" trip_id="${list.trip_id}"></span><span id="likeCount">${list.trip_like}</span> 
-										<span class="b-pop-place__view"><img src="img/view_icon.png" class="list_icon"> ${list.trip_view}</span> 
-										<span class="b-pop-place__view"><a href="detail_view?trip_id=${list.trip_id}#commentArea"><img src="img/review_icon.png" class="list_icon"> ${list.trip_review}</span></a>
+										<span class="b-pop-place__view" data-toggle="tooltip" data-placement="top" title="좋아요"><img src="img/heart_icon.png" class="list_icon" id="heart_icon"  trip_id="${list.trip_id}"></span><span id="likeCount">${list.trip_like}</span>
+										<span class="b-pop-place__view" data-toggle="tooltip" data-placement="top" title="조회수"><img src="img/view_icon.png" class="list_icon"> ${list.trip_view}</span> 
+										<a href="detail_view?trip_id=${list.trip_id}#commentArea"><span class="b-pop-place__view" data-toggle="tooltip" data-placement="top" title="댓글"><img src="img/review_icon.png" class="list_icon"> ${list.trip_review}</span></a>
 									</div>
 								</div>
 							</div>

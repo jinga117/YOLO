@@ -53,10 +53,9 @@
 								</div>
 								<!-- 일정추가 끝 -->
 								<div class="b-pop-place-comment m--centered">
-									<span class="b-pop-place__view"><img src="img/heart_icon.png" class="list_icon" id="heart_icon" trip_id="${list.trip_id}"></span>
-									<span id="likeCount"> ${list.trip_like}</span>
-									<span class="b-pop-place__view"><img src="img/view_icon.png" class="list_icon"></span> ${list.trip_view}
-									<span class="b-pop-place__view"><a href="detail_view?trip_id=${list.trip_id}#commentArea"><img src="img/review_icon.png" class="list_icon"></span> ${list.trip_review}</a>
+									<span class="b-pop-place__view" data-toggle="tooltip" data-placement="top" title="좋아요"><img src="img/heart_icon.png" class="list_icon" id="heart_icon"  trip_id="${list.trip_id}"></span><span id="likeCount">${list.trip_like}</span>
+									<span class="b-pop-place__view" data-toggle="tooltip" data-placement="top" title="조회수"><img src="img/view_icon.png" class="list_icon"></span>${list.trip_view} 
+									<a href="detail_view?trip_id=${list.trip_id}#commentArea"><span class="b-pop-place__view" data-toggle="tooltip" data-placement="top" title="댓글"><img src="img/review_icon.png" class="list_icon"></span>${list.trip_review}</a>
 								</div>
 							</div>
 						</div>
@@ -76,7 +75,7 @@
 					<div class="b-pop-places__item">
 						<div class="b-pop-place">
 							<div class="b-pop-place__img">
-								<a href="detail_view?trip_id=${list.trip_id}"> <img width="370" height="245" class="b-pop-place__img__img" src="img/photo/${list.trip_id}.jpg" alt="${list.trip_nickname}"></a>
+								<a href="detail_view?trip_id=${list.trip_id}"> <img width="370" height="245" class="b-pop-place__img__img" src="img/photo/${list.trip_id}.jpg"></a>
 								<a href="#" class="b-icon-medal"></a>
 								<button onClick="likeIt(this)" value="${list.trip_id}" class="b-icon-like" data-toggle="tooltip" data-placement="left" title="좋아요">
 									<i class="fa fa-heart" aria-hidden="true"></i>
@@ -103,10 +102,9 @@
 								</div>
 								<!-- 일정추가 끝 -->
 								<div class="b-pop-place-comment m--centered">
-									<span class="b-pop-place__view"><img src="img/heart_icon.png" class="list_icon" id="heart_icon" trip_id="${list.trip_id}"></span>
-									<span id="likeCount"> ${list.trip_like}</span>
-									<span class="b-pop-place__view"><img src="img/view_icon.png" class="list_icon"></span> ${list.trip_view}
-									<span class="b-pop-place__view"><a href="detail_view?trip_id=${list.trip_id}#commentArea"><img src="img/review_icon.png" class="list_icon"></span> ${list.trip_review}</a>
+									<span class="b-pop-place__view" data-toggle="tooltip" data-placement="top" title="좋아요"><img src="img/heart_icon.png" class="list_icon" id="heart_icon"  trip_id="${list.trip_id}"></span><span id="likeCount">${list.trip_like}</span>
+									<span class="b-pop-place__view" data-toggle="tooltip" data-placement="top" title="조회수"><img src="img/view_icon.png" class="list_icon"></span>${list.trip_view} 
+									<a href="detail_view?trip_id=${list.trip_id}#commentArea"><span class="b-pop-place__view" data-toggle="tooltip" data-placement="top" title="댓글"><img src="img/review_icon.png" class="list_icon"></span>${list.trip_review}</a>
 								</div>
 							</div>
 						</div>
@@ -114,7 +112,6 @@
 				</c:forEach>
 				<!--  리스트 끝-->
 			</div>
-			
 			<!-- *********************************************************전체보기************************************************************************ -->
 			<div class="row m--centered">
 				<div class="col-md-4 col-md-offset-4">
@@ -158,10 +155,9 @@
 									</div>
 									<!-- 일정추가 끝 -->
 									<div class="b-pop-place-comment m--centered">
-										<span class="b-pop-place__view"><img src="img/heart_icon.png" class="list_icon" id="heart_icon"  trip_id="${list.trip_id}"></span>
-										<span id="likeCount">${list.trip_like}</span> 
-										<span class="b-pop-place__view"><img src="img/view_icon.png" class="list_icon"> ${list.trip_view}</span>
-										<span class="b-pop-place__view"><a href="detail_view?trip_id=${list.trip_id}#commentArea"><img src="img/review_icon.png" class="list_icon"> ${list.trip_review}</span></a>
+										<span class="b-pop-place__view" data-toggle="tooltip" data-placement="top" title="좋아요"><img src="img/heart_icon.png" class="list_icon" id="heart_icon"  trip_id="${list.trip_id}"></span><span id="likeCount">${list.trip_like}</span>
+										<span class="b-pop-place__view" data-toggle="tooltip" data-placement="top" title="조회수"><img src="img/view_icon.png" class="list_icon"> ${list.trip_view}</span> 
+										<a href="detail_view?trip_id=${list.trip_id}#commentArea"><span class="b-pop-place__view" data-toggle="tooltip" data-placement="top" title="댓글"><img src="img/review_icon.png" class="list_icon"> ${list.trip_review}</span></a>
 									</div>
 								</div>
 							</div>

@@ -290,12 +290,12 @@
 											html+= 	"	<li><span class='review_list_content'>"+ data.review_content + "</span></li>";
 											html+=	"</ul>";
 											html+="</div>";
-											if ($('#commentArea').find('#review_list').length==0) {
+											if ($('#commentArea').find('#review_list').length==0) { // 댓글이 없는 경우
 												var hei = $('#commentArea').prop('scrollHeight');
 												$('#commentArea').append(html);
 												$("#hilo").animate({ scrollTop: hei}, 500);
 												/* $("#commentArea").css("height","auto"); */
-											}  else {
+											}  else { // 댓글이 있는 경우
 												$('#commentArea').find('#review_list').eq(0).before(html);
 											}
 										},
