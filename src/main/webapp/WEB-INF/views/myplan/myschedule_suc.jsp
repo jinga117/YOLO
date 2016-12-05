@@ -6,6 +6,7 @@
 <!-- 컨텐츠 영역 시작 -->
 <div class="my_schedule_container">
    <div class="b-pop-places container">
+    <h2 class="b-cont-title">YOLO Member's 여행 일정</h2>
 		<!--  여행일정 리스트 시작 -->
 		<c:forEach items="${list }" var="list">
 			<c:if test="${list.trip_id_1 !='' || list.trip_id_1 == null}">

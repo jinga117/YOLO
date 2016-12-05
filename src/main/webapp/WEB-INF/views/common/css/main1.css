@@ -1863,6 +1863,16 @@ only screen and (min-resolution: 1.5dppx) {
 	border-radius:10px;
 }
 
+.welcome_title {
+	display:block;
+	width:70%;
+	padding:10px;
+	margin:0 auto;
+	margin-bottom:10px;
+	color:#fff;
+	background:#43a4a2;
+	border-radius:10px;
+}
 .contact_content {
 	line-height:20px;
 	font:13px "Malgun Gothic";

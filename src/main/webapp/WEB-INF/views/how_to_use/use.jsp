@@ -8,18 +8,19 @@
 <!-- 컨텐츠 영역 시작 -->
 <div class="contact_container">
 	<div class="contact_content_en">
+		<span class="welcome_title">WELCOME TO YOLO~!</span>
 		We kindly ask our foreign users to get help from the Korean users.<br> 
 		We will build an international version for you guys as soon as possible.<br> 
  		We greatly appreciate your patience!
 	</div>
-	<div class="contact_content_en">
+	<!-- <div class="contact_content_en">
 		<span class="step_box">Step 1</span>
 		<span class="step_box">Step 2</span>
 		<span class="step_box">Step 3</span>
 		<span class="step_box">Step 4</span>
 		<span class="step_box">Step 5</span>
 		<span class="step_box">Step 6</span>
-	</div>
+	</div> -->
 
 	<div class="contact_wrap">
 		<div class="contact_content">
@@ -40,7 +41,7 @@
 	<div class="contact_wrap">
 		<div class="contact_content large">
 			<div class="step_img"><span class="step_box">Step 3</span></div>
-				좋 아 요 기 능<br>
+				좋 아 요 기 능<br><br>
 				-어느 여행지가 인기 여행지인지 알려줍니다.<br><br><br><br><br><br>
 				<div class="contact_img_wrap"><img src="img/contact/like.jpg" class="contact_img border_img"></div>
 			</div>
@@ -48,28 +49,29 @@
 		<div class="contact_wrap">
 			<div class="contact_content">
 				<div class="step_img"><span class="step_box">Step 4</span></div>
-					T O P 5 여행지  그리고 맛집<br>
-					 1. 나홀로여행 , 커플 및 우정여행 그리고 가족여행<br> 
-					 2. 계절별 여행지 <br> 
-					 3. 연령별 여행지<br>
-					 4. 맛집 여행지 추천 해주는 기능을 제공하고 있습니다.<br>
-					 <div class="contact_img_wrap"><img src="img/contact/top5.jpg" class="contact_img"></div>
+					T O P 5 여행지  그리고 맛집<br><br>
+					 1. 나홀로여행 , 커플 및 우정여행 그리고 가족여행<br><br>
+					 2. 계절별 여행지 <br><br> 
+					 3. 연령별 여행지<br><br>
+					 4. 맛집 여행지 추천 해주는 기능을 제공하고 있습니다.<br><br><br>
+					 <div class="contact_img_wrap"><img src="img/contact/top5.jpg" class="large_img"></div>
 				</div>
 			</div>
 		<div>
 		<div class="contact_wrap">
 			<div class="contact_content large m-b-20">
 				<div class="step_img"><span class="step_box">Step 5</span></div>
-				 지 도 보 기<br>
+				 지 도 보 기<br><br>
 					-원하는 여행지 위치 및 교통편을 쉽게 알 수 있습니다<br /><br />
-				<div class="contact_img_wrap"><img src="img/contact/map.jpg" class="large_img"><br /></div>
+				<div class="contact_img_wrap"><img src="img/contact/map.jpg" class="large_img"></div>
 			</div>
 		</div>
 		<div class="contact_wrap">
 			<div class="contact_content">
 				<div class="step_img"><span class="step_box">Step 6</span></div>
-				추 천 일 정<br />	
-				- 일정 짜기 고민 될 때  참고 할 수 있는 추천일정 기능을 제공하고 있습니다.<br>
+				추 천 일 정<br /><br />
+				- 일정 짜기 고민 될 때  참고 할 수 있는 추천일정 기능을 제공하고 있습니다.<br><br><br><br><br><br><br><br><br><br>
+				<div class="contact_img_wrap"><img src="img/contact/recommend_img.png" class="large_img"></div>
 			</div>
 		</div>
 	</div>
