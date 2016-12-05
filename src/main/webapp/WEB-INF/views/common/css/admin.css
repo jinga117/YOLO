@@ -112,7 +112,7 @@
   outline: 0;
 }
 .check_Tr{
-	text-align: left;
+	text-align: center;
 	border: 1px black;
 }
 
@@ -121,11 +121,8 @@
 	 width:20px;;
 	 height:20px;
 	 vertical-align:middle;
-	 background:url(star_rating.png) no-repeat 0 0;
 	 appearance: none;
-	 -moz-appearance: none; /* Firefox */
-	 -webkit-appearance: none; /* Safari and Chrome */
-	border-radius:0;
+	 border-radius:20px;
 	 border:0;
 }
 #check_ input[type="checkbox"]:checked {
@@ -133,11 +130,8 @@
 	 width:20px;
 	 height:20px;
 	 vertical-align:middle;
-	 background:url(star_rating.png) no-repeat 0 0;
 	 appearance: none;
-	 -moz-appearance: none; /* Firefox */
-	 -webkit-appearance: none; /* Safari and Chrome */
-	 border-radius:0;
+	 border-radius:20px;
 	 border:0;
 }
 .write_btn_size{
