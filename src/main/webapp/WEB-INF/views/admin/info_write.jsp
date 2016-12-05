@@ -4,6 +4,7 @@
 <!--  헤더 영역 시작 -->
 <jsp:include page="../inc/top.jsp" />
 <!--  헤더 영역 끝 -->
+
 <!-- 컨텐츠 영역 시작 -->
 		<!-- 관리자 -->
 	<div style="margin-left: 6%;">

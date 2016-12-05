@@ -71,18 +71,28 @@ $(document).ready(function() {
 
 #userList_t th {
 	height: 40px;
-	border-bottom: 1px solid #d0d0d0;
-	background-color: #99ccff;
+	border-bottom: 2px solid #0000a0;
+	background-color: white;
+	color: #000080;
 	text-align: center;
 }
 
-#userList_t  td {
+#font_grey {
 	height: 30px;
-	color: black;
+	color: #808080;
 }
-
-#userList_t tr, td {
+#userList_t td{
+	border: inactiveborder;
+}
+.user_col{
+	background-color: #f2f2ff;
+	font-weight: 700;
+	color: #26004d;
+}
+#userList_t tr{
 	border: 1px solid #d0d0d0;
+}
+#userList_t tr, td {
 	border-collapse: collapse;
 	text-align: center;
 	font-style: 맑은고딕;
@@ -107,6 +117,7 @@ h5 {
 .trip_email{
 	width: 35%;
 }
+
 </style>
 <!-- 컨텐츠 영역 시작 -->
 	<div class="b-main-container" id="content">
@@ -125,7 +136,7 @@ h5 {
 				<table id="userList_t">
 					<thead>
 						<tr>
-							<th class="sort">사용자<a>▼</a></th>
+							<th class="sort" >사용자<a>▼</a></th>
 							<th>password</th>
 							<th class="sort">e-mail<a>▼</a></th>
 							<th class="sort">성별<a>▼</a></th>
@@ -136,11 +147,11 @@ h5 {
 					<tbody>
 						<c:forEach items="${list }" var="list">
 							<tr>	
-								<td>${list.user_id}</td>
-								<td>${list.password}</td>
-								<td class="trip_email">${list.email}</td>
-								<td>${list.gender}</td>
-								<td>${list.age}</td>
+								<td class="user_col">${list.user_id}</td>
+								<td id="font_grey">${list.password}</td>
+								<td class="trip_email" id="font_grey">${list.email}</td>
+								<td id="font_grey">${list.gender}</td>
+								<td id="font_grey">${list.age}</td>
 								<td><a href="/yolo/admindelete?user_id=${list.user_id}"><img src="img/delete.png""></a></td>
 							</tr>
 						</c:forEach>

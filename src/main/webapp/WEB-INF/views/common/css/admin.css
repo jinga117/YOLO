@@ -5,6 +5,7 @@
 		width: 90%;
 		border-collapse: collapse;
 		text-align: center;
+		border: 1px solid #d0d0d0;
 	}
 	.trip_info_title{
 		height: 20px;
@@ -12,25 +13,36 @@
 	}
 	.trip_info_title th{
 	height: 40px;
-	border-bottom: 1px solid #d0d0d0;
-	background-color: #99ccff;
+	border-bottom: 2px solid #0000a0;
+	background-color: #00376f;
+	font-size: 15px;
+	color: #eee;
 	text-align: center;
 }
 .trip_info_in td{
 	margin:0;
 	padding: 0;
+	border: inactiveborder;
+	background-color: transparent ;
+	font-size: 13px;
 	text-align: center;
-	border-bottom: 1px solid #d0d0d0;
 	color: black;
+}
+.trip_info_in {
+	border-bottom: 1px solid #d0d0d0;
 }
 .trip_address_info{
 	width: 35%;
 }
 .trip_nickname_info{
-	width: 25%;
+	width: 20%;
 }
 .trip_key{
-	width: 10%;
+	width: 9%;
+}
+.trip_img_{
+	width: 5%;
+	text-align: left;
 }
 
 	h3{
@@ -42,12 +54,6 @@
 		margin: -30px 30px 15px 30px ;
 	}
 	
-.odd {
-	background-color: Silver;
-}
-.even {
-	background-color: Aqua;
-}
 .clickable {
 	cursor: pointer;
 }
@@ -55,6 +61,12 @@
 	text-decoration: underline;
 }
 
+.even{
+	background-color: white;	
+}
+.odd{
+	background-color: #f2f9ff;
+}
 
 
 /* info_write */
@@ -69,3 +81,30 @@
 	width: 80%;
 	margin: 0 auto;
 }
+.write_info_add button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
+}
+.write_info_add  button,
+select {
+  text-transform: none;
+}
+.write_info_add  button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+.write_info_add input {
+  line-height: normal;
+}
+.write_info_add input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+

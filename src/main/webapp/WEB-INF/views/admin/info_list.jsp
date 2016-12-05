@@ -4,10 +4,18 @@
 	<jsp:include page="../inc/top.jsp" />
 	<!--  헤더 영역 끝 -->
 	<link rel="stylesheet" href="css/admin.css">
+	
     <script type="text/javascript">
         $(document).ready(function() {
+        	
+        	var alternateRowColors = function($table) {
+        		$('tbody tr:odd', $table).removeClass('even').addClass('odd');
+        		$('tbody tr:even', $table).removeClass('odd').addClass('even');
+        	};
+        		   
             $('#sortTable').each(function() {
                 var $table = $(this);
+                alternateRowColors($table);
                 // 테이블 헤더 정렬
 					    $('th', $table).each(function(column) {
                     // 헤더의 CSS 클래스가 sort-alpha로 설정되어있다면, ABC순으로 정렬
@@ -26,7 +34,6 @@
 	       					   //정렬시작
                             var rows = $table.find('tbody > tr').get(); // 현재 선택된 헤더관련 행 가져오기
                           //sort()는 상당한 양의 비교를 반복적으로 수행하여 수행 성능을 많이 떨어뜨리기 때문에 Key를 이용해 수행성능 업그레이드 시키기
-             	           var rows = $table.find('tbody > tr').get();
              	           
              	           $.each(rows, function(index, row){
              	        		var $cell =  $(row).children('td').eq(column);
@@ -52,7 +59,8 @@
              			           else {
              			             $header.addClass('sorted-desc');
              			           }
-                        });
+             				 alternateRowColors($table);
+             			});
                     }
                 }); // end table sort
             }); // end each()
@@ -73,7 +81,7 @@
 	<h3>여행지 리스트</h3> 
 	<table class="info_t" id="sortTable">
 		<thead>
-			<tr class="trip_info_title"><th class="sort">trip_id<a>▼</a></th><th  class="sort">category_id <a>▼</a></th><th class="sort">여행지 <a>▼</a></th><th>주소</th><th>위도</th><th>경도</th><th colspan="2"></th></tr>
+			<tr class="trip_info_title"><th class="sort">trip_id<a>▼</a></th><th  class="sort">카테고리 <a>▼</a></th><th class="sort">여행지 <a>▼</a></th><th>주소</th><th>위도</th><th>경도</th><th colspan="2"></th></tr>
 		</thead>
 		<tbody>	
 			<c:forEach items="${list }" var="list">
@@ -84,8 +92,8 @@
 					<td class="trip_address_info">${list.trip_address}</td>
 					<td class="trip_key">${list.pos_x}</td>
 					<td class="trip_key">${list.pos_y}</td>				
-					<td><a href="update?trip_id=${list.trip_id}"><img src="img/update.png"></a></td>
-					<td><a href="delete?trip_id=${list.trip_id}"><img src="img/delete.png"></a></td>
+					<td class="trip_img_"><a href="update?trip_id=${list.trip_id}"><img src="img/update.png"></a></td>
+					<td class="trip_img_"><a href="delete?trip_id=${list.trip_id}"><img src="img/delete.png"></a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
