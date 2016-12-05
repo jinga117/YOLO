@@ -71,9 +71,8 @@ $(document).ready(function() {
 
 #userList_t th {
 	height: 40px;
-	border-bottom: 2px solid #0000a0;
-	background-color: white;
-	color: #000080;
+	background-color: #00376f;
+	color: white;
 	text-align: center;
 }
 

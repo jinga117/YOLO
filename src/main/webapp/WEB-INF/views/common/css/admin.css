@@ -7,13 +7,15 @@
 		text-align: center;
 		border: 1px solid #d0d0d0;
 	}
+	.info_list{
+	margin-bottom: 30px;
+}
 	.trip_info_title{
 		height: 20px;
 		background-color: #39bfff;
 	}
 	.trip_info_title th{
 	height: 40px;
-	border-bottom: 2px solid #0000a0;
 	background-color: #00376f;
 	font-size: 15px;
 	color: #eee;
@@ -69,42 +71,152 @@
 }
 
 
-/* info_write */
-.info_list{
-	margin-bottom: 30px;
+/* 여행지 등록 */
+
+/* 초기화 */
+.write_info_add select, button {
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
 }
-.write_info_add, .write_info_add tr th td{
-	margin: 0;
-	padding: 0;
+.write_info_add  button, select {
+  text-transform: none;
+}
+
+.write_info_add input {
+  line-height: normal;
+  border-radius: 8px; 
+}
+.write_info_add, .write_info_add tr td{
+	border-collapse: collapse;
 }
 .write_info_add { 
 	width: 80%;
 	margin: 0 auto;
 }
-.write_info_add button,
-input,
-optgroup,
-select,
-textarea {
+/* select박스 */
+.select_cate{
+	position: relative;
+    width: 200px;
+    height: 50px;
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+    background-color: white;
+    word-spacing: -5px 0 ;
+    margin-right: -60px;
+}
+#cate_update{
+	display: block;
+}
+#cate_update select:active, #cate_update select:hover {
+  outline: 0;
+}
+.check_Tr{
+	text-align: left;
+	border: 1px black;
+}
+
+#check_ input[type=checkbox]{     
+	 display:inline-block;
+	 width:20px;;
+	 height:20px;
+	 vertical-align:middle;
+	 background:url(star_rating.png) no-repeat 0 0;
+	 appearance: none;
+	 -moz-appearance: none; /* Firefox */
+	 -webkit-appearance: none; /* Safari and Chrome */
+	border-radius:0;
+	 border:0;
+}
+#check_ input[type="checkbox"]:checked {
+	 display:inline-block;
+	 width:20px;
+	 height:20px;
+	 vertical-align:middle;
+	 background:url(star_rating.png) no-repeat 0 0;
+	 appearance: none;
+	 -moz-appearance: none; /* Firefox */
+	 -webkit-appearance: none; /* Safari and Chrome */
+	 border-radius:0;
+	 border:0;
+}
+.write_btn_size{
+	width: 100px;
+	border-radius: 10px;
+	background-color: #00376f;
+	color: #eee;
+	font-weight: 900;
+	padding: 16px;
+	font-size: 15px;
+	margin: 10px -50px 10px 60px;
+}
+.info_write{
+	margin-bottom: 15px;
+}
+
+/* 여행지정보수정 */
+/* 초기화 작업 */
+input::-moz-focus-inner,  button::-moz-focus-inner{
+ 	border: inactiveborder;
+  	padding: 0;
+}
+input {
+  line-height: normal;
   color: inherit; /* 1 */
   font: inherit; /* 2 */
   margin: 0; /* 3 */
 }
-.write_info_add  button,
-select {
-  text-transform: none;
+
+._h5{
+	text-align: right;
+	margin: -30px 30px 15px 0 ;
 }
-.write_info_add  button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
+
+.info_update{
+	margin: 0 auto;
+	width: 100%;
+	margin-bottom: 5%;
 }
-.write_info_add input {
-  line-height: normal;
+
+.update_info_, .info_write{
+	margin: 0 auto;
+	width: 60%;
+	text-align: center;
 }
-.write_info_add input[type="checkbox"],
-input[type="radio"] {
-  box-sizing: border-box; /* 1 */
-  padding: 0; /* 2 */
+/* 정보초기화 */
+.update_info_t  tr td, .write_info_add tr td{
+	border: inactiveborder;
+	background-color: transparent ;
+}
+
+._info{
+	text-align: right;
+	padding-right: 8px;
+	font-size: 15px;
+	color: #00376f;
+	font-weight: 700;
+}
+
+#btn_update td{
+	text-align: center;
+}
+.update_btn_size{
+	width: 100px;
+	border-radius: 10px;
+	background-color: #00376f;
+	color: #eee;
+	font-weight: 900;
+	font-size: 15px;
+	margin-top: 30px;
+}
+.update_btn_size:hover, .write_btn_size:hover{
+	opacity: 0.8;
+}
+.update_info_t input {
+	border-radius: 10px;
+}
+#trip_content_height{
+	line-height: normal;
+	line-height: 100px;
 }
 
