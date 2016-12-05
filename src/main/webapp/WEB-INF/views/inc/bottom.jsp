@@ -194,7 +194,8 @@
 			$(parent).show();
 			$('#plan_start_wrap').hide(); // Day 선택하면 출발일 감추기
 		}
-
+		
+		// 선택한 일정 저장
 		function saveTripPlan() {
 			var trip_start = 	$('#form_trip_start').val();
 			var trip_title = 	$('#form_trip_title').val();
@@ -220,7 +221,7 @@
 				},
 				success : function(responseFromServer) {
 					var data = jQuery.parseJSON(responseFromServer);
-					alert(data.result);
+					// alert(data.result);
 				},
 				error : function(jqXHR, textStatus, errorThrown) {
 					alert("오류 발생 \n"+textStatus + " : " + errorThrown);
@@ -236,11 +237,9 @@
 			$(".day").each(function() {
 				var dayTxt = ($(this).text());
 				var plannerDay =(parseInt(trip_start.substring(8))+parseInt(trip_day)-1);
-				//console.log((parseInt(trip_start.substring(8))+parseInt(trip_day)-1) + "," + dayTxt.trim());
 				console.log(plannerDay +"," + dayTxt.trim() + ",");
 				if( plannerDay ==dayTxt.trim().substring(0,2)) { 	 // 여행일과 YoloPlanner의 날짜(앞 2자리만 가져옴)이 같을 경우 해당 td 내용을 지워줌
-				//if( true == dayTxt.trim().startsWith(plannerDay)) {
-					$(this).html("<b>"+plannerDay + "</b><br /><br /><br />");
+					$(this).html("<b>"+plannerDay + "</b><br />");
 					$(this).css("background","#f2f2f2");
 				}
 			})
@@ -257,24 +256,10 @@
 
 			saveTripPlan();		// 다시 저장
 			
-			/* 여기를 아래로 교체
-			setTimeout(function() {
+/* 			setTimeout(function() { // 플래너 0.5초 후 리로드
 				location.reload();
 			},100);
-			
-			/* todo - 캘린더에서 금액 뿌리는 부분을 <span id = "payOfDay">xxxx<span> 변경
-			합계 뿌리는 부분을 <span id="totalValue">xxxxx</span>  으로 변경
-			
-			var totalValue = 0;
-			
-			$('#payOfDay*').each(function() {
-				var payOfDay = parseInt($(this).val());
-				
-				totalValue += payOfDay;
-			});
-			
-			$('#totalValue').val(totalValue);
-			*/
+			 */
 		}
 
 		// 추가됐던 여행일정 지우기
