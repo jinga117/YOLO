@@ -25,7 +25,7 @@
    <img width="70" height="70" src="img/photo/${list.trip_id_3}.jpg">
 	</c:if>
 		<br>
-   ${list.trip_nickname_3}<br>${list.trip_plan_memo_3 }<br>${list.trip_plan_pay_3 }
+   ${list.trip_nickname_3}<br>${list.trip_plan_memo_3 }<br>${list.trip_plan_pay_3 }<br><br><br>
 </c:forEach>
 
 </body>

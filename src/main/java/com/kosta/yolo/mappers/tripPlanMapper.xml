@@ -48,9 +48,10 @@
 		SELECT * FROM TripInfo t, Recommand r WHERE t.trip_id = r. trip_id AND
 		re_onum = #{re_onum}
 	</select>
-
+	
 	<!--  해당 아이디 여행일정 보기 -->
 	<select id="myschedule" resultType="com.kosta.yolo.vo.TripPlanVO">
-		select * from TripPlan where user_id = #{id}
+		select * from TripPlan 
 	</select>
+	
 </mapper>

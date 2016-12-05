@@ -8,7 +8,7 @@ import com.kosta.yolo.vo.TripPlanVO;
 
 public interface TripPlanMapper extends Serializable {
 	//여행 일정
-	ArrayList<TripPlanVO> myschedule(String id);
+	ArrayList<TripPlanVO> myschedule();
 	
 	// 추천일정 전체 리스트
 	ArrayList<RecommandVO> RecommAll(String re_num);
