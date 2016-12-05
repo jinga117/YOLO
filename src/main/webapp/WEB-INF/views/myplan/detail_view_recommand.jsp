@@ -8,9 +8,15 @@
    <!--  헤더 영역 끝 -->
 
    <!-- 컨텐츠 영역 시작 -->
+ <div class="b-main-container" id="content">
+   <div class="b-pop-places container">
+    <h2 class="b-cont-title">
+   		<c:forEach items="${recommList }" var="list" varStatus="sta">
+    		 ${list.re_content }
+   		</c:forEach>
+     </h2>
    <div class="b-main-container places-page" id="content">
-      <div style="margin-left: 100px">
-               
+      <div style="margin: 5%;">
          <div>
          <h4>DAY 1</h4>
          <c:forEach items="${recommList }" var="list" varStatus="sta">
@@ -50,6 +56,8 @@
          </div>   
 
       </div>
+   </div>  
+    </div>
    </div>
    <!-- 컨텐츠 영역 끝 -->
 

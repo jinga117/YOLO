@@ -15,24 +15,25 @@
 					<li>
 						<div class="viewList_item">
 							<div class="b-pop-place">
-								<div class="b-pop-place__img">
-									<a href="detail_view_recommand?trip_id=${list.trip_id}&re_onum=re${sta.count}"> <img width="370" height="245" class="b-pop-place__img__img" src="img/photo/${list.trip_id}.jpg"></a>
-								</div>
-								<div class="b-pop-place__desc clearfix">
-									 <h4>${list.re_content}</h4>    
-									<a href="detail_view_recommand?trip_id=${list.trip_id}&re_onum=re${sta.count}" class="b-pop-place__name">
-										<span class="b-pop-place__name_txt">${list.trip_nickname}</span>
+								<div class="b-pop-place__img"  >
+									<a href="detail_view_recommand?trip_id=${list.trip_id}&re_onum=re${sta.count}"><img width="370" height="245" class="b-pop-place__img__img" src="img/photo/${list.trip_id}.jpg">
 									</a>
-									<h5 class="b-pop-place__cat">${list.trip_add1} ${list.trip_add2}</h5>
+								</div>
+									<div class="b-pop-place__desc clearfix">
+									<div style="margin-top: -10px;"><font style="font: bold 17px 맑은 고딕; ">${list.re_content}</div>
+										<a href="detail_view_recommand?trip_id=${list.trip_id}&re_onum=re${sta.count}" class="b-pop-place__name">
+											<span class="b-pop-place__name_txt">${list.trip_nickname}</span>
+										</a>
+										<h5 class="b-pop-place__cat">${list.trip_add1} ${list.trip_add2}</h5>
+									</div>
 								</div>
 							</div>
-						</div>
-					</li>
-				</c:forEach>
-			</ul>
+						</li>
+					</c:forEach>
+				</ul>
 			<!--  View all List 끝-->
-   </div>
-</div>
+	   </div>
+	</div>
 <!-- 컨텐츠 영역 끝 -->
 
 <!-- 푸터영역 시작 -->
