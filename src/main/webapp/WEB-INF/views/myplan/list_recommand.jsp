@@ -9,19 +9,28 @@
 <div class="b-main-container" id="content">
    <div class="b-pop-places container">
       <h2 class="b-cont-title">YOLO의 추천 코스</h2>
-      
-            <!--  리스트 시작 -->
-            <c:forEach items="${recommList }" var="list" varStatus="sta">         
-            <div>
-               <a href="detail_view_recommand?trip_id=${list.trip_id}&re_onum=re${sta.count}">
-                       <img width="300px" height="260px" src="img/photo/${list.trip_id}.jpg"></a>       
-                       <h4>${list.re_content}</h4>                      
-                    <font size="4"><br>${list.trip_nickname}<br>${list.trip_add1} ${list.trip_add2}</font>
-            </div>
-            <hr>
-            </c:forEach>
-            <!--  리스트 끝-->
-            
+			<ul class="viewList_list " id="viewList_list">
+				<!--  View all List 시작 -->
+				<c:forEach items="${recommList }" var="list" varStatus="sta">
+					<li>
+						<div class="viewList_item">
+							<div class="b-pop-place">
+								<div class="b-pop-place__img">
+									<a href="detail_view_recommand?trip_id=${list.trip_id}&re_onum=re${sta.count}"> <img width="370" height="245" class="b-pop-place__img__img" src="img/photo/${list.trip_id}.jpg"></a>
+								</div>
+								<div class="b-pop-place__desc clearfix">
+									 <h4>${list.re_content}</h4>    
+									<a href="detail_view_recommand?trip_id=${list.trip_id}&re_onum=re${sta.count}" class="b-pop-place__name">
+										<span class="b-pop-place__name_txt">${list.trip_nickname}</span>
+									</a>
+									<h5 class="b-pop-place__cat">${list.trip_add1} ${list.trip_add2}</h5>
+								</div>
+							</div>
+						</div>
+					</li>
+				</c:forEach>
+			</ul>
+			<!--  View all List 끝-->
    </div>
 </div>
 <!-- 컨텐츠 영역 끝 -->
