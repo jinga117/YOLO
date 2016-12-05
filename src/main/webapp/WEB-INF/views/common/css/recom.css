@@ -1,0 +1,36 @@
+.today1{
+	width: 80px;
+	height: 40px;
+	background: #020057;
+	color: #eee;
+	text-align: center;
+	padding-top: 5px; 
+	font: bold 17px "Malgun Gothic";
+	margin:  -10px 0 10px -10px;
+	float: left;
+}
+.recom_title{
+	width: 200px;
+	font: bold 20px  "Malgun Gothic";
+	margin-left: 80px;
+}
+.recom_img{
+	width: 80px;
+	height: 190px;
+	float: left;
+/* 	margin-left: 60px;; */
+}
+.recom_info{
+	border: 1px dotted #808080;
+	border-radius: 8px;
+	padding: 5px;
+	margin:10px 0 0 -10px;
+	height:200px;
+	clear: both;
+}
+.recom_name{
+	font: bold 17px  "Malgun Gothic";
+}
+.recom_content{
+	word-spacing: 2px;
+}
