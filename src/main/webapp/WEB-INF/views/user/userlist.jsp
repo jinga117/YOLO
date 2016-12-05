@@ -1,10 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<!DOCTYPE html>
-<html>
-<head>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<!--  헤더 영역 시작 -->
+	<jsp:include page="../inc/top.jsp" />
+	<!--  헤더 영역 끝 -->
 <script type="text/javascript">
 $(document).ready(function() {
 
@@ -67,27 +65,30 @@ $(document).ready(function() {
 	margin: 0 auto;
 	font-size: 15px;
 	width: 100%;
+	border-collapse: collapse;
 	text-align: center;
 }
 
 #userList_t th {
 	height: 40px;
-	border: 1px solid black;
+	border-bottom: 1px solid #d0d0d0;
 	background-color: #99ccff;
 	text-align: center;
 }
 
 #userList_t  td {
 	height: 30px;
+	color: black;
 }
 
 #userList_t tr, td {
-	border: 1px solid grey;
+	border: 1px solid #d0d0d0;
 	border-collapse: collapse;
+	text-align: center;
 	font-style: 맑은고딕;
 }
 
-h4 {
+h5 {
 	text-align: right;
 	margin: 0 15px 15px 0;
 }
@@ -102,40 +103,25 @@ h4 {
 
 .ad-head {
 	background-color: #5be0dd;
-
 }
-
-/* nav tag */
-.ad-nav  {
-}
-
-.ad-nav ul li {
-	display: inline; /*  세로나열을 가로나열로 변경 */
-	padding: 0 10px; /* 각 메뉴 간격 */
+.trip_email{
+	width: 35%;
 }
 </style>
-</head>
-   <!--.b-header__ctrl-->
-<header>
-<div class="ad-head">
-	<nav class="ad-nav">
-		<ul>
-			<li><a href="/yolo" class="logo"> <img src="img/logo.png"alt="YOLO" title="YOLO"></a></li>
-			<li><a href="list_age">연령별</a></li>
-			<li><a href="list_theme">테마별</a></li>
-			<li><a href="list_person">동행별</a></li>
-		</ul>
-	</nav>
-	<!--//b-nav-->
-</div>
-<!-- //b-header -->
-</header>
-<body>
 <!-- 컨텐츠 영역 시작 -->
 	<div class="b-main-container" id="content">
+		<!-- 관리자 -->
+	<div style="margin-left: 6%;">
+		<ul class="b-cont-sub-menu b-cont-sub-menu-04">
+			<li><a href="userlist">회원리스트</a></li>
+			<li><a href="info_list">여행지정보</a></li>
+			<li><a href="info_write">여행지 추가</a></li>
+			<li><a href="review_list">전체댓글보기</a></li>
+		</ul>
+	</div>
 		<div class="list_wrap">
-			<h2 align="center">User List </h2><hr>
-			<h4>회원수 : ${userCount }</h4>
+			<h2 align="center">User List </h2><h5>회원수 : ${userCount }</h5>
+			
 				<table id="userList_t">
 					<thead>
 						<tr>
@@ -152,10 +138,10 @@ h4 {
 							<tr>	
 								<td>${list.user_id}</td>
 								<td>${list.password}</td>
-								<td>${list.email}</td>
+								<td class="trip_email">${list.email}</td>
 								<td>${list.gender}</td>
 								<td>${list.age}</td>
-								<td><a href="/yolo/admindelete?user_id=${list.user_id}"><img src="img/delete.png""><br>삭제</a></td>
+								<td><a href="/yolo/admindelete?user_id=${list.user_id}"><img src="img/delete.png""></a></td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -164,5 +150,66 @@ h4 {
 	</div>
 <!-- 컨텐츠 영역 끝 -->
 
-</body>
-</html>
+<!-- 푸터영역 시작 -->
+<div class="b-footer">
+	<div class="b-footer__info">
+		<div class="container clearfix">
+			<div class="row">
+				<div class="b-footer__text col-md-3 col-sm-12">
+					<a href="/yolo" class="b-footer__logo">YOLO</a>
+					<p>
+						You Only Live Once<br /> Enjoy Your Life!
+					</p>
+					<div class="b-footer__copyright">© 2016 All Rights Reserved</div>
+					<div class="b-soc"> 
+                    	<a href="https://www.facebook.com/YOLO.Reisen/" target="_new" class="soc-item"><i class="fa fa-facebook" aria-hidden="true"></i></a> 
+                    	<a href="https://twitter.com/YouOnlyLiveOnce" target="_new" class="soc-item"><i class="fa fa-twitter" aria-hidden="true"></i></a> 
+                    	<a href="https://www.instagram.com/yolo/" target="_new" class="soc-item"><i class="fa fa-instagram" aria-hidden="true"></i></a> 
+                    </div>
+				</div>
+
+				<div
+					class="b-footer__nav__col col-md-2 col-md-offset-1 col-sm-3 col-xs-4">
+					<div class="b-footer__nav__col__title">About us</div>
+					<ul>
+						<li><a href="#">YOLO</a></li>
+						<li><a href="#">Contact us</a></li>
+						<li><a href="Contact_view">Hot to use</a></li>
+					</ul>
+				</div>
+
+				<div class="b-footer__nav__col col-md-3 col-sm-5 col-xs-8">
+					<div class="b-footer__nav__col__title">Categories</div>
+					<ul>
+						<li><a href="list_attraction?category_id=c01">Travel</a></li>
+						<li><a href="list_restaurant">Restaurants</a></li>
+						<li><a href="list_shopping?category_id=c02">Shopping</a></li>
+						<li><a href="yoloplanner">YOLO Plan</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- //row -->
+		</div>
+		<!-- //container -->
+	</div>
+</div>
+<!--//b-footer-->
+
+<script src="js/jquery.min.js"></script>
+<script src="js/dropzone.js"></script>
+<script src="js/chosen.jquery.min.js"></script>
+<script src="js/ion.rangeSlider.min.js"></script>
+<script src="js/jquery.popup.min.js"></script>
+<script src="js/jssor.slider.mini.js"></script>
+<script src="js/lightcase.js"></script>
+<script src="js/imagesloaded.pkgd.min.js"></script>
+<script src="js/masonry.pkgd.min.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script src="js/tabs.js"></script>
+<script src="js/tooltip.js"></script>
+<script src="js/compiled_lib.js"></script>
+<script src="js/custum.js"></script>
+<script src="js/jquery.custom-scrollbar.js"></script>
+<script src="js/main.js"></script>
+<script src="js/list.js"></script>
+<!-- 푸터영역 끝 -->

@@ -1,0 +1,71 @@
+	
+/* 여행지정보 */
+	.info_t{
+		margin: 0 auto;
+		width: 90%;
+		border-collapse: collapse;
+		text-align: center;
+	}
+	.trip_info_title{
+		height: 20px;
+		background-color: #39bfff;
+	}
+	.trip_info_title th{
+	height: 40px;
+	border-bottom: 1px solid #d0d0d0;
+	background-color: #99ccff;
+	text-align: center;
+}
+.trip_info_in td{
+	margin:0;
+	padding: 0;
+	text-align: center;
+	border-bottom: 1px solid #d0d0d0;
+	color: black;
+}
+.trip_address_info{
+	width: 35%;
+}
+.trip_nickname_info{
+	width: 25%;
+}
+.trip_key{
+	width: 10%;
+}
+
+	h3{
+		margin-top: 20px;
+		text-align: center; 
+	}
+	h5{
+		text-align: left;
+		margin: -30px 30px 15px 30px ;
+	}
+	
+.odd {
+	background-color: Silver;
+}
+.even {
+	background-color: Aqua;
+}
+.clickable {
+	cursor: pointer;
+}
+.hover {
+	text-decoration: underline;
+}
+
+
+
+/* info_write */
+.info_list{
+	margin-bottom: 30px;
+}
+.write_info_add, .write_info_add tr th td{
+	margin: 0;
+	padding: 0;
+}
+.write_info_add { 
+	width: 80%;
+	margin: 0 auto;
+}
