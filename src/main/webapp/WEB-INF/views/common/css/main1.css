@@ -1721,6 +1721,92 @@ only screen and (min-resolution: 1.5dppx) {
 	margin:0;
 }
 
+/* 이용방법 */
+.contact_container {
+	position:relative;
+	margin:20px auto;
+	padding:10px;
+}
+
+.contact_wrap {
+	position:relative;
+	width:80%;
+	padding:30px;
+	margin:40px auto;
+	background:#fff;
+	border:1px solid #ddd;
+	border-radius:10px;
+}
+
+.contact_content {
+	line-height:20px;
+	font:13px "Malgun Gothic";
+	/* border-bottom:2px dashed #ddd; */
+}
+
+.contact_content_en {
+	width:80%;
+	line-height:25px;
+	text-align:center;
+	margin:20px auto;
+	padding:20px;
+	color:#43a4a2;
+	font:400 24px Philosopher;
+	border:none;
+	border-bottom:3px dashed #eee;
+}
+
+.step_img{
+	position:absolute;
+	display:block;
+	top:-15px;
+	left:20px;
+}
+
+.step_box {
+	display:inline-block;
+	width:80px;
+	height:30px;
+	padding:5px;
+	text-align:center;
+	color:#fff;
+	font-weight:bold;
+	border-radius:30px;
+	background:#ff8c1a;
+}
+.contact_img_wrap {
+	position:absolute;
+	top:20px;
+	right:20px;
+}
+
+.contact_img {
+	width:300px;
+}
+
+.large_img {
+	width:500px;
+	border:1px solid #eee;
+	box-shadow:4px 4px 4px #eaeaea;
+}
+
+.m-t-30 {
+	margin-top:30px;
+}
+
+.m-b-20 {
+	margin-bottom:20px;
+}
+.large {
+	height:220px;
+}
+
+.border_img {
+	width:250px;
+	border:1px solid #ddd;
+	box-shadow:4px 4px 4px #eaeaea;
+}
+
 /* YoloPlaner */
 .calendar {
 	margin:50px auto;
