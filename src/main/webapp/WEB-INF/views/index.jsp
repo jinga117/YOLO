@@ -1,8 +1,69 @@
-<%@ page session="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page session="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<!DOCTYPE html>
+<html>
+<head>
+<script lang="JavaScript">
+   <!--
+   function setCookie( name, value, expiredays ) { 
+       var todayDate = new Date(); 
+      todayDate.setDate( todayDate.getDate() + expiredays ); 
+      document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";" 
+   } 
+   
+   function closeWin() { 
+       if ( document.notice_form.chkbox.checked ){ 
+         setCookie( "maindiv", "done" , 1 ); 
+       } 
+       document.all['divpop'].style.visibility = "hidden"; 
+   } 
+   //-->  
+</script> 
+<style>
+.main_popup td{
+	width:300px;
+	color:black;
+	background-color:#f3fbfa;
+	text-align:center;
+}
+</style>
+</head>
+<body>  
 
+<!-- POPUP 시작 --> 
+<div id="divpop" style="position:absolute; left:500px; top:100px; z-index:9999; visibility:hidden;"> 
+	<table class="main_popup"> 
+	   <tr> 
+	       <td> 
+	            YOLO를 방문해주셔서 감사합니다.<br>
+	            첫방문이신가요?<br>
+	            <a href="how_to_use">이용안내 바로가기</a>
+	         </td> 
+	   </tr> 	
+		<tr> 
+			<td> 
+		   		<form name="notice_form" > 
+					<input type="checkbox" name="chkbox" value="checkbox">오늘 하루 이 창을 열지 않음 
+					<a href="javascript:closeWin();" id="btn_close"><b>[닫기]</b></a> 
+				</form>  
+			</td> 
+	   </tr> 
+	</table> 
+</div>  
+
+<script> 
+   cookiedata = document.cookie;    
+   if ( cookiedata.indexOf("maindiv=done") < 0 ){      
+       document.all['divpop'].style.visibility = "visible"; 
+       } 
+   else { 
+      document.all['divpop'].style.visibility = "hidden";
+      document.getelementbyid['btn_close'].style.visibility = "hidden"; 
+   } 
+</script>
+<!-- POPUP 끝 -->
 
 	<!--  헤더 영역 시작 -->
 	<jsp:include page="inc/top.jsp" />

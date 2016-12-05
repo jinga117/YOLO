@@ -437,9 +437,9 @@ textarea {
    checkbox
    ========================================================================== */
 
-input[type=checkbox] {
+/* input[type=checkbox] {
     display: none;
-}
+} */
 /* to hide the checkbox itself */
 
 input[type=checkbox] + label:before {
