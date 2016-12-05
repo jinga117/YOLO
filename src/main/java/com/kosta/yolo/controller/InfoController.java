@@ -197,9 +197,9 @@ public class InfoController {
 
 
 	//이용안내
-	@RequestMapping("/Contact_view")
-	public String Contact_view(){
-		return "Contact_view/contact";
+	@RequestMapping("/how_to_use")
+	public String How_to_use(){
+		return "how_to_use/use";
 		
 	}
 }

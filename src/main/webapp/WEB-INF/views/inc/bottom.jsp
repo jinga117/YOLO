@@ -24,7 +24,7 @@
 					<ul>
 						<li><a href="#">YOLO</a></li>
 						<li><a href="#">Contact us</a></li>
-						<li><a href="Contact_view">Hot to use</a></li>
+						<li><a href="how_to_use">Hot to use</a></li>
 					</ul>
 				</div>
 

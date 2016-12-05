@@ -21,7 +21,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kosta.yolo.dao.TripInfoDAO;
-import com.kosta.yolo.vo.RecommandVO;
 import com.kosta.yolo.vo.TripInfoVO;
 import com.kosta.yolo.vo.UserReviewVO;
 
