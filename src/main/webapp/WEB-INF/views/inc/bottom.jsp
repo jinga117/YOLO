@@ -22,9 +22,7 @@
 					class="b-footer__nav__col col-md-2 col-md-offset-1 col-sm-3 col-xs-4">
 					<div class="b-footer__nav__col__title">About us</div>
 					<ul>
-						<li><a href="#">YOLO</a></li>
-						<li><a href="#">Contact us</a></li>
-						<li><a href="how_to_use">Hot to use</a></li>
+						<li><a href="how_to_use">How to use</a></li>
 					</ul>
 				</div>
 

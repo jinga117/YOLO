@@ -1721,6 +1721,131 @@ only screen and (min-resolution: 1.5dppx) {
 	margin:0;
 }
 
+/* 咯青老沥 */
+.my_schedule_container {
+	width:85%;
+	margin:0 auto;
+}
+.my_schedule_wrap {
+	width:95%;
+	margin:0;
+	padding:0;
+	font:13px "Malgun Gothic";
+}
+
+.my_schedule_wrap ul {
+	width:100%;
+	margin:0;
+	padding:0;	
+}
+
+.my_schedule_list {
+	float:left;
+	width:30%;
+	height:400px;
+	margin:15px;
+	background:#fff;
+	border:1px solid #ddd;
+}
+
+.my_title {
+	display:block;
+	width:100%;
+	height:80px;
+	padding:15px 0 5px 0;
+	border-bottom:1px dashed #91bebd;
+	color:#91bebd;
+	font:bold 16px "Malgun Gothic";
+	text-align:center;
+	text-overflow: ellipsis; 
+	white-space: nowrap; 
+	overflow: hidden;
+	/*border-radius:4px;
+	background:rgba(0,0,0,.5);*/
+}
+
+.user_txt {
+	display:block;
+	width:100%;
+	text-align:right;
+	padding:10px;
+	font:13px "Malgun Gothic";
+	color:#43a4a2;
+	text-overflow: ellipsis; 
+	white-space: nowrap; 
+	overflow: hidden;
+}
+
+.my_item {
+	position:relative;
+	width:100%;
+	height:400px;
+	margin:0;
+	padding:0;
+}
+.my_tripimg {
+	position:relative;
+	width:100%;
+	height:200px;
+	overflow:hidden;
+}
+
+.my_tripimg img {
+	width:500px;
+}
+.my_item {
+	position:relative;
+}
+
+.my_start_day {
+	position:absolute;
+	bottom:20px;
+	right:20px;
+	color:#fff;
+	padding:5px;
+	background:rgba(0,0,0,.7);
+	border-radius:4px;
+}
+
+.my_tripname {
+	position:absolute;
+	bottom:55px;
+	right:20px;
+	color:#fff;
+	padding:5px;
+	background:rgba(0,0,0,.5);
+	border-radius:4px;
+}
+
+.my_content {
+	width:90%;
+	margin:0 auto;
+	padding:10px;
+}
+
+.my_day_nick {
+	position:relative;
+	display:block;
+	width:100%;
+	height:35px;
+	line-height:35px;
+	text-align:center;
+}
+
+.my_day_nick_txt {
+	display:block;
+	width:100%;
+	height:25px;
+	line-height:25px;
+	text-align:center;
+}
+.arrow {
+	display:block;
+	color:#f8a894;
+	height:15px;
+	margin-top:-12px;
+}
+
 /* 捞侩规过 */
 .contact_container {
 	position:relative;
@@ -4472,7 +4597,7 @@ html .btn--buy-ticket:hover {
 /* Yolo Plan */
 #b-plan-menu-wrap {
     position: fixed;
-    right:0;
+    right:10px;
     top:20%;
     width:120px;
     height:auto;
@@ -4903,6 +5028,10 @@ html .btn--buy-ticket:hover {
 	margin-bottom:20px;
 	border:1px solid #ddd;
 	z-index:9;
+}
+
+.search_wrap {
+	width:95%;
 }
 
 /************* Weather ****************************/
