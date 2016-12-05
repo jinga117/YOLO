@@ -22,35 +22,53 @@
    //-->  
 </script> 
 <style>
-.main_popup td{
-	width:300px;
-	color:black;
-	background-color:#f3fbfa;
-	text-align:center;
+.main_popup{
+	position: relative;
+	width: 400px;
+	height: 400px;
+	border-rradius: 20px; 
+}
+.today_text{
+	height: 370px;
+	padding: 190px 0 0 0;
+	background: url(img/main_pop.png); 
+	background-size: cover;
+}
+.today_text, .today_close  {
+	color: black;
+	text-align: center;
+}
+.today_close{
+	height: 30px;
+	background-color: white;
+}
+
+#divpop {
+	position: absolute;
+	top: 150px;
+	left: 380px;
+	z-index: 9999;
+	visibility: hidden;
 }
 </style>
 </head>
 <body>  
 
 <!-- POPUP 시작 --> 
-<div id="divpop" style="position:absolute; left:500px; top:100px; z-index:9999; visibility:hidden;"> 
-	<table class="main_popup"> 
-	   <tr> 
-	       <td> 
-	            YOLO를 방문해주셔서 감사합니다.<br>
-	            첫방문이신가요?<br>
-	            <a href="how_to_use">이용안내 바로가기</a>
-	         </td> 
-	   </tr> 	
-		<tr> 
-			<td> 
-		   		<form name="notice_form" > 
-					<input type="checkbox" name="chkbox" value="checkbox">오늘 하루 이 창을 열지 않음 
-					<a href="javascript:closeWin();" id="btn_close"><b>[닫기]</b></a> 
-				</form>  
-			</td> 
-	   </tr> 
-	</table> 
+<div id="divpop" > 
+	<div class="main_popup"> 
+	   <div class="today_text"> 
+	        YOLO를 방문해주셔서 감사합니다.<br>
+	        첫방문이신가요?<br>
+	        <a href="how_to_use">이용안내 바로가기</a>
+	   </div> 	
+		<div class="today_close"> 
+	   		<form name="notice_form" > 
+				<input type="checkbox" name="chkbox" value="checkbox">오늘 하루 이 창을 열지 않음 
+				<a href="javascript:closeWin();" id="btn_close"><b>[닫기]</b></a> 
+			</form>  
+	   </div> 
+	</div> 
 </div>  
 
 <script> 
