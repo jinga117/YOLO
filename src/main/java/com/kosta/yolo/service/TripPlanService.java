@@ -16,6 +16,11 @@ public class TripPlanService {
    @Autowired
    private TripPlanDAO planDAO;
    
+   //여행 일정
+   public ArrayList<TripPlanVO> my_schedule(String id){
+	ArrayList<TripPlanVO> list = planDAO.myschedule(id);
+	  return list;
+   }
    // 일정 짜기
    public ModelAndView tripPlan(TripPlanVO vo) {
       ModelAndView mav = new ModelAndView();

@@ -14,6 +14,14 @@ public class TripPlanDAO {
 
 	@Autowired
 	private SqlSession sqlSession;
+
+	//여행 일정
+	public ArrayList<TripPlanVO> myschedule(String id){
+		   TripPlanMapper plan = sqlSession.getMapper(TripPlanMapper.class);
+		   ArrayList<TripPlanVO> list = plan.myschedule(id);
+		   return list;
+
+	}
 	
 	public TripPlanVO tripPlan(TripPlanVO vo) {
 		TripPlanMapper plan = sqlSession.getMapper(TripPlanMapper.class);

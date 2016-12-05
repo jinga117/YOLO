@@ -2,9 +2,11 @@ package com.kosta.yolo.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +24,26 @@ public class PlanController {
    
    @Autowired
    private TripPlanService planService;
-   
+  
+   //여행 일정 보기.
+  	@RequestMapping("/my_schedule")
+  	public ModelAndView mySchedule(HttpSession session){
+  		String id = (String)session.getAttribute("user_id");
+  		ModelAndView mav = new ModelAndView();
+  		ArrayList<TripPlanVO> list= planService.my_schedule(id);	//session id에 저장된 일정정보 뽑아오기.
+  	
+  		  if(list.size()==0){	//저장된 일정이 없을경우
+  			  int result = 0;
+  			  mav.addObject("result", result);
+  			  mav.setViewName("myplan/myschedule_fail");	//실패시
+  		  }else{//저장된 일정이 있을경우
+  			  mav.addObject("list", list);
+  			  mav.setViewName("myplan/myschedule_suc");
+  		  }
+  		  
+  		return mav;
+  		
+  	}
 	// 일정짜기
 	@RequestMapping(value = "/tripPlan", method = RequestMethod.POST)
 	public ModelAndView writeTripPlan(HttpServletRequest request, HttpServletResponse response,  TripPlanVO vo) throws IOException {
