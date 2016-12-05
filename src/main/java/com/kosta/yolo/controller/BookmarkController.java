@@ -37,7 +37,9 @@ public class BookmarkController {
 	   else{	//로그인시
 		   if(list.size()==0){ // 북마크된게 없을시(중복안되므로) 북마크성공.
 		   bookmarkService.bookmark_write(tripinfovo,vo);
-		   mav.setViewName("index");
+		   int result = 2;
+		   mav.addObject("result",result);	//북마크성공 alert창
+		   mav.setViewName("bookmark/bookmark_alert");
 		   }
 		   else{// 로그인은 되있으나, 북마크를 햇었다면 (중복됨)
 			   int result =1;
