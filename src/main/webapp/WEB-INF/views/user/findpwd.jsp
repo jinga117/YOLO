@@ -10,7 +10,8 @@
 		width:100%;
 		height:100%;
 		margin-top:40px;
-		color:#fff;
+		font: bold 18px  "Malgun Gothic";
+		color:#020057;
 		text-align:center;
 	}
 	
@@ -20,6 +21,7 @@
 		height:30px;
 		margin-left:5px;
 		background:#fff;
+		border-radius: 8px;
 		border:1px solid #ddd;
 	}
 	
@@ -42,11 +44,11 @@
 		text-align:center;
 	}
 </style>
-<body bgcolor="#5be0dd">
+<body>
 	<div class="find_wrap">
 		<form action="find_pwdPro" name="findPWD">
-		아이디 <input type="text" name="user_id" class="input_name" >
-		이메일 <input type="email" name="email" class="input_email" >
+		아이디 <input type="text" name="user_id" class="input_name" placeholder="Your ID">
+		이메일 <input type="email" name="email" class="input_email" placeholder="Your Email" >
 		<div class="btn_wrap">
 			<input type="button" onclick="openConfirmid(this.form)" value="확인"  class="btn_find"/>
 			<input type="button"  onclick="javascript:window.close()"  class="btn_find" value="취소" />
