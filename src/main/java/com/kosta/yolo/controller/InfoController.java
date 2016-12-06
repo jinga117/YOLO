@@ -54,16 +54,6 @@ public class InfoController {
 		return mav;
 	}
 
-	/*
-	 * // 리뷰 쓰기
-	 * 
-	 * @RequestMapping(value="/detail_view", method = RequestMethod.POST) public
-	 * ModelAndView writeRe(HttpServletRequest request){ ModelAndView mav =
-	 * infoService.writeRe(request); String trip_id =
-	 * request.getParameter("trip_id");
-	 * mav.setViewName("redirect:/detail_view?trip_id="+trip_id); return mav; }
-	 */
-
 	// 리뷰 쓰기 Ajax
 	@RequestMapping(value = "/writeReview", produces = "application/text; charset=utf8")
 	public ModelAndView writeRe(HttpServletRequest request, HttpServletResponse response, @RequestParam String trip_id,

@@ -45,7 +45,6 @@ public class TripPlanService {
      }
 
 	public TripPlanVO tripPlanView(TripPlanVO vo) {
-	      ModelAndView mav = new ModelAndView();
 	      return planDAO.tripPlanView(vo);
 	}
    

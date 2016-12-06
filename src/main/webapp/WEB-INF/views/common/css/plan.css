@@ -4,7 +4,7 @@
 
 .Info_calendar {
 	margin: 50px auto;
-	width: 65%;
+	width: 50%;
 	font: 13px "Malgun Gothic";
 	background: #ddd;
 	padding: 5px;
@@ -13,7 +13,7 @@
 /* aебе╘ */
 .cal_a{
 	width: 30%;
-	margin: 50px 0 -40px 230px;
+	margin: 50px 0 -40px 25%;
 	font: bold 14px "Malgun Gothic";	
 }
 
