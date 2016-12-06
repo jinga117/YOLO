@@ -29,7 +29,7 @@
 										</c:if>
 										<c:if test="${list.trip_nickname_3 !=''}">
 											<li class="my_day_nick">
-											<a href="detail_view?trip_id=${list.trip_id_3}"><span class="my_day_nick_txt"><span data-toggle="tooltip" data-placement="left" title="${list.trip_plan_memo_2}">${ list.trip_nickname_3}</span></span></a></li>
+											<a href="detail_view?trip_id=${list.trip_id_3}"><span class="my_day_nick_txt"><span data-toggle="tooltip" data-placement="left" title="${list.trip_plan_memo_3}">${ list.trip_nickname_3}</span></span></a></li>
 										</c:if>
 									</ul>
 								</div>
