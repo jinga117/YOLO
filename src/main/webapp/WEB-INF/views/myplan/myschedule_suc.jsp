@@ -15,18 +15,21 @@
 						<li class="my_schedule_list">
 							<div class="my_title">${ list.trip_title} <span class="user_txt">planned by <b>${list.user_id }</b></span></div>
 							<div class="my_item">
-								<div class="my_tripimg"><img src="img/photo/${list.trip_id_1}.jpg">
+								<div class="my_tripimg"><a href="detail_view?trip_id=${list.trip_id_1}"><img src="img/photo/${list.trip_id_1}.jpg"></a>
 									<span class="my_start_day">${ list.trip_start}</span>
 									<span class="my_tripname">${ list.trip_nickname_1}</span>
 								</div>
 								<div class="my_content">
 									<ul>
-										<li class="my_day_nick"><span class="my_day_nick_txt">${ list.trip_nickname_1}</span><span class="arrow"><i class="fa fa-arrow-down" aria-hidden="true"></i></span></li>
+										<li class="my_day_nick">
+											<a href="detail_view?trip_id=${list.trip_id_1}"><span class="my_day_nick_txt"><span data-toggle="tooltip" data-placement="left" title="${list.trip_plan_memo_1}">${ list.trip_nickname_1}</span></span></a><span class="arrow"><i class="fa fa-arrow-down" aria-hidden="true"></i></span></li>
 										<c:if test="${list.trip_nickname_2 !=''}">
-											<li class="my_day_nick"><span class="my_day_nick_txt">${ list.trip_nickname_2}</span><span class="arrow"><i class="fa fa-arrow-down" aria-hidden="true"></i></span></li>
+											<li class="my_day_nick">
+											<a href="detail_view?trip_id=${list.trip_id_2}"><span class="my_day_nick_txt"><span data-toggle="tooltip" data-placement="left" title="${list.trip_plan_memo_2}">${ list.trip_nickname_2}</span></span></a><span class="arrow"><i class="fa fa-arrow-down" aria-hidden="true"></i></span></li>
 										</c:if>
 										<c:if test="${list.trip_nickname_3 !=''}">
-											<li class="my_day_nick last"><span class="my_day_nick_txt">${ list.trip_nickname_3}</span></li>
+											<li class="my_day_nick">
+											<a href="detail_view?trip_id=${list.trip_id_3}"><span class="my_day_nick_txt"><span data-toggle="tooltip" data-placement="left" title="${list.trip_plan_memo_2}">${ list.trip_nickname_3}</span></span></a></li>
 										</c:if>
 									</ul>
 								</div>
