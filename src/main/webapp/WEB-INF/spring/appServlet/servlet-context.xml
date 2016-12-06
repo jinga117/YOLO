@@ -19,6 +19,7 @@
 	<resources location="/WEB-INF/views/common/js/" mapping="/js/**" />
 	<resources location="/WEB-INF/views/common/font/" mapping="/font/**" />
 	<resources location="/WEB-INF/views/common/sub" mapping="/sub/**" />
+	<resources location="/WEB-INF/views/common/css/" mapping="/css/favicon.ico" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
