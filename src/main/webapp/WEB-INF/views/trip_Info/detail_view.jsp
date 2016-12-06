@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -200,7 +200,7 @@
 								</div>
 								<div class="detail_contents">
 									<span class="detail_contents-icon"><i class="fa fa-home" aria-hidden="true"></i></span> 
-									<span class="detail_contents_txt"><a href="${list.trip_site}" target="_blank">${list.trip_site}</a></span>
+									<span class="detail_contents_txt"><a href="http://${list.trip_site}" target="_blank">${list.trip_site}</a></span>
 								</div>
 								<input type="hidden" id="pos_x" value=" ${list.pos_x}">
 								<input type="hidden" id="pos_y" value=" ${list.pos_y}">
