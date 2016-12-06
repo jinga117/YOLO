@@ -11,7 +11,7 @@
 		height:100%;
 		margin-top:40px;
 		font: bold 18px  "Malgun Gothic";
-		color:#020057;
+		color:#000040;
 		text-align:center;
 	}
 	
@@ -45,8 +45,9 @@
 	}
 </style>
 <body>
-	<div class="find_wrap">
+	<div class="find_wrap" style="margin: 0 auto;">
 		<form action="find_pwdPro" name="findPWD">
+		<h3 style="font: bold 17px "Malgun Gothic";">비밀번호 찾기</h3>
 		아이디 <input type="text" name="user_id" class="input_name" placeholder="Your ID">
 		이메일 <input type="email" name="email" class="input_email" placeholder="Your Email" >
 		<div class="btn_wrap">
