@@ -16,7 +16,7 @@
 }
 .recom_img{
 	width: 80px;
-	height: 190px;
+	height: 210px;
 	float: left;
 /* 	margin-left: 60px;; */
 }
@@ -25,12 +25,18 @@
 	border-radius: 8px;
 	padding: 5px;
 	margin:10px 0 0 -10px;
-	height:200px;
+	height:210px;
 	clear: both;
 }
 .recom_name{
+	padding: 5px;
 	font: bold 17px  "Malgun Gothic";
+}
+.recom_add{
+	color: #808080;
+	font: 14px  "Malgun Gothic";
 }
 .recom_content{
 	word-spacing: 2px;
+	font: 14px  "Malgun Gothic";
 }

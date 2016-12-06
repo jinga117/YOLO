@@ -35,7 +35,7 @@ public class InfoController {
 	public String home(Locale locale, Model model) {
 		return "index";
 	}
-
+	
 	// 상세보기
 	@RequestMapping(value = "/detail_view", method = RequestMethod.GET)
 	public ModelAndView selectDetail(HttpServletRequest request, @RequestParam String trip_id) throws Exception {

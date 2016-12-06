@@ -11,7 +11,7 @@
     <title>YOLO - You Only Live Once</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="css/main1.css">
-	<link rel="shortcut icon" href="css/favicon.ico" /><!--Favicon-->
+	<link rel="shortcut icon"  type="image/x-icon" href="/favicon_icon.ico?v=2" /><!-- Favicon -->
     <script src="https://code.jquery.com/jquery.min.js"></script>
  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>

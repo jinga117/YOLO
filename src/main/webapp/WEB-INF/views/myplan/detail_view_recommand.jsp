@@ -17,7 +17,7 @@
      </h2>
    <div class="b-main-container places-page" id="content">
       <div style="margin: 3%;">
-         <div class="day1_info">
+         <div class="day_info">
 	         <div class="today1">DAY 1</div>
 		         <div class="recom_title">
 		         	<c:forEach items="${recommList }" var="list" end="0" varStatus="sta">
