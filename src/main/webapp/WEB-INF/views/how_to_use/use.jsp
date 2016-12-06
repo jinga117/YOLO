@@ -74,6 +74,14 @@
 				<div class="contact_img_wrap"><img src="img/contact/recommend_img.png" class="large_img"></div>
 			</div>
 		</div>
+		<div class="contact_wrap">
+			<div class="contact_content">
+				<div class="step_img"><span class="step_box">Step 7</span></div>
+				여 행 일 정<br /><br />
+				- YOLO 회원들이 작성한 일정을 공유할 수 있습니다.<br><br><br><br><br><br><br><br><br><br>
+				<div class="contact_img_wrap"><img src="img/contact/yolomember_plan.png" class="large_img"></div>
+			</div>
+		</div>
 	</div>
 </div>
 <!-- 컨텐츠 영역 끝 -->
