@@ -22,10 +22,18 @@
 								<div class="my_content">
 									<ul>
 										<li class="my_day_nick">
-											<a href="detail_view?trip_id=${list.trip_id_1}"><span class="my_day_nick_txt"><span data-toggle="tooltip" data-placement="left" title="${list.trip_plan_memo_1}">${ list.trip_nickname_1}</span></span></a><span class="arrow"><i class="fa fa-arrow-down" aria-hidden="true"></i></span></li>
+											<a href="detail_view?trip_id=${list.trip_id_1}"><span class="my_day_nick_txt"><span data-toggle="tooltip" data-placement="left" title="${list.trip_plan_memo_1}">${ list.trip_nickname_1}</span></span></a>
+											<c:if test="${list.trip_nickname_2 !=''}">
+												<span class="arrow"><i class="fa fa-arrow-down" aria-hidden="true"></i></span>
+											</c:if>
+										</li>
 										<c:if test="${list.trip_nickname_2 !=''}">
 											<li class="my_day_nick">
-											<a href="detail_view?trip_id=${list.trip_id_2}"><span class="my_day_nick_txt"><span data-toggle="tooltip" data-placement="left" title="${list.trip_plan_memo_2}">${ list.trip_nickname_2}</span></span></a><span class="arrow"><i class="fa fa-arrow-down" aria-hidden="true"></i></span></li>
+											<a href="detail_view?trip_id=${list.trip_id_2}"><span class="my_day_nick_txt"><span data-toggle="tooltip" data-placement="left" title="${list.trip_plan_memo_2}">${ list.trip_nickname_2}</span></span></a>
+											<c:if test="${list.trip_nickname_3 !=''}">
+												<span class="arrow"><i class="fa fa-arrow-down" aria-hidden="true"></i></span>
+											</c:if>
+										</li>
 										</c:if>
 										<c:if test="${list.trip_nickname_3 !=''}">
 											<li class="my_day_nick">
